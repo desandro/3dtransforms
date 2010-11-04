@@ -7,46 +7,39 @@
 
   <style media="screen">
     
+    section {
+      display: block;
+    }
+    
     body {
       font-family: 'Helvetica Neue', Arial, sans-serif;
-      background-color: #DDD;
     }
     
     #box-container {
       margin: 0 auto;
-      width: 300px;
-      height: 300px;
-      background-color: white;
+      width: 200px;
+      height: 200px;
+      border: 1px solid #CCC;
       -webkit-perspective: 1200;
     }
     
     #box {
-      width: 100%;
       height: 100%;
       -webkit-transform-style: preserve-3d;
-      -webkit-transform: translateZ(-150px);
+      -webkit-transform: translateZ(-100px);
       -webkit-transition: -webkit-transform 1s;
-    }
-
-    
-    
-    @-webkit-keyframes spinCube {
-        0% { -webkit-transform: translateZ(-150px) rotateY(000deg); }
-       50% { -webkit-transform: translateZ(-150px) rotateY(180deg); }
-      100% { -webkit-transform: translateZ(-150px) rotateY(360deg); }
     }
     
     #box div {
-      width: 296px;
-      height: 296px;
-      border: 2px solid;
-      line-height: 296px;
-      font-size: 200px;
+      width: 196px;
+      height: 196px;
+      border: 2px solid #000;
+      color: #FFF;
+      line-height: 196px;
+      font-size: 140px;
       text-align: center;
       font-weight: bold;
       position: absolute;
-      -webkit-transform-style: preserve-3d;
-/*      -webkit-transform-origin-z: -150px;*/
     }
     
     #box.panels-backface-invisible div {
@@ -56,47 +49,41 @@
     /* front and back */
     
     #box div:nth-child(1) { 
-      background: hsla( 000, 100%, 50%, 0.3 ); 
-      color:      hsla( 000, 100%, 50%, 1.0 );
-      -webkit-transform: translateZ(150px);
+      background: hsla( 000, 100%, 50%, 0.7 ); 
+      -webkit-transform: translateZ(100px);
     }
-    #box.show-1 { -webkit-transform: translateZ(-150px); }
+    #box.show-1 { -webkit-transform: translateZ(-100px); }
 
     #box div:nth-child(2) { 
-      background: hsla( 060, 100%, 50%, 0.3 ); 
-      color:      hsla( 060, 100%, 50%, 1.0 );
-      -webkit-transform:  rotateX( -180deg) translateZ(150px);
+      background: hsla( 060, 100%, 50%, 0.7 ); 
+      -webkit-transform: rotateX( -180deg) translateZ(100px);
     }
-    #box.show-2 { -webkit-transform: translateZ(-150px) rotateX( 180deg); }
+    #box.show-2 { -webkit-transform: translateZ(-100px) rotateX( 180deg); }
 
     #box div:nth-child(3) { 
-      background: hsla( 120, 100%, 50%, 0.3 ); 
-      color:      hsla( 120, 100%, 50%, 1.0 );
-      -webkit-transform: rotateY( 90deg) translateZ(150px) ;
+      background: hsla( 120, 100%, 50%, 0.7 ); 
+      -webkit-transform: rotateY( 90deg) translateZ(100px) ;
     }
-    #box.show-3 { -webkit-transform: translateZ(-150px) rotateY(-90deg); }
+    #box.show-3 { -webkit-transform: translateZ(-100px) rotateY(-90deg); }
     
     #box div:nth-child(4) { 
-      background: hsla( 180, 100%, 50%, 0.3 ); 
-      color:      hsla( 180, 100%, 50%, 1.0 );
-      -webkit-transform:  rotateY( -90deg) translateZ(150px);
+      background: hsla( 180, 100%, 50%, 0.7 ); 
+      -webkit-transform: rotateY( -90deg) translateZ(100px);
     }
-    #box.show-4 { -webkit-transform: translateZ(-150px) rotateY(90deg); }
+    #box.show-4 { -webkit-transform: translateZ(-100px) rotateY(90deg); }
 
     #box div:nth-child(5) { 
-      background: hsla( 240, 100%, 50%, 0.3 ); 
-      color:      hsla( 240, 100%, 50%, 1.0 );
-      -webkit-transform: rotateX( 90deg) translateZ(150px) ;
+      background: hsla( 240, 100%, 50%, 0.7 ); 
+      -webkit-transform: rotateX( 90deg) translateZ(100px) ;
     }
-    #box.show-5 { -webkit-transform: translateZ(-150px) rotateX(-90deg); }    
+    #box.show-5 { -webkit-transform: translateZ(-100px) rotateX(-90deg); }    
 
 
     #box div:nth-child(6) { 
-      background: hsla( 300, 100%, 50%, 0.3 ); 
-      color:      hsla( 300, 100%, 50%, 1.0 );
-      -webkit-transform: rotateX( -90deg) translateZ(150px) ;
+      background: hsla( 300, 100%, 50%, 0.7 ); 
+      -webkit-transform: rotateX( -90deg) translateZ(100px) ;
     }
-    #box.show-6 { -webkit-transform: translateZ(-150px) rotateX( 90deg); }    
+    #box.show-6 { -webkit-transform: translateZ(-100px) rotateX( 90deg); }    
     
 
     
@@ -118,31 +105,37 @@
     </div>
   </div>
   
-  <div id="show-panel">
-    <button class="show-1">Show 1</button>
-    <button class="show-2">Show 2</button>
-    <button class="show-3">Show 3</button>
-    <button class="show-4">Show 4</button>
-    <button class="show-5">Show 5</button>
-    <button class="show-6">Show 6</button>
-  </div>
-  
-  <div>
-    <button id="toggle-backface-visibility">Toggle Backface Visibility</button>
-  </div>
+  <section id="options">
+    
+    <div id="show-buttons">
+      <button class="show-1">Show 1</button>
+      <button class="show-2">Show 2</button>
+      <button class="show-3">Show 3</button>
+      <button class="show-4">Show 4</button>
+      <button class="show-5">Show 5</button>
+      <button class="show-6">Show 6</button>
+    </div>
+
+    <div>
+      <button id="toggle-backface-visibility">Toggle Backface Visibility</button>
+    </div>
+    
+
+  </section>
   
   <script src="utils.js"></script>
   <script>
     var init = function() {
       var box = document.getElementById('box'),
-          showPanelButtons = document.getElementById('show-panel').getElementsByTagName('button'),
+          showPanelButtons = document.querySelectorAll('#show-buttons button'),
           panelClassName = 'show-1';
+
       for (var i=0, len = showPanelButtons.length; i < len; i++) {
         showPanelButtons[i].addEventListener( 'click', function( event ){
           box.removeClassName( panelClassName );
           panelClassName = event.target.className;
           box.addClassName( panelClassName );
-        }, false)
+        }, false);
       }
       
       document.getElementById('toggle-backface-visibility').addEventListener( 'click', function(){

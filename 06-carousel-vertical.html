@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>06-carousel-vertical</title>
+
+  <style media="screen">
+    
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+    
+    #carousel-container {
+      margin: 0 auto;
+      width: 300px;
+      height: 200px;
+      border: 1px solid #CCC;
+      -webkit-perspective: 1200;
+      -webkit-transition: -webkit-perspective 1s;
+    }
+    
+/*    #carousel-container:hover {
+      
+      -webkit-perspective: 400;
+      
+    }
+*/    
+    #carousel {
+      width: 100%;
+      height: 100%;
+      -webkit-transform-style: preserve-3d;
+      -webkit-transition: -webkit-transform 1s;
+      -webkit-transform: translateZ( -412px );
+      
+    }
+
+    #carousel.panels-backface-invisible div {
+      -webkit-backface-visibility: hidden;
+    }
+
+    
+    
+    #carousel div {
+      border: 2px solid;
+      width: 276px;
+      height: 176px;
+      line-height: 176px;
+      font-size: 80px;
+      text-align: center;
+      font-weight: bold;
+      position: absolute;
+      margin: 10px;
+      -webkit-transform-style: preserve-3d;
+    }
+    
+  </style>
+
+</head>
+<body>
+
+  <h1>06-carousel-vertical</h1>
+  
+  <div id="form">
+    <p>
+      <label for="panel-count">Number of Panels</label>
+      <input type="text" name="panel-count" value="9" id="panel-count" />
+    </p>
+    <p>
+      <input type="checkbox" name="horizontal" id="horizontal" checked />
+      <label for="horizontal">Horizontal</label>
+    </p>
+    <button id="populate-carousel">Generate Carousel</button>
+  </div>
+
+  <div id="carousel-container">
+    <div id="carousel">
+    </div>
+  </div>
+  
+  <div id="navigation">
+    <button id="previous" data-increment="1">Previous</button>
+    <button id="next" data-increment="-1">Next</button>
+  </div>
+  
+  <div>
+    <button id="toggle-backface-visibility">Toggle Backface Visibility</button>
+  </div>
+  
+  <script src="js/utils.js"></script>
+  <script src="js/carousel3d.js"></script>
+  <script>
+    
+    
+  
+    var init = function() {
+      
+      
+      var carousel = new Carousel3D( 'carousel' ),
+          populateButton = document.getElementById('populate-carousel'),
+          panelCountInput = document.getElementById('panel-count'),
+          horizontalInput = document.getElementById('horizontal'),
+          navButtons = document.getElementById('navigation').getElementsByTagName('button'),
+          
+          populateCarousel = function(){
+            var panelCount = parseInt( panelCountInput.value, 10),
+                isHorizontal = horizontalInput.checked;
+            carousel.populate( panelCount, isHorizontal );
+          };
+
+      // populate on startup
+      populateCarousel();
+
+      // populate
+      populateButton.addEventListener( 'click', populateCarousel, false);
+
+      for (var i=0, len = navButtons.length; i < len; i++) {
+        navButtons[i].addEventListener( 'click', function( event ){
+          var increment = parseInt( event.target.getAttribute('data-increment') );
+          carousel.rotation += carousel.theta * increment;
+          carousel.transform();
+        }, false);
+      }
+      
+      document.getElementById('toggle-backface-visibility').addEventListener( 'click', function(){
+        carousel.element.toggleClassName('panels-backface-invisible');
+      }, false);
+      
+    };
+      
+    window.addEventListener( 'DOMContentLoaded', init, false);
+  </script>
+
+</body>
+</html>
