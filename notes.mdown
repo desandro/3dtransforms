@@ -1,2 +1,21 @@
 
 `-webkit-transform-style: preserve-3d;` does weird things to anti-aliasing
+
+Where 3d is appropriate
+
+How to manage gap between 3d and non-3d 
+
+  you will have to design to solutions
+  
+
+webkit-perspective
+
+
+
+aligning to 0 in the Z axis
+
+  proper text display
+  
+  pixelation
+  
+  

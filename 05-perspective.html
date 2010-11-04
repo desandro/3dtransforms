@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>05-perspective</title>
+
+  <style media="screen">
+    
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+    
+    #box-container {
+      margin: 0 auto;
+      width: 300px;
+      height: 300px;
+      border: 1px solid #CCC;
+      -webkit-perspective: 1200;
+/*      -webkit-transition: -webkit-perspective 1s;*/
+    }
+    
+    #box {
+      width: 100%;
+      height: 100%;
+      -webkit-transform-style: preserve-3d;
+/*      -webkit-transform: translateZ(-150px);
+      -webkit-transition: -webkit-transform 1s;*/
+      -webkit-transform: translateZ(-150px);
+    }
+
+    #box.spinning {
+      -webkit-animation: spinCube 8s infinite ease-in-out;
+      
+    }
+
+    
+    
+    @-webkit-keyframes spinCube {
+        0% { -webkit-transform: translateZ(-150px) rotateX(000deg) rotateY(000deg); }
+/*       50% { -webkit-transform: translateZ(-150px) rotateY(180deg); }*/
+      100% { -webkit-transform: translateZ(-150px) rotateX(360deg)  rotateY(360deg); }
+    }
+    
+    #box div {
+      width: 296px;
+      height: 296px;
+      border: 2px solid #000;
+      color: hsla(0,0%,100%,1.0);
+      line-height: 296px;
+      font-size: 200px;
+      text-align: center;
+      font-weight: bold;
+      position: absolute;
+      -webkit-transform-style: preserve-3d;
+/*      -webkit-transform-origin-z: -150px;*/
+    }
+    
+    #box.panels-backface-invisible div {
+      -webkit-backface-visibility: hidden;
+    }
+    
+    /* front and back */
+    
+    #box div:nth-child(1) { 
+      background: hsla( 000, 100%, 50%, 0.7 );
+      -webkit-transform: translateZ(150px);
+    }
+    #box.show-1 { -webkit-transform: translateZ(-150px); }
+
+    #box div:nth-child(2) { 
+      background: hsla( 060, 100%, 50%, 0.7 );
+      -webkit-transform:  rotateX( -180deg) translateZ(150px);
+    }
+    #box.show-2 { -webkit-transform: translateZ(-150px) rotateX( 180deg); }
+
+    #box div:nth-child(3) { 
+      background: hsla( 120, 100%, 50%, 0.7 );
+      -webkit-transform: rotateY( 90deg) translateZ(150px) ;
+    }
+    #box.show-3 { -webkit-transform: translateZ(-150px) rotateY(-90deg); }
+    
+    #box div:nth-child(4) { 
+      background: hsla( 180, 100%, 50%, 0.7 );
+      -webkit-transform:  rotateY( -90deg) translateZ(150px);
+    }
+    #box.show-4 { -webkit-transform: translateZ(-150px) rotateY(90deg); }
+
+    #box div:nth-child(5) { 
+      background: hsla( 240, 100%, 50%, 0.7 );
+      -webkit-transform: rotateX( 90deg) translateZ(150px) ;
+    }
+    #box.show-5 { -webkit-transform: translateZ(-150px) rotateX(-90deg); }    
+
+
+    #box div:nth-child(6) { 
+      background: hsla( 300, 100%, 50%, 0.7 ); 
+      -webkit-transform: rotateX( -90deg) translateZ(150px) ;
+    }
+    #box.show-6 { -webkit-transform: translateZ(-150px) rotateX( 90deg); }    
+    
+    #perspective {
+      position: relative;
+      z-index: 100;
+    }
+    
+    #perspective input {
+      width: 300px;
+    }
+    
+  </style>
+
+</head>
+<body>
+
+  <h1>05-perspective</h1>
+
+  <div id="box-container">
+    <div id="box" class="spinning">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+    </div>
+  </div>
+  
+
+  <div id="perspective">
+    <input type="range" min="1" max="2000" value="1200" />
+    <p>Perspective : 1200</p>
+  </div>
+  
+  <div>
+    <input type="checkbox" name="spinning" id="spinning" checked /><label for="spinning">Spinning</label>
+    
+  </div>
+  
+  <script src="utils.js"></script>
+  <script>
+    var init = function() {
+      var boxContainer = document.getElementById('box-container'),
+          box = document.getElementById('box'),
+          perspectiveContainer = document.getElementById('perspective'),
+          perspectiveInput = perspectiveContainer.querySelector('input'),
+          spinningCheckbox = document.getElementById('spinning'),
+          perspectiveDisplay = perspectiveContainer.querySelector('p');
+      
+      perspectiveInput.addEventListener( 'change', function(){
+        boxContainer.style.webkitPerspective = event.target.value;
+        perspectiveDisplay.textContent = 'Perspective : ' +  event.target.value;
+      }, false);
+      
+      spinningCheckbox.addEventListener( 'change', function(){
+        box.toggleClassName('spinning');
+        // console.log( event.target.checked )
+      }, false)
+      
+    };
+      
+    window.addEventListener( 'DOMContentLoaded', init, false);
+  </script>
+
+</body>
+</html>

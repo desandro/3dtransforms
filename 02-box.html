@@ -16,7 +16,7 @@
       width: 300px;
       height: 200px;
       border: 1px solid #CCC;
-      -webkit-perspective: 1200;
+      -webkit-perspective: 10000;
     }
     
     #box {
@@ -72,30 +72,26 @@
 
     
     #box div:nth-child(1) { 
-      background: hsla( 000, 100%, 50%, 0.3 ); 
-      color:      hsla( 000, 100%, 50%, 1.0 );
+      background: hsla( 000, 100%, 50%, 0.7 );
       -webkit-transform: translateZ(50px);
     }
     #box.show-1 { -webkit-transform: translateZ(-50px); }
 
     #box div:nth-child(2) { 
-      background: hsla( 180, 100%, 50%, 0.3 ); 
-      color:      hsla( 180, 100%, 50%, 1.0 );
+      background: hsla( 180, 100%, 50%, 0.7 );
       -webkit-transform:  rotateX( 180deg) translateZ(50px);
     }
     #box.show-2 { -webkit-transform: translateZ(-50px) rotateX(-180deg); }
 
 
     #box div:nth-child(3) { 
-      background: hsla( 120, 100%, 50%, 0.3 ); 
-      color:      hsla( 120, 100%, 50%, 1.0 );
+      background: hsla( 120, 100%, 50%, 0.7 );
       -webkit-transform: rotateY( 90deg) translateZ(250px) ;
     }
     #box.show-3 { -webkit-transform: translateZ(-150px) rotateY(-90deg); }
 
     #box div:nth-child(4) { 
-      background: hsla( 060, 100%, 50%, 0.3 ); 
-      color:      hsla( 060, 100%, 50%, 1.0 );
+      background: hsla( 060, 100%, 50%, 0.7 );
       -webkit-transform:  rotateY( -90deg)  translateZ(50px);
     }
     #box.show-4 { -webkit-transform: translateZ(-150px) rotateY( 90deg); }
@@ -104,16 +100,14 @@
 
 
     #box div:nth-child(5) { 
-      background: hsla( 240, 100%, 50%, 0.3 ); 
-      color:      hsla( 240, 100%, 50%, 1.0 );
+      background: hsla( 240, 100%, 50%, 0.7 );
       -webkit-transform: rotateX( 90deg) translateZ(50px) ;
     }
     #box.show-5 { -webkit-transform: translateZ(-100px) rotateX(-90deg); }    
 
 
     #box div:nth-child(6) { 
-      background: hsla( 300, 100%, 50%, 0.3 ); 
-      color:      hsla( 300, 100%, 50%, 1.0 );
+      background: hsla( 300, 100%, 50%, 0.7 );
       -webkit-transform: rotateX( -90deg) translateZ(150px) ;
     }
     #box.show-6 { -webkit-transform: translateZ(-100px) rotateX( 90deg); }    
