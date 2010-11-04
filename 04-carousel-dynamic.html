@@ -17,8 +17,15 @@
       height: 200px;
       border: 1px solid #CCC;
       -webkit-perspective: 1200;
+      -webkit-transition: -webkit-perspective 1s;
     }
     
+/*    #carousel-container:hover {
+      
+      -webkit-perspective: 400;
+      
+    }
+*/    
     #carousel {
       width: 100%;
       height: 100%;
@@ -59,7 +66,7 @@
       <label for="panel-count">Number of Panels</label>
       <input type="text" name="panel-count" value="9" id="panel-count" />
     </p>
-    <button id="generate-carousel">Generate Carousel</button>
+    <button id="populate-carousel">Generate Carousel</button>
   </div>
 
   <div id="carousel-container">
@@ -68,8 +75,8 @@
   </div>
   
   <div id="navigation">
-    <button id="previous" data-increment="-1">Previous</button>
-    <button id="next" data-increment="1">Next</button>
+    <button id="previous" data-increment="1">Previous</button>
+    <button id="next" data-increment="-1">Next</button>
   </div>
   
   <div>
@@ -78,79 +85,86 @@
   
   <script src="utils.js"></script>
   <script>
-    // global variable for keeping track of properties
-    window.carousel = {
-      theta : 0,
-      transform : function() {
-        carousel.element.style.webkitTransform = 'translateZ(-' + carousel.radius + 'px) rotateY(' + carousel.theta + 'deg)';
-        console.log( carousel, carousel.element )
+    
+    function Carousel3D ( id ) {
+      this.element = document.getElementById( id );
+      
+      this.panelSize = this.element.offsetWidth;
+      
+      this.rotation = 0;
+      this.panelCount = 0;
+      this.theta = 0;
+      
+      this.fragment = document.createDocumentFragment();
+      
+      
+      this.populate = function( panelCount ) {
+        this.panelCount = panelCount;
         
-      }
-    };
+        // clear out carousel
+  			while ( this.element.firstChild ) {
+  				this.element.removeChild( this.element.firstChild );
+  			}
+        
+        // 
+        this.theta = 360 / this.panelCount;
+
+        // 
+        this.radius = Math.round( ( this.panelSize / 2) / Math.tan( Math.PI / this.panelCount ) );
+        
+        for ( var i = 0; i < this.panelCount; i++ ) {
+          var panel = document.createElement('div'),
+              angle = this.theta * i;
+          panel.textContent = i + 1;
+          panel.style.backgroundColor = 'hsla(' + angle + ', 100%, 50%, 0.7)';
+          panel.style.webkitTransform = 'rotateY(' + angle + 'deg) translateZ(' + this.radius + 'px)';
+          
+          this.fragment.appendChild( panel );
+        }
+        
+        this.element.appendChild( this.fragment );
+        
+        this.rotation = Math.round( this.rotation / this.theta ) * this.theta;
+        
+        this.transform();
+        
+      };
+      
+      this.transform = function() {
+        this.element.style.webkitTransform = 'translateZ(-' + this.radius + 'px) rotateY(' + this.rotation + 'deg)';
+      };
+      
+    }
   
     var init = function() {
       
       
-      var generateButton = document.getElementById('generate-carousel'),
+      var carousel = new Carousel3D('carousel'),
+          populateButton = document.getElementById('populate-carousel'),
           panelCountInput = document.getElementById('panel-count'),
           navButtons = document.getElementById('navigation').getElementsByTagName('button'),
-          fragment = document.createDocumentFragment();
-
-      carousel.element = document.getElementById('carousel'),
-
-      generateButton.addEventListener( 'click', function(){
-
-        // clear out carousel
-  			while ( carousel.element.firstChild ) {
-  				carousel.element.removeChild( carousel.element.firstChild );
-  			}
-
-        carousel.panelCount = parseInt( panelCountInput.value, 10);
-        
-        carousel.angleIncrement = 360 / carousel.panelCount;
-
-        // 300 = width of panel area
-        carousel.radius = Math.round( ( 300 / 2) / Math.tan( Math.PI / carousel.panelCount ) );
-        
-        // create panels
-        for ( var i = 0; i < carousel.panelCount; i++ ) {
-          var panel = document.createElement('div'),
-              panelTheta = ( 360 / carousel.panelCount ) * i;
-          panel.textContent = i + 1;
-          panel.style.backgroundColor = 'hsla(' + panelTheta + ', 100%, 50%, 0.4)';
-          panel.style.webkitTransform = 'rotateY(' + panelTheta + 'deg) translateZ(' + carousel.radius + 'px)';
           
-          fragment.appendChild( panel );
-        }
-        
-        // console.log( Math.round( carousel.theta / carousel.angelIncrement ) )
+          populateCarouselFromInput = function(){
+            var panelCount = parseInt( panelCountInput.value, 10);
+            carousel.populate( panelCount );
+          };
 
-        carousel.theta = Math.round( carousel.theta / carousel.angleIncrement ) * carousel.angleIncrement;
-        
-        carousel.transform();
-        
-        // carousel.style.webkitTransform = 'translateZ(-' + carousel.radius + 'px)';
-        
-        carousel.element.appendChild( fragment )
+      // populate on startup
+      populateCarouselFromInput();
 
-
-
-        // console.log( panelCountInput.value )
-      }, false);
+      // populate
+      populateButton.addEventListener( 'click', populateCarouselFromInput, false);
 
       for (var i=0, len = navButtons.length; i < len; i++) {
         navButtons[i].addEventListener( 'click', function( event ){
           var increment = parseInt( event.target.getAttribute('data-increment') );
-          // console.log( carousel.angleIncrement, increment )
-          carousel.theta += carousel.angleIncrement * increment;
+          carousel.rotation += carousel.theta * increment;
           carousel.transform();
-          
-          // carousel.style.webkitTransform = 'translateZ(-' + carousel.radius + ') rotateY(' + theta + 'deg)';
-        }, false)
+        }, false);
       }
       
       document.getElementById('toggle-backface-visibility').addEventListener( 'click', function(){
-        carousel.toggleClassName('panels-backface-invisible');
+        carousel.element.toggleClassName('panels-backface-invisible');
       }, false);
       
     };
