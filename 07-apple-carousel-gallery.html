@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+  <title>07-apple-carousel-gallery</title>
+
+    <style media="screen">
+
+      section {
+        display: block;
+      }
+
+      body {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+      }
+
+      #carousel-container {
+        margin: 0 auto 40px;
+        width: 210px;
+        height: 140px;
+        border: 1px solid #CCC;
+        -webkit-perspective: 1200;
+      }
+      
+
+      #carousel {
+        width: 100%;
+        height: 100%;
+        -webkit-transform-style: preserve-3d;
+/*        -webkit-transform: translateZ( -412px );*/
+
+      }
+      
+      .ready #carousel {
+        -webkit-transition: -webkit-transform 1s;
+        
+      }
+
+      #carousel.panels-backface-invisible figure {
+        -webkit-backface-visibility: hidden;
+      }
+
+
+
+      #carousel figure {
+        display: block;
+        border: 2px solid #000;
+        color: #FFF;
+        width: 186px;
+        height: 116px;
+        line-height: 116px;
+        font-size: 60px;
+        text-align: center;
+        font-weight: bold;
+        position: absolute;
+        margin: 10px;
+/*        -webkit-transform-style: preserve-3d;*/
+      }
+      
+      .ready #carousel figure {
+        -webkit-transition-property: -webkit-transform, opacity;
+        -webkit-transition-duration: 1s;
+      }
+
+    </style>
+
+</head>
+<body>
+
+  <h1>07-apple-carousel-gallery</h1>
+  
+  <div id="form">
+    <p>
+      <label for="panel-count">Number of Panels</label>
+      <input type="text" name="panel-count" value="9" id="panel-count" />
+    </p>
+    <p>
+      <input type="checkbox" name="horizontal" id="horizontal" checked />
+      <label for="horizontal">Horizontal</label>
+    </p>
+    <button id="populate-carousel">Generate Carousel</button>
+  </div>
+
+  <section id="carousel-container">
+    <div id="carousel">
+      <figure>1</figure>
+      <figure>2</figure>
+      <figure>3</figure>
+      <figure>4</figure>
+      <figure>5</figure>
+      <figure>6</figure>
+      <figure>7</figure>
+      <figure>8</figure>
+      <figure>9</figure>
+      <figure>10</figure>
+      <figure>11</figure>
+      <figure>12</figure>
+      <figure>13</figure>
+      <figure>14</figure>
+      <figure>15</figure>
+      <figure>16</figure>
+      <figure>17</figure>
+      <figure>18</figure>
+      <figure>19</figure>
+      <figure>20</figure>
+    </div>
+  </section>
+  
+  <div id="navigation">
+    <button id="previous" data-increment="1">Previous</button>
+    <button id="next" data-increment="-1">Next</button>
+  </div>
+  
+  <div>
+    <button id="toggle-backface-visibility">Toggle Backface Visibility</button>
+  </div>
+  
+  <script src="js/utils.js"></script>
+  <script>
+    function Carousel3D ( id, isHorizontal ) {
+      this.element = document.getElementById( id );
+
+      this.rotation = 0;
+      this.panelCount = 0;
+      this.totalPanelCount = this.element.children.length;
+      this.theta = 0;
+
+      this.populate = function( panelCount, isHorizontal ) {
+
+        this.panelCount = Math.min( panelCount, this.totalPanelCount );
+        this.isHorizontal = isHorizontal;
+        this.panelSize = this.element[ isHorizontal ? 'offsetWidth' : 'offsetHeight' ];
+        this.rotateFn = this.isHorizontal ? 'rotateY' : 'rotateX';
+        this.theta = 360 / this.panelCount;
+
+        // do some trig to figure out how big the carousel
+        // is in 3D space
+        this.radius = Math.round( ( this.panelSize / 2) / Math.tan( Math.PI / this.panelCount ) );
+
+        for ( var i = 0; i < this.panelCount; i++ ) {
+          var panel = this.element.children[i],
+              angle = this.theta * i;
+          panel.textContent = i + 1;
+          panel.style.opacity = 1;
+          panel.style.backgroundColor = 'hsla(' + angle + ', 100%, 50%, 0.7)';
+          // rotate panel, then push it out in 3D space
+          panel.style.webkitTransform = this.rotateFn + '(' + angle + 'deg) translateZ(' + this.radius + 'px)';
+        }
+
+        // hide other panels
+        for (  ; i < this.totalPanelCount; i++ ) {
+          var panel = this.element.children[i];
+          panel.style.opacity = 0;
+          panel.style.webkitTransform = 'none';
+        }
+
+        // adjust rotation so panels are always flat
+        this.rotation = Math.round( this.rotation / this.theta ) * this.theta;
+
+        this.transform();
+
+      };
+
+      this.transform = function() {
+        // push the carousel back in 3D space,
+        // and rotate it
+        this.element.style.webkitTransform = 'translateZ(-' + this.radius + 'px) ' + this.rotateFn + '(' + this.rotation + 'deg)';
+      };
+
+    }
+    
+  
+    var init = function() {
+      
+      
+      var carousel = new Carousel3D( 'carousel' ),
+          populateButton = document.getElementById('populate-carousel'),
+          panelCountInput = document.getElementById('panel-count'),
+          horizontalInput = document.getElementById('horizontal'),
+          navButtons = document.getElementById('navigation').getElementsByTagName('button'),
+          
+          populateCarousel = function(){
+            var panelCount = parseInt( panelCountInput.value, 10),
+                isHorizontal = horizontalInput.checked;
+            carousel.populate( panelCount, isHorizontal );
+          };
+
+      // populate on startup
+      populateCarousel();
+
+      // populate
+      populateButton.addEventListener( 'click', populateCarousel, false);
+
+      for (var i=0, len = navButtons.length; i < len; i++) {
+        navButtons[i].addEventListener( 'click', function( event ){
+          var increment = parseInt( event.target.getAttribute('data-increment') );
+          carousel.rotation += carousel.theta * increment;
+          carousel.transform();
+        }, false);
+      }
+      
+      document.getElementById('toggle-backface-visibility').addEventListener( 'click', function(){
+        carousel.element.toggleClassName('panels-backface-invisible');
+      }, false);
+      
+      setTimeout( function(){
+        document.body.addClassName('ready');
+      })
+      
+    };
+      
+    window.addEventListener( 'DOMContentLoaded', init, false);
+  </script>
+
+</body>
+</html>
