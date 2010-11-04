@@ -1,0 +1,2 @@
+
+`-webkit-transform-style: preserve-3d;` does weird things to anti-aliasing

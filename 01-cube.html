@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>01-cube</title>
+
+  <style media="screen">
+    
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+    
+    #cube-container {
+      margin: 0 auto;
+      width: 300px;
+      height: 300px;
+      border: 1px solid #CCC;
+      -webkit-perspective: 1200;
+    }
+    
+    #cube {
+      width: 100%;
+      height: 100%;
+      -webkit-transform-style: preserve-3d;
+      -webkit-transform: translateZ(-150px);
+/*      -webkit-transform: rotateX(90deg);*/
+/*      -webkit-transform-origin-z: -300px;*/
+/*      -webkit-animation: spinCube 4s infinite linear;*/
+    }
+    
+    @-webkit-keyframes spinCube {
+        0% { -webkit-transform: translateZ(-150px) rotateY(000deg); }
+       50% { -webkit-transform: translateZ(-150px) rotateY(180deg); }
+      100% { -webkit-transform: translateZ(-150px) rotateY(360deg); }
+    }
+    
+    #cube div {
+      width: 296px;
+      height: 296px;
+      border: 2px solid;
+      line-height: 296px;
+      font-size: 200px;
+      text-align: center;
+      font-weight: bold;
+      position: absolute;
+      -webkit-transform-style: preserve-3d;
+/*      -webkit-transform-origin-z: -150px;*/
+    }
+    
+
+    
+    #cube div:nth-child(1) { 
+      background: hsla( 000, 100%, 50%, 0.3 ); 
+      color:      hsla( 000, 100%, 50%, 1.0 );
+      -webkit-transform: translateZ(150px);
+    }
+    #cube div:nth-child(2) { 
+      background: hsla( 060, 100%, 50%, 0.3 ); 
+      color:      hsla( 060, 100%, 50%, 1.0 );
+      -webkit-transform:  rotateY( -90deg) translateZ(150px);
+    }
+    #cube div:nth-child(3) { 
+      background: hsla( 120, 100%, 50%, 0.3 ); 
+      color:      hsla( 120, 100%, 50%, 1.0 );
+      -webkit-transform: rotateY( 90deg) translateZ(150px) ;
+    }
+    #cube div:nth-child(4) { 
+      background: hsla( 180, 100%, 50%, 0.3 ); 
+      color:      hsla( 180, 100%, 50%, 1.0 );
+      -webkit-transform:  rotateY( 180deg) translateZ(150px);
+    }
+    #cube div:nth-child(5) { 
+      background: hsla( 240, 100%, 50%, 0.3 ); 
+      color:      hsla( 240, 100%, 50%, 1.0 );
+      -webkit-transform: rotateX( 90deg) translateZ(150px) ;
+    }
+    #cube div:nth-child(6) { 
+      background: hsla( 300, 100%, 50%, 0.3 ); 
+      color:      hsla( 300, 100%, 50%, 1.0 );
+      -webkit-transform: rotateX( -90deg) translateZ(150px) ;
+    }
+    
+  </style>
+
+</head>
+<body>
+
+  <h1>01-cube</h1>
+
+  <div id="cube-container">
+    <div id="cube">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+    </div>
+  </div>
+  
+  <script>
+    var Rotor = function( element ) {
+      this.element = element;
+    };
+  
+    var init = function() {
+      var cube = document.getElementById('cube');
+      // cube.dataFoo = 'bar';
+      // cube.setAttribute( 'data-foo', 'bar' );
+      
+      var cubeRotor = new Rotor( cube );
+      
+      cubeRotor.sayId();
+      
+    };
+  
+  
+    window.addEventListener( 'DOMContentLoaded', init, false);
+  </script>
+
+</body>
+</html>
