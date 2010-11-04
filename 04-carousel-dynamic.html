@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>04-carousel-dynamic</title>
+
+  <style media="screen">
+    
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+    
+    #carousel-container {
+      margin: 0 auto;
+      width: 300px;
+      height: 200px;
+      border: 1px solid #CCC;
+      -webkit-perspective: 1200;
+    }
+    
+    #carousel {
+      width: 100%;
+      height: 100%;
+      -webkit-transform-style: preserve-3d;
+      -webkit-transition: -webkit-transform 1s;
+      -webkit-transform: translateZ( -412px );
+      
+    }
+
+    #carousel.panels-backface-invisible div {
+      -webkit-backface-visibility: hidden;
+    }
+
+    
+    
+    #carousel div {
+      border: 2px solid;
+      width: 276px;
+      height: 176px;
+      line-height: 176px;
+      font-size: 80px;
+      text-align: center;
+      font-weight: bold;
+      position: absolute;
+      margin: 10px;
+      -webkit-transform-style: preserve-3d;
+    }
+    
+  </style>
+
+</head>
+<body>
+
+  <h1>04-carousel-dynamic</h1>
+  
+  <div id="form">
+    <p>
+      <label for="panel-count">Number of Panels</label>
+      <input type="text" name="panel-count" value="9" id="panel-count" />
+    </p>
+    <button id="generate-carousel">Generate Carousel</button>
+  </div>
+
+  <div id="carousel-container">
+    <div id="carousel">
+    </div>
+  </div>
+  
+  <div id="navigation">
+    <button id="previous" data-increment="-1">Previous</button>
+    <button id="next" data-increment="1">Next</button>
+  </div>
+  
+  <div>
+    <button id="toggle-backface-visibility">Toggle Backface Visibility</button>
+  </div>
+  
+  <script src="utils.js"></script>
+  <script>
+    // global variable for keeping track of properties
+    window.carousel = {
+      theta : 0,
+      transform : function() {
+        carousel.element.style.webkitTransform = 'translateZ(-' + carousel.radius + 'px) rotateY(' + carousel.theta + 'deg)';
+        console.log( carousel, carousel.element )
+        
+      }
+    };
+  
+    var init = function() {
+      
+      
+      var generateButton = document.getElementById('generate-carousel'),
+          panelCountInput = document.getElementById('panel-count'),
+          navButtons = document.getElementById('navigation').getElementsByTagName('button'),
+          fragment = document.createDocumentFragment();
+
+      carousel.element = document.getElementById('carousel'),
+
+      generateButton.addEventListener( 'click', function(){
+
+        // clear out carousel
+  			while ( carousel.element.firstChild ) {
+  				carousel.element.removeChild( carousel.element.firstChild );
+  			}
+
+        carousel.panelCount = parseInt( panelCountInput.value, 10);
+        
+        carousel.angleIncrement = 360 / carousel.panelCount;
+
+        // 300 = width of panel area
+        carousel.radius = Math.round( ( 300 / 2) / Math.tan( Math.PI / carousel.panelCount ) );
+        
+        // create panels
+        for ( var i = 0; i < carousel.panelCount; i++ ) {
+          var panel = document.createElement('div'),
+              panelTheta = ( 360 / carousel.panelCount ) * i;
+          panel.textContent = i + 1;
+          panel.style.backgroundColor = 'hsla(' + panelTheta + ', 100%, 50%, 0.4)';
+          panel.style.webkitTransform = 'rotateY(' + panelTheta + 'deg) translateZ(' + carousel.radius + 'px)';
+          
+          fragment.appendChild( panel );
+        }
+        
+        // console.log( Math.round( carousel.theta / carousel.angelIncrement ) )
+
+        carousel.theta = Math.round( carousel.theta / carousel.angleIncrement ) * carousel.angleIncrement;
+        
+        carousel.transform();
+        
+        // carousel.style.webkitTransform = 'translateZ(-' + carousel.radius + 'px)';
+        
+        carousel.element.appendChild( fragment )
+
+
+
+        // console.log( panelCountInput.value )
+      }, false);
+
+      for (var i=0, len = navButtons.length; i < len; i++) {
+        navButtons[i].addEventListener( 'click', function( event ){
+          var increment = parseInt( event.target.getAttribute('data-increment') );
+          // console.log( carousel.angleIncrement, increment )
+          carousel.theta += carousel.angleIncrement * increment;
+          carousel.transform();
+          
+          // carousel.style.webkitTransform = 'translateZ(-' + carousel.radius + ') rotateY(' + theta + 'deg)';
+        }, false)
+      }
+      
+      document.getElementById('toggle-backface-visibility').addEventListener( 'click', function(){
+        carousel.toggleClassName('panels-backface-invisible');
+      }, false);
+      
+    };
+      
+    window.addEventListener( 'DOMContentLoaded', init, false);
+  </script>
+
+</body>
+</html>
