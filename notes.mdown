@@ -19,3 +19,7 @@ aligning to 0 in the Z axis
   pixelation
   
   
+  
+## To Do
+
+slide flip
