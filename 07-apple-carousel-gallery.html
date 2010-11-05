@@ -71,15 +71,15 @@
   <h1>07-apple-carousel-gallery</h1>
   
   <div id="form">
-    <p>
-      <label for="panel-count">Number of Panels</label>
-      <input type="text" name="panel-count" value="9" id="panel-count" />
+    <p class="panel-count">
+      <input type="range" id="panel-count" value="9" min="3" max="20" />
+      <label for="panel-count">Panels : 9</label>
     </p>
     <p>
       <input type="checkbox" name="horizontal" id="horizontal" checked />
       <label for="horizontal">Horizontal</label>
     </p>
-    <button id="populate-carousel">Generate Carousel</button>
+    <button id="populate-carousel">Modify Carousel</button>
   </div>
 
   <section id="carousel-container">
@@ -143,7 +143,7 @@
               angle = this.theta * i;
           panel.textContent = i + 1;
           panel.style.opacity = 1;
-          panel.style.backgroundColor = 'hsla(' + angle + ', 100%, 50%, 0.7)';
+          panel.style.backgroundColor = 'hsla(' + angle + ', 100%, 50%, 0.85)';
           // rotate panel, then push it out in 3D space
           panel.style.webkitTransform = this.rotateFn + '(' + angle + 'deg) translateZ(' + this.radius + 'px)';
         }
@@ -177,6 +177,7 @@
       var carousel = new Carousel3D( 'carousel' ),
           populateButton = document.getElementById('populate-carousel'),
           panelCountInput = document.getElementById('panel-count'),
+          panelCountLabel = document.querySelector('.panel-count label'),
           horizontalInput = document.getElementById('horizontal'),
           navButtons = document.getElementById('navigation').getElementsByTagName('button'),
           
@@ -191,6 +192,10 @@
 
       // populate
       populateButton.addEventListener( 'click', populateCarousel, false);
+
+      panelCountInput.addEventListener( 'change', function( event ){
+        panelCountLabel.textContent = 'Panels : ' + event.target.value;
+      }, false);
 
       for (var i=0, len = navButtons.length; i < len; i++) {
         navButtons[i].addEventListener( 'click', function( event ){
