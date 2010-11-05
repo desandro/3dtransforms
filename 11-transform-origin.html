@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+  <title>11-transform-origin</title>
+
+  <style media="screen">
+    
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+    
+    #box-container {
+      margin: 0 auto 40px;
+      width: 200px;
+      height: 200px;
+      border: 1px solid #CCC;
+      -webkit-perspective: 1200;
+    }
+    
+    #box {
+      /*  height needs to be specified
+          so transform origin is in the vertical center of the box */
+      height: 100%;
+      -webkit-transform-style: preserve-3d;
+      -webkit-transform: translateZ(-100px);
+    }
+
+    #box.spinning {
+      -webkit-animation: spinCube 8s infinite ease-in-out;
+    }
+    
+    @-webkit-keyframes spinCube {
+        0% { -webkit-transform: translateZ( -100px ) rotateX( 000deg ) rotateY( 000deg ); }
+      100% { -webkit-transform: translateZ( -100px ) rotateX( 360deg ) rotateY( 360deg ); }
+    }
+    
+    #box div {
+      width: 196px;
+      height: 196px;
+      border: 2px solid #000;
+      color: hsla(0,0%,100%,1.0);
+      line-height: 196px;
+      font-size: 140px;
+      text-align: center;
+      font-weight: bold;
+      /* absolute positioning so panels all occupy the same space 
+         before being transformed */
+      position: absolute;
+/*      -webkit-transform-style: preserve-3d;*/
+
+    }
+    
+    #box.panels-backface-invisible div {
+      -webkit-backface-visibility: hidden;
+    }
+    
+    /* front and back */
+    
+    #box div:nth-child(1) { 
+      background: hsla( 000, 100%, 50%, 0.7 );
+      -webkit-transform: translateZ(100px);
+    }
+
+    #box div:nth-child(2) { 
+      background: hsla( 060, 100%, 50%, 0.7 );
+      -webkit-transform: rotateX( -180deg) translateZ(100px);
+    }
+
+    #box div:nth-child(3) { 
+      background: hsla( 120, 100%, 50%, 0.7 );
+      -webkit-transform: rotateY( 90deg) translateZ(100px) ;
+    }
+    
+    #box div:nth-child(4) { 
+      background: hsla( 180, 100%, 50%, 0.7 );
+      -webkit-transform: rotateY( -90deg) translateZ(100px);
+    }
+
+    #box div:nth-child(5) { 
+      background: hsla( 240, 100%, 50%, 0.7 );
+      -webkit-transform: rotateX( 90deg) translateZ(100px) ;
+    }
+
+    #box div:nth-child(6) { 
+      background: hsla( 300, 100%, 50%, 0.7 ); 
+      -webkit-transform: rotateX( -90deg) translateZ(100px) ;
+    }
+    
+    #perspective {
+      position: relative;
+      z-index: 100;
+    }
+    
+    #perspective input {
+      width: 300px;
+    }
+    
+  </style>
+
+</head>
+<body>
+
+  <h1>11-transform-origin</h1>
+
+  <div id="box-container">
+    <div id="box" class="spinning">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+    </div>
+  </div>
+  
+
+  <section id="options">
+    
+    <div id="transform-origin">
+      <p>
+        <input id="origin-x" type="range" min="0" max="100" value="50" />
+        <label for="origin-x">origin-x : 50%</label>
+      </p>
+      <p>
+        <input id="origin-y" type="range" min="0" max="100" value="50" />
+        <label for="origin-y">origin-y : 50%</label>
+      </p>
+      <p>
+        <input id="origin-z" type="range" min="0" max="100" value="50" />
+        <label for="origin-z">origin-z : 50%</label>
+      </p>
+    </div>
+    
+    <p>
+      <button id="toggle-backface-visibility">Toggle Backface Visibility</button>
+    </p>
+    
+    
+  </section>
+
+  
+  <script src="js/utils.js"></script>
+  <script>
+    var init = function() {
+      var transformOriginInputs = document.querySelectorAll('#transform-origin input'),
+          box = document.getElementById('box'),
+      
+          onOriginChange = function( event ) {
+            var values = {
+              x : transformOriginInputs[0].value,
+              y : transformOriginInputs[1].value,
+              z : transformOriginInputs[2].value
+            }
+            
+            box.style.webkitTransformOrigin = values.x + '% ' + values.y + '%';
+            // var toX = transformOriginInputs[0],
+                
+            console.log( values.x, values.y, values.z )
+          };
+      
+      for (var i=0, len = transformOriginInputs.length; i < len; i++) {
+        transformOriginInputs[i].addEventListener( 'change', onOriginChange, false);
+      }
+
+      // var boxContainer = document.getElementById('box-container'),
+      //     box = document.getElementById('box'),
+      //     perspectiveContainer = document.getElementById('perspective'),
+      //     perspectiveDisplay = perspectiveContainer.querySelector('p');
+      // 
+      // perspectiveContainer.querySelector('input').addEventListener( 'change', function(){
+      //   boxContainer.style.webkitPerspective = event.target.value;
+      //   perspectiveDisplay.textContent = 'Perspective : ' +  event.target.value;
+      // }, false);
+      // 
+      // document.getElementById('toggle-backface-visibility').addEventListener( 'click', function(){
+      //   box.toggleClassName('panels-backface-invisible');
+      // }, false);
+      
+      
+    };
+      
+    window.addEventListener( 'DOMContentLoaded', init, false);
+  </script>
+
+</body>
+</html>
