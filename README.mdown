@@ -1,26 +1,8 @@
 ## Intro
 
-In his 1992 cyberpunk novel _Snow Crash_, Neal Stephenson envisioned much of what would become of today's Internet. A globally accessible network of information, with up-to-the-second data. 
-
-The Metaverse, was a digital representation of our physical universe. By strapping on our 3D goggles, we could let ourselves be enveloped by the virtual reality. While much of this vision has come to pass, the digital realm of the Internet still remains a two-dimensional universe
-
-
-## Intro
-
-
-For those of us who grew up in the golden age of the Super Nintendo, I can't imagine anyone who was not astounded by Star Fox. Unlike the previous two decades of 
-
-There is something incredibly engaging with 
-
-I immediately wanted to experience the 
-
-## Intro
-
 Ladies in gentlemen, it is the second decade of the second millenium and we are still kicking around the same 2D interface we got two decades ago in the original Mac. Sure, Apple debuted some 10.7 apps that added a couple more 3D flourishes, and Microsoft has had that [Flip 3D](http://windows.microsoft.com/en-US/windows-vista/Using-Windows-Flip-3D) for a while. But c'mon, 2011 is in a couple weeks. We should be zipping around the Metaverse in super-sonic motorbikes , as Hiro Protagonist did in Neal Stephenson's _Snow Crash._ 
 
-## Intro
-
-While the capability of rendering complex 3D environments has been present for years, the digital interfaces of today predominately exist in a two dimensional environment. Largely this is due to the constraints of the physical interfaces themselves. The monitor has width and height. The mouse moves left, right, up, down. Digital interfaces are ill equipped to interact with in three dimensions. So for us web designers, we ought to wonder why bother at all learning and developing interfaces that take advantage of 3D space? If after decades of development, the biggest and best native software developers cannot make good use of this feature, what chance do we have?
+While the capability of rendering complex 3D environments has been present for years, the digital interfaces of today predominately exist in a two dimensional environment. Largely this is due to the constraints of the physical interfaces themselves. The monitor has width and height. The mouse moves left, right, up, down. Digital interfaces are ill equipped to interact with in three dimensions. After decades of development, even the biggest and best native software developers have only managed to dip their flattened toes in a pool of width, height, and _depth._  We web designers ought to consider why bother at all developing interfaces that take advantage of 3D space.
 
 
 
