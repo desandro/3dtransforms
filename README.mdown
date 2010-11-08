@@ -6,24 +6,40 @@ While the capability of rendering complex 3D environments has been present for y
 
 ## Rationale
 
-I see a tremendous potential for employing CSS 3D transforms.
+While 3D transforms might be sexy and cool, we owe it to our users to ask what can they benefit from them. Take the [Snow Stack](http://www.satine.org/archives/2009/07/11/snow-stack-is-here/) demo. While visually engaging, I don't see any inherent utility of a completely 3D interface. The users interface is 2D. CSS was developed for 2D documents. Creating 3D environments, while it may be achievable, just doesn't make sense for our users.
 
-
-Before we dive into the technical aspects of CSS 3D transforms, we ought to judge 
-
-Before we answer how to use CSS 3D Transforms, we ought to answer why we should use them in the first place. For years, application In general terms, CSS is a language designed to style documents.
-
-While 3D transforms might be sexy and cool, we owe it to our users to ask what can they benefit from them? Take the [Snow Stack](http://www.satine.org/archives/2009/07/11/snow-stack-is-here/) demo. While visually engaging, I don't see any inherit utility of a completely 3D interface. The users interface is 2D. CSS was developed for 2D documents. Creating 3D environments, while it may be acheivable, just doesn't make sense for our users.
-
-I advocate that appropriate use of 3D transforms can be beneficial to interfaces. Take for instance the Weather App on the iPhone. The application uses two views, a details view of the weather, and a editable view of options for selecting locations. Switching between these two views is done with a 3D flip transition. This affords the user that interface has but two views, and only two views, as the exist on two sides of the same plane.
+The entire application does not have to take advantage of 3D, but there is plenty of opportunity to use 3D transforms _in between_ the interface, via transitions. Take for instance the Weather App on the iPhone. The application uses two views, a details view of the weather, and a editable view of options for selecting locations. Switching between these two views is done with a 3D flip transition. This affords the user that interface has but two views, and only two views, as the exist on two sides of the same plane.
 
 Also consider image cycle interfaces. What cues tip-off the user that the advancing from the last slide will re-start the cycle at the first? A better paradigm can be used with a 3D transform, where the slides are places side by side one another _in a circle in the third dimension_. In that arrangement, the last slide logically does come before the first.
 
-
-
-
+Not only can we use 3D transforms to create more visually impressive applications, but we can also use them to solve dilemmas. 
 
 ## Current Support Environment
 
-At the moment of writing this article, 3D transforms are only supported by Safari on the desktop, and Mobile Safari on iOS devices. To make matters more complexing, Chrome currently accepts 3D transform declarations, but renders them in 2D space.
+[The CSS3 spec for 3D transforms](http://www.w3.org/TR/css3-3d-transforms/) has been public for over a year now, but at the moment of writing this article, only Safari currently supports them. `Safari on the desktop, and Mobile Safari on iOS devices` To make matters more complexing, Chrome currently accepts 3D transform declarations, but renders them in 2D space. The Mozilla team has [made some initial steps](https://bugzilla.mozilla.org/show_bug.cgi?id=505115) towards implementing CSS 3D transforms, but made no indication when or if this changes would ever land into master releases. Internet Explorer still needs to catch up to 2D transforms before we can talk about 3D. `ask Mike Taylor about Opera`
+
+Given the sparse support for 3D transforms, you can choose to ignore them, or (with a [tip of the fedora to Mr. Andy Clarke](http://hardboiledwebdesign.com/)) you can get hard-boiled and start designing for best browsers out there.
+
+
+
+
+
+
+`backface-visibility`
+
+`transforming for returning to 0 on the z axis`
+
+`perspective`
+
+`perspective inheritance`
+
+`transform-origin`
+
+`transition end events`
+
+`hardware-acceleration`
+
+
+
+
 
