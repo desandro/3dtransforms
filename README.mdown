@@ -4,17 +4,16 @@ Ladies in gentlemen, it is the second decade of the second millenium and we are 
 
 While the capability of rendering complex 3D environments has been present for years, the digital interfaces of today predominately exist in a two dimensional environment. Largely this is due to the constraints of the physical interfaces themselves. The monitor has width and height. The mouse moves left, right, up, down. Digital interfaces are ill equipped to interact with in three dimensions. After decades of development, even the biggest and best native software developers have only managed to dip their flattened toes in a pool of width, height, and _depth._  We web designers ought to consider why bother at all developing interfaces that take advantage of 3D space.
 
-
-
-
-
 ## Rationale
+
+I see a tremendous potential for employing CSS 3D transforms.
+
 
 Before we dive into the technical aspects of CSS 3D transforms, we ought to judge 
 
 Before we answer how to use CSS 3D Transforms, we ought to answer why we should use them in the first place. For years, application In general terms, CSS is a language designed to style documents.
 
-While 3D transforms might be sexy and cool, we owe it to our users to ask what can they benefit from them?
+While 3D transforms might be sexy and cool, we owe it to our users to ask what can they benefit from them? Take the [Snow Stack](http://www.satine.org/archives/2009/07/11/snow-stack-is-here/) demo. While visually engaging, I don't see any inherit utility of a completely 3D interface. The users interface is 2D. CSS was developed for 2D documents. Creating 3D environments, while it may be acheivable, just doesn't make sense for our users.
 
 I advocate that appropriate use of 3D transforms can be beneficial to interfaces. Take for instance the Weather App on the iPhone. The application uses two views, a details view of the weather, and a editable view of options for selecting locations. Switching between these two views is done with a 3D flip transition. This affords the user that interface has but two views, and only two views, as the exist on two sides of the same plane.
 
@@ -23,7 +22,8 @@ Also consider image cycle interfaces. What cues tip-off the user that the advanc
 
 
 
-## Current Environment
+
+## Current Support Environment
 
 At the moment of writing this article, 3D transforms are only supported by Safari on the desktop, and Mobile Safari on iOS devices. To make matters more complexing, Chrome currently accepts 3D transform declarations, but renders them in 2D space.
 
