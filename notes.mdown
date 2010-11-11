@@ -23,3 +23,8 @@ aligning to 0 in the Z axis
 ## To Do
 
 webkitTransitionEnd
+
+Other 3D Implementations
+  Canvas
+  WebGL
+  three.js

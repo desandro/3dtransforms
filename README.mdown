@@ -16,11 +16,11 @@ Not only can we use 3D transforms to create more visually impressive application
 
 ## Current Support Environment
 
-[The CSS3 spec for 3D transforms](http://www.w3.org/TR/css3-3d-transforms/) has been public for over a year now, but at the moment of writing this article, only Safari currently supports them. `Safari on the desktop, and Mobile Safari on iOS devices` To make matters more complexing, Chrome currently accepts 3D transform declarations, but renders them in 2D space. The Mozilla team has [made some initial steps](https://bugzilla.mozilla.org/show_bug.cgi?id=505115) towards implementing CSS 3D transforms, but made no indication when or if this changes would ever land into master releases. Internet Explorer still needs to catch up to 2D transforms before we can talk about 3D. `ask Mike Taylor about Opera`
+[The CSS3 spec for 3D transforms](http://www.w3.org/TR/css3-3d-transforms/) has been public for over a year now, but at the moment of writing this article, they are only supported by Safari, which includes Safari on the desktop and Mobile Safari on iOS devices. Support on other browsers varies. WebKit-cousin Chrome  currently accepts 3D transform declarations, but renders them in 2D space. Per Chrome team member Paul Irish, 3D transforms are on the roadmap, perhaps in the next couple X.0 releases. The Mozilla team has [made some initial steps](https://bugzilla.mozilla.org/show_bug.cgi?id=505115) towards implementing CSS 3D transforms. Per Mike Taylor, the Opera team is keeping a close on CSS transforms, and is waiting until the spec is fleshed out. Internet Explorer still needs to catch up to 2D transforms before we can talk about 3D.
 
-Given the sparse support for 3D transforms, you can choose to ignore them, or (with a [tip of the fedora to Mr. Andy Clarke](http://hardboiledwebdesign.com/)) you can get hard-boiled and start designing for best browsers out there.
+The third dimension of the web isn't limited to just CSS transforms. Flash has built in support for years. Looking at the HTML5 canvas, `3D can be achieved now with three.js, and eventually WebGL (Mozilla is charging the lead).`
 
-
+Given the sparse support for 3D transforms, you can choose to ignore them, or (with a [tip of the fedora to Mr. Andy Clarke](http://hardboiledwebdesign.com/)) you can get hard-boiled and start designing with the best features out there.
 
 
 
@@ -37,7 +37,7 @@ Given the sparse support for 3D transforms, you can choose to ignore them, or (w
 
 `transition end events`
 
-`hardware-acceleration`
+`hardware-acceleration` 
 
 
 
