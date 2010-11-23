@@ -17,6 +17,7 @@
       height: 200px;
       border: 1px solid #CCC;
       -webkit-perspective: 1200;
+      -webkit-perspective-origin: right bottom;
     }
     
     #box {
@@ -131,6 +132,25 @@
       <button id="toggle-backface-visibility">Toggle Backface Visibility</button>
     </p>
     
+    <h3>Perspective Origin</h3>
+    
+    <table id="origin">
+      <tr>
+        <td><input type="radio" name="origin" value="left top" /></td>
+        <td><input type="radio" name="origin" value="center top" /></td>
+        <td><input type="radio" name="origin" value="right top" /></td>
+      </tr>
+      <tr>
+        <td><input type="radio" name="origin" value="left center" /></td>
+        <td><input type="radio" name="origin" value="center center" checked /></td>
+        <td><input type="radio" name="origin" value="right center" /></td>
+      </tr>
+      <tr>
+        <td><input type="radio" name="origin" value="left bottom" /></td>
+        <td><input type="radio" name="origin" value="center bottom" /></td>
+        <td><input type="radio" name="origin" value="right bottom" /></td>
+      </tr>
+    </table>
     
   </section>
 
@@ -155,6 +175,18 @@
       document.getElementById('toggle-backface-visibility').addEventListener( 'click', function(){
         box.toggleClassName('panels-backface-invisible');
       }, false);
+      
+      var originRadios = document.querySelectorAll('#origin input'),
+          onRadioChange = function(event) {
+            // console.log(event.target.value)
+            boxContainer.style.webkitPerspectiveOrigin = event.target.value;
+          };
+      
+      console.log(originRadios)
+      
+      for (var i=0, len = originRadios.length; i < len; i++) {
+        originRadios[i].addEventListener( 'change', onRadioChange, false);
+      }
       
       
     };

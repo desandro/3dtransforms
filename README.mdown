@@ -2,7 +2,7 @@
 
 Ladies in gentlemen, it is the second decade of the second millenium and we are still kicking around the same 2D interface we got two decades ago in the original Mac. Sure, Apple debuted some 10.7 apps that added a couple more 3D flourishes, and Microsoft has had that [Flip 3D](http://windows.microsoft.com/en-US/windows-vista/Using-Windows-Flip-3D) for a while. But c'mon, 2011 is in a couple weeks. We should be zipping around the Metaverse in super-sonic motorbikes , as Hiro Protagonist did in Neal Stephenson's _Snow Crash._ 
 
-While the capability of rendering complex 3D environments has been present for years, the digital interfaces of today predominately exist in a two dimensional environment. Largely this is due to the constraints of the physical interfaces themselves. The monitor has width and height. The mouse moves left, right, up, down. Digital interfaces are ill equipped to interact with in three dimensions. After decades of development, even the biggest and best native software developers have only managed to dip their flattened toes in a pool of width, height, and _depth._  We web designers ought to consider why bother at all developing interfaces that take advantage of 3D space.
+While the capability of rendering complex 3D environments has been present for years, the digital interfaces of today predominately exist in a two dimensional environment. Largely this is due to the constraints of the physical interfaces themselves. The monitor has width and height. The mouse moves left, right, up, down. Digital interfaces are ill equipped to interact with in three dimensions. After decades of development, even the biggest and best native software developers have only managed to dip their flattened toes in a pool of width, height, and _depth._  
 
 ## Rationale
 
@@ -16,13 +16,17 @@ Not only can we use 3D transforms to create more visually impressive application
 
 ## Current Support Environment
 
-[The CSS3 spec for 3D transforms](http://www.w3.org/TR/css3-3d-transforms/) has been public for over a year now, but at the moment of writing this article, they are only supported by Safari, which includes Safari on the desktop and Mobile Safari on iOS devices. Support on other browsers varies. WebKit-cousin Chrome  currently accepts 3D transform declarations, but renders them in 2D space. Per Chrome team member Paul Irish, 3D transforms are on the roadmap, perhaps in the next couple X.0 releases. The Mozilla team has [made some initial steps](https://bugzilla.mozilla.org/show_bug.cgi?id=505115) towards implementing CSS 3D transforms. Per Mike Taylor, the Opera team is keeping a close on CSS transforms, and is waiting until the spec is fleshed out. Internet Explorer still needs to catch up to 2D transforms before we can talk about 3D.
+[The CSS3 spec for 3D transforms](http://www.w3.org/TR/css3-3d-transforms/) has been public for over a year now, but at the moment of writing this article, they are only supported by Safari, which includes Safari on the desktop and Mobile Safari on iOS devices. Support on other browsers varies. WebKit-cousin Chrome  currently accepts 3D transform declarations, but renders them in 2D space. Per Chrome team member Paul Irish, 3D transforms are on the roadmap, perhaps in the next couple X.0 releases. The Mozilla team has [made some initial steps](https://bugzilla.mozilla.org/show_bug.cgi?id=505115) towards implementing CSS 3D transforms. Per Mike Taylor, the Opera team is keeping a close eye on CSS transforms, and is waiting until the spec is fleshed out. And our best friend Internet Explorer still needs to catch up to 2D transforms before we can talk about 3D.
 
-The third dimension of the web isn't limited to just CSS transforms. Flash has built in support for years. Looking at the HTML5 canvas, `3D can be achieved now with three.js, and eventually WebGL (Mozilla is charging the lead).`
+With such limited support why bother at all? To begin with, the CSS 3D transforms spec was developed by the same team at Apple who produced the [CSS 2d transforms](http://www.w3.org/TR/css3-2d-transforms/) and [animation](http://www.w3.org/TR/css3-animations/) specifications.  Both of these specifications have been adopted by Mozilla and Opera. I'm willing to wager that the 3D spec will follow in suit.
+
+Of course, the third dimension isn't limited to just CSS. We could dive into the cabilities of 3D in Flash, canvas, three.js, or WebGL. But for the sake of brevity, I'll be limiting the scope of article to solely CSS 3D transforms.
 
 Given the sparse support for 3D transforms, you can choose to ignore them, or (with a [tip of the fedora to Mr. Andy Clarke](http://hardboiledwebdesign.com/)) you can get hard-boiled and start designing with the best features out there.
 
+## Getting Started
 
+To activate 3D space, an element needs perspective. This can be applied in two ways. [**See Example 12**](12-perspective.html). 
 
 
 `backface-visibility`
