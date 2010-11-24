@@ -34,8 +34,17 @@ function ProxyRange (el) {
   
   this.x = this.element.offsetLeft;
   
+  this.element.addEventListener( Tangibles.CursorStartEvent, this, false );
   this.slider.addEventListener( Tangibles.CursorStartEvent, this, false );
 };
+
+ProxyRange.prototype.moveSlider = function( event ) {
+  var cursor = Tangibles.isTangible ? event.touches[0] : event,
+      x = cursor.pageX - this.x;
+  x = Math.max( 0, Math.min( this.width, x ) );
+  
+  this.slider.style.webkitTransform = 'translate3d(' + x + 'px,0,0)';
+}
 
 ProxyRange.prototype.handleEvent = function(event) {
   if ( this[event.type] ) {
@@ -43,8 +52,10 @@ ProxyRange.prototype.handleEvent = function(event) {
   }
 };
 
-ProxyRange.prototype[ Tangibles.CursorStartEvent ] = function(event) {
+ProxyRange.prototype[ Tangibles.CursorStartEvent ] = function( event ) {
   this.element.addClassName('highlighted');
+  
+  this.moveSlider( event );
   
   window.addEventListener( Tangibles.CursorMoveEvent, this, false );
   window.addEventListener( Tangibles.CursorEndEvent, this, false );
@@ -52,19 +63,14 @@ ProxyRange.prototype[ Tangibles.CursorStartEvent ] = function(event) {
   event.preventDefault();
 };
 
-ProxyRange.prototype[ Tangibles.CursorMoveEvent ] = function(event) {
+ProxyRange.prototype[ Tangibles.CursorMoveEvent ] = function( event ) {
   
-  var cursor = Tangibles.isTangible ? event.touches[0] : event,
-      x = cursor.pageX - this.x;
-  x = Math.max( 0, Math.min( this.width, x ) );
-  
-  this.slider.style.webkitTransform = 'translate3d(' + x + 'px,0,0)';
-  
+  this.moveSlider( event );
   
   event.preventDefault();
 };
 
-ProxyRange.prototype[ Tangibles.CursorEndEvent ] = function(event) {
+ProxyRange.prototype[ Tangibles.CursorEndEvent ] = function( event ) {
   
   this.element.removeClassName('highlighted');
   
