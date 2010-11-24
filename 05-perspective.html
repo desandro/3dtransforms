@@ -182,11 +182,14 @@
             boxContainer.style.webkitPerspectiveOrigin = event.target.value;
           };
       
-      console.log(originRadios)
-      
       for (var i=0, len = originRadios.length; i < len; i++) {
         originRadios[i].addEventListener( 'change', onRadioChange, false);
       }
+      
+      var inputElem = document.createElement('input');
+      inputElem.setAttribute('type','range');
+      document.body.appendChild( inputElem );
+      console.log( document.defaultView.getComputedStyle(inputElem, null).WebkitAppearance );
       
       
     };

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>13-range</title>
+
+  <link rel="stylesheet" href="css/style.css" media="screen" />
+  
+  <style media="screen">
+    .proxy-range {
+      height: 20px;
+      width: 200px;
+      -webkit-border-radius: 10px;
+         -moz-border-radius: 10px;
+              border-radius: 10px;
+      -webkit-box-shadow: inset 0 1px 5px hsla(0, 0%, 0%, 0.3);
+         -moz-box-shadow: inset 0 1px 5px hsla(0, 0%, 0%, 0.3);
+           -o-box-shadow: inset 0 1px 5px hsla(0, 0%, 0%, 0.3);
+              box-shadow: inset 0 1px 5px hsla(0, 0%, 0%, 0.3);
+      position: relative;
+      background-color: hsla(0, 0%, 0%, 0.02);
+      margin-left: 40px;
+    }
+    
+    .proxy-range.highlighted {
+      background-color: yellow;
+    }
+    
+    .proxy-range .slider {
+      width: 38px;
+      height: 38px;
+      -webkit-border-radius: 20px;
+         -moz-border-radius: 20px;
+              border-radius: 20px;
+      border: 1px solid;
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      background: blue;
+    }
+    
+    .proxy-range.highlighted .slider:after {
+      content: '';
+      display: block;
+      height: 100px;
+      top: -30px;
+      width: 4px;
+      left: 18px;
+      position: absolute;
+      background: hsla(0, 0%, 0%, 0.5);
+      -webkit-border-radius: 2px;
+         -moz-border-radius: 2px;
+              border-radius: 2px;
+    }
+  </style>
+
+</head>
+<body>
+
+  <h1>13-range</h1>
+
+  <div class="proxy-range">
+    <div class="slider"></div>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script>
+    var init = function() {
+      var range = new ProxyRange( document.querySelector('.proxy-range') );
+    };
+
+    window.addEventListener('DOMContentLoaded', init, false);
+  </script>
+
+</body>
+</html>

@@ -26,7 +26,7 @@ Given the sparse support for 3D transforms, you can choose to ignore them, or (w
 
 ## Getting Started
 
-To activate 3D space, an element needs perspective. This can be applied in two ways. [**See Example 12**](12-perspective.html). 
+To activate 3D space, an element needs perspective. This can be applied in two ways. [**See Example 12**](12-perspective.html), by setting a 
 
 
 `backface-visibility`
