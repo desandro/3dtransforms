@@ -16,8 +16,9 @@ Element.prototype.removeClassName = function (b) {
 };
 
 Element.prototype.toggleClassName = function (a) {
-    this[this.hasClassName(a) ? "removeClassName" : "addClassName"](a)
+  this[this.hasClassName(a) ? "removeClassName" : "addClassName"](a)
 };
+
 
 // ======================= slider =============================== //
 
@@ -27,8 +28,9 @@ Tangibles.CursorStartEvent = Tangibles.isTangible ? 'touchstart' : 'mousedown';
 Tangibles.CursorMoveEvent = Tangibles.isTangible ? 'touchmove' : 'mousemove';
 Tangibles.CursorEndEvent = Tangibles.isTangible ? 'touchend' : 'mouseup';
 
-function ProxyRange (el) {
+function ProxyRange ( el, input ) {
   this.element = el;
+  this.input = input;
   this.width = this.element.offsetWidth;
   this.slider = this.element.children[0];
   
@@ -44,6 +46,13 @@ ProxyRange.prototype.moveSlider = function( event ) {
   x = Math.max( 0, Math.min( this.width, x ) );
   
   this.slider.style.webkitTransform = 'translate3d(' + x + 'px,0,0)';
+  
+  this.input.value = x;
+  
+  // trigger change event
+  var evt = document.createEvent("Event");
+  evt.initEvent("change", true, true);
+  this.input.dispatchEvent( evt );
 }
 
 ProxyRange.prototype.handleEvent = function(event) {

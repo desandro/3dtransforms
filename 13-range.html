@@ -95,6 +95,8 @@
 
   <h1>13-range</h1>
 
+  <input type="range" min="1" max="2000" value="1200" />
+
   <div class="proxy-range">
     <div class="slider"></div>
   </div>
@@ -102,8 +104,12 @@
   <script src="js/utils.js"></script>
   <script>
     var init = function() {
-      var range = new ProxyRange( document.querySelector('.proxy-range') );
+      var range = new ProxyRange( document.querySelector('.proxy-range'), document.querySelector('input') );
     };
+
+     document.querySelector('input').addEventListener( 'change', function(){
+       console.log(event,event.target.value)
+     }, false)
 
     window.addEventListener('DOMContentLoaded', init, false);
   </script>
