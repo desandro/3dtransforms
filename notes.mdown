@@ -28,3 +28,9 @@ Other 3D Implementations
   Canvas
   WebGL
   three.js
+  
+  
+## Range
+
+  needs output display
+  link up on change event so all range inputs change displays

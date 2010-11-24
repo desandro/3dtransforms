@@ -28,7 +28,19 @@ Tangibles.CursorStartEvent = Tangibles.isTangible ? 'touchstart' : 'mousedown';
 Tangibles.CursorMoveEvent = Tangibles.isTangible ? 'touchmove' : 'mousemove';
 Tangibles.CursorEndEvent = Tangibles.isTangible ? 'touchend' : 'mouseup';
 
+function EventHandler () {}
+
+EventHandler.prototype.handleEvent = function( event ) {
+  if ( this[event.type] ) {
+    this[event.type](event);
+  }
+};
+
+
+/* ==================== ProxyRange ==================== */
+
 function ProxyRange ( el, input ) {
+  
   this.element = el;
   this.input = input;
   this.width = this.element.offsetWidth;
@@ -38,7 +50,10 @@ function ProxyRange ( el, input ) {
   
   this.element.addEventListener( Tangibles.CursorStartEvent, this, false );
   this.slider.addEventListener( Tangibles.CursorStartEvent, this, false );
+  
 };
+
+ProxyRange.prototype = new EventHandler();
 
 ProxyRange.prototype.moveSlider = function( event ) {
   var cursor = Tangibles.isTangible ? event.touches[0] : event,
@@ -54,12 +69,6 @@ ProxyRange.prototype.moveSlider = function( event ) {
   evt.initEvent("change", true, true);
   this.input.dispatchEvent( evt );
 }
-
-ProxyRange.prototype.handleEvent = function(event) {
-  if ( this[event.type] ) {
-    this[event.type](event);
-  }
-};
 
 ProxyRange.prototype[ Tangibles.CursorStartEvent ] = function( event ) {
   this.element.addClassName('highlighted');
@@ -88,4 +97,21 @@ ProxyRange.prototype[ Tangibles.CursorEndEvent ] = function( event ) {
 };
 
 
+/* ==================== Range Display ==================== */
 
+function RangeDisplay ( range ) {
+  this.range = range;
+  this.output = document.createElement('span');
+  this.output.addClassName('range-display');
+  this.output.textContent = this.range.value;
+  
+  this.range.parentNode.appendChild( this.output );
+  
+  this.range.addEventListener( 'change', this, false);
+}
+
+RangeDisplay.prototype = new EventHandler();
+
+RangeDisplay.prototype.change = function( event ) {
+  this.output.textContent = this.range.value;
+};
