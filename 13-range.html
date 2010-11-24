@@ -9,22 +9,24 @@
   
   <style media="screen">
     .proxy-range {
-      height: 20px;
+      height: 30px;
       width: 200px;
-      -webkit-border-radius: 10px;
-         -moz-border-radius: 10px;
-              border-radius: 10px;
-      -webkit-box-shadow: inset 0 1px 5px hsla(0, 0%, 0%, 0.3);
-         -moz-box-shadow: inset 0 1px 5px hsla(0, 0%, 0%, 0.3);
-           -o-box-shadow: inset 0 1px 5px hsla(0, 0%, 0%, 0.3);
-              box-shadow: inset 0 1px 5px hsla(0, 0%, 0%, 0.3);
+      -webkit-border-radius: 15px;
+         -moz-border-radius: 15px;
+              border-radius: 15px;
+      -webkit-box-shadow: inset 0 1px 7px hsla(0, 0%, 0%, 0.3);
+         -moz-box-shadow: inset 0 1px 7px hsla(0, 0%, 0%, 0.3);
+           -o-box-shadow: inset 0 1px 7px hsla(0, 0%, 0%, 0.3);
+              box-shadow: inset 0 1px 7px hsla(0, 0%, 0%, 0.3);
       position: relative;
       background-color: hsla(0, 0%, 0%, 0.02);
+
       margin-left: 40px;
     }
     
     .proxy-range.highlighted {
-      background-color: yellow;
+      background-color: hsla( 220, 90%, 50%, 0.15);
+/*      -webkit-box-shadow: inset 0 1px 5px hsla(0, 0%, 0%, 0.3), 0 0 15px hsla( 220, 90%, 50%, 0.5);*/
     }
     
     .proxy-range .slider {
@@ -33,25 +35,58 @@
       -webkit-border-radius: 20px;
          -moz-border-radius: 20px;
               border-radius: 20px;
-      border: 1px solid;
+      border: 1px solid hsla(0, 0%, 0%, 0.3);
       position: absolute;
-      top: -10px;
-      left: -10px;
-      background: blue;
+      top: -5px;
+      left: -20px;
+      background-color: hsla( 220, 70%, 60%, 1.0);
+/*      background-image: -webkit-gradient(linear, 0 top, 0 bottom, 
+        from( hsla(0, 0%, 100%, 0.1) ),  
+        color-stop( 50%, hsla(0, 0%, 100%, 0.2) ),
+        color-stop( 50%, hsla(0, 0%, 0%, 0.0) ),
+        to(  hsla(0, 0%, 0%, 0.2)  )
+      );*/
+/*      background-image: 
+        -webkit-gradient( radial, center 80%, 0, center 40%, 50,
+          from( hsla(0, 0%, 100%, 0.4) ),  
+          color-stop( 50%, hsla(0, 0%, 100%, 0.0) ),
+          color-stop( 50%, hsla(0, 0%, 0%, 0.0) ),
+          to(  hsla(0, 0%, 0%, 0.3)  )
+        ),
+        -webkit-gradient( radial, center 10%, 0, center 30%, 40,
+          from( hsla(0, 0%, 100%, 0.4) ),  
+          color-stop( 40%, hsla(0, 0%, 100%, 0.0) )
+        )
+      ;*/
+      background-image: -webkit-gradient(radial, center 15%, 0, center 30%, 30, 
+        from( hsla(0, 0%, 100%, 0.6) ),  
+        color-stop( 50%, hsla(0, 0%, 100%, 0.0) ),
+        color-stop( 50%, hsla(0, 0%, 0%, 0.0) ),
+        to(  hsla(0, 0%, 0%, 0.5)  )
+      );
+      -webkit-box-shadow: 
+        inset 0 2px 0px -1px hsla(0, 0%, 100%, 1.0), 
+        inset 0 -4px 2px -1px hsla(0, 0%, 0%, 0.1), 
+        0 1px 2px hsla( 0, 0%, 0%, 0.3)
+      ;
+      -webkit-transition-property: width, height, top, left, -webkit-border-radius;
+      -webkit-transition-duration: 0.1s;
     }
     
-    .proxy-range.highlighted .slider:after {
-      content: '';
-      display: block;
-      height: 100px;
-      top: -30px;
+    .proxy-range.highlighted .slider {
+      height: 98px;
+      top: -35px;
       width: 4px;
-      left: 18px;
-      position: absolute;
-      background: hsla(0, 0%, 0%, 0.5);
-      -webkit-border-radius: 2px;
-         -moz-border-radius: 2px;
-              border-radius: 2px;
+      left: -3px;
+      background-image: -webkit-gradient(linear, 0 top, 0 bottom, 
+        from( hsla(0, 0%, 100%, 0.6) ),  
+        color-stop( 50%, hsla(0, 0%, 100%, 0.0) ),
+        color-stop( 50%, hsla(0, 0%, 0%, 0.0) ),
+        to(  hsla(0, 0%, 0%, 0.5)  )
+      );
+      -webkit-border-radius: 3px;
+         -moz-border-radius: 3px;
+              border-radius: 3px;
     }
   </style>
 
