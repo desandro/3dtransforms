@@ -45,8 +45,6 @@ DDD.init = function() {
     // this has been hacked together from Modernizr range input
     var isRangeSupported = getComputedStyle( ranges[0] ).WebkitAppearance !== 'textfield';
     
-    console.log( 'isRangeSupported ' + isRangeSupported )
-    
     // if ( !isRangeSupported ) {
     if ( true ) {
       for ( i=0; i < rangesLen; i++ ) {
@@ -88,30 +86,40 @@ function ProxyRange ( input ) {
   this.min = parseInt( this.input.getAttribute('min'), 10 );
   this.max = parseInt( this.input.getAttribute('max'), 10 );
   
+  this.value = this.input.value;
+  this.resetHandlePosition();
+  
   
   // console.log( this.width +' ' +this.min + ' ' + this.max )
   
   // this.slider = this.element.children[0];
   
-  this.x = this.slider.offsetLeft;
-  
   this.slider.addEventListener( DDD.CursorStartEvent, this, false );
   this.handle.addEventListener( DDD.CursorStartEvent, this, false );
   
   this.input.parentNode.insertBefore( this.slider, this.input.nextSibling );
+  this.input.style.display = 'none';
+  
+  this.x = this.slider.offsetLeft;
   
 };
+
+ProxyRange.lineCap = 15;
 
 ProxyRange.prototype = new EventHandler();
 
 ProxyRange.prototype.moveHandle = function( event ) {
   var cursor = DDD.isTangible ? event.touches[0] : event,
       x = cursor.pageX - this.x;
-  x = Math.max( 0, Math.min( this.width, x ) );
+  x = Math.max( ProxyRange.lineCap, Math.min( this.width - ProxyRange.lineCap, x ) );
   
-  this.slider.style.webkitTransform = 'translate3d(' + x + 'px,0,0)';
+  this.positionHandle( x );
   
-  this.input.value = x;
+  // normalize value, 0 - 1
+  var val = ( x - ProxyRange.lineCap ) / ( this.width - ProxyRange.lineCap * 2 );
+  this.value = Math.round( val * ( this.max - this.min ) + this.min );
+  
+  this.input.value = this.value;
   
   // trigger change event
   var evt = document.createEvent("Event");
@@ -119,10 +127,18 @@ ProxyRange.prototype.moveHandle = function( event ) {
   this.input.dispatchEvent( evt );
 };
 
+ProxyRange.prototype.positionHandle = function( x ) {
+  this.handle.style.webkitTransform = 'translate3d(' + x + 'px,0,0)';
+};
+
+ProxyRange.prototype.resetHandlePosition = function() {
+  var x = ( this.value - this.min ) / ( this.max - this.min ) * ( this.width - ProxyRange.lineCap * 2 ) + ProxyRange.lineCap;
+  this.positionHandle( x );
+};
 
 
 ProxyRange.prototype[ DDD.CursorStartEvent ] = function( event ) {
-  this.element.addClassName('highlighted');
+  this.slider.addClassName('highlighted');
   
   this.moveHandle( event );
   
@@ -141,7 +157,7 @@ ProxyRange.prototype[ DDD.CursorMoveEvent ] = function( event ) {
 
 ProxyRange.prototype[ DDD.CursorEndEvent ] = function( event ) {
   
-  this.element.removeClassName('highlighted');
+  this.slider.removeClassName('highlighted');
   
   window.removeEventListener( DDD.CursorMoveEvent, this, false );
   window.removeEventListener( DDD.CursorEndEvent, this, false );
