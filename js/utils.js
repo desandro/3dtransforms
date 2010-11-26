@@ -28,18 +28,18 @@ DDD.CursorStartEvent = DDD.isTangible ? 'touchstart' : 'mousedown';
 DDD.CursorMoveEvent = DDD.isTangible ? 'touchmove' : 'mousemove';
 DDD.CursorEndEvent = DDD.isTangible ? 'touchend' : 'mouseup';
 
-function EventHandler () {}
+DDD.EventHandler = function() {};
 
-EventHandler.prototype.handleEvent = function( event ) {
+DDD.EventHandler.prototype.handleEvent = function( event ) {
   if ( this[event.type] ) {
     this[event.type](event);
   }
 };
 
 
-/* ==================== ProxyRange ==================== */
+/* ==================== DDD.ProxyRange ==================== */
 
-function ProxyRange ( input ) {
+DDD.ProxyRange = function ( input ) {
 
   this.input = input;
   
@@ -57,7 +57,7 @@ function ProxyRange ( input ) {
   this.min = parseInt( this.input.getAttribute('min'), 10 );
   this.max = parseInt( this.input.getAttribute('max'), 10 );
   
-  this.normalizeRatio = ( this.max - this.min ) / ( this.width - ProxyRange.lineCap * 2 );
+  this.normalizeRatio = ( this.max - this.min ) / ( this.width - DDD.ProxyRange.lineCap * 2 );
   
   this.value = this.input.value;
   this.resetHandlePosition();
@@ -73,18 +73,18 @@ function ProxyRange ( input ) {
   
 };
 
-ProxyRange.lineCap = 15;
+DDD.ProxyRange.lineCap = 15;
 
-ProxyRange.prototype = new EventHandler();
+DDD.ProxyRange.prototype = new DDD.EventHandler();
 
-ProxyRange.prototype.moveHandle = function( event ) {
+DDD.ProxyRange.prototype.moveHandle = function( event ) {
   var cursor = DDD.isTangible ? event.touches[0] : event,
       x = cursor.pageX - this.x;
-  x = Math.max( ProxyRange.lineCap, Math.min( this.width - ProxyRange.lineCap, x ) );
+  x = Math.max( DDD.ProxyRange.lineCap, Math.min( this.width - DDD.ProxyRange.lineCap, x ) );
   
   this.positionHandle( x );
   
-  this.value = Math.round( ( x - ProxyRange.lineCap ) * this.normalizeRatio + this.min );
+  this.value = Math.round( ( x - DDD.ProxyRange.lineCap ) * this.normalizeRatio + this.min );
   
   this.input.value = this.value;
   
@@ -94,17 +94,17 @@ ProxyRange.prototype.moveHandle = function( event ) {
   this.input.dispatchEvent( evt );
 };
 
-ProxyRange.prototype.positionHandle = function( x ) {
+DDD.ProxyRange.prototype.positionHandle = function( x ) {
   this.handle.style.webkitTransform = 'translate3d(' + x + 'px,0,0)';
 };
 
-ProxyRange.prototype.resetHandlePosition = function() {
-  var x = ( this.value - this.min ) / this.normalizeRatio + ProxyRange.lineCap;
+DDD.ProxyRange.prototype.resetHandlePosition = function() {
+  var x = ( this.value - this.min ) / this.normalizeRatio + DDD.ProxyRange.lineCap;
   this.positionHandle( x );
 };
 
 
-ProxyRange.prototype[ DDD.CursorStartEvent ] = function( event ) {
+DDD.ProxyRange.prototype[ DDD.CursorStartEvent ] = function( event ) {
   this.slider.addClassName('highlighted');
   
   this.moveHandle( event );
@@ -115,14 +115,14 @@ ProxyRange.prototype[ DDD.CursorStartEvent ] = function( event ) {
   event.preventDefault();
 };
 
-ProxyRange.prototype[ DDD.CursorMoveEvent ] = function( event ) {
+DDD.ProxyRange.prototype[ DDD.CursorMoveEvent ] = function( event ) {
   
   this.moveHandle( event );
   
   event.preventDefault();
 };
 
-ProxyRange.prototype[ DDD.CursorEndEvent ] = function( event ) {
+DDD.ProxyRange.prototype[ DDD.CursorEndEvent ] = function( event ) {
   
   this.slider.removeClassName('highlighted');
   
@@ -133,7 +133,7 @@ ProxyRange.prototype[ DDD.CursorEndEvent ] = function( event ) {
 
 /* ==================== Range Display ==================== */
 
-function RangeDisplay ( range ) {
+DDD.RangeDisplay = function ( range ) {
   this.range = range;
   this.output = document.createElement('span');
   this.output.addClassName('range-display');
@@ -144,9 +144,9 @@ function RangeDisplay ( range ) {
   this.range.addEventListener( 'change', this, false);
 }
 
-RangeDisplay.prototype = new EventHandler();
+DDD.RangeDisplay.prototype = new DDD.EventHandler();
 
-RangeDisplay.prototype.change = function( event ) {
+DDD.RangeDisplay.prototype.change = function( event ) {
   this.output.textContent = this.range.value;
 };
 
@@ -158,21 +158,21 @@ DDD.init = function() {
   
   if ( rangesLen ) {
     
-    
      // create range output display
     for ( i=0; i < rangesLen; i++ ) {
-      new RangeDisplay( ranges[i] );
+      new DDD.RangeDisplay( ranges[i] );
     }
     
     // check browser support for range input
-    // this has been hacked together from Modernizr range input
+    // this has been hacked together from Modernizr range input test
+    // -> Thanks Faruk Ates, Paul Irish, and Mike Taylor http://modernizr.com
     var isRangeSupported = getComputedStyle( ranges[0] ).WebkitAppearance !== 'textfield';
     
     // create range inputs for iOS
     // if ( !isRangeSupported ) {
     if ( true ) {
       for ( i=0; i < rangesLen; i++ ) {
-        new ProxyRange( ranges[i] );
+        new DDD.ProxyRange( ranges[i] );
       }
     }
     
