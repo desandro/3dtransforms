@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  
+  <!-- disable zooming -->
+  <meta name="viewport" content=" initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+  
+  <title>14-child-perspective</title>
+
+  <link rel="stylesheet" href="css/style.css" media="screen" />
+  
+  <style media="screen">
+
+    .container div,
+    .container div {
+      width: 55px;
+      height: 55px;
+      float: left;
+      margin: 5px;
+    }
+
+    #red div {
+      -webkit-transform: perspective(400) rotateY(45deg);
+      background: red;
+    }
+
+    #blue {
+      -webkit-perspective: 400;
+    }
+
+    #blue div {
+      -webkit-transform: rotateY(45deg);
+      background: blue;
+    }
+  </style>
+
+</head>
+<body>
+
+  <h1>14-child-perspective</h1>
+  
+  <div id="red" class="container">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  
+  <div id="blue" class="container">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  
+  <pre><code>#red div {
+  -webkit-transform: perspective(400) rotateY(45deg);
+  background: red;
+}
+
+#blue {
+  -webkit-perspective: 400;
+}
+
+#blue div {
+  -webkit-transform: rotateY(45deg);
+  background: blue;
+}</code></pre>
+
+</body>
+</html>

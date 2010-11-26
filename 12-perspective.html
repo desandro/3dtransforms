@@ -9,29 +9,25 @@
 
   <style media="screen">
     
-    .container {
-      width: 200px;
-      height: 200px;
-      border: 1px solid #CCC;
-      margin: 0 auto 40px;
-    }
+
     
     .box {
       width: 100%;
       height: 100%;
-      background-color: red;
     }
     
-    #alpha .box {
+    #red .box {
       -webkit-transform: perspective(800) rotateY(45deg);
+      background-color: red;
     }
 
-    #beta {
+    #blue {
       -webkit-perspective: 800;
     }
 
-    #beta .box {
+    #blue .box {
       -webkit-transform: rotateY(45deg);
+      background-color: blue;
     }
   </style>
 
@@ -40,27 +36,27 @@
 
   <h1>12-perspective</h1>
 
-  <pre><code>#alpha .box {
-  -webkit-transform: perspective(800) rotateY(45deg);
-}</code></pre>
-
-  <section id="alpha" class="container">
+  <section id="red" class="container">
     <div class="box"></div>
   </section>
 
-  <hr />
+  <section id="blue" class="container">
+    <div class="box"></div>
+  </section>
+  
+  <pre><code>#red .box {
+  -webkit-transform: perspective(800) rotateY(45deg);
+  background-color: red;
+}
 
-<pre><code>#beta {
+#blue {
   -webkit-perspective: 800;
 }
 
-#beta .box {
+#blue .box {
   -webkit-transform: rotateY(45deg);
+  background-color: blue;
 }</code></pre>
-
-  <section id="beta" class="container">
-    <div class="box"></div>
-  </section>
 
 </body>
 </html>

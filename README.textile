@@ -32,7 +32,7 @@ h3. Perspective
 
 To activate 3D space, an element needs perspective.  This can be applied in two ways: using the @transform@ property, with the perspective as a functional notation.
 
-bc. -webkit-transform: perspective(800) rotateY(45deg);
+bc. -webkit-transform: perspective(800);
 
 or using the @perspective@ property: 
 
@@ -40,8 +40,21 @@ bc. -webkit-perspective: 800;
 
 "*See Example 12.*":12-perspective.html
 
-The functional notation method is fairly convenient for directly applying a 3D transform on a single element.  But it doesn't work for multiple elements, since the perspective is only for the one element. If you use the same transform across elements with different position, each element will have its own vanishing point. To remedy this, use the @perspective@ property on a parent element, so each child exists in the same 3D space. 
- 
+These two formats produce the same effect, but there is a difference. The functional notation method is fairly convenient for directly applying a 3D transform on a single element (in Example 12, I am using it with a rotateX transform). The problem is that it doesn't work for multiple elements, since the perspective is only for the one element. If you use the same transform across elements with different position, each element will have its own vanishing point. To remedy this, use the @perspective@ property on a parent element, so each child exists in the same 3D space.
+
+"*See Example 14.*":14-child-perspective.html
+
+Direct descendants of 3D parents will inherit their parents perspective. But grand-children and future generations (if you will) will be flattened with the direct children. In order to pass on perspective, the children in-between the element with perspective, and the element being 3d-transformed need to have @-webkit-transform-style: preserve-3d@.
+
+%% needs example? %%
+
+By default, the vanishing point for a 3D space is positioned at the center. You can change the position of the vanishing point with @perspetive-origin@ property.
+
+bc. 
+
+h3. The 3D Space
+
+With a 3D space initialized, you can now get cracking transforming elements in all 3 glorious 
 
 
 `backface-visibility`

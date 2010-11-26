@@ -5,11 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
   <title>05-perspective</title>
 
+  <link rel="stylesheet" href="css/style.css" media="screen" />
+
   <style media="screen">
-    
-    body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-    }
     
     #box-container {
       margin: 0 auto 40px;
@@ -17,7 +15,7 @@
       height: 200px;
       border: 1px solid #CCC;
       -webkit-perspective: 1200;
-      -webkit-perspective-origin: right bottom;
+/*      -webkit-perspective-origin: right bottom;*/
     }
     
     #box {
@@ -95,7 +93,7 @@
     }
     
     #perspective input {
-      width: 300px;
+/*      width: 300px;*/
     }
     
   </style>
@@ -119,38 +117,28 @@
 
   <section id="options">
     
-    <div id="perspective">
+    <p class="perspective">
+      <label>perspective</label>
       <input type="range" min="1" max="2000" value="1200" />
-      <p>Perspective : 1200</p>
-    </div>
-    
-    <p>
-      <button id="toggle-spinning">Toggle Spinning</button>
     </p>
     
-    <p>
-      <button id="toggle-backface-visibility">Toggle Backface Visibility</button>
+    <p class="perspective-origin-x">
+      <label>perspective-origin x</label>
+      <input type="range" min="0" max="100" value="50" data-units="%" />
     </p>
     
-    <h3>Perspective Origin</h3>
+    <p class="perspective-origin-y">
+      <label>perspective-origin y</label>
+      <input type="range" min="0" max="100" value="50" data-units="%" />
+    </p>
     
-    <table id="origin">
-      <tr>
-        <td><input type="radio" name="origin" value="left top" /></td>
-        <td><input type="radio" name="origin" value="center top" /></td>
-        <td><input type="radio" name="origin" value="right top" /></td>
-      </tr>
-      <tr>
-        <td><input type="radio" name="origin" value="left center" /></td>
-        <td><input type="radio" name="origin" value="center center" checked /></td>
-        <td><input type="radio" name="origin" value="right center" /></td>
-      </tr>
-      <tr>
-        <td><input type="radio" name="origin" value="left bottom" /></td>
-        <td><input type="radio" name="origin" value="center bottom" /></td>
-        <td><input type="radio" name="origin" value="right bottom" /></td>
-      </tr>
-    </table>
+    <p class="spinning">
+      <button>Toggle Spinning</button>
+    </p>
+    
+    <p class="backface-visibility">
+      <button>Toggle Backface Visibility</button>
+    </p>
     
   </section>
 
@@ -160,36 +148,38 @@
     var init = function() {
       var boxContainer = document.getElementById('box-container'),
           box = document.getElementById('box'),
-          perspectiveContainer = document.getElementById('perspective'),
-          perspectiveDisplay = perspectiveContainer.querySelector('p');
+          optionsContainer = document.getElementById('options'),
+          perspectiveOrigin = { x: 50, y: 50 },
+          
+          updatePerspectiveOrigin = function() {
+            boxContainer.style.webkitPerspectiveOrigin = 
+              perspectiveOrigin.x + '% ' + perspectiveOrigin.y + '%';
+            console.log( perspectiveOrigin.x + '% ' + perspectiveOrigin.y + '%' )
+          };
       
-      perspectiveContainer.querySelector('input').addEventListener( 'change', function(){
+
+      optionsContainer.querySelector('.perspective input').addEventListener( 'change', function(){
         boxContainer.style.webkitPerspective = event.target.value;
-        perspectiveDisplay.textContent = 'Perspective : ' +  event.target.value;
       }, false);
       
-      document.getElementById('toggle-spinning').addEventListener( 'click', function(){
+      optionsContainer.querySelector('.perspective-origin-x input').addEventListener( 'change', function(){
+        perspectiveOrigin.x = event.target.value;
+        updatePerspectiveOrigin();
+      }, false);
+
+      optionsContainer.querySelector('.perspective-origin-y input').addEventListener( 'change', function(){
+        perspectiveOrigin.y = event.target.value;
+        updatePerspectiveOrigin();
+      }, false);
+      
+      optionsContainer.querySelector('.spinning button').addEventListener( 'click', function(){
         box.toggleClassName('spinning');
       }, false);
       
-      document.getElementById('toggle-backface-visibility').addEventListener( 'click', function(){
+      optionsContainer.querySelector('.backface-visibility button').addEventListener( 'click', function(){
         box.toggleClassName('panels-backface-invisible');
       }, false);
       
-      var originRadios = document.querySelectorAll('#origin input'),
-          onRadioChange = function(event) {
-            // console.log(event.target.value)
-            boxContainer.style.webkitPerspectiveOrigin = event.target.value;
-          };
-      
-      for (var i=0, len = originRadios.length; i < len; i++) {
-        originRadios[i].addEventListener( 'change', onRadioChange, false);
-      }
-      
-      var inputElem = document.createElement('input');
-      inputElem.setAttribute('type','range');
-      document.body.appendChild( inputElem );
-      console.log( document.defaultView.getComputedStyle(inputElem, null).WebkitAppearance );
       
       
     };
