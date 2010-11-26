@@ -21,7 +21,6 @@
       position: relative;
       background-color: hsla(0, 0%, 0%, 0.02);
 
-      margin-left: 40px;
     }
     
     .proxy-range.highlighted {
@@ -29,7 +28,7 @@
 /*      -webkit-box-shadow: inset 0 1px 5px hsla(0, 0%, 0%, 0.3), 0 0 15px hsla( 220, 90%, 50%, 0.5);*/
     }
     
-    .proxy-range .slider {
+    .proxy-range .handle {
       width: 38px;
       height: 38px;
       -webkit-border-radius: 20px;
@@ -73,7 +72,7 @@
       -webkit-transition-duration: 0.1s;
     }
     
-    .proxy-range.highlighted .slider {
+    .proxy-range.highlighted .handle {
       height: 98px;
       top: -35px;
       width: 4px;
@@ -88,6 +87,13 @@
          -moz-border-radius: 3px;
               border-radius: 3px;
     }
+    
+    input.alpha { 
+      width: 300px; 
+    }
+    input.beta { 
+      width: 150px; 
+    }
   </style>
 
 </head>
@@ -96,31 +102,28 @@
   <h1>13-range</h1>
 
   <p>
-    <input type="range" min="1" max="2000" value="1200" />
+    <input class="alpha" type="range" min="1" max="2000" value="1200" />
   </p>
+
+  <p>
+    <input class="beta" type="range" min="40" max="120" value="80" />
+  </p>
+
     
 
-  <div class="proxy-range">
+  <!-- <div class="proxy-range">
     <div class="slider"></div>
-  </div>
+  </div> -->
 
   <script src="js/utils.js"></script>
   <script>
     var init = function() {
-      var range = new ProxyRange( document.querySelector('.proxy-range'), document.querySelector('input') );
+      // var range = new ProxyRange( document.querySelector('.proxy-range'), document.querySelector('input') );
       
       // document.querySelector('input').addEventListener( 'change', function(){
       //   console.log(event,event.target.value)
       // }, false);
-      
-      var ranges = document.querySelectorAll('input[type="range"]');
-      
-      if ( ranges.length ) {
-        for (var i=0, len = ranges.length; i < len; i++) {
-          var rangeDisplay = new RangeDisplay( ranges[i] );
-        }
-      }
-      
+
       
     };
 

@@ -28,6 +28,37 @@ DDD.CursorStartEvent = DDD.isTangible ? 'touchstart' : 'mousedown';
 DDD.CursorMoveEvent = DDD.isTangible ? 'touchmove' : 'mousemove';
 DDD.CursorEndEvent = DDD.isTangible ? 'touchend' : 'mouseup';
 
+DDD.init = function() {
+  var ranges = document.querySelectorAll('input[type="range"]'),
+      rangesLen = ranges.length,
+      i;
+  
+  if ( rangesLen ) {
+    
+    
+     // create range output display
+    for ( i=0; i < rangesLen; i++ ) {
+      new RangeDisplay( ranges[i] );
+    }
+    
+    // check browser support for range input
+    // this has been hacked together from Modernizr range input
+    var isRangeSupported = getComputedStyle( ranges[0] ).WebkitAppearance !== 'textfield';
+    
+    console.log( 'isRangeSupported ' + isRangeSupported )
+    
+    // if ( !isRangeSupported ) {
+    if ( true ) {
+      for ( i=0; i < rangesLen; i++ ) {
+        // var rangeDisplay = new RangeDisplay( ranges[i] );
+        new ProxyRange( ranges[i] );
+      }
+    }
+    
+  }
+  
+};
+
 function EventHandler () {}
 
 EventHandler.prototype.handleEvent = function( event ) {
@@ -39,23 +70,41 @@ EventHandler.prototype.handleEvent = function( event ) {
 
 /* ==================== ProxyRange ==================== */
 
-function ProxyRange ( el, input ) {
-  
-  this.element = el;
+function ProxyRange ( input ) {
+
   this.input = input;
-  this.width = this.element.offsetWidth;
-  this.slider = this.element.children[0];
   
-  this.x = this.element.offsetLeft;
+  this.slider = document.createElement('div');
+  this.slider.addClassName('proxy-range');
+
+  this.handle = document.createElement('div');
+  this.handle.addClassName('handle');
+  this.slider.appendChild( this.handle );
+
+
+  this.width = parseInt( getComputedStyle( this.input ).width, 10);
+  this.slider.style.width = this.width + 'px';
   
-  this.element.addEventListener( DDD.CursorStartEvent, this, false );
+  this.min = parseInt( this.input.getAttribute('min'), 10 );
+  this.max = parseInt( this.input.getAttribute('max'), 10 );
+  
+  
+  // console.log( this.width +' ' +this.min + ' ' + this.max )
+  
+  // this.slider = this.element.children[0];
+  
+  this.x = this.slider.offsetLeft;
+  
   this.slider.addEventListener( DDD.CursorStartEvent, this, false );
+  this.handle.addEventListener( DDD.CursorStartEvent, this, false );
+  
+  this.input.parentNode.insertBefore( this.slider, this.input.nextSibling );
   
 };
 
 ProxyRange.prototype = new EventHandler();
 
-ProxyRange.prototype.moveSlider = function( event ) {
+ProxyRange.prototype.moveHandle = function( event ) {
   var cursor = DDD.isTangible ? event.touches[0] : event,
       x = cursor.pageX - this.x;
   x = Math.max( 0, Math.min( this.width, x ) );
@@ -68,12 +117,14 @@ ProxyRange.prototype.moveSlider = function( event ) {
   var evt = document.createEvent("Event");
   evt.initEvent("change", true, true);
   this.input.dispatchEvent( evt );
-}
+};
+
+
 
 ProxyRange.prototype[ DDD.CursorStartEvent ] = function( event ) {
   this.element.addClassName('highlighted');
   
-  this.moveSlider( event );
+  this.moveHandle( event );
   
   window.addEventListener( DDD.CursorMoveEvent, this, false );
   window.addEventListener( DDD.CursorEndEvent, this, false );
@@ -83,7 +134,7 @@ ProxyRange.prototype[ DDD.CursorStartEvent ] = function( event ) {
 
 ProxyRange.prototype[ DDD.CursorMoveEvent ] = function( event ) {
   
-  this.moveSlider( event );
+  this.moveHandle( event );
   
   event.preventDefault();
 };
@@ -115,3 +166,6 @@ RangeDisplay.prototype = new EventHandler();
 RangeDisplay.prototype.change = function( event ) {
   this.output.textContent = this.range.value;
 };
+
+
+window.addEventListener( 'DOMContentLoaded', DDD.init, false)
