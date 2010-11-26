@@ -1,3 +1,8 @@
+// ======================= DOM Utility Function from PastryKit =============================== //
+
+// Sure, we could use jQuery or XUI for these, 
+// but these are concise are framework-free
+
 Element.prototype.hasClassName = function (a) {
     return new RegExp("(?:^|\\s+)" + a + "(?:\\s+|$)").test(this.className)
 };
@@ -23,10 +28,13 @@ Element.prototype.toggleClassName = function (a) {
 // ======================= DDD mini framework =============================== //
 
 var DDD = {};
+// again, borrowed from PastryKit
 DDD.isTangible = !!('createTouch' in document);
 DDD.CursorStartEvent = DDD.isTangible ? 'touchstart' : 'mousedown';
 DDD.CursorMoveEvent = DDD.isTangible ? 'touchmove' : 'mousemove';
 DDD.CursorEndEvent = DDD.isTangible ? 'touchend' : 'mouseup';
+
+/* ==================== EventHandler ==================== */
 
 DDD.EventHandler = function() {};
 
@@ -37,7 +45,32 @@ DDD.EventHandler.prototype.handleEvent = function( event ) {
 };
 
 
-/* ==================== DDD.ProxyRange ==================== */
+/* ==================== RangeDisplay ==================== */
+
+// displays the value of a range input
+// why isn't this in the HTML5 spec?
+
+DDD.RangeDisplay = function ( range ) {
+  this.range = range;
+  this.output = document.createElement('span');
+  this.output.addClassName('range-display');
+  this.output.textContent = this.range.value;
+  
+  this.range.parentNode.appendChild( this.output );
+  
+  this.range.addEventListener( 'change', this, false);
+}
+
+DDD.RangeDisplay.prototype = new DDD.EventHandler();
+
+DDD.RangeDisplay.prototype.change = function( event ) {
+  this.output.textContent = this.range.value;
+};
+
+
+/* ==================== ProxyRange ==================== */
+
+// polyfill for range inputs
 
 DDD.ProxyRange = function ( input ) {
 
@@ -73,6 +106,7 @@ DDD.ProxyRange = function ( input ) {
   
 };
 
+// constant for position the handle inside the slider
 DDD.ProxyRange.lineCap = 15;
 
 DDD.ProxyRange.prototype = new DDD.EventHandler();
@@ -131,24 +165,7 @@ DDD.ProxyRange.prototype[ DDD.CursorEndEvent ] = function( event ) {
 };
 
 
-/* ==================== Range Display ==================== */
-
-DDD.RangeDisplay = function ( range ) {
-  this.range = range;
-  this.output = document.createElement('span');
-  this.output.addClassName('range-display');
-  this.output.textContent = this.range.value;
-  
-  this.range.parentNode.appendChild( this.output );
-  
-  this.range.addEventListener( 'change', this, false);
-}
-
-DDD.RangeDisplay.prototype = new DDD.EventHandler();
-
-DDD.RangeDisplay.prototype.change = function( event ) {
-  this.output.textContent = this.range.value;
-};
+/* ==================== Start Up ==================== */
 
 
 DDD.init = function() {
