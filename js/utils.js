@@ -28,35 +28,6 @@ DDD.CursorStartEvent = DDD.isTangible ? 'touchstart' : 'mousedown';
 DDD.CursorMoveEvent = DDD.isTangible ? 'touchmove' : 'mousemove';
 DDD.CursorEndEvent = DDD.isTangible ? 'touchend' : 'mouseup';
 
-DDD.init = function() {
-  var ranges = document.querySelectorAll('input[type="range"]'),
-      rangesLen = ranges.length,
-      i;
-  
-  if ( rangesLen ) {
-    
-    
-     // create range output display
-    for ( i=0; i < rangesLen; i++ ) {
-      new RangeDisplay( ranges[i] );
-    }
-    
-    // check browser support for range input
-    // this has been hacked together from Modernizr range input
-    var isRangeSupported = getComputedStyle( ranges[0] ).WebkitAppearance !== 'textfield';
-    
-    // create range inputs for iOS
-    // if ( !isRangeSupported ) {
-    if ( true ) {
-      for ( i=0; i < rangesLen; i++ ) {
-        new ProxyRange( ranges[i] );
-      }
-    }
-    
-  }
-  
-};
-
 function EventHandler () {}
 
 EventHandler.prototype.handleEvent = function( event ) {
@@ -180,4 +151,34 @@ RangeDisplay.prototype.change = function( event ) {
 };
 
 
-window.addEventListener( 'DOMContentLoaded', DDD.init, false)
+DDD.init = function() {
+  var ranges = document.querySelectorAll('input[type="range"]'),
+      rangesLen = ranges.length,
+      i;
+  
+  if ( rangesLen ) {
+    
+    
+     // create range output display
+    for ( i=0; i < rangesLen; i++ ) {
+      new RangeDisplay( ranges[i] );
+    }
+    
+    // check browser support for range input
+    // this has been hacked together from Modernizr range input
+    var isRangeSupported = getComputedStyle( ranges[0] ).WebkitAppearance !== 'textfield';
+    
+    // create range inputs for iOS
+    // if ( !isRangeSupported ) {
+    if ( true ) {
+      for ( i=0; i < rangesLen; i++ ) {
+        new ProxyRange( ranges[i] );
+      }
+    }
+    
+  }
+  
+};
+
+
+window.addEventListener( 'DOMContentLoaded', DDD.init, false);
