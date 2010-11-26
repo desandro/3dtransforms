@@ -45,10 +45,10 @@ DDD.init = function() {
     // this has been hacked together from Modernizr range input
     var isRangeSupported = getComputedStyle( ranges[0] ).WebkitAppearance !== 'textfield';
     
+    // create range inputs for iOS
     // if ( !isRangeSupported ) {
     if ( true ) {
       for ( i=0; i < rangesLen; i++ ) {
-        // var rangeDisplay = new RangeDisplay( ranges[i] );
         new ProxyRange( ranges[i] );
       }
     }
@@ -86,13 +86,11 @@ function ProxyRange ( input ) {
   this.min = parseInt( this.input.getAttribute('min'), 10 );
   this.max = parseInt( this.input.getAttribute('max'), 10 );
   
+  this.normalizeRatio = ( this.max - this.min ) / ( this.width - ProxyRange.lineCap * 2 );
+  
   this.value = this.input.value;
   this.resetHandlePosition();
   
-  
-  // console.log( this.width +' ' +this.min + ' ' + this.max )
-  
-  // this.slider = this.element.children[0];
   
   this.slider.addEventListener( DDD.CursorStartEvent, this, false );
   this.handle.addEventListener( DDD.CursorStartEvent, this, false );
@@ -115,9 +113,7 @@ ProxyRange.prototype.moveHandle = function( event ) {
   
   this.positionHandle( x );
   
-  // normalize value, 0 - 1
-  var val = ( x - ProxyRange.lineCap ) / ( this.width - ProxyRange.lineCap * 2 );
-  this.value = Math.round( val * ( this.max - this.min ) + this.min );
+  this.value = Math.round( ( x - ProxyRange.lineCap ) * this.normalizeRatio + this.min );
   
   this.input.value = this.value;
   
@@ -132,7 +128,7 @@ ProxyRange.prototype.positionHandle = function( x ) {
 };
 
 ProxyRange.prototype.resetHandlePosition = function() {
-  var x = ( this.value - this.min ) / ( this.max - this.min ) * ( this.width - ProxyRange.lineCap * 2 ) + ProxyRange.lineCap;
+  var x = ( this.value - this.min ) / this.normalizeRatio + ProxyRange.lineCap;
   this.positionHandle( x );
 };
 
