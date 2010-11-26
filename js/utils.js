@@ -20,13 +20,13 @@ Element.prototype.toggleClassName = function (a) {
 };
 
 
-// ======================= slider =============================== //
+// ======================= DDD mini framework =============================== //
 
-var Tangibles = {};
-Tangibles.isTangible = !!('createTouch' in document);
-Tangibles.CursorStartEvent = Tangibles.isTangible ? 'touchstart' : 'mousedown';
-Tangibles.CursorMoveEvent = Tangibles.isTangible ? 'touchmove' : 'mousemove';
-Tangibles.CursorEndEvent = Tangibles.isTangible ? 'touchend' : 'mouseup';
+var DDD = {};
+DDD.isTangible = !!('createTouch' in document);
+DDD.CursorStartEvent = DDD.isTangible ? 'touchstart' : 'mousedown';
+DDD.CursorMoveEvent = DDD.isTangible ? 'touchmove' : 'mousemove';
+DDD.CursorEndEvent = DDD.isTangible ? 'touchend' : 'mouseup';
 
 function EventHandler () {}
 
@@ -48,15 +48,15 @@ function ProxyRange ( el, input ) {
   
   this.x = this.element.offsetLeft;
   
-  this.element.addEventListener( Tangibles.CursorStartEvent, this, false );
-  this.slider.addEventListener( Tangibles.CursorStartEvent, this, false );
+  this.element.addEventListener( DDD.CursorStartEvent, this, false );
+  this.slider.addEventListener( DDD.CursorStartEvent, this, false );
   
 };
 
 ProxyRange.prototype = new EventHandler();
 
 ProxyRange.prototype.moveSlider = function( event ) {
-  var cursor = Tangibles.isTangible ? event.touches[0] : event,
+  var cursor = DDD.isTangible ? event.touches[0] : event,
       x = cursor.pageX - this.x;
   x = Math.max( 0, Math.min( this.width, x ) );
   
@@ -70,30 +70,30 @@ ProxyRange.prototype.moveSlider = function( event ) {
   this.input.dispatchEvent( evt );
 }
 
-ProxyRange.prototype[ Tangibles.CursorStartEvent ] = function( event ) {
+ProxyRange.prototype[ DDD.CursorStartEvent ] = function( event ) {
   this.element.addClassName('highlighted');
   
   this.moveSlider( event );
   
-  window.addEventListener( Tangibles.CursorMoveEvent, this, false );
-  window.addEventListener( Tangibles.CursorEndEvent, this, false );
+  window.addEventListener( DDD.CursorMoveEvent, this, false );
+  window.addEventListener( DDD.CursorEndEvent, this, false );
   
   event.preventDefault();
 };
 
-ProxyRange.prototype[ Tangibles.CursorMoveEvent ] = function( event ) {
+ProxyRange.prototype[ DDD.CursorMoveEvent ] = function( event ) {
   
   this.moveSlider( event );
   
   event.preventDefault();
 };
 
-ProxyRange.prototype[ Tangibles.CursorEndEvent ] = function( event ) {
+ProxyRange.prototype[ DDD.CursorEndEvent ] = function( event ) {
   
   this.element.removeClassName('highlighted');
   
-  window.removeEventListener( Tangibles.CursorMoveEvent, this, false );
-  window.removeEventListener( Tangibles.CursorEndEvent, this, false );
+  window.removeEventListener( DDD.CursorMoveEvent, this, false );
+  window.removeEventListener( DDD.CursorEndEvent, this, false );
 };
 
 
