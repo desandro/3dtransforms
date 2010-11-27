@@ -126,12 +126,15 @@ DDD.ProxyRange.prototype.moveHandle = function( event ) {
   
   this.value = Math.round( ( x - DDD.ProxyRange.lineCap ) * this.normalizeRatio + this.min );
   
-  this.input.value = this.value;
-  
-  // trigger change event
-  var evt = document.createEvent("Event");
-  evt.initEvent("change", true, true);
-  this.input.dispatchEvent( evt );
+  if ( this.input.value != this.value ) {
+    this.input.value = this.value;
+
+    // trigger change event
+    var evt = document.createEvent("Event");
+    evt.initEvent("change", true, true);
+    this.input.dispatchEvent( evt );
+  }
+
 };
 
 DDD.ProxyRange.prototype.positionHandle = function( x ) {
