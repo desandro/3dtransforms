@@ -54,7 +54,13 @@ DDD.RangeDisplay = function ( range ) {
   this.range = range;
   this.output = document.createElement('span');
   this.output.addClassName('range-display');
-  this.output.textContent = this.range.value;
+  
+  
+  this.units = this.range.getAttribute('data-units') || '';
+  
+  // this.output.textContent = this.range.value;
+  this.change();
+  
   
   this.range.parentNode.appendChild( this.output );
   
@@ -64,7 +70,7 @@ DDD.RangeDisplay = function ( range ) {
 DDD.RangeDisplay.prototype = new DDD.EventHandler();
 
 DDD.RangeDisplay.prototype.change = function( event ) {
-  this.output.textContent = this.range.value;
+  this.output.textContent = this.range.value + this.units;
 };
 
 
