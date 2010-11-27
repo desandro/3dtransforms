@@ -2,35 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- disable zooming -->
+  <meta name="viewport" content=" initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+  
   <title>01-cube</title>
+
+  <link rel="stylesheet" href="css/style.css" media="screen" />
 
   <style media="screen">
     
-    section {
-      display: block;
-    }
-    
-    body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-    }
-    
-    #box-container {
-      margin: 0 auto;
-      width: 200px;
-      height: 200px;
-      border: 1px solid #CCC;
+    .container {
       -webkit-perspective: 1200;
+      margin: 0 auto 40px;
     }
     
-    #box {
+    #cube {
       height: 100%;
       -webkit-transform-style: preserve-3d;
       -webkit-transform: translateZ(-100px);
       -webkit-transition: -webkit-transform 1s;
     }
     
-    #box div {
+    #cube figure {
+      display: block;
       width: 196px;
       height: 196px;
       border: 2px solid #000;
@@ -42,48 +36,48 @@
       position: absolute;
     }
     
-    #box.panels-backface-invisible div {
+    #cube.panels-backface-invisible figure {
       -webkit-backface-visibility: hidden;
     }
     
     /* front and back */
     
-    #box div:nth-child(1) { 
+    #cube figure:nth-child(1) { 
       background: hsla( 000, 100%, 50%, 0.7 ); 
       -webkit-transform: translateZ(100px);
     }
-    #box.show-1 { -webkit-transform: translateZ(-100px); }
+    #cube.show-1 { -webkit-transform: translateZ(-100px); }
 
-    #box div:nth-child(2) { 
+    #cube figure:nth-child(2) { 
       background: hsla( 060, 100%, 50%, 0.7 ); 
       -webkit-transform: rotateX( -180deg) translateZ(100px);
     }
-    #box.show-2 { -webkit-transform: translateZ(-100px) rotateX( 180deg); }
+    #cube.show-2 { -webkit-transform: translateZ(-100px) rotateX( 180deg); }
 
-    #box div:nth-child(3) { 
+    #cube figure:nth-child(3) { 
       background: hsla( 120, 100%, 50%, 0.7 ); 
       -webkit-transform: rotateY( 90deg) translateZ(100px) ;
     }
-    #box.show-3 { -webkit-transform: translateZ(-100px) rotateY(-90deg); }
+    #cube.show-3 { -webkit-transform: translateZ(-100px) rotateY(-90deg); }
     
-    #box div:nth-child(4) { 
+    #cube figure:nth-child(4) { 
       background: hsla( 180, 100%, 50%, 0.7 ); 
       -webkit-transform: rotateY( -90deg) translateZ(100px);
     }
-    #box.show-4 { -webkit-transform: translateZ(-100px) rotateY(90deg); }
+    #cube.show-4 { -webkit-transform: translateZ(-100px) rotateY(90deg); }
 
-    #box div:nth-child(5) { 
+    #cube figure:nth-child(5) { 
       background: hsla( 240, 100%, 50%, 0.7 ); 
       -webkit-transform: rotateX( 90deg) translateZ(100px) ;
     }
-    #box.show-5 { -webkit-transform: translateZ(-100px) rotateX(-90deg); }    
+    #cube.show-5 { -webkit-transform: translateZ(-100px) rotateX(-90deg); }    
 
 
-    #box div:nth-child(6) { 
+    #cube figure:nth-child(6) { 
       background: hsla( 300, 100%, 50%, 0.7 ); 
       -webkit-transform: rotateX( -90deg) translateZ(100px) ;
     }
-    #box.show-6 { -webkit-transform: translateZ(-100px) rotateX( 90deg); }    
+    #cube.show-6 { -webkit-transform: translateZ(-100px) rotateX( 90deg); }    
     
 
     
@@ -94,31 +88,31 @@
 
   <h1>01-cube</h1>
 
-  <div id="box-container">
-    <div id="box">
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
-      <div>5</div>
-      <div>6</div>
+  <div class="container">
+    <div id="cube" class="show-1">
+      <figure>1</figure>
+      <figure>2</figure>
+      <figure>3</figure>
+      <figure>4</figure>
+      <figure>5</figure>
+      <figure>6</figure>
     </div>
   </div>
   
   <section id="options">
     
-    <div id="show-buttons">
+    <p id="show-buttons">
       <button class="show-1">Show 1</button>
       <button class="show-2">Show 2</button>
       <button class="show-3">Show 3</button>
       <button class="show-4">Show 4</button>
       <button class="show-5">Show 5</button>
       <button class="show-6">Show 6</button>
-    </div>
+    </p>
 
-    <div>
+    <p>
       <button id="toggle-backface-visibility">Toggle Backface Visibility</button>
-    </div>
+    </p>
     
 
   </section>
@@ -126,20 +120,20 @@
   <script src="js/utils.js"></script>
   <script>
     var init = function() {
-      var box = document.getElementById('box'),
+      var cube = document.getElementById('cube'),
           showPanelButtons = document.querySelectorAll('#show-buttons button'),
           panelClassName = 'show-1';
 
       for (var i=0, len = showPanelButtons.length; i < len; i++) {
         showPanelButtons[i].addEventListener( 'click', function( event ){
-          box.removeClassName( panelClassName );
+          cube.removeClassName( panelClassName );
           panelClassName = event.target.className;
-          box.addClassName( panelClassName );
+          cube.addClassName( panelClassName );
         }, false);
       }
       
       document.getElementById('toggle-backface-visibility').addEventListener( 'click', function(){
-        box.toggleClassName('panels-backface-invisible');
+        cube.toggleClassName('panels-backface-invisible');
       }, false);
       
     };
