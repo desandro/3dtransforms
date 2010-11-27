@@ -13,6 +13,16 @@ body {
   margin-bottom: 40px;
 }
 
+#options {
+  position: relative;
+  z-index: 100;
+}
+
+button {
+  font-size: 16px;
+  -webkit-appearance: push-button;
+}
+
 /* proxy range */
 
     .proxy-range {

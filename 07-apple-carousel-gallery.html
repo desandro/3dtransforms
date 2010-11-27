@@ -9,14 +9,6 @@
 
     <style media="screen">
 
-      section {
-        display: block;
-      }
-
-      body {
-        font-family: 'Helvetica Neue', Arial, sans-serif;
-      }
-
       #carousel-container {
         margin: 0 auto 40px;
         width: 210px;
@@ -70,18 +62,6 @@
 
   <h1>07-apple-carousel-gallery</h1>
   
-  <div id="form">
-    <p class="panel-count">
-      <input type="range" id="panel-count" value="9" min="3" max="20" />
-    </p>
-    <p>
-      <button id="modify-carousel">Modify Carousel</button>
-    </p>
-    <p>
-      <button id="toggle-axis">Toggle Carousel Axis</button>
-    </p>
-  </div>
-
   <section id="carousel-container">
     <div id="carousel">
       <figure>1</figure>
@@ -107,14 +87,29 @@
     </div>
   </section>
   
-  <div id="navigation">
-    <button id="previous" data-increment="1">Previous</button>
-    <button id="next" data-increment="-1">Next</button>
-  </div>
+  <section id="options">
+    <p>
+      <input type="range" id="panel-count" value="9" min="3" max="20" />
+    </p>
+
+    <p>
+      <button id="toggle-axis">Toggle Carousel Axis</button>
+    </p>
+    
+    <p id="navigation">
+      <button id="previous" data-increment="1">Previous</button>
+      <button id="next" data-increment="-1">Next</button>
+    </p>
+    
+    <p>
+      <button id="toggle-backface-visibility">Toggle Backface Visibility</button>
+    </p>
+    
+  </section>
   
-  <div>
-    <button id="toggle-backface-visibility">Toggle Backface Visibility</button>
-  </div>
+
+  
+
   
   <script src="js/utils.js"></script>
   <script>
@@ -177,31 +172,24 @@
       
       
       var carousel = new Carousel3D( document.getElementById('carousel') ),
-          modifyButton = document.getElementById('modify-carousel'),
           panelCountInput = document.getElementById('panel-count'),
-          horizontalInput = document.getElementById('horizontal'),
           axisButton = document.getElementById('toggle-axis'),
-          navButtons = document.querySelectorAll('#navigation button'),
-          
-          populateCarousel = function(){
-            carousel.panelCount = parseInt( panelCountInput.value, 10),
-            carousel.modify();
-          };
+          navButtons = document.querySelectorAll('#navigation button');
 
       // populate on startup
-      populateCarousel();
+      carousel.panelCount = parseInt( panelCountInput.value, 10);
+      carousel.modify();
 
-      // populate
-      modifyButton.addEventListener( 'click', populateCarousel, false);
 
       axisButton.addEventListener( 'click', function(){
         carousel.isHorizontal = !carousel.isHorizontal;
         carousel.modify();
       }, false);
       
-      // panelCountInput.addEventListener( 'change', function(){
-      //   console.log( event.target.value );
-      // }, false)
+      panelCountInput.addEventListener( 'change', function(){
+        carousel.panelCount = event.target.value;
+        carousel.modify();
+      }, false);
 
       for (var i=0, len = navButtons.length; i < 2; i++) {
         navButtons[i].addEventListener( 'click', function( event ){
