@@ -50,11 +50,42 @@ Direct descendants of 3D parents will inherit their parents perspective. But gra
 
 By default, the vanishing point for a 3D space is positioned at the center. You can change the position of the vanishing point with @perspetive-origin@ property.
 
-bc. 
+bc. -webkit-perspective-origin: 25% 75%
+
+"*See Example 5.*":05-perspective.html
 
 h3. The 3D Space
 
-With a 3D space initialized, you can now get cracking transforming elements in all 3 glorious 
+With a 3D space initialized, you can now get cracking transforming elements in all 3 glorious dimensions. As a web designer, you'll probably well-acquainted with working in 2 dimensions, X and Y, for positioning items horizontally and vertically. 3D transforms enable you to position elements in the third Z dimension, which positions elements nearer and farther in 3D space. 
+
+3D transforms use the same @transform@ property used for 2D transforms. 
+
+In addition to @perspective()@, these are the basic "transform functions":http://www.w3.org/TR/css3-3d-transforms/#transform-functions you'll need to get acquainted with:
+
+* @rotateX( _angle_ )@ 
+* @rotateY( _angle_ )@
+* @rotateZ( _angle_ )@
+
+The rotate functions will rotate the element around the corresponding axis. Using @rotateX@ will rotate around the horizontal X axis
+
+* @translateZ( _tz_ )@
+* @scaleZ( _sz_ )@
+
+
+
+There's also several functions that use several dimensional values:
+
+* @translate3d( _tx_, _ty_, _tz_ )@
+* @scale3d( _sx_, _sy_, _sz_ )@
+* @rotate3d( _rx_, _ry_, _rz_, _angle_ )@
+
+For the sake of brevity
+
+
+
+
+
+%% Add quote from Dean Jackson %%
 
 
 `backface-visibility`
