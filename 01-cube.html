@@ -16,14 +16,14 @@
       margin: 0 auto 40px;
     }
     
-    #cube {
+    #box {
       height: 100%;
       -webkit-transform-style: preserve-3d;
       -webkit-transform: translateZ(-100px);
       -webkit-transition: -webkit-transform 1s;
     }
     
-    #cube figure {
+    #box figure {
       display: block;
       width: 196px;
       height: 196px;
@@ -36,48 +36,48 @@
       position: absolute;
     }
     
-    #cube.panels-backface-invisible figure {
+    #box.panels-backface-invisible figure {
       -webkit-backface-visibility: hidden;
     }
     
     /* front and back */
     
-    #cube figure:nth-child(1) { 
+    #box figure:nth-child(1) { 
       background: hsla( 000, 100%, 50%, 0.7 ); 
       -webkit-transform: translateZ(100px);
     }
-    #cube.show-1 { -webkit-transform: translateZ(-100px); }
+    #box.show-1 { -webkit-transform: translateZ(-100px); }
 
-    #cube figure:nth-child(2) { 
+    #box figure:nth-child(2) { 
       background: hsla( 060, 100%, 50%, 0.7 ); 
       -webkit-transform: rotateX( -180deg) translateZ(100px);
     }
-    #cube.show-2 { -webkit-transform: translateZ(-100px) rotateX( 180deg); }
+    #box.show-2 { -webkit-transform: translateZ(-100px) rotateX( 180deg); }
 
-    #cube figure:nth-child(3) { 
+    #box figure:nth-child(3) { 
       background: hsla( 120, 100%, 50%, 0.7 ); 
       -webkit-transform: rotateY( 90deg) translateZ(100px) ;
     }
-    #cube.show-3 { -webkit-transform: translateZ(-100px) rotateY(-90deg); }
+    #box.show-3 { -webkit-transform: translateZ(-100px) rotateY(-90deg); }
     
-    #cube figure:nth-child(4) { 
+    #box figure:nth-child(4) { 
       background: hsla( 180, 100%, 50%, 0.7 ); 
       -webkit-transform: rotateY( -90deg) translateZ(100px);
     }
-    #cube.show-4 { -webkit-transform: translateZ(-100px) rotateY(90deg); }
+    #box.show-4 { -webkit-transform: translateZ(-100px) rotateY(90deg); }
 
-    #cube figure:nth-child(5) { 
+    #box figure:nth-child(5) { 
       background: hsla( 240, 100%, 50%, 0.7 ); 
       -webkit-transform: rotateX( 90deg) translateZ(100px) ;
     }
-    #cube.show-5 { -webkit-transform: translateZ(-100px) rotateX(-90deg); }    
+    #box.show-5 { -webkit-transform: translateZ(-100px) rotateX(-90deg); }    
 
 
-    #cube figure:nth-child(6) { 
+    #box figure:nth-child(6) { 
       background: hsla( 300, 100%, 50%, 0.7 ); 
       -webkit-transform: rotateX( -90deg) translateZ(100px) ;
     }
-    #cube.show-6 { -webkit-transform: translateZ(-100px) rotateX( 90deg); }    
+    #box.show-6 { -webkit-transform: translateZ(-100px) rotateX( 90deg); }    
     
 
     
@@ -89,7 +89,7 @@
   <h1>01-cube</h1>
 
   <div class="container">
-    <div id="cube" class="show-1">
+    <div id="box" class="show-1">
       <figure>1</figure>
       <figure>2</figure>
       <figure>3</figure>
@@ -118,28 +118,7 @@
   </section>
   
   <script src="js/utils.js"></script>
-  <script>
-    var init = function() {
-      var cube = document.getElementById('cube'),
-          showPanelButtons = document.querySelectorAll('#show-buttons button'),
-          panelClassName = 'show-1';
-
-      for (var i=0, len = showPanelButtons.length; i < len; i++) {
-        showPanelButtons[i].addEventListener( 'click', function( event ){
-          cube.removeClassName( panelClassName );
-          panelClassName = event.target.className;
-          cube.addClassName( panelClassName );
-        }, false);
-      }
-      
-      document.getElementById('toggle-backface-visibility').addEventListener( 'click', function(){
-        cube.toggleClassName('panels-backface-invisible');
-      }, false);
-      
-    };
-      
-    window.addEventListener( 'DOMContentLoaded', init, false);
-  </script>
+  <script src="js/rotate-box.js"></script>
 
 </body>
 </html>
