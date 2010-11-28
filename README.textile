@@ -100,5 +100,5 @@ bq. In essence, any transform that has a 3D operation as one of its functions wi
 
 
 
-Looking at this demo, note that no matter how small the perspective value is, or where ever the transform origin is, the 1 panel always returns to its original position, as if it were not a part of a rotating 3D cube. 
+Looking at this %demo%, note that no matter how small the perspective value is, or where ever the transform origin is, the 1 panel always returns to its original position, as if it were not a part of a rotating 3D cube. 
 

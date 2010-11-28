@@ -2,20 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- disable zooming -->
+  <meta name="viewport" content=" initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+  
   <title>02-box</title>
+
+  <link rel="stylesheet" href="css/style.css" media="screen" />
 
   <style media="screen">
     
-    body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-    }
-    
-    #box-container {
-      margin: 0 auto;
+    .container {
+      margin: 0 auto 40px;
       width: 300px;
       height: 200px;
-      border: 1px solid #CCC;
       -webkit-perspective: 1200;
     }
     
@@ -24,12 +23,6 @@
       height: 100%;
       -webkit-transform-style: preserve-3d;
       -webkit-transition: -webkit-transform 1s;
-
-
-/*      display: -webkit-box;
-      -webkit-box-orient: horizontal;
-      -webkit-box-align: center;
-      -webkit-box-pack: center;*/
     }
 
     #box.panels-backface-invisible div {
@@ -38,7 +31,8 @@
 
     
     
-    #box div {
+    #box figure {
+      display: block;
       border: 1px solid;
       line-height: 98px;
       font-size: 80px;
@@ -50,47 +44,47 @@
     
 
     /* front and back */
-    #box div:nth-child(1),
-    #box div:nth-child(2) {
+    #box figure:nth-child(1),
+    #box figure:nth-child(2) {
       width: 298px;
       height: 198px;
     }
 
     /* sides */
-    #box div:nth-child(3),
-    #box div:nth-child(4) {
+    #box figure:nth-child(3),
+    #box figure:nth-child(4) {
       width: 98px;
       height: 198px;
     }
 
     /* top and bottom */
-    #box div:nth-child(5),
-    #box div:nth-child(6) {
+    #box figure:nth-child(5),
+    #box figure:nth-child(6) {
       width: 298px;
       height: 98px;
     }
 
     
-    #box div:nth-child(1) { 
+    #box figure:nth-child(1) { 
       background: hsla( 000, 100%, 50%, 0.7 );
       -webkit-transform: translateZ(50px);
     }
     #box.show-1 { -webkit-transform: translateZ(-50px); }
 
-    #box div:nth-child(2) { 
+    #box figure:nth-child(2) { 
       background: hsla( 180, 100%, 50%, 0.7 );
       -webkit-transform:  rotateX( 180deg) translateZ(50px);
     }
     #box.show-2 { -webkit-transform: translateZ(-50px) rotateX(-180deg); }
 
 
-    #box div:nth-child(3) { 
+    #box figure:nth-child(3) { 
       background: hsla( 120, 100%, 50%, 0.7 );
       -webkit-transform: rotateY( 90deg) translateZ(250px) ;
     }
     #box.show-3 { -webkit-transform: translateZ(-150px) rotateY(-90deg); }
 
-    #box div:nth-child(4) { 
+    #box figure:nth-child(4) { 
       background: hsla( 060, 100%, 50%, 0.7 );
       -webkit-transform:  rotateY( -90deg)  translateZ(50px);
     }
@@ -99,14 +93,14 @@
     
 
 
-    #box div:nth-child(5) { 
+    #box figure:nth-child(5) { 
       background: hsla( 240, 100%, 50%, 0.7 );
       -webkit-transform: rotateX( 90deg) translateZ(50px) ;
     }
     #box.show-5 { -webkit-transform: translateZ(-100px) rotateX(-90deg); }    
 
 
-    #box div:nth-child(6) { 
+    #box figure:nth-child(6) { 
       background: hsla( 300, 100%, 50%, 0.7 );
       -webkit-transform: rotateX( -90deg) translateZ(150px) ;
     }
@@ -121,14 +115,14 @@
 
   <h1>01-cube</h1>
 
-  <div id="box-container">
+  <div class="container">
     <div id="box" class="show-1">
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
-      <div>5</div>
-      <div>6</div>
+      <figure>1</figure>
+      <figure>2</figure>
+      <figure>3</figure>
+      <figure>4</figure>
+      <figure>5</figure>
+      <figure>6</figure>
     </div>
   </div>
   
