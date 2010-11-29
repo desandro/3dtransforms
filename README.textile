@@ -171,6 +171,83 @@ bc. .card.flipped {
 
 h2. 3D objects
 
+3D cards are a nice easy step into working with 3D dimensions. But once you've mastered them, you'll be hungry to push it further and create some true 3D objects: prisms. We'll get started by making a cube.
+
+The markup for the cube is similar to the cube. This time we need 6 child elements for all 6 faces of the cube.
+
+bc. <section class="container">
+  <div class="box">
+    <figure>1</figure>
+    <figure>2</figure>
+    <figure>3</figure>
+    <figure>4</figure>
+    <figure>5</figure>
+    <figure>6</figure>
+  </div>
+</section>
+
+Basic position and size styles set the 6 faces flat, right on top of one another in the container.
+
+bc. .container {
+  width: 200px;
+  height: 200px;
+  -webkit-perspective: 1000;
+}
+#box {
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+}
+#box figure {
+  width: 196px;
+  height: 196px;
+  display: block;
+  position: absolute;
+  border: 2px solid black;
+}
+
+With the card, we only had to rotate the back side, the cube, however, requires that 5 of the 6 faces need to be rotated. Faces 1 and 2 will be the front and back. Faces 3 and 4 will be the sides. Faces 5 and 6 will be the top and bottom.
+
+bc. #box figure:nth-child(1) { -webkit-transform: none; }
+#box figure:nth-child(2) { -webkit-transform: rotateX( 180deg ); }
+#box figure:nth-child(3) { -webkit-transform: rotateY( 90deg ); }
+#box figure:nth-child(4) { -webkit-transform: rotateY( -90deg ); }
+#box figure:nth-child(5) { -webkit-transform: rotateX( 90deg ); }
+#box figure:nth-child(6) { -webkit-transform: rotateX( -90deg ); }
+
+Now each face is rotated, and only the front face is visible. The 4 side faces are all perpendicular to the viewer, so they appear invisible. To push them out to their appropriate sides, they need to be translated out from the center of their positions. Each side of the cube is 200px wide. As the faces are in the center, they'll need to be translated out half that distance, 100px.
+
+#box figure:nth-child(1) { -webkit-transform: translateZ( 100px ); }
+#box figure:nth-child(2) { -webkit-transform: rotateX( 180deg ) translateZ( 100px ); }
+#box figure:nth-child(3) { -webkit-transform: rotateY( 90deg ) translateZ( 100px ); }
+#box figure:nth-child(4) { -webkit-transform: rotateY( -90deg ) translateZ( 100px ); }
+#box figure:nth-child(5) { -webkit-transform: rotateX( 90deg ) translateZ( 100px ); }
+#box figure:nth-child(6) { -webkit-transform: rotateX( -90deg ) translateZ( 100px ); }
+
+Note here that the @translateZ@ function comes _after_ the @rotate@. Take a moment and soak this in. Each face is first rotated towards its position, then translated out to that position.
+
+Now we have a 3D object. Neat! But we're not done yet.
+
+Once we start pushing elements out of the Z origin plane, all sorts of fun things happen to its appearance. In order to keep 3D transforms snappy, Safari composites the element then applies the transform. Consequently, anti-aliasing on text will remain whatever it was without the transform. When transformed forward in 3D space, serious pixelation can occur.
+
+"*See Example 8*":08-pixelation.html
+
+To resolve this issue, we can push back the box, so that the front face will be positioned back at the Z origin.
+
+bc. .box { -webkit-transform: translateZ( -100px ); }
+
+"*See Example 20*":20-cube-steps.html
+
+To expose any face of the cube, we'll need a style that rotates the cube to expose any face. As the object is a cube, the transform is the opposite of the transform of the corresponding face. We toggle the necessary class on the @#box@ to apply the appropriate transform.
+
+bc. #box.show-1 { -webkit-transform: translateZ(-100px); }
+#box.show-2 { -webkit-transform: translateZ(-100px) rotateX( -180deg); }
+#box.show-3 { -webkit-transform: translateZ(-100px) rotateY(-90deg); }
+#box.show-4 { -webkit-transform: translateZ(-100px) rotateY(90deg); }
+#box.show-5 { -webkit-transform: translateZ(-100px) rotateX(-90deg); }    
+#box.show-6 { -webkit-transform: translateZ(-100px) rotateX( 90deg); }
+
+"*See Example 1*":01-cube.html
+
 
 h3. Cube
 

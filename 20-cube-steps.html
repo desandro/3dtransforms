@@ -16,15 +16,15 @@
       height: 200px;
       margin: 0 auto 40px;
       border: 1px solid #CCC;
-      -webkit-perspective: 800;
+      -webkit-perspective: 1000;
     }
     
-    .box {
+    #box {
       height: 100%;
       -webkit-transform-style: preserve-3d;
     }
     
-    .box figure {
+    #box figure {
       width: 196px;
       height: 196px;
       display: block;
@@ -37,39 +37,39 @@
       text-align: center;
     }
     
-    .box,
-    .box figure {
+    #box,
+    #box figure {
       -webkit-transition: -webkit-transform 1s;
     }
     
-    .box figure:nth-child(1) { background: hsla( 000, 100%, 50%, 0.7 ); }
-    .box figure:nth-child(2) { background: hsla( 060, 100%, 50%, 0.7 ); }
-    .box figure:nth-child(3) { background: hsla( 120, 100%, 50%, 0.7 ); }
-    .box figure:nth-child(4) { background: hsla( 180, 100%, 50%, 0.7 ); }
-    .box figure:nth-child(5) { background: hsla( 240, 100%, 50%, 0.7 ); }
-    .box figure:nth-child(6) { background: hsla( 300, 100%, 50%, 0.7 ); }
+    #box figure:nth-child(1) { background: hsla( 000, 100%, 50%, 0.5 ); }
+    #box figure:nth-child(2) { background: hsla( 060, 100%, 50%, 0.5 ); }
+    #box figure:nth-child(3) { background: hsla( 120, 100%, 50%, 0.5 ); }
+    #box figure:nth-child(4) { background: hsla( 180, 100%, 50%, 0.5 ); }
+    #box figure:nth-child(5) { background: hsla( 240, 100%, 50%, 0.5 ); }
+    #box figure:nth-child(6) { background: hsla( 300, 100%, 50%, 0.5 ); }
     
-    .step2 figure:nth-child(1) { -webkit-transform: none; }
-    .step2 figure:nth-child(2) { -webkit-transform: rotateX( 180deg ); }
-    .step2 figure:nth-child(3) { -webkit-transform: rotateY( 90deg ); }
-    .step2 figure:nth-child(4) { -webkit-transform: rotateY( -90deg ); }
-    .step2 figure:nth-child(5) { -webkit-transform: rotateX( 90deg ); }
-    .step2 figure:nth-child(6) { -webkit-transform: rotateX( -90deg ); }
+    .step2 #box figure:nth-child(1) { -webkit-transform: none; }
+    .step2 #box figure:nth-child(2) { -webkit-transform: rotateX( 180deg ); }
+    .step2 #box figure:nth-child(3) { -webkit-transform: rotateY( 90deg ); }
+    .step2 #box figure:nth-child(4) { -webkit-transform: rotateY( -90deg ); }
+    .step2 #box figure:nth-child(5) { -webkit-transform: rotateX( 90deg ); }
+    .step2 #box figure:nth-child(6) { -webkit-transform: rotateX( -90deg ); }
     
-    .step3 figure:nth-child(1),
-    .step4 figure:nth-child(1) { -webkit-transform: translateZ( 100px ); }
-    .step3 figure:nth-child(2),
-    .step4 figure:nth-child(2) { -webkit-transform: rotateX( 180deg ) translateZ( 100px ); }
-    .step3 figure:nth-child(3),
-    .step4 figure:nth-child(3) { -webkit-transform: rotateY( 90deg ) translateZ( 100px ); }
-    .step3 figure:nth-child(4),
-    .step4 figure:nth-child(4) { -webkit-transform: rotateY( -90deg ) translateZ( 100px ); }
-    .step3 figure:nth-child(5),
-    .step4 figure:nth-child(5) { -webkit-transform: rotateX( 90deg ) translateZ( 100px ); }
-    .step3 figure:nth-child(6),
-    .step4 figure:nth-child(6) { -webkit-transform: rotateX( -90deg ) translateZ( 100px ); }
+    .step3 #box figure:nth-child(1),
+    .step4 #box figure:nth-child(1) { -webkit-transform: translateZ( 100px ); }
+    .step3 #box figure:nth-child(2),
+    .step4 #box figure:nth-child(2) { -webkit-transform: rotateX( 180deg ) translateZ( 100px ); }
+    .step3 #box figure:nth-child(3),
+    .step4 #box figure:nth-child(3) { -webkit-transform: rotateY( 90deg ) translateZ( 100px ); }
+    .step3 #box figure:nth-child(4),
+    .step4 #box figure:nth-child(4) { -webkit-transform: rotateY( -90deg ) translateZ( 100px ); }
+    .step3 #box figure:nth-child(5),
+    .step4 #box figure:nth-child(5) { -webkit-transform: rotateX( 90deg ) translateZ( 100px ); }
+    .step3 #box figure:nth-child(6),
+    .step4 #box figure:nth-child(6) { -webkit-transform: rotateX( -90deg ) translateZ( 100px ); }
     
-    .step4 .box { -webkit-transform: translateZ( -100px ); }
+    .step4 #box { -webkit-transform: translateZ( -100px ); }
     
   </style>
 
@@ -79,7 +79,7 @@
   <h1>20-cube-steps</h1>
   
   <section class="container step1">
-    <div class="box">
+    <div id="box">
       <figure>1</figure>
       <figure>2</figure>
       <figure>3</figure>

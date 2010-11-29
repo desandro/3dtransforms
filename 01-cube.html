@@ -14,29 +14,28 @@
     .container {
       width: 200px;
       height: 200px;
-      border: 1px solid #CCC;
       margin: 0 auto 40px;
-      -webkit-perspective: 1200;
+      border: 1px solid #CCC;
+      -webkit-perspective: 1000;
     }
     
     #box {
       height: 100%;
       -webkit-transform-style: preserve-3d;
-      -webkit-transform: translateZ(-100px);
       -webkit-transition: -webkit-transform 1s;
     }
     
     #box figure {
-      display: block;
       width: 196px;
       height: 196px;
-      border: 2px solid #000;
-      color: #FFF;
-      line-height: 196px;
-      font-size: 140px;
-      text-align: center;
-      font-weight: bold;
+      display: block;
       position: absolute;
+      border: 2px solid black;
+      line-height: 196px;
+      font-size: 120px;
+      font-weight: bold;
+      color: white;
+      text-align: center;
     }
     
     #box.panels-backface-invisible figure {
@@ -55,7 +54,7 @@
       background: hsla( 060, 100%, 50%, 0.7 ); 
       -webkit-transform: rotateX( -180deg) translateZ(100px);
     }
-    #box.show-2 { -webkit-transform: translateZ(-100px) rotateX( 180deg); }
+    #box.show-2 { -webkit-transform: translateZ(-100px) rotateX( -180deg); }
 
     #box figure:nth-child(3) { 
       background: hsla( 120, 100%, 50%, 0.7 ); 
@@ -74,7 +73,6 @@
       -webkit-transform: rotateX( 90deg) translateZ(100px) ;
     }
     #box.show-5 { -webkit-transform: translateZ(-100px) rotateX(-90deg); }    
-
 
     #box figure:nth-child(6) { 
       background: hsla( 300, 100%, 50%, 0.7 ); 
