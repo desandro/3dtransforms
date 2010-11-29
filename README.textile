@@ -1,16 +1,16 @@
 h3. About the author
 
-If the Web were a coloring book, David DeSandro would be the kid manically scribbling outside the lines of every page, whittling away his favorite crayons, HTML, CSS, and JavaScript, to wee nubs. By day, he creates engaging, dynamic interfaces at "nclud.":http://nclud.com By night, he makes "unique interactive articles":http://desandro.com, develops "sweet front-end dev resources":http://github.com/desandro, "journals his explorations":http://dropshado.ws in the uncharted waters of web design, and fights crime around Washington, DC.
+If the Web were a coloring book, David DeSandro would be the kid manically scribbling outside the lines of every page, whittling away his favorite crayons, HTML, CSS, and JavaScript, to wee nubs. By day, he creates engaging, dynamic interfaces at "nclud.":http://nclud.com By night, he makes "unique interactive articles":http://desandro.com, develops "sweet front-end dev resources":http://github.com/desandro, journals his "explorations in the uncharted waters of web design":http://dropshado.ws, and fights crime around Washington, DC.
 
 h2. Intro
 
-Ladies in gentlemen, it is the second decade of the second millenium and we are still kicking around the same 2D interface we got two decades ago in the original Mac. Sure, Apple debuted some 10.7 apps that added a couple more 3D flourishes, and Microsoft has had that "Flip 3D":http://windows.microsoft.com/en-US/windows-vista/Using-Windows-Flip-3D for a while. But c'mon, 2011 is in a couple weeks. We should be zipping around the Metaverse in super-sonic motorbikes , as Hiro Protagonist did in Neal Stephenson's _Snow Crash._ 
+Ladies and gentlemen, it is the second decade of the second millenium and we are still kicking around the same 2D interface we got two decades ago. Sure, Apple debuted some 10.7 apps that added a couple more 3D flourishes, and Microsoft has had that "Flip 3D":http://windows.microsoft.com/en-US/windows-vista/Using-Windows-Flip-3D for a while. But c'mon, 2011 is in a couple weeks. We should be zipping around the "Metaverse in super-sonic motorbikes":http://en.wikipedia.org/wiki/Snow_Crash.
 
-While the capability of rendering complex 3D environments has been present for years, the digital interfaces of today predominately exist in a two dimensional environment. Largely this is due to the constraints of the physical interfaces themselves. The monitor has width and height. The mouse moves left, right, up, down. Digital interfaces are ill equipped to interact with in three dimensions. After decades of development, even the biggest and best native software developers have only managed to dip their flattened toes in a pool of width, height, and _depth._  
+While the capability of rendering complex 3D environments has been present for years, the digital interfaces of today predominately exist in a two dimensional environment. Largely this is due to the constraints of the physical interfaces themselves. The monitor has width and height. The mouse moves left, right, up, down. Digital interfaces are ill-equipped to interact with the three spatial dimensions. After decades of development, even the biggest and best native software developers have only managed to dip their flattened toes in a pool of width, height, and _depth._  
 
 h2. Rationale
 
-While 3D transforms might be sexy and cool, we owe it to our users to ask what can they benefit from them. Take the "Snow Stack":http://www.satine.org/archives/2009/07/11/snow-stack-is-here/ demo. While visually engaging, I don't see any inherent utility of a completely 3D interface. The users interface is 2D. CSS was developed for 2D documents. Creating 3D environments, while it may be achievable, just doesn't make sense for our users.
+While 3D transforms might be sexy and cool, we owe it to our users to ask what can they benefit from them. Take the "Snow Stack":http://www.satine.org/archives/2009/07/11/snow-stack-is-here/ demo. Granted the experience is visually engaging, I don't see any inherent utility of a completely 3D interface. The users interface is 2D. CSS was developed for 2D documents. Creating 3D environments, while it may be achievable, just doesn't make sense for our users.
 
 The entire application does not have to take advantage of 3D, but there is plenty of opportunity to use 3D transforms _in between_ the interface, via transitions. Take for instance the Weather App on the iPhone. The application uses two views, a details view of the weather, and a editable view of options for selecting locations. Switching between these two views is done with a 3D flip transition. This affords the user that interface has but two views, and only two views, as the exist on two sides of the same plane.
 
@@ -24,15 +24,11 @@ h2. Current Support Environment
 
 With such limited support why bother at all? To begin with, the CSS 3D transforms spec was developed by the same team at Apple who produced the "CSS 2d transforms":http://www.w3.org/TR/css3-2d-transforms/ and "animation":http://www.w3.org/TR/css3-animations/ specifications.  Both of these specifications have been adopted by Mozilla and Opera. I'm willing to wager that the 3D spec will follow in suit.
 
-Of course, the third dimension isn't limited to just CSS. We could dive into the cabilities of 3D in Flash, canvas, three.js, or WebGL. But for the sake of brevity, I'll be limiting the scope of article to solely CSS 3D transforms.
+Of course, the third dimension isn't limited to just CSS. We could dive into the capabilities of 3D in Flash, canvas, three.js, or WebGL. But for the sake of brevity, I'll be limiting the scope of article to solely CSS 3D transforms.
 
 Given the sparse support for 3D transforms, you can choose to ignore them, or (with a "tip of the fedora to Mr. Andy Clarke":http://hardboiledwebdesign.com/ ) you can get hard-boiled and start designing with the best features out there.
 
-h2. Getting Started
-
-
-
-h3. Perspective
+h2. Perspective
 
 To activate 3D space, an element needs perspective.  This can be applied in two ways: using the @transform@ property, with the perspective as a functional notation.
 
@@ -66,7 +62,10 @@ h3. 3D transform functions
 
 As a web designer, you'll probably well-acquainted with working in 2 dimensions, X and Y, for positioning items horizontally and vertically. 3D transforms enable you to position elements in the third Z dimension, which positions elements nearer and farther in 3D space. 
 
-With a 3D space initialized, you can now get cracking transforming elements in all 3 glorious dimensions. 3D transforms use the same @transform@ property used for 2D transforms. If you're already familiar with 2D transforms, you'll find the basic "3D transform functions":http://www.w3.org/TR/css3-3d-transforms/#transform-functions fairly similar. Whereas @translateX()@ positions an element along the horizontal X axis, @translateX()@ positions it along the Z axis, which runs front to back in 3D space. Positive values position the element closer to the viewer, negative values further away.
+With a 3D space initialized, you can now get cracking transforming elements in all 3 glorious dimensions. 3D transforms use the same @transform@ property used for 2D transforms. If you're already familiar with 2D transforms, you'll find the basic "3D transform functions":http://www.w3.org/TR/css3-3d-transforms/#transform-functions fairly similar. 
+
+
+Whereas @translateX()@ positions an element along the horizontal X axis, @translateX()@ positions it along the Z axis, which runs front to back in 3D space. Positive values position the element closer to the viewer, negative values further away.
 
 The rotate functions will rotate the element around the corresponding axis. Using @rotateX( 45deg )@ will rotate around the horizontal X axis, so the top of the element will be angled back, and the bottom will be angled closer.
 
@@ -81,8 +80,6 @@ There's also several shorthand transform functions that require values for all t
 
 I'm skipping over @matrix3d()@, as this function is especially complex and requires comprehension of "transformation matrix.":http://www.w3.org/TR/SVG/coords.html#TransformMatrixDefined As I understand it, it's for robots, by robots. I've yet to wrap my head around it and haven't run into a scenario where I needed to (knock on wood).
 
-
-For the sake of brevity, 
 
 These @foo3d()@ transform functions also have the benefit of triggering hardware acceleration in Safari.  Dean Jackson, CSS 3D transform spec author and main WebKit dude, writes (by way of "Thomas Fuchs":http://mir.aculo.us/2010/08/05/html5-buzzwords-in-action/):
 
