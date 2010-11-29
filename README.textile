@@ -4,9 +4,9 @@ If the Web were a coloring book, David DeSandro would be the kid manically scrib
 
 h2. Intro
 
-Ladies and gentlemen, it is the second decade of the second millenium and we are still kicking around the same 2D interface we got two decades ago. Sure, Apple debuted some 10.7 apps that added a couple more 3D flourishes, and Microsoft has had that "Flip 3D":http://windows.microsoft.com/en-US/windows-vista/Using-Windows-Flip-3D for a while. But c'mon, 2011 is in a couple weeks. We should be zipping around the "Metaverse in super-sonic motorbikes":http://en.wikipedia.org/wiki/Snow_Crash.
+Ladies and gentlemen, it is the second decade of the second millenium and we are still kicking around the same 2D interface we got two decades ago. Sure, Apple debuted some 10.7 apps that added a couple more 3D flourishes, and Microsoft has had that "Flip 3D":http://windows.microsoft.com/en-US/windows-vista/Using-Windows-Flip-3D for a while. But c'mon, 2011 is in a couple weeks. Where is our 3D virtual reality? By now, we should be zipping around the "Metaverse in super-sonic motorbikes":http://en.wikipedia.org/wiki/Snow_Crash.
 
-While the capability of rendering complex 3D environments has been present for years, the digital interfaces of today predominately exist in a two dimensional environment. Largely this is due to the constraints of the physical interfaces themselves. The monitor has width and height. The mouse moves left, right, up, down. Digital interfaces are ill-equipped to interact with the three spatial dimensions. After decades of development, even the biggest and best native software developers have only managed to dip their flattened toes in a pool of width, height, and _depth._  
+While the capability of rendering complex 3D environments has been present for years, current digital interfaces predominately exist in a two dimensional environment. Largely this is due to the constraints of the physical equipment themselves. The monitor has width and height. The mouse moves left, right, up, down. Our users' interfaces are ill-equipped to interact with the three spatial dimensions. After decades of development, even the biggest and best native software developers have only managed to dip their flattened toes in a pool of width, height, and _depth._  
 
 h2. Rationale
 
@@ -90,7 +90,7 @@ I'm skipping over @matrix3d()@, as this function is especially complex and requi
 
 bq. In essence, any transform that has a 3D operation as one of its functions will trigger hardware compositing, even when the actual transform is 2D, or not doing anything at all (such as translate3d(0,0,0)). Note this is just current behaviour, and could change in the future (which is why we don’t document or encourage it). But it is very helpful in some situations and can significantly improve redraw performance.
 
-h2. Card flips
+h2. Card flip
 
 We now have all the tools to start making 3D objects. Let's get started with the basics, flipping a card. %%As mentioned above discussing the iPhone Weather app, using a card interface --do we need rationale here?--%%%
 
@@ -151,7 +151,24 @@ As this is a 3D transform, this element requires to exist in 3D space. The @.con
 
 Now we have a working 3D object. To flip the card, we can toggle the @flipped@ class. When @flipped@, the @.card@ will rotate 180 degress, thus exposing the @.back@ face.
 
-h3. 
+"*See Example 16.*":16-card.html
+
+h2. Slide flip
+
+Take another look at the Weather App 3D transition. You'll notice that it's not quite the same effect as the one produced in the previous demo. If you follow the right edge of the card, you'll find that it stays flush with the container. Instead of pivoting from the horizontal center, it pivots on that right edge. But the transition is not just a rotation. The edge moves from right to left. We can reproduce this transform with our original card flip demo, just by modifying a couple lines of CSS.
+
+The pivot point for the rotation occurs at the right side of the card. By default, the @transform-origin@ of an element is at its horizontal and vertical center (@50% 50%@ or @center center@). Let's change it to the right side:
+
+bc. .card { -webkit-transform-origin: right center; }
+
+That flip now needs some horizontal movement with @translateX@. We'll also set the rotation to @-180deg@ to it flips right side out.
+
+bc. .card.flipped {
+  -webkit-transform: translateX( -100% ) rotateY( -180deg );
+}
+
+"*See Example 17.*":17-slide-flip.html
+
 
 
 `transforming for returning to 0 on the z axis`
