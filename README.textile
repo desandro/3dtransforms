@@ -115,7 +115,7 @@ bc. .container {
 
 Now the @.card@ element can be transformed in 3D space, as its parent has @perspective@.  Let's add a CSS3 transition so users may see the transform take effect.
 
-bc. .card {
+bc. #card {
   height: 100%; /* inherits the container height */
   -webkit-transform-style: preserve-3d;
   -webkit-transition: -webkit-transform 1s;
@@ -123,13 +123,13 @@ bc. .card {
 
 Details on @transform-style@ to come. With the transition in place, we need a corresponding style for the @.card@ for when it is flipped.
 
-bc. .card.flipped {
+bc. #card.flipped {
   -webkit-transform: rotateY( 180deg );
 }
 
 To position the faces in 3D space, we'll need to reset their positions in 2D with @position: absolute@. In order to hide the back-side of the faces when they are faced away from the viewer, we use @backface-visibility: hidden@. 
 
-bc. .card figure {
+bc. #card figure {
   display: block;
   height: 100%;
   width: 100%;
@@ -139,10 +139,10 @@ bc. .card figure {
 
 To flip the back around, we add a basic 3d transform of @rotateY( 180deg )@. 
 
-bc. .card .front {
+bc. #card .front {
   background: red;
 }
-.card .back {
+#card .back {
   background: blue;
   -webkit-transform: rotateY( 180deg );
 }
@@ -159,11 +159,11 @@ Take another look at the Weather App 3D transition. You'll notice that it's not 
 
 The pivot point for the rotation occurs at the right side of the card. By default, the @transform-origin@ of an element is at its horizontal and vertical center (@50% 50%@ or @center center@). Let's change it to the right side:
 
-bc. .card { -webkit-transform-origin: right center; }
+bc. #card { -webkit-transform-origin: right center; }
 
 That flip now needs some horizontal movement with @translateX@. We'll also set the rotation to @-180deg@ to it flips right side out.
 
-bc. .card.flipped {
+bc. #card.flipped {
   -webkit-transform: translateX( -100% ) rotateY( -180deg );
 }
 
@@ -193,11 +193,12 @@ bc. .container {
   height: 200px;
   -webkit-perspective: 1000;
 }
-#box {
+#cube {
+  width: 100%;
   height: 100%;
   -webkit-transform-style: preserve-3d;
 }
-#box figure {
+#cube figure {
   width: 196px;
   height: 196px;
   display: block;
@@ -207,21 +208,21 @@ bc. .container {
 
 With the card, we only had to rotate the back side, the cube, however, requires that 5 of the 6 faces need to be rotated. Faces 1 and 2 will be the front and back. Faces 3 and 4 will be the sides. Faces 5 and 6 will be the top and bottom.
 
-bc. #box .front  { -webkit-transform: none; }
-#box .back   { -webkit-transform: rotateX( 180deg ); }
-#box .right  { -webkit-transform: rotateY(  90deg ); }
-#box .left   { -webkit-transform: rotateY( -90deg ); }
-#box .top    { -webkit-transform: rotateX(  90deg ); }
-#box .bottom { -webkit-transform: rotateX( -90deg ); }
+bc. #cube .front  { -webkit-transform: none; }
+#cube .back   { -webkit-transform: rotateX( 180deg ); }
+#cube .right  { -webkit-transform: rotateY(  90deg ); }
+#cube .left   { -webkit-transform: rotateY( -90deg ); }
+#cube .top    { -webkit-transform: rotateX(  90deg ); }
+#cube .bottom { -webkit-transform: rotateX( -90deg ); }
 
 Now each face is rotated, and only the front face is visible. The 4 side faces are all perpendicular to the viewer, so they appear invisible. To push them out to their appropriate sides, they need to be translated out from the center of their positions. Each side of the cube is 200px wide. As the faces are in the center, they'll need to be translated out half that distance, 100px.
 
-bc. #box .front  { -webkit-transform: translateZ( 100px ); }
-#box .back   { -webkit-transform: rotateX( 180deg ) translateZ( 100px ); }
-#box .right  { -webkit-transform: rotateY(  90deg ) translateZ( 100px ); }
-#box .left   { -webkit-transform: rotateY( -90deg ) translateZ( 100px ); }
-#box .top    { -webkit-transform: rotateX(  90deg ) translateZ( 100px ); }
-#box .bottom { -webkit-transform: rotateX( -90deg ) translateZ( 100px ); }
+bc. #cube .front  { -webkit-transform: translateZ( 100px ); }
+#cube .back   { -webkit-transform: rotateX( 180deg ) translateZ( 100px ); }
+#cube .right  { -webkit-transform: rotateY(  90deg ) translateZ( 100px ); }
+#cube .left   { -webkit-transform: rotateY( -90deg ) translateZ( 100px ); }
+#cube .top    { -webkit-transform: rotateX(  90deg ) translateZ( 100px ); }
+#cube .bottom { -webkit-transform: rotateX( -90deg ) translateZ( 100px ); }
 
 Note here that the @translateZ@ function comes _after_ the @rotate@. Take a moment and soak this in. Each face is first rotated towards its position, then translated out to that position.
 
@@ -259,6 +260,7 @@ bc. .container {
   -webkit-perspective: 1000;
 }
 #box {
+  width: 100%;
   height: 100%;
   -webkit-transform-style: preserve-3d;
 }
@@ -289,10 +291,9 @@ bc. #box figure {
   width: 296px;
   height: 96px;
   top: 50px;
-  line-height: 96px;
 }
 
-The smaller faces (left, right, top and bottom) need to be positioned in the center of the container. So the thinner faces, left and right, get positioned @left 100px@, The stouter top and bottom faces get positioned @top: 50px@.
+The smaller faces (left, right, top and bottom) need to be positioned in the center of the container. So the thinner left and right faces get positioned @left: 100px@, The stouter top and bottom faces get positioned @top: 50px@.
 
 Just like the cube, the faces need to be rotated and translated out. The rotate values all can remain the same, but for this rectangular prism, the translate values do differ. The front and back faces each are shifted out @50px@ since the box is 100px deep. Left and right faces translate is @150px@ for 300px width. Top and bottom panels go @100px@ for the 200px height.
 

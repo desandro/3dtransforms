@@ -19,16 +19,16 @@
       -webkit-perspective: 1000;
     }
     
-    #box {
+    #cube {
       height: 100%;
       -webkit-transform-style: preserve-3d;
     }
     
-    #box figure {
-      width: 196px;
-      height: 196px;
+    #cube figure {
       display: block;
       position: absolute;
+      width: 196px;
+      height: 196px;
       border: 2px solid black;
       line-height: 196px;
       font-size: 120px;
@@ -37,39 +37,39 @@
       text-align: center;
     }
     
-    #box,
-    #box figure {
+    #cube,
+    #cube figure {
       -webkit-transition: -webkit-transform 1s;
     }
     
-    #box .front { background: hsla( 000, 100%, 50%, 0.5 ); }
-    #box .back { background: hsla( 060, 100%, 50%, 0.5 ); }
-    #box .right { background: hsla( 120, 100%, 50%, 0.5 ); }
-    #box .left { background: hsla( 180, 100%, 50%, 0.5 ); }
-    #box .top { background: hsla( 240, 100%, 50%, 0.5 ); }
-    #box .bottom { background: hsla( 300, 100%, 50%, 0.5 ); }
+    #cube .front  { background: hsla(   0, 100%, 50%, 0.5 ); }
+    #cube .back   { background: hsla(  60, 100%, 50%, 0.5 ); }
+    #cube .right  { background: hsla( 120, 100%, 50%, 0.5 ); }
+    #cube .left   { background: hsla( 180, 100%, 50%, 0.5 ); }
+    #cube .top    { background: hsla( 240, 100%, 50%, 0.5 ); }
+    #cube .bottom { background: hsla( 300, 100%, 50%, 0.5 ); }
     
-    .step2 #box .front { -webkit-transform: none; }
-    .step2 #box .back { -webkit-transform: rotateX( 180deg ); }
-    .step2 #box .right { -webkit-transform: rotateY( 90deg ); }
-    .step2 #box .left { -webkit-transform: rotateY( -90deg ); }
-    .step2 #box .top { -webkit-transform: rotateX( 90deg ); }
-    .step2 #box .bottom { -webkit-transform: rotateX( -90deg ); }
+    .step2 #cube .front  { -webkit-transform: none; }
+    .step2 #cube .back   { -webkit-transform: rotateX( 180deg ); }
+    .step2 #cube .right  { -webkit-transform: rotateY(  90deg ); }
+    .step2 #cube .left   { -webkit-transform: rotateY( -90deg ); }
+    .step2 #cube .top    { -webkit-transform: rotateX(  90deg ); }
+    .step2 #cube .bottom { -webkit-transform: rotateX( -90deg ); }
     
-    .step3 #box .front,
-    .step4 #box .front { -webkit-transform: translateZ( 100px ); }
-    .step3 #box .back,
-    .step4 #box .back { -webkit-transform: rotateX( 180deg ) translateZ( 100px ); }
-    .step3 #box .right,
-    .step4 #box .right { -webkit-transform: rotateY( 90deg ) translateZ( 100px ); }
-    .step3 #box .left,
-    .step4 #box .left { -webkit-transform: rotateY( -90deg ) translateZ( 100px ); }
-    .step3 #box .top,
-    .step4 #box .top { -webkit-transform: rotateX( 90deg ) translateZ( 100px ); }
-    .step3 #box .bottom,
-    .step4 #box .bottom { -webkit-transform: rotateX( -90deg ) translateZ( 100px ); }
+    .step3 #cube .front,
+    .step4 #cube .front  { -webkit-transform: translateZ( 100px ); }
+    .step3 #cube .back,
+    .step4 #cube .back   { -webkit-transform: rotateX( 180deg ) translateZ( 100px ); }
+    .step3 #cube .right,
+    .step4 #cube .right  { -webkit-transform: rotateY(  90deg ) translateZ( 100px ); }
+    .step3 #cube .left,
+    .step4 #cube .left   { -webkit-transform: rotateY( -90deg ) translateZ( 100px ); }
+    .step3 #cube .top,
+    .step4 #cube .top    { -webkit-transform: rotateX(  90deg ) translateZ( 100px ); }
+    .step3 #cube .bottom,
+    .step4 #cube .bottom { -webkit-transform: rotateX( -90deg ) translateZ( 100px ); }
     
-    .step4 #box { -webkit-transform: translateZ( -100px ); }
+    .step4 #cube { -webkit-transform: translateZ( -100px ); }
     
   </style>
 
@@ -79,7 +79,7 @@
   <h1>20-cube-steps</h1>
   
   <section class="container step1">
-    <div id="box">
+    <div id="cube">
       <figure class="front">1</figure>
       <figure class="back">2</figure>
       <figure class="right">3</figure>
@@ -91,32 +91,15 @@
   
   <section id="options">
     <p>
-      <button class="step1">No transforms</button>
-      <button class="step2">Rotate faces</button>
-      <button class="step3">Rotate and translate faces</button>
-      <button class="step4">Translate box</button>
+      <button class="step1">1. No transforms</button>
+      <button class="step2">2. Rotate faces</button>
+      <button class="step3">3. Translate faces</button>
+      <button class="step4">4. Translate box</button>
     </p>
   </section>
   
   <script src="js/utils.js"></script>
-  <script>
-    var init = function() {
-      var container = document.querySelector('.container'),
-          buttons = document.querySelectorAll('#options button'),
-          containerClass = 'step1';
-          onButtonClick = function(event) {
-            container.removeClassName( containerClass );
-            containerClass = event.target.className;
-            container.addClassName( containerClass );
-          };
-      
-      for ( var i=0, len = buttons.length; i < len; i++ ) {
-        buttons[i].addEventListener( 'click', onButtonClick, false );
-      }
-      
-    };
-    window.addEventListener('DOMContentLoaded', init, false);
-  </script>
+  <script src="js/switch-steps.js"></script>
 
 </body>
 </html>

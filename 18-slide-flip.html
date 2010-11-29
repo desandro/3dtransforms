@@ -19,26 +19,26 @@
       -webkit-perspective: 800;
     }
     
-    .card {
+    #card {
       height: 100%;
       -webkit-transition: -webkit-transform 1s;
       -webkit-transform-style: preserve-3d;
       -webkit-transform-origin: right top;
     }
     
-    .card.h-flipped {
+    #card.h-flipped {
       -webkit-transform: translateX( -100% ) rotateY( -180deg );
     }
     
-    .card.v-flipped { 
+    #card.v-flipped { 
       -webkit-transform: translateY( 100% ) rotateX( -180deg ); 
     }
 
-    .card.h-flipped.v-flipped {
+    #card.h-flipped.v-flipped {
       -webkit-transform: translateX( -100% ) rotateY( -180deg ) translateY( 100% ) rotateX( 180deg );
     }
     
-    .card figure {
+    #card figure {
       display: block;
       height: 100%;
       width: 100%;
@@ -51,11 +51,11 @@
       -webkit-backface-visibility: hidden;
     }
     
-    .card .front {
+    #card .front {
       background: red;
     }
     
-    .card .back {
+    #card .back {
       background: blue;
       -webkit-transform: rotateY( 180deg );
     }
@@ -71,7 +71,7 @@
   <p>Click to flip</p>
 
   <section class="container">
-    <div class="card">
+    <div id="card">
       <figure class="front">1</figure>
       <figure class="back">2</figure>
     </div>
@@ -87,7 +87,7 @@
   <script src="js/utils.js"></script>
   <script>
     var init = function() {
-      var card = document.querySelector('.card'),
+      var card = document.getElementById('card'),
           flipIt = function(event) {
             className = event.target.id + 'ped';
             card.toggleClassName( className );

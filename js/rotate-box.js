@@ -1,5 +1,5 @@
 var init = function() {
-  var box = document.getElementById('box'),
+  var box = document.querySelector('.container').children[0],
       showPanelButtons = document.querySelectorAll('#show-buttons button'),
       panelClassName = 'show-front';
 

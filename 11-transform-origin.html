@@ -5,96 +5,86 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
   <title>11-transform-origin</title>
 
+  <link rel="stylesheet" href="css/style.css" media="screen" />
+
   <style media="screen">
     
-    body {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-    }
-    
-    #box-container {
-      margin: 0 auto 40px;
+    .container {
       width: 200px;
       height: 200px;
+      margin: 0 auto 40px;
       border: 1px solid #CCC;
       -webkit-perspective: 1200;
     }
-    
-    #box {
-      /*  height needs to be specified
-          so transform origin is in the vertical center of the box */
+  
+    #cube {
+      width: 100%;
       height: 100%;
       -webkit-transform-style: preserve-3d;
-      -webkit-transform: translateZ(-100px);
+      -webkit-transform: translateZ( -100px );
     }
 
-    #box.spinning {
+    #cube.spinning {
       -webkit-animation: spinCube 8s infinite ease-in-out;
     }
-    
+  
     @-webkit-keyframes spinCube {
-        0% { -webkit-transform: translateZ( -100px ) rotateX( 000deg ) rotateY( 000deg ); }
+        0% { -webkit-transform: translateZ( -100px ) rotateX(   0deg ) rotateY(   0deg ); }
       100% { -webkit-transform: translateZ( -100px ) rotateX( 360deg ) rotateY( 360deg ); }
     }
-    
-    #box div {
+  
+    #cube figure {
+      display: block;
+      position: absolute;
       width: 196px;
       height: 196px;
-      border: 2px solid #000;
-      color: hsla(0,0%,100%,1.0);
+      border: 2px solid black;
       line-height: 196px;
-      font-size: 140px;
-      text-align: center;
+      font-size: 120px;
       font-weight: bold;
-      /* absolute positioning so panels all occupy the same space 
-         before being transformed */
-      position: absolute;
-/*      -webkit-transform-style: preserve-3d;*/
-
+      color: white;
+      text-align: center;
     }
-    
-    #box.panels-backface-invisible div {
+  
+    #cube.panels-backface-invisible figure {
       -webkit-backface-visibility: hidden;
     }
-    
-    /* front and back */
-    
-    #box div:nth-child(1) { 
-      background: hsla( 000, 100%, 50%, 0.7 );
-      -webkit-transform: translateZ(100px);
-    }
+  
+    #cube .front  { background: hsla(   0, 100%, 50%, 0.7 ); }
+    #cube .back   { background: hsla(  60, 100%, 50%, 0.7 ); }
+    #cube .right  { background: hsla( 120, 100%, 50%, 0.7 ); }
+    #cube .left   { background: hsla( 180, 100%, 50%, 0.7 ); }
+    #cube .top    { background: hsla( 240, 100%, 50%, 0.7 ); }
+    #cube .bottom { background: hsla( 300, 100%, 50%, 0.7 ); }
 
-    #box div:nth-child(2) { 
-      background: hsla( 060, 100%, 50%, 0.7 );
-      -webkit-transform: rotateX( -180deg) translateZ(100px);
-    }
-
-    #box div:nth-child(3) { 
-      background: hsla( 120, 100%, 50%, 0.7 );
-      -webkit-transform: rotateY( 90deg) translateZ(100px) ;
+    #cube .front  { -webkit-transform: translateZ( 100px ); }
+    #cube .back   { -webkit-transform: rotateX( -180deg ) translateZ( 100px ); }
+    #cube .right  { -webkit-transform: rotateY(   90deg ) translateZ( 100px ); }
+    #cube .left   { -webkit-transform: rotateY(  -90deg ) translateZ( 100px ); }
+    #cube .top    { -webkit-transform: rotateX(   90deg ) translateZ( 100px ); }
+    #cube .bottom { -webkit-transform: rotateX(  -90deg ) translateZ( 100px ); }   
+    
+    #cube {
+      position: absolute;
     }
     
-    #box div:nth-child(4) { 
-      background: hsla( 180, 100%, 50%, 0.7 );
-      -webkit-transform: rotateY( -90deg) translateZ(100px);
-    }
-
-    #box div:nth-child(5) { 
-      background: hsla( 240, 100%, 50%, 0.7 );
-      -webkit-transform: rotateX( 90deg) translateZ(100px) ;
-    }
-
-    #box div:nth-child(6) { 
-      background: hsla( 300, 100%, 50%, 0.7 ); 
-      -webkit-transform: rotateX( -90deg) translateZ(100px) ;
+    .pivot-point {
+      position: absolute;
+      -webkit-transform-style: preserve-3d;
     }
     
-    #perspective {
-      position: relative;
-      z-index: 100;
-    }
-    
-    #perspective input {
-      width: 300px;
+    .pivot-point:after {
+      content: '';
+      display: block;
+      width: 1.0em;
+      height: 1.0em;
+      background: black;
+      position: absolute;
+      right: -0.5em;
+      bottom: -0.5em;
+      -webkit-border-radius: 0.5em;
+         -moz-border-radius: 0.5em;
+              border-radius: 0.5em;
     }
     
   </style>
@@ -104,14 +94,15 @@
 
   <h1>11-transform-origin</h1>
 
-  <div id="box-container">
-    <div id="box" class="spinning">
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
-      <div>5</div>
-      <div>6</div>
+  <div class="container">
+  <div class="pivot-point"></div>
+    <div id="cube" class="spinning">
+      <figure class="front">1</figure>
+      <figure class="back">2</figure>
+      <figure class="right">3</figure>
+      <figure class="left">4</figure>
+      <figure class="top">5</figure>
+      <figure class="bottom">6</figure>
     </div>
   </div>
   
@@ -120,17 +111,17 @@
     
     <div id="transform-origin">
       <p>
-        <input id="origin-x" type="range" min="0" max="100" value="50" />
-        <label for="origin-x">origin-x : 50%</label>
+        <label for="origin-x">origin-x</label>
+        <input id="origin-x" type="range" min="0" max="100" value="50" data-units="%" />
       </p>
       <p>
-        <input id="origin-y" type="range" min="0" max="100" value="50" />
-        <label for="origin-y">origin-y : 50%</label>
+        <label for="origin-y">origin-y</label>
+        <input id="origin-y" type="range" min="0" max="100" value="50" data-units="%" />
       </p>
-      <p>
-        <input id="origin-z" type="range" min="0" max="100" value="50" />
-        <label for="origin-z">origin-z : 50%</label>
-      </p>
+      <!-- <p>
+        <label for="origin-z">origin-z</label>
+        <input id="origin-z" type="range" min="-100" max="100" value="0" data-units="px" />
+      </p> -->
     </div>
     
     <p>
@@ -145,38 +136,30 @@
   <script>
     var init = function() {
       var transformOriginInputs = document.querySelectorAll('#transform-origin input'),
-          box = document.getElementById('box'),
+          cube = document.getElementById('cube'),
+          pivotPoint = document.querySelector('.pivot-point')
       
           onOriginChange = function( event ) {
-            var values = {
-              x : transformOriginInputs[0].value,
-              y : transformOriginInputs[1].value,
-              z : transformOriginInputs[2].value
-            }
+            var x = transformOriginInputs[0].value + '%';
+                y = transformOriginInputs[1].value + '%';
+              
             
-            box.style.webkitTransformOrigin = values.x + '% ' + values.y + '%';
-            // var toX = transformOriginInputs[0],
+            cube.style.webkitTransformOrigin = x + ' ' + y;
+            
+            console.log( x + ' ' + y )
+            
+            pivotPoint.style.width = x;
+            pivotPoint.style.height = y;
                 
-            console.log( values.x, values.y, values.z )
           };
       
       for (var i=0, len = transformOriginInputs.length; i < len; i++) {
         transformOriginInputs[i].addEventListener( 'change', onOriginChange, false);
       }
 
-      // var boxContainer = document.getElementById('box-container'),
-      //     box = document.getElementById('box'),
-      //     perspectiveContainer = document.getElementById('perspective'),
-      //     perspectiveDisplay = perspectiveContainer.querySelector('p');
-      // 
-      // perspectiveContainer.querySelector('input').addEventListener( 'change', function(){
-      //   boxContainer.style.webkitPerspective = event.target.value;
-      //   perspectiveDisplay.textContent = 'Perspective : ' +  event.target.value;
-      // }, false);
-      // 
-      // document.getElementById('toggle-backface-visibility').addEventListener( 'click', function(){
-      //   box.toggleClassName('panels-backface-invisible');
-      // }, false);
+      document.getElementById('toggle-backface-visibility').addEventListener( 'click', function(){
+        cube.toggleClassName('panels-backface-invisible');
+      }, false);
       
       
     };

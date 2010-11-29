@@ -19,17 +19,18 @@
       -webkit-perspective: 800;
     }
     
-    .card {
+    #card {
+      width: 100%;
       height: 100%;
       -webkit-transition: -webkit-transform 1s;
       -webkit-transform-style: preserve-3d;
     }
     
-    .card.flipped {
+    #card.flipped {
       -webkit-transform: rotateY( 180deg );
     }
     
-    .card figure {
+    #card figure {
       display: block;
       height: 100%;
       width: 100%;
@@ -42,11 +43,11 @@
       -webkit-backface-visibility: hidden;
     }
     
-    .card .front {
+    #card .front {
       background: red;
     }
     
-    .card .back {
+    #card .back {
       background: blue;
       -webkit-transform: rotateY( 180deg );
     }
@@ -57,10 +58,8 @@
 
   <h1>16-card</h1>
   
-  <p>Click to flip</p>
-
   <section class="container">
-    <div class="card">
+    <div id="card">
       <figure class="front">1</figure>
       <figure class="back">2</figure>
     </div>

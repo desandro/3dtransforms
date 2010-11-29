@@ -1,5 +1,5 @@
 var init = function() {
-  var card = document.querySelector('.card');
+  var card = document.getElementById('card');
   
   document.getElementById('flip').addEventListener( 'click', function(){
     card.toggleClassName('flipped');
