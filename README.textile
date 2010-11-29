@@ -1,6 +1,3 @@
-h3. About the author
-
-If the Web were a coloring book, David DeSandro would be the kid manically scribbling outside the lines of every page, whittling away his favorite crayons, HTML, CSS, and JavaScript, to wee nubs. By day, he creates engaging, dynamic interfaces at "nclud.":http://nclud.com By night, he makes "unique interactive articles":http://desandro.com, develops "sweet front-end dev resources":http://github.com/desandro, journals his "explorations in the uncharted waters of web design":http://dropshado.ws, and fights crime around Washington, DC.
 
 h2. Intro
 
@@ -66,10 +63,11 @@ As a web designer, you'll probably well-acquainted with working in 2 dimensions,
 
 With a 3D space initialized with @perspective@, you can now transform elements in all 3 glorious dimensions. 3D transforms use the same @transform@ property used for 2D transforms. If you're already familiar with 2D transforms, you'll find the basic "3D transform functions":http://www.w3.org/TR/css3-3d-transforms/#transform-functions fairly similar. 
 
-* @rotateX( _angle_ )@ 
-* @rotateY( _angle_ )@
-* @rotateZ( _angle_ )@
-* @translateZ( _tz_ )@
+* @rotateX( angle )@ 
+* @rotateY( angle )@
+* @rotateZ( angle )@
+* @translateZ( tz )@
+* @scale( sz )@
 
 Whereas @translateX()@ positions an element along the horizontal X axis, @translateZ()@ positions it along the Z axis, which runs front to back in 3D space. Positive values position the element closer to the viewer, negative values further away.
 
@@ -80,17 +78,17 @@ The rotate functions will rotate the element around the corresponding axis. Usin
 
 There's also several shorthand transform functions that require values for all three dimensions:
 
-* @translate3d( _tx_, _ty_, _tz_ )@
-* @scale3d( _sx_, _sy_, _sz_ )@
-* @rotate3d( _rx_, _ry_, _rz_, _angle_ )@
+* @translate3d( tx, ty, tz )@
+* @scale3d( sx, sy, sz )@
+* @rotate3d( rx, ry, rz, angle )@
 
-I'm skipping over @matrix3d()@, as this function is especially complex and requires comprehension of "transformation matrix.":http://www.w3.org/TR/SVG/coords.html#TransformMatrixDefined As I understand it, the function developed for robots, by robots.
+I'm skipping over @matrix3d()@, as this function is especially complex and requires comprehension of "transformation matrix.":http://www.w3.org/TR/SVG/coords.html#TransformMatrixDefined As I understand it, the function was developed for robots, by robots.
 
-*Pro-tip:* These @_foo_3d()@ transform functions also have the benefit of triggering hardware acceleration in Safari. Dean Jackson, CSS 3D transform spec author and main WebKit dude, writes (by way of "Thomas Fuchs":http://mir.aculo.us/2010/08/05/html5-buzzwords-in-action/):
+*Pro-tip:* These @foo3d()@ transform functions also have the benefit of triggering hardware acceleration in Safari. Dean Jackson, CSS 3D transform spec author and main WebKit dude, writes (by way of "Thomas Fuchs":http://mir.aculo.us/2010/08/05/html5-buzzwords-in-action/):
 
 bq. In essence, any transform that has a 3D operation as one of its functions will trigger hardware compositing, even when the actual transform is 2D, or not doing anything at all (such as translate3d(0,0,0)). Note this is just current behaviour, and could change in the future (which is why we don’t document or encourage it). But it is very helpful in some situations and can significantly improve redraw performance.
 
-For the sake of simplicity, these demos will use the basic transform functions, but if you're writing production-ready CSS for iOS or Safari-only, *make sure to use the @_foo_3d()@ functions to get the best rendering performance.*
+For the sake of simplicity, these demos will use the basic transform functions, but if you're writing production-ready CSS for iOS or Safari-only, *make sure to use the @foo3d()@ functions to get the best rendering performance.*
 
 h2. Card flip
 
@@ -180,9 +178,9 @@ h3. Boxes and prisms
 
 h3. Carousel
 
-`transforming for returning to 0 on the z axis`
 
-`transform-origin`
+
+`transforming for returning to 0 on the z axis`
 
 `transition end events`
 
@@ -192,3 +190,8 @@ h3. Carousel
 
 Looking at this %demo%, note that no matter how small the perspective value is, or where ever the transform origin is, the 1 panel always returns to its original position, as if it were not a part of a rotating 3D cube. 
 
+
+
+h3. About the author
+
+If the Web were a coloring book, David DeSandro would be the kid manically scribbling outside the lines of every page, whittling away his crayons of front-end development to wee nubs. Lucky for him, he's paid to do the thing he loves, creating engaging, innovative interfaces at "nclud":http://nclud.com. Come nightfall, he dons a cape, develops "fun-time articles":http://desandro.com and "resources":http://github.com/desandro, journals his "findings":http://dropshado.ws, and fights crime around Washington, DC.
