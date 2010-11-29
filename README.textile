@@ -58,14 +58,18 @@ bc. -webkit-perspective-origin: 25% 75%
 
 
 
-h3. 3D transform functions
+h2. 3D transform functions
 
-As a web designer, you'll probably well-acquainted with working in 2 dimensions, X and Y, for positioning items horizontally and vertically. 3D transforms enable you to position elements in the third Z dimension, which positions elements nearer and farther in 3D space. 
+As a web designer, you'll probably well-acquainted with working in 2 dimensions, X and Y, for positioning items horizontally and vertically. 3D transforms enable you to position elements in the third Z dimension, which positions elements nearer and further in 3D space. 
 
-With a 3D space initialized, you can now get cracking transforming elements in all 3 glorious dimensions. 3D transforms use the same @transform@ property used for 2D transforms. If you're already familiar with 2D transforms, you'll find the basic "3D transform functions":http://www.w3.org/TR/css3-3d-transforms/#transform-functions fairly similar. 
+With a 3D space initialized with @perspective@, you can now transform elements in all 3 glorious dimensions. 3D transforms use the same @transform@ property used for 2D transforms. If you're already familiar with 2D transforms, you'll find the basic "3D transform functions":http://www.w3.org/TR/css3-3d-transforms/#transform-functions fairly similar. 
 
+* @rotateX( _angle_ )@ 
+* @rotateY( _angle_ )@
+* @rotateZ( _angle_ )@
+* @translateZ( _tz_ )@
 
-Whereas @translateX()@ positions an element along the horizontal X axis, @translateX()@ positions it along the Z axis, which runs front to back in 3D space. Positive values position the element closer to the viewer, negative values further away.
+Whereas @translateX()@ positions an element along the horizontal X axis, @translateZ()@ positions it along the Z axis, which runs front to back in 3D space. Positive values position the element closer to the viewer, negative values further away.
 
 The rotate functions will rotate the element around the corresponding axis. Using @rotateX( 45deg )@ will rotate around the horizontal X axis, so the top of the element will be angled back, and the bottom will be angled closer.
 
@@ -78,10 +82,9 @@ There's also several shorthand transform functions that require values for all t
 * @scale3d( _sx_, _sy_, _sz_ )@
 * @rotate3d( _rx_, _ry_, _rz_, _angle_ )@
 
-I'm skipping over @matrix3d()@, as this function is especially complex and requires comprehension of "transformation matrix.":http://www.w3.org/TR/SVG/coords.html#TransformMatrixDefined As I understand it, it's for robots, by robots. I've yet to wrap my head around it and haven't run into a scenario where I needed to (knock on wood).
+I'm skipping over @matrix3d()@, as this function is especially complex and requires comprehension of "transformation matrix.":http://www.w3.org/TR/SVG/coords.html#TransformMatrixDefined As I understand it, the function developed for robots, by robots.
 
-
-These @foo3d()@ transform functions also have the benefit of triggering hardware acceleration in Safari.  Dean Jackson, CSS 3D transform spec author and main WebKit dude, writes (by way of "Thomas Fuchs":http://mir.aculo.us/2010/08/05/html5-buzzwords-in-action/):
+*Pro-tip:* These @_foo_3d()@ transform functions also have the benefit of triggering hardware acceleration in Safari.  Dean Jackson, CSS 3D transform spec author and main WebKit dude, writes (by way of "Thomas Fuchs":http://mir.aculo.us/2010/08/05/html5-buzzwords-in-action/):
 
 bq. In essence, any transform that has a 3D operation as one of its functions will trigger hardware compositing, even when the actual transform is 2D, or not doing anything at all (such as translate3d(0,0,0)). Note this is just current behaviour, and could change in the future (which is why we don’t document or encourage it). But it is very helpful in some situations and can significantly improve redraw performance.
 
