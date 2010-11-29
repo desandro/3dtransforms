@@ -216,7 +216,7 @@ bc. #box figure:nth-child(1) { -webkit-transform: none; }
 
 Now each face is rotated, and only the front face is visible. The 4 side faces are all perpendicular to the viewer, so they appear invisible. To push them out to their appropriate sides, they need to be translated out from the center of their positions. Each side of the cube is 200px wide. As the faces are in the center, they'll need to be translated out half that distance, 100px.
 
-#box figure:nth-child(1) { -webkit-transform: translateZ( 100px ); }
+bc. #box figure:nth-child(1) { -webkit-transform: translateZ( 100px ); }
 #box figure:nth-child(2) { -webkit-transform: rotateX( 180deg ) translateZ( 100px ); }
 #box figure:nth-child(3) { -webkit-transform: rotateY( 90deg ) translateZ( 100px ); }
 #box figure:nth-child(4) { -webkit-transform: rotateY( -90deg ) translateZ( 100px ); }
@@ -231,7 +231,7 @@ Once we start pushing elements out of the Z origin plane, all sorts of fun thing
 
 "*See Example 8*":08-pixelation.html
 
-To resolve this issue, we can push back the box, so that the front face will be positioned back at the Z origin.
+To resolve this issue and restore pixel perfection, we can push back the box, so that the front face will be positioned back at the Z origin.
 
 bc. .box { -webkit-transform: translateZ( -100px ); }
 
@@ -249,9 +249,69 @@ bc. #box.show-1 { -webkit-transform: translateZ(-100px); }
 "*See Example 1*":01-cube.html
 
 
-h3. Cube
-
 h3. Boxes and prisms
+
+Cube objects are easy enough to generate as we only have to worry about one measurement. But how would we handle a non-regular rectangular prism? Let's try to make one 300px wide, 200px high, and 100px deep. The markup remains the same as the previous version. The container styles remain mostly the same.
+
+bc. .container {
+  width: 300px;
+  height: 200px;
+  -webkit-perspective: 1000;
+}
+#box {
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+}
+
+Each set of faces will need their own sizes
+
+bc. #box figure {
+  display: block;
+  position: absolute;
+  border: 2px solid black;
+}
+/* front and back */
+#box figure:nth-child(1),
+#box figure:nth-child(2) {
+  width: 296px;
+  height: 196px;
+}
+/* left and right sides */
+#box figure:nth-child(3),
+#box figure:nth-child(4) {
+  width: 96px;
+  height: 196px;
+  left: 100px;
+}
+/* top and bottom */
+#box figure:nth-child(5),
+#box figure:nth-child(6) {
+  width: 296px;
+  height: 96px;
+  top: 50px;
+  line-height: 96px;
+}
+
+The smaller faces (left, right, top and bottom) need to be positioned in the center of the container. So the thinner faces, left and right, get positioned @left 100px@, The stouter top and bottom faces get positioned @top: 50px@.
+
+Just like the cube, the faces need to be rotated and translated out. The rotate values all can remain the same, but for this rectangular prism, the translate values do differ. The front and back faces each are shifted out @50px@ since the box is 100px deep. Left and right faces translate is @150px@ for 300px width. Top and bottom panels go @100px@ for the 200px height.
+
+bc. #box figure:nth-child(1) { -webkit-transform: translateZ( 50px ); }
+#box figure:nth-child(2) { -webkit-transform: rotateX( 180deg ) translateZ(  50px ); }
+#box figure:nth-child(3) { -webkit-transform: rotateY(  90deg ) translateZ( 150px ); }
+#box figure:nth-child(4) { -webkit-transform: rotateY( -90deg ) translateZ( 150px ); }
+#box figure:nth-child(5) { -webkit-transform: rotateX(  90deg ) translateZ( 100px ); }
+#box figure:nth-child(6) { -webkit-transform: rotateX( -90deg ) translateZ( 100px ); }
+
+Again, to expose a face, the box needs to have a style to reverse its transform.
+
+bc. #box.show-1 { -webkit-transform: translateZ(  -50px ); }
+#box.show-2 { -webkit-transform: translateZ(  -50px ) rotateX( -180deg ); }
+#box.show-3 { -webkit-transform: translateZ( -150px ) rotateY(  -90deg ); }
+#box.show-4 { -webkit-transform: translateZ( -150px ) rotateY(   90deg ); }
+#box.show-5 { -webkit-transform: translateZ( -100px ) rotateX(  -90deg ); }
+#box.show-6 { -webkit-transform: translateZ( -100px ) rotateX(   90deg ); }
+
 
 h3. Carousel
 
