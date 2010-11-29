@@ -14,7 +14,7 @@
       height: 200px;
       margin: 0 auto 40px;
       border: 1px solid #CCC;
-      -webkit-perspective: 1200;
+      -webkit-perspective: 1000;
     }
   
     #cube {
@@ -70,7 +70,10 @@
     
     .pivot-point {
       position: absolute;
+      width: 50%;
+      height: 50%;
       -webkit-transform-style: preserve-3d;
+      -webkit-transform: translateZ( -100px );
     }
     
     .pivot-point:after {
@@ -124,9 +127,9 @@
       </p> -->
     </div>
     
-    <p>
+    <!-- <p>
       <button id="toggle-backface-visibility">Toggle Backface Visibility</button>
-    </p>
+    </p> -->
     
     
   </section>
@@ -146,8 +149,6 @@
             
             cube.style.webkitTransformOrigin = x + ' ' + y;
             
-            console.log( x + ' ' + y )
-            
             pivotPoint.style.width = x;
             pivotPoint.style.height = y;
                 
@@ -157,10 +158,9 @@
         transformOriginInputs[i].addEventListener( 'change', onOriginChange, false);
       }
 
-      document.getElementById('toggle-backface-visibility').addEventListener( 'click', function(){
-        cube.toggleClassName('panels-backface-invisible');
-      }, false);
-      
+      // document.getElementById('toggle-backface-visibility').addEventListener( 'click', function(){
+      //   cube.toggleClassName('panels-backface-invisible');
+      // }, false);
       
     };
       
