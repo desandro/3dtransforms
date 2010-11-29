@@ -1,3 +1,7 @@
+h3. About the author
+
+If the Web were a coloring book, David DeSandro would be the kid manically scribbling outside the lines of every page, whittling away his favorite crayons, HTML, CSS, and JavaScript, to wee nubs. By day, he creates engaging, dynamic interfaces at "nclud.":http://nclud.com By night, he makes "unique interactive articles":http://desandro.com, develops "sweet front-end dev resources":http://github.com/desandro, "journals his explorations":http://dropshado.ws in the uncharted waters of web design, and fights crime around Washington, DC.
+
 h2. Intro
 
 Ladies in gentlemen, it is the second decade of the second millenium and we are still kicking around the same 2D interface we got two decades ago in the original Mac. Sure, Apple debuted some 10.7 apps that added a couple more 3D flourishes, and Microsoft has had that "Flip 3D":http://windows.microsoft.com/en-US/windows-vista/Using-Windows-Flip-3D for a while. But c'mon, 2011 is in a couple weeks. We should be zipping around the Metaverse in super-sonic motorbikes , as Hiro Protagonist did in Neal Stephenson's _Snow Crash._ 
