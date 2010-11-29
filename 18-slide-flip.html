@@ -6,7 +6,7 @@
   <!-- disable zooming -->
   <meta name="viewport" content=" initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
   
-  <title>16-card</title>
+  <title>17-slide-flip</title>
 
   <link rel="stylesheet" href="css/style.css" media="screen" />
 
@@ -23,10 +23,19 @@
       height: 100%;
       -webkit-transition: -webkit-transform 1s;
       -webkit-transform-style: preserve-3d;
+      -webkit-transform-origin: right top;
     }
     
-    .card.flipped {
-      -webkit-transform: rotateY( 180deg );
+    .card.h-flipped {
+      -webkit-transform: translateX( -100% ) rotateY( -180deg );
+    }
+    
+    .card.v-flipped { 
+      -webkit-transform: translateY( 100% ) rotateX( -180deg ); 
+    }
+
+    .card.h-flipped.v-flipped {
+      -webkit-transform: translateX( -100% ) rotateY( -180deg ) translateY( 100% ) rotateX( 180deg );
     }
     
     .card figure {
@@ -50,12 +59,14 @@
       background: blue;
       -webkit-transform: rotateY( 180deg );
     }
+    
+    
   </style>
 
 </head>
 <body>
 
-  <h1>16-card</h1>
+  <h1>17-slide-flip</h1>
   
   <p>Click to flip</p>
 
@@ -67,11 +78,27 @@
   </section>
   
   <section id="options">
-    <p><button id="flip">Flip Card</button></p>
+    <p>
+      <button id="h-flip">Flip Card Horizontal</button>
+      <button id="v-flip">Flip Card Vertical</button>
+    </p>
   </section>
   
   <script src="js/utils.js"></script>
-  <script src="js/flip-card.js"></script>
+  <script>
+    var init = function() {
+      var card = document.querySelector('.card'),
+          flipIt = function(event) {
+            className = event.target.id + 'ped';
+            card.toggleClassName( className );
+          };
+
+      document.getElementById('h-flip').addEventListener( 'click', flipIt, false);
+      document.getElementById('v-flip').addEventListener( 'click', flipIt, false);
+    };
+
+    window.addEventListener('DOMContentLoaded', init, false);
+  </script>
 
 </body>
 </html>

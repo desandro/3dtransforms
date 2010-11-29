@@ -1,7 +1,7 @@
 var init = function() {
   var card = document.querySelector('.card');
   
-  document.getElementById('flip').addEventListener( DDD.CursorStartEvent, function(){
+  document.getElementById('flip').addEventListener( 'click', function(){
     card.toggleClassName('flipped');
   }, false);
 };
