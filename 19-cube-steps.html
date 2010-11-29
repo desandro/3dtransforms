@@ -37,26 +37,26 @@
       text-align: center;
     }
     
-    .box figure:nth-child(1) { background: hsla( 000, 100%, 50%, 0.7 ); }
-    .box figure:nth-child(2) { background: hsla( 060, 100%, 50%, 0.7 ); }
-    .box figure:nth-child(3) { background: hsla( 120, 100%, 50%, 0.7 ); }
-    .box figure:nth-child(4) { background: hsla( 180, 100%, 50%, 0.7 ); }
-    .box figure:nth-child(5) { background: hsla( 240, 100%, 50%, 0.7 ); }
-    .box figure:nth-child(6) { background: hsla( 300, 100%, 50%, 0.7 ); }
+    .box .front { background: hsla( 000, 100%, 50%, 0.7 ); }
+    .box .back { background: hsla( 060, 100%, 50%, 0.7 ); }
+    .box .right { background: hsla( 120, 100%, 50%, 0.7 ); }
+    .box .left { background: hsla( 180, 100%, 50%, 0.7 ); }
+    .box .top { background: hsla( 240, 100%, 50%, 0.7 ); }
+    .box .bottom { background: hsla( 300, 100%, 50%, 0.7 ); }
     
-    #beta figure:nth-child(1) { -webkit-transform: none; }
-    #beta figure:nth-child(2) { -webkit-transform: rotateX( 180deg ); }
-    #beta figure:nth-child(3) { -webkit-transform: rotateY( 90deg ); }
-    #beta figure:nth-child(4) { -webkit-transform: rotateY( -90deg ); }
-    #beta figure:nth-child(5) { -webkit-transform: rotateX( 90deg ); }
-    #beta figure:nth-child(6) { -webkit-transform: rotateX( -90deg ); }
+    #beta .front { -webkit-transform: none; }
+    #beta .back { -webkit-transform: rotateX( 180deg ); }
+    #beta .right { -webkit-transform: rotateY( 90deg ); }
+    #beta .left { -webkit-transform: rotateY( -90deg ); }
+    #beta .top { -webkit-transform: rotateX( 90deg ); }
+    #beta .bottom { -webkit-transform: rotateX( -90deg ); }
     
-    .pushed figure:nth-child(1) { -webkit-transform: translateZ( 100px ); }
-    .pushed figure:nth-child(2) { -webkit-transform: rotateX( 180deg ) translateZ( 100px ); }
-    .pushed figure:nth-child(3) { -webkit-transform: rotateY( 90deg ) translateZ( 100px ); }
-    .pushed figure:nth-child(4) { -webkit-transform: rotateY( -90deg ) translateZ( 100px ); }
-    .pushed figure:nth-child(5) { -webkit-transform: rotateX( 90deg ) translateZ( 100px ); }
-    .pushed figure:nth-child(6) { -webkit-transform: rotateX( -90deg ) translateZ( 100px ); }
+    .pushed .front { -webkit-transform: translateZ( 100px ); }
+    .pushed .back { -webkit-transform: rotateX( 180deg ) translateZ( 100px ); }
+    .pushed .right { -webkit-transform: rotateY( 90deg ) translateZ( 100px ); }
+    .pushed .left { -webkit-transform: rotateY( -90deg ) translateZ( 100px ); }
+    .pushed .top { -webkit-transform: rotateX( 90deg ) translateZ( 100px ); }
+    .pushed .bottom { -webkit-transform: rotateX( -90deg ) translateZ( 100px ); }
     
     #delta .box { -webkit-transform: translateZ( -100px ); }
     
@@ -69,45 +69,45 @@
   
   <section id="alpha" class="container">
     <div class="box">
-      <figure>1</figure>
-      <figure>2</figure>
-      <figure>3</figure>
-      <figure>4</figure>
-      <figure>5</figure>
-      <figure>6</figure>
+      <figure class="front">1</figure>
+      <figure class="back">2</figure>
+      <figure class="right">3</figure>
+      <figure class="left">4</figure>
+      <figure class="top">5</figure>
+      <figure class="bottom">6</figure>
     </div>
   </section>
 
   <section id="beta" class="container">
     <div class="box">
-      <figure>1</figure>
-      <figure>2</figure>
-      <figure>3</figure>
-      <figure>4</figure>
-      <figure>5</figure>
-      <figure>6</figure>
+      <figure class="front">1</figure>
+      <figure class="back">2</figure>
+      <figure class="right">3</figure>
+      <figure class="left">4</figure>
+      <figure class="top">5</figure>
+      <figure class="bottom">6</figure>
     </div>
   </section>
 
   <section id="gamma" class="container pushed">
     <div class="box">
-      <figure>1</figure>
-      <figure>2</figure>
-      <figure>3</figure>
-      <figure>4</figure>
-      <figure>5</figure>
-      <figure>6</figure>
+      <figure class="front">1</figure>
+      <figure class="back">2</figure>
+      <figure class="right">3</figure>
+      <figure class="left">4</figure>
+      <figure class="top">5</figure>
+      <figure class="bottom">6</figure>
     </div>
   </section>
 
   <section id="delta" class="container pushed">
     <div class="box">
-      <figure>1</figure>
-      <figure>2</figure>
-      <figure>3</figure>
-      <figure>4</figure>
-      <figure>5</figure>
-      <figure>6</figure>
+      <figure class="front">1</figure>
+      <figure class="back">2</figure>
+      <figure class="right">3</figure>
+      <figure class="left">4</figure>
+      <figure class="top">5</figure>
+      <figure class="bottom">6</figure>
     </div>
   </section>
 

@@ -44,41 +44,41 @@
     
     /* front and back */
     
-    #box figure:nth-child(1) { 
+    #box .front { 
       background: hsla( 000, 100%, 50%, 0.7 ); 
       -webkit-transform: translateZ(100px);
     }
-    #box.show-1 { -webkit-transform: translateZ(-100px); }
+    #box.show-front { -webkit-transform: translateZ(-100px); }
 
-    #box figure:nth-child(2) { 
+    #box .back { 
       background: hsla( 060, 100%, 50%, 0.7 ); 
       -webkit-transform: rotateX( -180deg) translateZ(100px);
     }
-    #box.show-2 { -webkit-transform: translateZ(-100px) rotateX( -180deg); }
+    #box.show-back { -webkit-transform: translateZ(-100px) rotateX( -180deg); }
 
-    #box figure:nth-child(3) { 
+    #box .right { 
       background: hsla( 120, 100%, 50%, 0.7 ); 
       -webkit-transform: rotateY( 90deg) translateZ(100px) ;
     }
-    #box.show-3 { -webkit-transform: translateZ(-100px) rotateY(-90deg); }
+    #box.show-right { -webkit-transform: translateZ(-100px) rotateY(-90deg); }
     
-    #box figure:nth-child(4) { 
+    #box .left { 
       background: hsla( 180, 100%, 50%, 0.7 ); 
       -webkit-transform: rotateY( -90deg) translateZ(100px);
     }
-    #box.show-4 { -webkit-transform: translateZ(-100px) rotateY(90deg); }
+    #box.show-left { -webkit-transform: translateZ(-100px) rotateY(90deg); }
 
-    #box figure:nth-child(5) { 
+    #box .top { 
       background: hsla( 240, 100%, 50%, 0.7 ); 
       -webkit-transform: rotateX( 90deg) translateZ(100px) ;
     }
-    #box.show-5 { -webkit-transform: translateZ(-100px) rotateX(-90deg); }    
+    #box.show-top { -webkit-transform: translateZ(-100px) rotateX(-90deg); }    
 
-    #box figure:nth-child(6) { 
+    #box .bottom { 
       background: hsla( 300, 100%, 50%, 0.7 ); 
       -webkit-transform: rotateX( -90deg) translateZ(100px) ;
     }
-    #box.show-6 { -webkit-transform: translateZ(-100px) rotateX( 90deg); }    
+    #box.show-bottom { -webkit-transform: translateZ(-100px) rotateX( 90deg); }    
     
 
     
@@ -90,25 +90,25 @@
   <h1>01-cube</h1>
 
   <div class="container">
-    <div id="box" class="show-1">
-      <figure>1</figure>
-      <figure>2</figure>
-      <figure>3</figure>
-      <figure>4</figure>
-      <figure>5</figure>
-      <figure>6</figure>
+    <div id="box" class="show-front">
+      <figure class="front">1</figure>
+      <figure class="back">2</figure>
+      <figure class="right">3</figure>
+      <figure class="left">4</figure>
+      <figure class="top">5</figure>
+      <figure class="bottom">6</figure>
     </div>
   </div>
   
   <section id="options">
     
     <p id="show-buttons">
-      <button class="show-1">Show 1</button>
-      <button class="show-2">Show 2</button>
-      <button class="show-3">Show 3</button>
-      <button class="show-4">Show 4</button>
-      <button class="show-5">Show 5</button>
-      <button class="show-6">Show 6</button>
+      <button class="show-front">Show 1</button>
+      <button class="show-back">Show 2</button>
+      <button class="show-right">Show 3</button>
+      <button class="show-left">Show 4</button>
+      <button class="show-top">Show 5</button>
+      <button class="show-bottom">Show 6</button>
     </p>
 
     <p>

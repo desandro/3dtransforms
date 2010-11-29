@@ -1,7 +1,7 @@
 var init = function() {
   var box = document.getElementById('box'),
       showPanelButtons = document.querySelectorAll('#show-buttons button'),
-      panelClassName = 'show-1';
+      panelClassName = 'show-front';
 
   for (var i=0, len = showPanelButtons.length; i < len; i++) {
     showPanelButtons[i].addEventListener( 'click', function( event ){
