@@ -9,7 +9,12 @@
 
   <style media="screen">
     
-
+    .container {
+      width: 200px;
+      height: 200px;
+      border: 1px solid #CCC;
+      margin: 0 auto 40px;
+    }
     
     .box {
       width: 100%;
@@ -36,20 +41,17 @@
 
   <h1>12-perspective</h1>
 
+  <pre><code>#red .box {
+  -webkit-transform: perspective(800) rotateY(45deg);
+  background-color: red;
+}</code></pre>
+
   <section id="red" class="container">
     <div class="box"></div>
   </section>
 
-  <section id="blue" class="container">
-    <div class="box"></div>
-  </section>
-  
-  <pre><code>#red .box {
-  -webkit-transform: perspective(800) rotateY(45deg);
-  background-color: red;
-}
 
-#blue {
+<pre><code>#blue {
   -webkit-perspective: 800;
 }
 
@@ -57,6 +59,12 @@
   -webkit-transform: rotateY(45deg);
   background-color: blue;
 }</code></pre>
+
+  <section id="blue" class="container">
+    <div class="box"></div>
+  </section>
+  
+
 
 </body>
 </html>

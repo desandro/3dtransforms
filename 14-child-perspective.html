@@ -11,16 +11,24 @@
   <link rel="stylesheet" href="css/style.css" media="screen" />
   
   <style media="screen">
+    
+    .container {
+      width: 200px;
+      height: 200px;
+      border: 1px solid #CCC;
+      margin: 0 auto 40px;
+    }
 
-    .container div,
-    .container div {
+
+    .container figure {
+      display: block;
       width: 55px;
       height: 55px;
       float: left;
       margin: 5px;
     }
 
-    #red div {
+    #red figure {
       -webkit-transform: perspective(400) rotateY(45deg);
       background: red;
     }
@@ -29,7 +37,7 @@
       -webkit-perspective: 400;
     }
 
-    #blue div {
+    #blue figure {
       -webkit-transform: rotateY(45deg);
       background: blue;
     }
@@ -40,43 +48,47 @@
 
   <h1>14-child-perspective</h1>
   
-  <div id="red" class="container">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-  
-  <div id="blue" class="container">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-  
-  <pre><code>#red div {
+  <pre><code>#red figure {
   -webkit-transform: perspective(400) rotateY(45deg);
   background: red;
-}
-
-#blue {
+}</code></pre>
+  
+  <section id="red" class="container">
+    <figure></figure>
+    <figure></figure>
+    <figure></figure>
+    <figure></figure>
+    <figure></figure>
+    <figure></figure>
+    <figure></figure>
+    <figure></figure>
+    <figure></figure>
+  </section>
+  
+<pre><code>#blue {
   -webkit-perspective: 400;
 }
 
-#blue div {
+#blue figure {
   -webkit-transform: rotateY(45deg);
   background: blue;
 }</code></pre>
+  
+  <section id="blue" class="container">
+    <figure></figure>
+    <figure></figure>
+    <figure></figure>
+    <figure></figure>
+    <figure></figure>
+    <figure></figure>
+    <figure></figure>
+    <figure></figure>
+    <figure></figure>
+  </section>
+  
+
+
+
 
 </body>
 </html>
