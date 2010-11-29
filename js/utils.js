@@ -1,7 +1,7 @@
-// ======================= DOM Utility Function from PastryKit =============================== //
+// ======================= DOM Utility Functions from PastryKit =============================== //
 
 // Sure, we could use jQuery or XUI for these, 
-// but these are concise are framework-free
+// but these are concise and will work with plain vanilla JS
 
 Element.prototype.hasClassName = function (a) {
     return new RegExp("(?:^|\\s+)" + a + "(?:\\s+|$)").test(this.className)
@@ -77,6 +77,7 @@ DDD.RangeDisplay.prototype.change = function( event ) {
 /* ==================== ProxyRange ==================== */
 
 // polyfill for range inputs
+// by no means a production-ready solution, but it'll do for these demos
 
 DDD.ProxyRange = function ( input ) {
 

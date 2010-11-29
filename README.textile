@@ -86,9 +86,11 @@ There's also several shorthand transform functions that require values for all t
 
 I'm skipping over @matrix3d()@, as this function is especially complex and requires comprehension of "transformation matrix.":http://www.w3.org/TR/SVG/coords.html#TransformMatrixDefined As I understand it, the function developed for robots, by robots.
 
-*Pro-tip:* These @_foo_3d()@ transform functions also have the benefit of triggering hardware acceleration in Safari.  Dean Jackson, CSS 3D transform spec author and main WebKit dude, writes (by way of "Thomas Fuchs":http://mir.aculo.us/2010/08/05/html5-buzzwords-in-action/):
+*Pro-tip:* These @_foo_3d()@ transform functions also have the benefit of triggering hardware acceleration in Safari. Dean Jackson, CSS 3D transform spec author and main WebKit dude, writes (by way of "Thomas Fuchs":http://mir.aculo.us/2010/08/05/html5-buzzwords-in-action/):
 
 bq. In essence, any transform that has a 3D operation as one of its functions will trigger hardware compositing, even when the actual transform is 2D, or not doing anything at all (such as translate3d(0,0,0)). Note this is just current behaviour, and could change in the future (which is why we don’t document or encourage it). But it is very helpful in some situations and can significantly improve redraw performance.
+
+For the sake of simplicity, these demos will use the basic transform functions, but if you're writing production-ready CSS for iOS or Safari-only, *make sure to use the @_foo_3d()@ functions to get the best rendering performance.*
 
 h2. Card flip
 
@@ -167,9 +169,16 @@ bc. .card.flipped {
   -webkit-transform: translateX( -100% ) rotateY( -180deg );
 }
 
-"*See Example 17.*":17-slide-flip.html
+"*See Example 17*":17-slide-flip.html and "*Example 18*":18-slide-flip.html.
+
+h2. 3D objects
 
 
+h3. Cube
+
+h3. Boxes and prisms
+
+h3. Carousel
 
 `transforming for returning to 0 on the z axis`
 
