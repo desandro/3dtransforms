@@ -26,6 +26,8 @@ With such limited support why bother at all? To begin with, the CSS 3D transform
 
 Of course, the third dimension isn't limited to just CSS. We could dive into the capabilities of 3D in Flash, canvas, three.js, or WebGL. But for the sake of brevity, I'll be limiting the scope of article to solely CSS 3D transforms.
 
+%% using Modernizr. need to create 2 solutions %%
+
 Given the sparse support for 3D transforms, you can choose to ignore them, or (with a "tip of the fedora to Mr. Andy Clarke":http://hardboiledwebdesign.com/ ) you can get hard-boiled and start designing with the best features out there.
 
 h2. Perspective
@@ -88,13 +90,71 @@ I'm skipping over @matrix3d()@, as this function is especially complex and requi
 
 bq. In essence, any transform that has a 3D operation as one of its functions will trigger hardware compositing, even when the actual transform is 2D, or not doing anything at all (such as translate3d(0,0,0)). Note this is just current behaviour, and could change in the future (which is why we don’t document or encourage it). But it is very helpful in some situations and can significantly improve redraw performance.
 
+h2. Card flips
 
+We now have all the tools to start making 3D objects. Let's get started with the basics, flipping a card. %%As mentioned above discussing the iPhone Weather app, using a card interface --do we need rationale here?--%%%
 
-`backface-visibility`
+Here's the basic markup we'll need:
+
+bc. <section class="container">
+  <div class="card">
+    <figure class="front">1</figure>
+    <figure class="back">2</figure>
+  </div>
+</section>
+
+So what do we have here. Obviously we need the faces of the card, both @front@ and @back@. The @card@ acts as a wrapper for the faces of the object. Finally the @container@ will house the 3D space. We're ready for some 3D stylez. Even for such a simple object, I recommend using this same patern for any 3D transform.  Keeping the 3D space element and the object element establishes a paradigm that is simple to understand and easier to style.
+
+First, apply necessary @perspective@ to the parent 3D space, along with any size or positioning styles.
+
+bc. .container { 
+  width: 200px;
+  height: 260px;
+  -webkit-perspective: 800;
+}
+
+Now the @.card@ element can be transformed in 3D space, as its parent has @perspective@.  Let's add a CSS3 transition so users may see the transform take effect.
+
+bc. .card {
+  height: 100%; /* inherits the container height */
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 1s;
+}
+
+Details on @transform-style@ to come. With the transition in place, we need a corresponding style for the @.card@ for when it is flipped.
+
+bc. .card.flipped {
+  -webkit-transform: rotateY( 180deg );
+}
+
+To position the faces in 3D space, we'll need to reset their positions in 2D with @position: absolute@. In order to hide the back-side of the faces when they are faced away from the viewer, we use @backface-visibility: hidden@. 
+
+bc. .card figure {
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+}
+
+To flip the back around, we add a basic 3d transform of @rotateY( 180deg )@. 
+
+bc. .card .front {
+  background: red;
+}
+.card .back {
+  background: blue;
+  -webkit-transform: rotateY( 180deg );
+}
+
+As this is a 3D transform, this element requires to exist in 3D space. The @.container@'s @perspective@ only applies to direct descendant children, in this case @.card@. In order for children to inherit a parent's perspective, and live in the same 3D space, the parent needs to have @transform-style: preserve-3d@. Without 3D @transform-style@, these faces would be flattened and the back card's rotation would be nullified.
+
+Now we have a working 3D object. To flip the card, we can toggle the @flipped@ class. When @flipped@, the @.card@ will rotate 180 degress, thus exposing the @.back@ face.
+
+h3. 
+
 
 `transforming for returning to 0 on the z axis`
-
-`perspective inheritance`
 
 `transform-origin`
 

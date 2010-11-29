@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  
+  <!-- disable zooming -->
+  <meta name="viewport" content=" initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+  
+  <title>16-card</title>
+
+  <link rel="stylesheet" href="css/style.css" media="screen" />
+
+  <style media="screen">
+    .container {
+      -webkit-perspective: 800;
+      height: 260px;
+      margin: 0 auto 40px;
+    }
+    
+    .card {
+      height: 100%;
+      -webkit-transition: -webkit-transform 1s;
+/*      -webkit-transform-style: preserve-3d;*/
+    }
+    
+    .card.flipped {
+      -webkit-transform: rotateY( 180deg );
+    }
+    
+    .card figure {
+      display: block;
+      height: 100%;
+      width: 100%;
+      line-height: 260px;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      font-size: 100px;
+      position: absolute;
+      -webkit-backface-visibility: hidden;
+    }
+    
+    .card .front {
+      background: red;
+    }
+    
+    .card .back {
+      background: blue;
+      -webkit-transform: rotateY( 180deg );
+    }
+  </style>
+
+</head>
+<body>
+
+  <h1>16-card</h1>
+  
+  <p>Click to flip</p>
+
+  <section class="container">
+    <div class="card">
+      <figure class="front">1</figure>
+      <figure class="back">2</figure>
+    </div>
+  </section>
+  
+  <script src="js/utils.js"></script>
+  <script>
+    var init = function() {
+      var card = document.querySelector('.card');
+      
+      document.querySelector('.container').addEventListener( DDD.CursorStartEvent, function(){
+        card.toggleClassName('flipped');
+      }, false);
+    };
+  
+    window.addEventListener('DOMContentLoaded', init, false);
+  </script>
+
+</body>
+</html>
