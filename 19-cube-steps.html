@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  
+  <!-- disable zooming -->
+  <meta name="viewport" content=" initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+  
+  <title>19-cube-steps</title>
+
+  <link rel="stylesheet" href="css/style.css" media="screen" />
+
+  <style media="screen">
+    .container {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 40px;
+      border: 1px solid #CCC;
+      -webkit-perspective: 800;
+    }
+    
+    .box {
+      height: 100%;
+      -webkit-transform-style: preserve-3d;
+    }
+    
+    .box figure {
+      width: 196px;
+      height: 196px;
+      display: block;
+      position: absolute;
+      border: 2px solid black;
+      line-height: 196px;
+      font-size: 120px;
+      font-weight: bold;
+      color: white;
+      text-align: center;
+    }
+    
+    .box figure:nth-child(1) { background: hsla( 000, 100%, 50%, 0.7 ); }
+    .box figure:nth-child(2) { background: hsla( 060, 100%, 50%, 0.7 ); }
+    .box figure:nth-child(3) { background: hsla( 120, 100%, 50%, 0.7 ); }
+    .box figure:nth-child(4) { background: hsla( 180, 100%, 50%, 0.7 ); }
+    .box figure:nth-child(5) { background: hsla( 240, 100%, 50%, 0.7 ); }
+    .box figure:nth-child(6) { background: hsla( 300, 100%, 50%, 0.7 ); }
+    
+    #beta figure:nth-child(1) { -webkit-transform: none; }
+    #beta figure:nth-child(2) { -webkit-transform: rotateX( 180deg ); }
+    #beta figure:nth-child(3) { -webkit-transform: rotateY( 90deg ); }
+    #beta figure:nth-child(4) { -webkit-transform: rotateY( -90deg ); }
+    #beta figure:nth-child(5) { -webkit-transform: rotateX( 90deg ); }
+    #beta figure:nth-child(6) { -webkit-transform: rotateX( -90deg ); }
+    
+    .pushed figure:nth-child(1) { -webkit-transform: translateZ( 100px ); }
+    .pushed figure:nth-child(2) { -webkit-transform: rotateX( 180deg ) translateZ( 100px ); }
+    .pushed figure:nth-child(3) { -webkit-transform: rotateY( 90deg ) translateZ( 100px ); }
+    .pushed figure:nth-child(4) { -webkit-transform: rotateY( -90deg ) translateZ( 100px ); }
+    .pushed figure:nth-child(5) { -webkit-transform: rotateX( 90deg ) translateZ( 100px ); }
+    .pushed figure:nth-child(6) { -webkit-transform: rotateX( -90deg ) translateZ( 100px ); }
+    
+    #delta .box { -webkit-transform: translateZ( -100px ); }
+    
+  </style>
+
+</head>
+<body>
+
+  <h1>19-cube-steps</h1>
+  
+  <section id="alpha" class="container">
+    <div class="box">
+      <figure>1</figure>
+      <figure>2</figure>
+      <figure>3</figure>
+      <figure>4</figure>
+      <figure>5</figure>
+      <figure>6</figure>
+    </div>
+  </section>
+
+  <section id="beta" class="container">
+    <div class="box">
+      <figure>1</figure>
+      <figure>2</figure>
+      <figure>3</figure>
+      <figure>4</figure>
+      <figure>5</figure>
+      <figure>6</figure>
+    </div>
+  </section>
+
+  <section id="gamma" class="container pushed">
+    <div class="box">
+      <figure>1</figure>
+      <figure>2</figure>
+      <figure>3</figure>
+      <figure>4</figure>
+      <figure>5</figure>
+      <figure>6</figure>
+    </div>
+  </section>
+
+  <section id="delta" class="container pushed">
+    <div class="box">
+      <figure>1</figure>
+      <figure>2</figure>
+      <figure>3</figure>
+      <figure>4</figure>
+      <figure>5</figure>
+      <figure>6</figure>
+    </div>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  
+  <!-- disable zooming -->
+  <meta name="viewport" content=" initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+  
+  <title>20-cube-steps</title>
+
+  <link rel="stylesheet" href="css/style.css" media="screen" />
+
+  <style media="screen">
+    .container {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 40px;
+      border: 1px solid #CCC;
+      -webkit-perspective: 800;
+    }
+    
+    .box {
+      height: 100%;
+      -webkit-transform-style: preserve-3d;
+    }
+    
+    .box figure {
+      width: 196px;
+      height: 196px;
+      display: block;
+      position: absolute;
+      border: 2px solid black;
+      line-height: 196px;
+      font-size: 120px;
+      font-weight: bold;
+      color: white;
+      text-align: center;
+    }
+    
+    .box,
+    .box figure {
+      -webkit-transition: -webkit-transform 1s;
+    }
+    
+    .box figure:nth-child(1) { background: hsla( 000, 100%, 50%, 0.7 ); }
+    .box figure:nth-child(2) { background: hsla( 060, 100%, 50%, 0.7 ); }
+    .box figure:nth-child(3) { background: hsla( 120, 100%, 50%, 0.7 ); }
+    .box figure:nth-child(4) { background: hsla( 180, 100%, 50%, 0.7 ); }
+    .box figure:nth-child(5) { background: hsla( 240, 100%, 50%, 0.7 ); }
+    .box figure:nth-child(6) { background: hsla( 300, 100%, 50%, 0.7 ); }
+    
+    .step2 figure:nth-child(1) { -webkit-transform: none; }
+    .step2 figure:nth-child(2) { -webkit-transform: rotateX( 180deg ); }
+    .step2 figure:nth-child(3) { -webkit-transform: rotateY( 90deg ); }
+    .step2 figure:nth-child(4) { -webkit-transform: rotateY( -90deg ); }
+    .step2 figure:nth-child(5) { -webkit-transform: rotateX( 90deg ); }
+    .step2 figure:nth-child(6) { -webkit-transform: rotateX( -90deg ); }
+    
+    .step3 figure:nth-child(1),
+    .step4 figure:nth-child(1) { -webkit-transform: translateZ( 100px ); }
+    .step3 figure:nth-child(2),
+    .step4 figure:nth-child(2) { -webkit-transform: rotateX( 180deg ) translateZ( 100px ); }
+    .step3 figure:nth-child(3),
+    .step4 figure:nth-child(3) { -webkit-transform: rotateY( 90deg ) translateZ( 100px ); }
+    .step3 figure:nth-child(4),
+    .step4 figure:nth-child(4) { -webkit-transform: rotateY( -90deg ) translateZ( 100px ); }
+    .step3 figure:nth-child(5),
+    .step4 figure:nth-child(5) { -webkit-transform: rotateX( 90deg ) translateZ( 100px ); }
+    .step3 figure:nth-child(6),
+    .step4 figure:nth-child(6) { -webkit-transform: rotateX( -90deg ) translateZ( 100px ); }
+    
+    .step4 .box { -webkit-transform: translateZ( -100px ); }
+    
+  </style>
+
+</head>
+<body>
+
+  <h1>20-cube-steps</h1>
+  
+  <section class="container step1">
+    <div class="box">
+      <figure>1</figure>
+      <figure>2</figure>
+      <figure>3</figure>
+      <figure>4</figure>
+      <figure>5</figure>
+      <figure>6</figure>
+    </div>
+  </section>
+  
+  <section id="options">
+    <p>
+      <button class="step1">No transforms</button>
+      <button class="step2">Rotate faces</button>
+      <button class="step3">Rotate and translate faces</button>
+      <button class="step4">Translate box</button>
+    </p>
+  </section>
+  
+  <script src="js/utils.js"></script>
+  <script>
+    var init = function() {
+      var container = document.querySelector('.container'),
+          buttons = document.querySelectorAll('#options button'),
+          containerClass = 'step1';
+          onButtonClick = function(event) {
+            container.removeClassName( containerClass );
+            containerClass = event.target.className;
+            container.addClassName( containerClass );
+          };
+      
+      for ( var i=0, len = buttons.length; i < len; i++ ) {
+        buttons[i].addEventListener( 'click', onButtonClick, false );
+      }
+      
+    };
+    window.addEventListener('DOMContentLoaded', init, false);
+  </script>
+
+</body>
+</html>
