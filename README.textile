@@ -388,16 +388,17 @@ bc. #carousel figure:nth-child(1) { -webkit-transform: rotateY(   0deg ) transla
 #carousel figure:nth-child(8) { -webkit-transform: rotateY( 280deg ) translateZ( 288px ); }
 #carousel figure:nth-child(9) { -webkit-transform: rotateY( 320deg ) translateZ( 288px ); }
 
-And just like our previous 3D objects, to show any one panel, we need only to apply the reverse transform on the carousel. to show the fifth panel:
+Just like our previous 3D objects, to show any one panel, we need only to apply the reverse transform on the carousel. to show the fifth panel:
 
 bc. -webkit-transform: translateZ( -288px ) rotateY( -160deg );
 
 "*See Example 22*":22-carousel.html
 
-By now, you probably are thinking two thoughts: Re-writing transform styles for each panel looks to be tedious. And why bother doing high school math? Aren't robots supposed to be doing all this work for us? You're absolutely right. 
+By now, you probably are thinking two thoughts: 1. Re-writing transform styles for each panel looks to be tedious. 2. Why bother doing high school math -- Aren't robots supposed to be doing all this work for us?  And you're absolutely right. The repetitive nature of 3D objects lend themselves to scripting. We can offload all the tedious transform styles to our dynamic script, which, if done right, will be more flexible than the hard-coded version.
 
-%% dynamic carousel %%
+"See Example 7":7-apple-carousel-gallery.html
 
+h2. Further Discussion
 
 
 
