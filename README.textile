@@ -1,14 +1,16 @@
-Ladies and gentlemen, it is the second decade of the second millenium and we are still kicking around the same 2D interface we got two decades ago. Sure, Apple debuted some 10.7 apps that added a couple more 3D flourishes, and Microsoft has had that "Flip 3D":http://windows.microsoft.com/en-US/windows-vista/Using-Windows-Flip-3D for a while. But c'mon, 2011 is in a couple weeks. Where is our 3D virtual reality? By now, we should be zipping around the "Metaverse in super-sonic motorbikes":http://en.wikipedia.org/wiki/Snow_Crash.
+h1. Intro to CSS 3D Transforms
+
+Ladies and gentlemen, it is the second decade of the second millenium and we are still kicking around the same 2D interface we got three decades ago. Sure, Apple debuted OSX 10.7 apps that added a couple more 3D flourishes, and Microsoft has had that "Flip 3D":http://windows.microsoft.com/en-US/windows-vista/Using-Windows-Flip-3D for a while. But c'mon, 2011 is in a couple weeks. Where is our 3D virtual reality? By now, we should be zipping around the "Metaverse in super-sonic motorbikes":http://en.wikipedia.org/wiki/Snow_Crash.
 
 While the capability of rendering complex 3D environments has been present for years, current digital interfaces predominately exist in a two dimensional environment. Largely this is due to the constraints of the physical equipment themselves. The monitor has width and height. The mouse moves left, right, up, down. Our users' interfaces are ill-equipped to interact with the three spatial dimensions. After decades of development, even the biggest and best native software developers have only managed to dip their flattened toes in a pool of width, height, and _depth._  
 
 h2. Rationale
 
-While 3D transforms might be sexy and cool, we owe it to our users to ask what can they benefit from them. Take the "Snow Stack":http://www.satine.org/archives/2009/07/11/snow-stack-is-here/ demo. Granted the experience is visually engaging, I don't see any inherent utility of a completely 3D interface. The users interface is 2D. CSS was developed for 2D documents. Creating 3D environments, while it may be achievable, just doesn't make sense for our users.
+While 3D transforms might be sexy and cool, we owe it to our users to ask what can they benefit from them. The entire application does not have to take advantage of 3D. There is plenty of opportunity to use 3D transforms _in between_ the interface, via transitions. Take for instance the Weather App on the iPhone. The application uses two views, a details view of the weather and an options panel for selecting locations. Switching between these two views is done with a 3D flip transition. This affords the user that interface has but two views, and only two views, as the exist on two sides of the same plane.
 
-The entire application does not have to take advantage of 3D, but there is plenty of opportunity to use 3D transforms _in between_ the interface, via transitions. Take for instance the Weather App on the iPhone. The application uses two views, a details view of the weather, and a editable view of options for selecting locations. Switching between these two views is done with a 3D flip transition. This affords the user that interface has but two views, and only two views, as the exist on two sides of the same plane.
+%% Weather App screenshots %%
 
-Also consider image cycle interfaces. What cues tip-off the user that the advancing from the last slide will re-start the cycle at the first? A better paradigm can be used with a 3D transform, where the slides are places side by side one another _in a circle in the third dimension_. In that arrangement, the last slide logically does come before the first.
+Consider image cycle interfaces. What cues tip-off the user that the advancing from the last slide will re-start the cycle at the first? A better paradigm can be used with a 3D transform, where the slides are places side by side one another _in a circle out in 3D space_. In that arrangement, the last slide logically does come before the first.
 
 Not only can we use 3D transforms to create more visually impressive applications, but we can also use them to solve dilemmas. 
 
@@ -39,10 +41,6 @@ bc. -webkit-perspective: 800;
 These two formats produce the same effect, but there is a difference. The functional notation method is fairly convenient for directly applying a 3D transform on a single element (in Example 12, I am using it with a rotateX transform). The problem is that it doesn't work for multiple elements, since the perspective is only for the one element. If you use the same transform across elements with different position, each element will have its own vanishing point. To remedy this, use the @perspective@ property on a parent element, so each child exists in the same 3D space.
 
 "*See Example 14.*":14-child-perspective.html
-
-Direct descendants of 3D parents will inherit their parents perspective. But grand-children and future generations (if you will) will be flattened with the direct children. In order to pass on perspective, the children in-between the element with perspective, and the element being 3d-transformed need to have @-webkit-transform-style: preserve-3d@.
-
-%% needs example? %%
 
 The value of perspective determines the intensity of the 3D effect. Think of it as a distance. @perspective: 2000;@ yeilds a subtle 3D effect, as if you are viewing an object from far away through binoculars. @perspective: 100;@ produces an tremendous 3D effect, as if you are a tiny insect viewing a massive object up close.
 
@@ -111,15 +109,18 @@ bc. .container {
   -webkit-perspective: 800;
 }
 
-Now the @.card@ element can be transformed in 3D space, as its parent has @perspective@.  Let's add a CSS3 transition so users may see the transform take effect.
+Now the @#card@ element can be transformed in 3D space, since its parent has @perspective@.  Let's add a CSS3 transition so users can see the transform take effect.
 
 bc. #card {
-  height: 100%; /* inherits the container height */
+  width: 100%;
+  height: 100%;
   -webkit-transform-style: preserve-3d;
   -webkit-transition: -webkit-transform 1s;
 }
 
-Details on @transform-style@ to come. With the transition in place, we need a corresponding style for the @.card@ for when it is flipped.
+As this is a 3D transform, this element ought to exist in 3D space. The @.container@'s @perspective@ only applies to direct descendant children, in this case @#card@. In order for children to inherit a parent's perspective, and live in the same 3D space, the parent needs to have @transform-style: preserve-3d@. Without 3D @transform-style@, these faces would be flattened with its parents and the back face's rotation would be nullified. 
+
+With the transition in place, we need a corresponding style for the @#card@ for when it is flipped.
 
 bc. #card.flipped {
   -webkit-transform: rotateY( 180deg );
@@ -129,9 +130,9 @@ To position the faces in 3D space, we'll need to reset their positions in 2D wit
 
 bc. #card figure {
   display: block;
-  height: 100%;
-  width: 100%;
   position: absolute;
+  width: 100%;
+  height: 100%;
   -webkit-backface-visibility: hidden;
 }
 
@@ -145,9 +146,7 @@ bc. #card .front {
   -webkit-transform: rotateY( 180deg );
 }
 
-As this is a 3D transform, this element requires to exist in 3D space. The @.container@'s @perspective@ only applies to direct descendant children, in this case @.card@. In order for children to inherit a parent's perspective, and live in the same 3D space, the parent needs to have @transform-style: preserve-3d@. Without 3D @transform-style@, these faces would be flattened and the back card's rotation would be nullified.
-
-Now we have a working 3D object. To flip the card, we can toggle the @flipped@ class. When @flipped@, the @.card@ will rotate 180 degress, thus exposing the @.back@ face.
+Now we have a working 3D object. To flip the card, we can toggle the @flipped@ class. When @flipped@, the @#card@ will rotate 180 degress, thus exposing the @.back@ face.
 
 "*See Example 16.*":16-card.html
 
@@ -206,16 +205,18 @@ bc. .container {
 
 With the card, we only had to rotate the back side, the cube, however, requires that 5 of the 6 faces need to be rotated. Faces 1 and 2 will be the front and back. Faces 3 and 4 will be the sides. Faces 5 and 6 will be the top and bottom.
 
-bc. #cube .front  { -webkit-transform: none; }
+bc. #cube .front  { -webkit-transform: rotateY(   0deg ); }
 #cube .back   { -webkit-transform: rotateX( 180deg ); }
 #cube .right  { -webkit-transform: rotateY(  90deg ); }
 #cube .left   { -webkit-transform: rotateY( -90deg ); }
 #cube .top    { -webkit-transform: rotateX(  90deg ); }
 #cube .bottom { -webkit-transform: rotateX( -90deg ); }
 
+We could leave out the @#cube .front@ style declaration, as the transform has no effect, but let's leave it in to keep our code consistent.
+
 Now each face is rotated, and only the front face is visible. The 4 side faces are all perpendicular to the viewer, so they appear invisible. To push them out to their appropriate sides, they need to be translated out from the center of their positions. Each side of the cube is 200px wide. As the faces are in the center, they'll need to be translated out half that distance, 100px.
 
-bc. #cube .front  { -webkit-transform: translateZ( 100px ); }
+bc. #cube .front  { -webkit-transform: rotateY(   0deg ) translateZ( 100px ); }
 #cube .back   { -webkit-transform: rotateX( 180deg ) translateZ( 100px ); }
 #cube .right  { -webkit-transform: rotateY(  90deg ) translateZ( 100px ); }
 #cube .left   { -webkit-transform: rotateY( -90deg ) translateZ( 100px ); }
@@ -238,7 +239,7 @@ bc. .box { -webkit-transform: translateZ( -100px ); }
 
 To expose any face of the cube, we'll need a style that rotates the cube to expose any face. As the object is a cube, the transform is the opposite of the transform of the corresponding face. We toggle the necessary class on the @#box@ to apply the appropriate transform.
 
-bc. #box.show-front  { -webkit-transform: translateZ(-100px); }
+bc. #box.show-front  { -webkit-transform: translateZ(-100px)  rotateY(    0deg ); }
 #box.show-back   { -webkit-transform: translateZ( -100px ) rotateX( -180deg ); }
 #box.show-right  { -webkit-transform: translateZ( -100px ) rotateY(  -90deg ); }
 #box.show-left   { -webkit-transform: translateZ( -100px ) rotateY(   90deg ); }
@@ -263,7 +264,7 @@ bc. .container {
   -webkit-transform-style: preserve-3d;
 }
 
-Each set of faces will need their own sizes
+Each set of faces will need their own sizes.
 
 bc. #box figure {
   display: block;
@@ -291,11 +292,11 @@ bc. #box figure {
   top: 50px;
 }
 
-The smaller faces (left, right, top and bottom) need to be positioned in the center of the container. So the thinner left and right faces get positioned @left: 100px@, The stouter top and bottom faces get positioned @top: 50px@.
+The smaller faces (left, right, top and bottom) need to be positioned in the center of the container, where they can be easily rotated and then shifted outward. The thinner left and right faces get positioned @left: 100px@, The stouter top and bottom faces get positioned @top: 50px@.
 
-Just like the cube, the faces need to be rotated and translated out. The rotate values all can remain the same, but for this rectangular prism, the translate values do differ. The front and back faces each are shifted out @50px@ since the box is 100px deep. Left and right faces translate is @150px@ for 300px width. Top and bottom panels go @100px@ for the 200px height.
+The rotate values all can remain the same, but for this rectangular prism, the translate values do differ. The front and back faces each are shifted out @50px@ since the box is 100px deep. Left and right faces translate is @150px@ for 300px width. Top and bottom panels go @100px@ for the 200px height.
 
-bc. #box .front  { -webkit-transform: translateZ( 50px ); }
+bc. #box .front  { -webkit-transform: rotateY(   0deg ) translateZ( 50px ); }
 #box .back   { -webkit-transform: rotateX( 180deg ) translateZ(  50px ); }
 #box .right  { -webkit-transform: rotateY(  90deg ) translateZ( 150px ); }
 #box .left   { -webkit-transform: rotateY( -90deg ) translateZ( 150px ); }
@@ -304,7 +305,7 @@ bc. #box .front  { -webkit-transform: translateZ( 50px ); }
 
 Again, to expose a face, the box needs to have a style to reverse its transform.
 
-bc. #box.show-front  { -webkit-transform: translateZ(  -50px ); }
+bc. #box.show-front  { -webkit-transform: translateZ(  -50px ) rotateY(   0deg ); }
 #box.show-back   { -webkit-transform: translateZ(  -50px ) rotateX( -180deg ); }
 #box.show-right  { -webkit-transform: translateZ( -150px ) rotateY(  -90deg ); }
 #box.show-left   { -webkit-transform: translateZ( -150px ) rotateY(   90deg ); }
