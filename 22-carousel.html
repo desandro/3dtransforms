@@ -85,10 +85,17 @@
   </div>
   
   <section id="options">
-    <div id="navigation">
+    <p id="navigation">
       <button id="previous" data-increment="-1">Previous</button>
       <button id="next" data-increment="1">Next</button>
-    </div>
+    </p>
+    
+    <!-- <p>
+      <label for="panel-select">Select panel</label> 
+      <input type="range" id="panel-select" value="1" min="1" max="9" />
+    </p> -->
+
+    
   </section>
   
   <script src="js/utils.js"></script>
@@ -97,15 +104,25 @@
       var carousel = document.getElementById('carousel'),
           navButtons = document.querySelectorAll('#navigation button'),
           panelCount = carousel.children.length,
-          theta = 0;
+          theta = 0,
+          
+          rotateCarousel = function( angle ) {
+            carousel.style.webkitTransform = 'translateZ( -288px ) rotateY(' + theta + 'deg)';
+          };
 
       for (var i=0; i < 2; i++) {
         navButtons[i].addEventListener( 'click', function( event ){
           var increment = parseInt( event.target.getAttribute('data-increment') );
           theta += ( 360 / panelCount ) * increment * -1;
-          carousel.style.webkitTransform = 'translateZ( -288px ) rotateY(' + theta + 'deg)';
+          rotateCarousel();
         }, false)
       }
+      
+      // should probably add some logic so that prev/next buttons update slider
+      // document.getElementById('panel-select').addEventListener( 'change', function(){
+      //   theta = ( 360 / panelCount ) * ( event.target.value - 1 ) * -1;
+      //   rotateCarousel();
+      // }, false);
       
     };
       
