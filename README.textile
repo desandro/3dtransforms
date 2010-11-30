@@ -1,6 +1,3 @@
-
-h2. Intro
-
 Ladies and gentlemen, it is the second decade of the second millenium and we are still kicking around the same 2D interface we got two decades ago. Sure, Apple debuted some 10.7 apps that added a couple more 3D flourishes, and Microsoft has had that "Flip 3D":http://windows.microsoft.com/en-US/windows-vista/Using-Windows-Flip-3D for a while. But c'mon, 2011 is in a couple weeks. Where is our 3D virtual reality? By now, we should be zipping around the "Metaverse in super-sonic motorbikes":http://en.wikipedia.org/wiki/Snow_Crash.
 
 While the capability of rendering complex 3D environments has been present for years, current digital interfaces predominately exist in a two dimensional environment. Largely this is due to the constraints of the physical equipment themselves. The monitor has width and height. The mouse moves left, right, up, down. Our users' interfaces are ill-equipped to interact with the three spatial dimensions. After decades of development, even the biggest and best native software developers have only managed to dip their flattened toes in a pool of width, height, and _depth._  
@@ -75,6 +72,7 @@ The rotate functions will rotate the element around the corresponding axis. Usin
 
 "*See Example 15.*":15-basic-transforms.html
 
+Looking at this demo, note that no matter how small the perspective value is, or where ever the transform origin may be, the 1 panel always returns to its original position, as if all those funky 3D transforms didn't even matter. 
 
 There's also several shorthand transform functions that require values for all three dimensions:
 
@@ -316,17 +314,90 @@ bc. #box.show-front  { -webkit-transform: translateZ(  -50px ); }
 
 h3. Carousel
 
+Front-end developers have a myriad of choices when it comes to content carousels. Now that we have 3D capabilities in our browsers, why not give a shot at creating an actual 3D carousel?
 
+The mark-up for this demo uses the same format as the boxes and card.
 
-`transforming for returning to 0 on the z axis`
+bc. <div class="container step1">
+  <div id="carousel">
+    <figure>1</figure>
+    <figure>2</figure>
+    <figure>3</figure>
+    <figure>4</figure>
+    <figure>5</figure>
+    <figure>6</figure>
+    <figure>7</figure>
+    <figure>8</figure>
+    <figure>9</figure>
+  </div>
+</div>
 
-`transition end events`
+Apply basic styles. For this demo, I'm giving each panel of the carousel 20px gaps between one another.  But the effective width of each panel remains 210px.
 
+bc. .container {
+  width: 210px;
+  height: 140px;
+  -webkit-perspective: 1000;
+}
+#carousel {
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+}
+#carousel figure {
+  display: block;
+  position: absolute;
+  width: 186px;
+  height: 116px;
+  left: 10px;
+  top: 10px;
+  border: 2px solid black;
+}
 
+Next up: rotating the faces. This carousel has 9 panels. If each panel gets an equal distribution on the carousel, each panel would be rotated 40 degrees from the next ( 360 / 9 ).
 
+bc. #carousel figure:nth-child(1) { -webkit-transform: rotateY(   0deg ); }
+#carousel figure:nth-child(2) { -webkit-transform: rotateY(  40deg ); }
+#carousel figure:nth-child(3) { -webkit-transform: rotateY(  80deg ); }
+#carousel figure:nth-child(4) { -webkit-transform: rotateY( 120deg ); }
+#carousel figure:nth-child(5) { -webkit-transform: rotateY( 160deg ); }
+#carousel figure:nth-child(6) { -webkit-transform: rotateY( 200deg ); }
+#carousel figure:nth-child(7) { -webkit-transform: rotateY( 240deg ); }
+#carousel figure:nth-child(8) { -webkit-transform: rotateY( 280deg ); }
+#carousel figure:nth-child(9) { -webkit-transform: rotateY( 320deg ); }
 
+Now the outward shift. Back when we were creating cube and boxes, the value was simple to calculate, as it was equal to one half the width, height, or depth of the object. Now with a carousel, there is no predefined size of the object. We'll have calculate the distance for the shift by other means.
 
-Looking at this %demo%, note that no matter how small the perspective value is, or where ever the transform origin is, the 1 panel always returns to its original position, as if it were not a part of a rotating 3D cube. 
+Drawing out a diagram of the carousel, we see that we only know two things: the width of each panel is 210px and the each panel is rotated 40 degrees from the next. If we split one of these triangles down its center, we get a right triangle, prime for some trigonometry.
+
+!img/diagram.png(Geometric diagram of carousel)!
+
+We can determine the length of _r_ in this diagram with a basic tangent equation.
+
+!img/calc.png(Trigonometric calculation)!
+
+There you have it, 288px is the distance to translate the panels out in 3D space.
+
+bc. #carousel figure:nth-child(1) { -webkit-transform: rotateY(   0deg ) translateZ( 288px ); }
+#carousel figure:nth-child(2) { -webkit-transform: rotateY(  40deg ) translateZ( 288px ); }
+#carousel figure:nth-child(3) { -webkit-transform: rotateY(  80deg ) translateZ( 288px ); }
+#carousel figure:nth-child(4) { -webkit-transform: rotateY( 120deg ) translateZ( 288px ); }
+#carousel figure:nth-child(5) { -webkit-transform: rotateY( 160deg ) translateZ( 288px ); }
+#carousel figure:nth-child(6) { -webkit-transform: rotateY( 200deg ) translateZ( 288px ); }
+#carousel figure:nth-child(7) { -webkit-transform: rotateY( 240deg ) translateZ( 288px ); }
+#carousel figure:nth-child(8) { -webkit-transform: rotateY( 280deg ) translateZ( 288px ); }
+#carousel figure:nth-child(9) { -webkit-transform: rotateY( 320deg ) translateZ( 288px ); }
+
+And just like our previous 3D objects, to show any one panel, we need only to apply the reverse transform on the carousel. to show the fifth panel:
+
+bc. -webkit-transform: translateZ( -288px ) rotateY( -160deg );
+
+"*See Example 22*":22-carousel.html
+
+By now, you probably are thinking two thoughts: Re-writing transform styles for each panel looks to be tedious. And why bother doing high school math? Aren't robots supposed to be doing all this work for us? You're absolutely right. 
+
+%% dynamic carousel %%
+
 
 
 

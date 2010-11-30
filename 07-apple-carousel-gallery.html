@@ -26,7 +26,6 @@
       
       .ready #carousel {
         -webkit-transition: -webkit-transform 1s;
-        
       }
 
       #carousel.panels-backface-invisible figure {
@@ -37,16 +36,17 @@
 
       #carousel figure {
         display: block;
-        border: 2px solid #000;
-        color: #FFF;
+        position: absolute;
         width: 186px;
         height: 116px;
+        left: 10px;
+        top: 10px;
+        border: 2px solid black;
         line-height: 116px;
-        font-size: 60px;
-        text-align: center;
+        font-size: 80px;
         font-weight: bold;
-        position: absolute;
-        margin: 10px;
+        color: white;
+        text-align: center;
       }
       
       .ready #carousel figure {
@@ -96,8 +96,8 @@
     </p>
     
     <p id="navigation">
-      <button id="previous" data-increment="1">Previous</button>
-      <button id="next" data-increment="-1">Next</button>
+      <button id="previous" data-increment="-1">Previous</button>
+      <button id="next" data-increment="1">Next</button>
     </p>
     
     <p>
@@ -140,7 +140,7 @@
         var panel = this.element.children[i],
             angle = this.theta * i;
         panel.style.opacity = 1;
-        panel.style.backgroundColor = 'hsla(' + angle + ', 100%, 50%, 0.85)';
+        panel.style.backgroundColor = 'hsla(' + angle + ', 100%, 50%, 0.8)';
         // rotate panel, then push it out in 3D space
         panel.style.webkitTransform = this.rotateFn + '(' + angle + 'deg) translateZ(' + this.radius + 'px)';
       }
@@ -190,10 +190,10 @@
         carousel.modify();
       }, false);
 
-      for (var i=0, len = navButtons.length; i < 2; i++) {
+      for (var i=0; i < 2; i++) {
         navButtons[i].addEventListener( 'click', function( event ){
           var increment = parseInt( event.target.getAttribute('data-increment') );
-          carousel.rotation += carousel.theta * increment;
+          carousel.rotation += carousel.theta * increment * -1;
           carousel.transform();
         }, false);
       }

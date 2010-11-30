@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  
+  <!-- disable zooming -->
+  <meta name="viewport" content=" initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
+  
+  <title>22-carousel</title>
+
+  <link rel="stylesheet" href="css/style.css" media="screen" />
+
+  <style media="screen">
+    
+    .container {
+      width: 210px;
+      height: 140px;
+      margin: 0 auto 40px;
+      border: 1px solid #CCC;
+      -webkit-perspective: 1000;
+    }
+    
+    #carousel {
+      width: 100%;
+      height: 100%;
+      -webkit-transform: translateZ( -288px );
+      -webkit-transform-style: preserve-3d;
+      -webkit-transition: -webkit-transform 1s;
+    }
+    
+    #carousel figure {
+      display: block;
+      position: absolute;
+      width: 186px;
+      height: 116px;
+      left: 10px;
+      top: 10px;
+      border: 2px solid black;
+      line-height: 116px;
+      font-size: 80px;
+      font-weight: bold;
+      color: white;
+      text-align: center;
+    }
+    
+    #carousel figure:nth-child(1) { background: hsla(   0, 100%, 50%, 0.8 ); }
+    #carousel figure:nth-child(2) { background: hsla(  40, 100%, 50%, 0.8 ); }
+    #carousel figure:nth-child(3) { background: hsla(  80, 100%, 50%, 0.8 ); }
+    #carousel figure:nth-child(4) { background: hsla( 120, 100%, 50%, 0.8 ); }
+    #carousel figure:nth-child(5) { background: hsla( 160, 100%, 50%, 0.8 ); }
+    #carousel figure:nth-child(6) { background: hsla( 200, 100%, 50%, 0.8 ); }
+    #carousel figure:nth-child(7) { background: hsla( 240, 100%, 50%, 0.8 ); }
+    #carousel figure:nth-child(8) { background: hsla( 280, 100%, 50%, 0.8 ); }
+    #carousel figure:nth-child(9) { background: hsla( 320, 100%, 50%, 0.8 ); }
+
+    #carousel figure:nth-child(1) { -webkit-transform: rotateY(   0deg ) translateZ( 288px ); }
+    #carousel figure:nth-child(2) { -webkit-transform: rotateY(  40deg ) translateZ( 288px ); }
+    #carousel figure:nth-child(3) { -webkit-transform: rotateY(  80deg ) translateZ( 288px ); }
+    #carousel figure:nth-child(4) { -webkit-transform: rotateY( 120deg ) translateZ( 288px ); }
+    #carousel figure:nth-child(5) { -webkit-transform: rotateY( 160deg ) translateZ( 288px ); }
+    #carousel figure:nth-child(6) { -webkit-transform: rotateY( 200deg ) translateZ( 288px ); }
+    #carousel figure:nth-child(7) { -webkit-transform: rotateY( 240deg ) translateZ( 288px ); }
+    #carousel figure:nth-child(8) { -webkit-transform: rotateY( 280deg ) translateZ( 288px ); }
+    #carousel figure:nth-child(9) { -webkit-transform: rotateY( 320deg ) translateZ( 288px ); }
+
+  </style>
+
+</head>
+<body>
+
+  <h1>22-carousel</h1>
+  
+  <div class="container">
+    <div id="carousel">
+      <figure>1</figure>
+      <figure>2</figure>
+      <figure>3</figure>
+      <figure>4</figure>
+      <figure>5</figure>
+      <figure>6</figure>
+      <figure>7</figure>
+      <figure>8</figure>
+      <figure>9</figure>
+    </div>
+  </div>
+  
+  <section id="options">
+    <div id="navigation">
+      <button id="previous" data-increment="-1">Previous</button>
+      <button id="next" data-increment="1">Next</button>
+    </div>
+  </section>
+  
+  <script src="js/utils.js"></script>
+  <script>
+    var init = function() {
+      var carousel = document.getElementById('carousel'),
+          navButtons = document.querySelector('#navigation button'),
+          panelCount = carousel.children.length,
+          theta = 0;
+
+      for (var i=0; i < 2; i++) {
+        navButtons[i].addEventListener( 'click', function( event ){
+          var increment = parseInt( event.target.getAttribute('data-increment') );
+          theta += ( 360 / panelCount ) * increment * -1;
+          carousel.style.webkitTransform = 'translateZ( -288px ) rotateY(' + theta + 'deg)';
+        }, false)
+      }
+      
+    };
+      
+    window.addEventListener( 'DOMContentLoaded', init, false);
+  </script>
+
+</body>
+</html>
