@@ -395,11 +395,22 @@ bc. -webkit-transform: translateZ( -288px ) rotateY( -160deg );
 
 "*See Example 22*":22-carousel.html
 
-By now, you probably are thinking two thoughts: 1. Re-writing transform styles for each panel looks to be tedious. 2. Why bother doing high school math -- Aren't robots supposed to be doing all this work for us?  And you're absolutely right. The repetitive nature of 3D objects lend themselves to scripting. We can offload all the tedious transform styles to our dynamic script, which, if done right, will be more flexible than the hard-coded version.
+By now, you probably are thinking two thoughts: 
 
-"See Example 7":7-apple-carousel-gallery.html
+# Re-writing transform styles for each panel looks to be tedious. 
+# Why bother doing high school math -- Aren't robots supposed to be doing all this work for us?  
+
+And you're absolutely right. The repetitive nature of 3D objects lend themselves to scripting. We can offload all the tedious transform styles to our dynamic script, which, if done right, will be more flexible than the hard-coded version.
+
+"*See Example 7*":07-apple-carousel-gallery.html
 
 h2. Further Discussion
+
+Pardon the obvious pun, 3D transforms open up a world a possibilities for interface designers. It changes the whole way you think about the canvas.  Actually, it changes the flat canvas itself into a room. As we start employing more 3D transforms, a whole new crop of challenges will emerge. Here's a couple questions to get us started:
+
+* The @transform@ style property houses all the transforms. What's the best way to get and set the values inside this one property?
+* What's the best way to resolve for browsers that don't support 3D transforms?
+* How can we avoid crushing browser performance while still achieving these awesome transforms?
 
 
 
