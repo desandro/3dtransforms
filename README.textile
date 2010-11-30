@@ -18,7 +18,7 @@ h2. Current Support Environment
 
 "The CSS3 spec for 3D transforms":http://www.w3.org/TR/css3-3d-transforms/ has been public for over a year now, but at the moment of writing this article, they are only supported by Safari, which includes Safari on the desktop and Mobile Safari on iOS devices. Support on other browsers varies. WebKit-cousin Chrome  currently accepts 3D transform declarations, but renders them in 2D space. Per Chrome team member Paul Irish, 3D transforms are on the roadmap, perhaps in the next couple X.0 releases. The Mozilla team has "made some initial steps":https://bugzilla.mozilla.org/show_bug.cgi?id=505115 towards implementing CSS 3D transforms. Per Mike Taylor, the Opera team is keeping a close eye on CSS transforms, and is waiting until the spec is fleshed out. And our best friend Internet Explorer still needs to catch up to 2D transforms before we can talk about 3D.
 
-With such limited support why bother at all? To begin with, the CSS 3D transforms spec was developed by the same team at Apple who produced the "CSS 2d transforms":http://www.w3.org/TR/css3-2d-transforms/ and "animation":http://www.w3.org/TR/css3-animations/ specifications.  Both of these specifications have been adopted by Mozilla and Opera. I'm willing to wager that the 3D spec will follow in suit.
+With such limited support why bother at all? To begin with, the CSS 3D transforms spec was developed by the same team at Apple who produced the "CSS 2D transforms":http://www.w3.org/TR/css3-2d-transforms/ and "animation":http://www.w3.org/TR/css3-animations/ specifications.  Both of these specifications have been adopted by Mozilla and Opera. I'm willing to wager that the 3D spec will follow in suit.
 
 Of course, the third dimension isn't limited to just CSS. We could dive into the capabilities of 3D in Flash, canvas, three.js, or WebGL. But for the sake of brevity, I'll be limiting the scope of article to solely CSS 3D transforms.
 
@@ -136,7 +136,7 @@ bc. #card figure {
   -webkit-backface-visibility: hidden;
 }
 
-To flip the back around, we add a basic 3d transform of @rotateY( 180deg )@. 
+To flip the back around, we add a basic 3D transform of @rotateY( 180deg )@. 
 
 bc. #card .front {
   background: red;
@@ -319,7 +319,7 @@ Front-end developers have a myriad of choices when it comes to content carousels
 
 The mark-up for this demo uses the same format as the boxes and card.
 
-bc. <div class="container step1">
+bc. <div class="container">
   <div id="carousel">
     <figure>1</figure>
     <figure>2</figure>
