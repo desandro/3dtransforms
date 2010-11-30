@@ -17,7 +17,7 @@
       height: 140px;
       margin: 0 auto 40px;
       border: 1px solid #CCC;
-      -webkit-perspective: 1000;
+      -webkit-perspective: 1100;
     }
     
     #carousel {
@@ -95,7 +95,7 @@
   <script>
     var init = function() {
       var carousel = document.getElementById('carousel'),
-          navButtons = document.querySelector('#navigation button'),
+          navButtons = document.querySelectorAll('#navigation button'),
           panelCount = carousel.children.length,
           theta = 0;
 

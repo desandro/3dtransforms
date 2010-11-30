@@ -49,7 +49,7 @@
     #cube .top    { background: hsla( 240, 100%, 50%, 0.5 ); }
     #cube .bottom { background: hsla( 300, 100%, 50%, 0.5 ); }
     
-    .step2 #cube .front  { -webkit-transform: none; }
+    .step2 #cube .front  { -webkit-transform: rotateY(   0deg ); }
     .step2 #cube .back   { -webkit-transform: rotateX( 180deg ); }
     .step2 #cube .right  { -webkit-transform: rotateY(  90deg ); }
     .step2 #cube .left   { -webkit-transform: rotateY( -90deg ); }
@@ -57,7 +57,7 @@
     .step2 #cube .bottom { -webkit-transform: rotateX( -90deg ); }
     
     .step3 #cube .front,
-    .step4 #cube .front  { -webkit-transform: translateZ( 100px ); }
+    .step4 #cube .front  { -webkit-transform: rotateY(   0deg ) translateZ( 100px ); }
     .step3 #cube .back,
     .step4 #cube .back   { -webkit-transform: rotateX( 180deg ) translateZ( 100px ); }
     .step3 #cube .right,
@@ -94,7 +94,7 @@
       <button class="step1">1. No transforms</button>
       <button class="step2">2. Rotate faces</button>
       <button class="step3">3. Translate faces</button>
-      <button class="step4">4. Translate box</button>
+      <button class="step4">4. Translate object</button>
     </p>
   </section>
   
