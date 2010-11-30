@@ -8,7 +8,7 @@ h2. Rationale
 
 While 3D transforms might be sexy and cool, we owe it to our users to ask what can they benefit from them. The entire application does not have to take advantage of 3D. There is plenty of opportunity to use 3D transforms _in between_ the interface, via transitions. Take for instance the Weather App on the iPhone. The application uses two views, a details view of the weather and an options panel for selecting locations. Switching between these two views is done with a 3D flip transition. This affords the user that interface has but two views, and only two views, as the exist on two sides of the same plane.
 
-%% Weather App screenshots %%
+!img/weather-app-transition.jpg(Weather App transition)!
 
 Consider image cycle interfaces. What cues tip-off the user that the advancing from the last slide will re-start the cycle at the first? A better paradigm can be used with a 3D transform, where the slides are places side by side one another _in a circle out in 3D space_. In that arrangement, the last slide logically does come before the first.
 
