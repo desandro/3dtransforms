@@ -1,7 +1,8 @@
 var init = function() {
   var container = document.querySelector('.container'),
       buttons = document.querySelectorAll('#options button'),
-      containerClass = 'step1';
+      containerClass = 'step1',
+
       onButtonClick = function(event) {
         container.removeClassName( containerClass );
         containerClass = event.target.className;
