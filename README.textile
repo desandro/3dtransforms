@@ -1,26 +1,26 @@
 h1. Intro to CSS 3D Transforms
 
-Ladies and gentlemen, it is the second decade of the second millennium and we are still kicking around the same 2D interface we got three decades ago. Sure, Apple debuted a few apps for OSX 10.7 that added a couple more 3D flourishes, and Microsoft has had that "Flip 3D":http://windows.microsoft.com/en-US/windows-vista/Using-Windows-Flip-3D for a while. But c'mon, 2011 -- that's TWENTY ELEVEN folks -- is right around the corner. Where is our 3D virtual reality? By now, we should be zipping around the "Metaverse in super-sonic motorbikes":http://en.wikipedia.org/wiki/Snow_Crash.
+Ladies and gentlemen, it is the second decade of the second millennium and we are still kicking around the same 2D interface we got three decades ago. Sure, Apple debuted a few apps for OSX 10.7 that have a couple more 3D flourishes, and Microsoft has had that "Flip 3D":http://windows.microsoft.com/en-US/windows-vista/Using-Windows-Flip-3D for a while. But c'mon, 2011 --  is right around the corner. That's TWENTY ELEVEN folks. Where is our 3D virtual reality? By now, we should be zipping around the "Metaverse in super-sonic motorbikes":http://en.wikipedia.org/wiki/Snow_Crash.
 
 Granted, the capability of rendering complex 3D environments has been present for years. On the web, there already are number of solutions -- Flash, "three.js":https://github.com/mrdoob/three.js/ in canvas, and eventually WebGL. And finally, we meager front-end developers have our own three-dimensional jewel: CSS 3D Transforms!
 
 h2. Rationale
 
-Like a beautiful jewel, 3D transform can be dazzling, a true sight to behold. But before we start tacking 3D diamonds and rubies to our compositions like Liberaci's tailor, we owe it to our users to ask what can they benefit from this awesome browser feature. 
+Like a beautiful jewel, 3D transform can be dazzling, a true spectacle to behold. But before we start tacking 3D diamonds and rubies to our compositions like Liberaci's tailor, we owe it to our users to ask what can they benefit from this awesome feature. 
 
-The entire application does not have to take advantage of 3D. There is plenty of opportunity to use 3D transforms _in between_ the interface, via transitions.
+The entire application does not, and should not, have to take advantage of 3D. CSS was built to style documents, not generate explorable environments. I fail to find a benefit to filling out a web form that can be accessed by swiveling my viewport to the Sign-Up Room (although there have been proposals to make the Web just that). But there is plenty of opportunity to use 3D transforms _in between_ the interface, via transitions.
 
-Take for instance the Weather App on the iPhone. The application uses two views, a details view of the weather and an options panel for selecting locations. Switching between these two views is done with a 3D flip transition. This affords the user that interface has but two views, and only two views, as the exist on two sides of the same plane.
+Take for instance the Weather App on the iPhone. The application uses two views, a details view and an options view. Switching between these two views is done with a 3D flip transition. This affords the user that interface has two, and only two views, as they can only exist on either side of the same plane.
 
 !img/weather-app-transition.jpg(Weather App transition)!
 
-Consider image cycle interfaces. What cues tip-off the user that the advancing from the last slide will re-start the cycle at the first? A better paradigm can be used with a 3D transform, where the slides are places side by side one another _in a circle out in 3D space_. In that arrangement, the last slide logically does come before the first.
+Also consider image cycle interfaces. When you're at the last slide, what cues tip-off the user that the advancing will re-start the cycle at the first? A better paradigm can be used with a 3D transform, where the slides are places side by side one another _in a circle in 3D space_. In that arrangement, the last slide logically does come before the first.
 
-Not only can we use 3D transforms to create more visually impressive applications, but we can also use them to solve dilemmas. 
+Not only can we use 3D transforms to create more visually impressive applications, but we can also use them to solve dilemmas and make our applications more intuitive. 
 
 h2. Current Support Environment
 
-"The CSS3 spec for 3D transforms":http://www.w3.org/TR/css3-3d-transforms/ has been out in the wild a year now, but currently, they are only supported by Safari -- which includes Safari on the desktop and Mobile Safari on iOS devices). Support on other browsers varies. 
+"The CSS3 spec for 3D transforms":http://www.w3.org/TR/css3-3d-transforms/ has been out in the wild for a year now, but currently, they are only supported by Safari -- which includes Safari on the desktop and Mobile Safari on iOS devices). Support on other browsers varies. 
 
 The Mozilla team has "made some initial steps":https://bugzilla.mozilla.org/show_bug.cgi?id=505115 towards implementing CSS 3D transforms. "Mike Taylor":twitter.com/miketaylr tells me the Opera team is keeping a close eye on CSS transforms, and is waiting until the spec is fleshed out. And our best friend Internet Explorer still needs to catch up to 2D transforms before we can talk about 3D.
 
