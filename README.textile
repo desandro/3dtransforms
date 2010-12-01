@@ -150,7 +150,7 @@ bc. #card .front {
   -webkit-transform: rotateY( 180deg );
 }
 
-With the transition and faces in place, the @#card@ requires a corresponding style for when it is flipped.
+With the faces in place, the @#card@ requires a corresponding style for when it is flipped.
 
 bc. #card.flipped {
   -webkit-transform: rotateY( 180deg );
@@ -162,13 +162,13 @@ Now we have a working 3D object. To flip the card, we can toggle the @flipped@ c
 
 h2. Slide flip
 
-Take another look at the Weather App 3D transition. You'll notice that it's not quite the same effect as "our previous demo":16-card.html. If you follow the right edge of the card, you'll find that it stays flush with the container. Instead of pivoting from the horizontal center, it pivots on that right edge. But the transition is not just a rotation. The edge moves from right to left. We can reproduce this transform with our original card flip demo, just by modifying a couple lines of CSS.
+Take another look at the Weather App 3D transition. You'll notice that it's not quite the same effect as "our previous demo":examples/card-01.html. If you follow the right edge of the card, you'll find that it stays flush with the container. Instead of pivoting from the horizontal center, it pivots on that right edge. But the transition is not just a rotation -- the edge moves horizontally from right to left. We can reproduce this transition just by modifying a couple lines of CSS from our original card flip demo.
 
 The pivot point for the rotation occurs at the right side of the card. By default, the @transform-origin@ of an element is at its horizontal and vertical center (@50% 50%@ or @center center@). Let's change it to the right side:
 
 bc. #card { -webkit-transform-origin: right center; }
 
-That flip now needs some horizontal movement with @translateX@. We'll also set the rotation to @-180deg@ to it flips right side out.
+That flip now needs some horizontal movement with @translateX@. We'll set the rotation to @-180deg@ so it flips right side out.
 
 bc. #card.flipped {
   -webkit-transform: translateX( -100% ) rotateY( -180deg );
@@ -178,7 +178,7 @@ bc. #card.flipped {
 
 h2. Cube
 
-Cards are a nice easy way of starting with 3D dimensions. But once you've mastered them, you'll be hungry to push it further and create some true 3D objects: prisms. We'll get started by making a cube.
+Creating 3D card objects is a good way to get started with 3D transform. But once you've mastered them, you'll be hungry to push it further and create some true 3D objects: prisms. We'll start out by making a cube.
 
 The markup for the cube is similar to the card. This time we need 6 child elements for all 6 faces of the cube.
 
@@ -193,7 +193,7 @@ bc. <section class="container">
   </div>
 </section>
 
-Basic position and size styles set the 6 faces right on top of one another in the container.
+Basic position and size styles set the 6 faces on top of one another in the container.
 
 bc. .container {
   width: 200px;
@@ -224,7 +224,7 @@ bc. #cube .front  { -webkit-transform: rotateY(   0deg ); }
 
 We could remove the @#cube .front@ style declaration, as this transform has no effect, but let's leave it in to keep our code consistent.
 
-Now each face is rotated, and only the front face is visible. The 4 side faces are all perpendicular to the viewer, so they appear invisible. To push them out to their appropriate sides, they need to be translated out from the center of their positions. Each side of the cube is 200px wide. As the faces are in the center, they'll need to be translated out half that distance, @100px@.
+Now each face is rotated, and only the front face is visible. The 4 side faces are all perpendicular to the viewer, so they appear invisible. To push them out to their appropriate sides, they need to be translated out from the center of their positions. Each side of the cube is 200px wide. From the cube's center they'll need to be translated out half that distance, @100px@.
 
 bc. #cube .front  { -webkit-transform: rotateY(   0deg ) translateZ( 100px ); }
 #cube .back   { -webkit-transform: rotateX( 180deg ) translateZ( 100px ); }
@@ -235,18 +235,23 @@ bc. #cube .front  { -webkit-transform: rotateY(   0deg ) translateZ( 100px ); }
 
 Note here that the @translateZ@ function comes _after_ the @rotate@. The order of transform functions is important. Take a moment and soak this in. Each face is first rotated towards its position, then translated outward in a separate vector.
 
-Once we start pushing elements out of the Z origin plane, all sorts of odd things can distort its appearance. In order to keep 3D transforms snappy, Safari composites the element then applies the transform. Consequently, anti-aliasing on text will remain whatever it was before the transform was applied. When transformed forward in 3D space, significant pixelation can occur. 
+h3. Returning to the Z origin plane
+
+For the sake of our users, our 3D transforms should not distort the interface when the active panel is at its resting position. But once we start pushing elements out of the Z origin plane, distortion is inevitable. 
+
+In order to keep 3D transforms snappy, Safari composites the element then applies the transform. Consequently, anti-aliasing on text will remain whatever it was before the transform was applied. When transformed forward in 3D space, significant pixelation can occur. 
 
 "*See Example: Transforms 2*":examples/transforms-02-pixelation.html
 
 
-To resolve this issue and restore pixel perfection, we can push back the box, so that the front face will be positioned back at the Z origin.
+To resolve the distortion and restore pixel perfection on this @#cube@, we can push back the 3D object, so that the front face will be positioned back at the Z origin.
 
 bc. #cube { -webkit-transform: translateZ( -100px ); }
 
 "*See Example: Cube 1*":examples/cube-01-steps.html
 
-Ensure that the 3D transform makes no distortion of your interface when the active panel is at its resting position. Looking at back at the "Perspective 3 demo":examples/perspective-03.html, note that no matter how small the perspective value is, or where ever the transform origin may be, the 1 panel always returns to its original position, as if all those funky 3D transforms didn't even matter. 
+Looking at back at the "Perspective 3 demo":examples/perspective-03.html, note that no matter how small the perspective value is, or where ever the transform origin may be, the 1 panel always returns to its original position, as if all those funky 3D transforms didn't even matter.
+
 
 To expose any face of the cube, we'll need a style that rotates the cube to expose any face. The transform is the opposite of the corresponding face. We toggle the necessary class on the @#box@ to apply the appropriate transform.
 
@@ -259,6 +264,10 @@ bc. #cube.show-front  { -webkit-transform: translateZ( -100px ) rotateY(    0deg
 
 Notice how the order of the transform functions has reversed. First we push the object back with @translateZ@, then we rotate it.
 
+Finishing up, we can add a transition to animate the rotation between states. 
+
+bc. #cube {  -webkit-transition: -webkit-transform 1s; }
+
 "*See Example: Cube 2*":examples/cube-02-show-sides.html.
 
 
@@ -266,7 +275,7 @@ h2. Rectangular Prism
 
 Cube objects are easy enough to generate as we only have to worry about one measurement. But how would we handle a non-regular rectangular prism? Let's try to make one 300px wide, 200px high, and 100px deep. 
 
-The markup remains the same as the previous version. The container styles remain mostly the same.
+The markup remains the same as the @#cube@'s version, but switch the @#cube@ id for @#box@. The container styles remain mostly the same.
 
 bc. .container {
   width: 300px;
@@ -279,7 +288,7 @@ bc. .container {
   -webkit-transform-style: preserve-3d;
 }
 
-Each set of faces will need their own sizes.
+Now, to position the faces. Each set of faces will need their own sizes. The smaller faces (left, right, top and bottom) need to be positioned in the center of the container, where they can be easily rotated and then shifted outward. The thinner left and right faces get positioned @left: 100px@ ( (300 - 100) / 2 ), The stouter top and bottom faces get positioned @top: 50px@ ( (200 - 100) / 2 ).
 
 bc. #box figure {
   display: block;
@@ -304,9 +313,7 @@ bc. #box figure {
   top: 50px;
 }
 
-The smaller faces (left, right, top and bottom) need to be positioned in the center of the container, where they can be easily rotated and then shifted outward. The thinner left and right faces get positioned @left: 100px@ ( (300 - 100) / 2 ), The stouter top and bottom faces get positioned @top: 50px@ ( (200 - 100) / 2 ).
-
-The rotate values all can remain the same, but for this rectangular prism, the translate values do differ. The front and back faces each are shifted out @50px@ since the @#box@ is 100px deep. Left and right faces translate is @150px@ for 300px width. Top and bottom panels go @100px@ for the 200px height.
+The rotate values all can remain the same as in the cube example, but for this rectangular prism, the translate values do differ. The front and back faces each are shifted out @50px@ since the @#box@ is 100px deep. Left and right faces translate is @150px@ for 300px width. Top and bottom panels go @100px@ for the 200px height.
 
 bc. #box .front  { -webkit-transform: rotateY(   0deg ) translateZ(  50px ); }
 #box .back   { -webkit-transform: rotateX( 180deg ) translateZ(  50px ); }
@@ -317,7 +324,7 @@ bc. #box .front  { -webkit-transform: rotateY(   0deg ) translateZ(  50px ); }
 
 "*See Example: Box 1*":examples/box-01-steps.html.
 
-Again, to expose a face, the @#box@ needs to have a style to reverse its transform.
+Just like the cube example, to expose a face, the @#box@ needs to have a style to reverse its face's transform. Both the @translateZ@ and @rotate@ values are the opposites of the corresponding face.
 
 bc. #box.show-front  { -webkit-transform: translateZ(  -50px ) rotateY(    0deg ); }
 #box.show-back   { -webkit-transform: translateZ(  -50px ) rotateX( -180deg ); }
@@ -333,7 +340,7 @@ h2. Carousel
 
 Front-end developers have a myriad of choices when it comes to content carousels. Now that we have 3D capabilities in our browsers, why not give a shot at creating an actual 3D carousel?
 
-The mark-up for this demo uses the same format as the boxes and card.
+The markup for this demo takes the same form as the box, cube, and card. Let's make it interesting and have a carousel with 9 panels.
 
 bc. <div class="container">
   <div id="carousel">
@@ -349,7 +356,7 @@ bc. <div class="container">
   </div>
 </div>
 
-Apply basic styles. For this demo, I'm giving each panel of the @#carousel@ 20px gaps between one another.  But the effective width of each panel remains 210px.
+Now apply basic styles. Let's give each panel of the @#carousel@ 20px gaps between one another. The effective width of each panel remains 210px.
 
 bc. .container {
   width: 210px;
@@ -393,7 +400,7 @@ We can determine the length of _r_ in this diagram with a basic tangent equation
 
 !img/calc.png(Trigonometric calculation)!
 
-There you have it, @288px@ is the distance to translate the panels out in 3D space.
+There you have it, @288px@ is the distance to translate the panels out in 3D space. 
 
 bc. #carousel figure:nth-child(1) { -webkit-transform: rotateY(   0deg ) translateZ( 288px ); }
 #carousel figure:nth-child(2) { -webkit-transform: rotateY(  40deg ) translateZ( 288px ); }
@@ -404,6 +411,15 @@ bc. #carousel figure:nth-child(1) { -webkit-transform: rotateY(   0deg ) transla
 #carousel figure:nth-child(7) { -webkit-transform: rotateY( 240deg ) translateZ( 288px ); }
 #carousel figure:nth-child(8) { -webkit-transform: rotateY( 280deg ) translateZ( 288px ); }
 #carousel figure:nth-child(9) { -webkit-transform: rotateY( 320deg ) translateZ( 288px ); }
+
+
+If we decide on changing the width of the panel or the number of panels, we only need to plug in those two variables into our equation to get the appropriate translateZ value. In JS terms, that equation would be:
+
+bc. var tz = Math.round( ( panelSize / 2 ) / 
+  Math.tan( ( ( Math.PI * 2 ) / numberOfPanels ) / 2 ) );
+// or simplified to
+var tz = Math.round( ( panelSize / 2 ) / 
+  Math.tan( Math.PI / numberOfPanels ) );
 
 Just like our previous 3D objects, to show any one panel, we need only to apply the reverse transform on the carousel. Here's the style to show the fifth panel:
 
