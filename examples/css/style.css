@@ -4,17 +4,9 @@ section {
 
 body {
   font-family: 'Helvetica Neue', Arial, sans-serif;
+  -webkit-text-size-adjust: none;
 }
 
-/*
-.container {
-  width: 200px;
-  height: 200px;
-  border: 1px solid #CCC;
-  margin-bottom: 40px;
-}
-
-*/
 #options {
   position: relative;
   z-index: 100;
@@ -29,23 +21,23 @@ button {
 
 .proxy-range {
   display: inline-block;
+  position: relative;
   height: 30px;
   width: 200px;
-  border: 1px solid hsla(0, 0%, 0%, 0.15);
+  border: 1px solid hsla( 0, 0%, 0%, 0.15 );
+  background-color: hsla( 0, 0%, 0%, 0.02 );
   -webkit-border-radius: 15px;
      -moz-border-radius: 15px;
           border-radius: 15px;
-  -webkit-box-shadow: inset 0 1px 7px hsla(0, 0%, 0%, 0.3);
-     -moz-box-shadow: inset 0 1px 7px hsla(0, 0%, 0%, 0.3);
-       -o-box-shadow: inset 0 1px 7px hsla(0, 0%, 0%, 0.3);
-          box-shadow: inset 0 1px 7px hsla(0, 0%, 0%, 0.3);
-  position: relative;
-  background-color: hsla(0, 0%, 0%, 0.02);
+  -webkit-box-shadow: inset 0 1px 7px hsla( 0, 0%, 0%, 0.3 );
+     -moz-box-shadow: inset 0 1px 7px hsla( 0, 0%, 0%, 0.3 );
+       -o-box-shadow: inset 0 1px 7px hsla( 0, 0%, 0%, 0.3 );
+          box-shadow: inset 0 1px 7px hsla( 0, 0%, 0%, 0.3 );
 
 }
 
 .proxy-range.highlighted {
-  background-color: hsla( 220, 90%, 50%, 0.15);
+  background-color: hsla( 220, 90%, 50%, 0.15 );
 }
 
 .proxy-range .handle {
@@ -58,17 +50,17 @@ button {
   position: absolute;
   top: -5px;
   left: -20px;
-  background-color: hsla( 220, 70%, 60%, 1.0);
+  background-color: hsla( 220, 70%, 60%, 1.0 );
   background-image: -webkit-gradient(radial, center 15%, 0, center 30%, 30, 
-    from( hsla(0, 0%, 100%, 0.6) ),  
-    color-stop( 50%, hsla(0, 0%, 100%, 0.0) ),
-    color-stop( 50%, hsla(0, 0%, 0%, 0.0) ),
-    to(  hsla(0, 0%, 0%, 0.5)  )
+    from(            hsla( 0, 0%, 100%, 0.6 ) ),  
+    color-stop( 50%, hsla( 0, 0%, 100%, 0.0 ) ),
+    color-stop( 50%, hsla( 0, 0%,   0%, 0.0 ) ),
+    to(              hsla( 0, 0%,   0%, 0.5 ) )
   );
   -webkit-box-shadow: 
-    inset 0 2px 0px -1px hsla(0, 0%, 100%, 1.0), 
-    inset 0 -4px 2px -1px hsla(0, 0%, 0%, 0.1), 
-    0 1px 2px hsla( 0, 0%, 0%, 0.3)
+    0  2px 0px -1px hsla( 0, 0%, 100%, 1.0 ) inset, 
+    0 -4px 2px -1px hsla( 0, 0%,   0%, 0.1 ) inset, 
+    0  1px 2px  0px hsla( 0, 0%,   0%, 0.3 )
   ;
   -webkit-transition-property: width, height, top, left, -webkit-border-radius;
   -webkit-transition-duration: 0.1s;
@@ -80,10 +72,10 @@ button {
   width: 4px;
   left: -3px;
   background-image: -webkit-gradient(linear, 0 top, 0 bottom, 
-    from( hsla(0, 0%, 100%, 0.6) ),  
-    color-stop( 50%, hsla(0, 0%, 100%, 0.0) ),
-    color-stop( 50%, hsla(0, 0%, 0%, 0.0) ),
-    to(  hsla(0, 0%, 0%, 0.5)  )
+    from(            hsla( 0, 0%, 100%, 0.6 ) ),  
+    color-stop( 50%, hsla( 0, 0%, 100%, 0.0 ) ),
+    color-stop( 50%, hsla( 0, 0%,   0%, 0.0 ) ),
+    to(              hsla( 0, 0%,   0%, 0.5 ) )
   );
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;

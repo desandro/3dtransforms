@@ -25,8 +25,8 @@
     }
     
     #red .box {
-      -webkit-transform: perspective(600) rotateY(45deg);
       background-color: red;
+      -webkit-transform: perspective( 600 ) rotateY( 45deg );
     }
 
     #blue {
@@ -34,8 +34,8 @@
     }
 
     #blue .box {
-      -webkit-transform: rotateY(45deg);
       background-color: blue;
+      -webkit-transform: rotateY( 45deg );
     }
   </style>
 
@@ -45,22 +45,22 @@
   <h1>Perspective 1</h1>
 
   <pre><code>#red .box {
-  -webkit-transform: perspective(800) rotateY(45deg);
   background-color: red;
+  -webkit-transform: perspective( 600 ) rotateY( 45deg );
 }</code></pre>
 
   <section id="red" class="container">
-    <div class="box"></div>
+    <div class="box red"></div>
   </section>
 
 
-<pre><code>#blue {
-  -webkit-perspective: 800;
+  <pre><code>#blue {
+  -webkit-perspective: 600;
 }
 
 #blue .box {
-  -webkit-transform: rotateY(45deg);
   background-color: blue;
+  -webkit-transform: rotateY( 45deg );
 }</code></pre>
 
   <section id="blue" class="container">
