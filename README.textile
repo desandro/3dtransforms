@@ -10,29 +10,35 @@ Like a beautiful jewel, 3D transform can be dazzling, a true spectacle to behold
 
 The entire application does not, and should not, have to take advantage of 3D. CSS was built to style documents, not generate explorable environments. I fail to find a benefit to filling out a web form that can be accessed by swiveling my viewport to the Sign-Up Room (although there have been proposals to make the Web just that). But there is plenty of opportunity to use 3D transforms _in between_ the interface, via transitions.
 
-Take for instance the Weather App on the iPhone. The application uses two views, a details view and an options view. Switching between these two views is done with a 3D flip transition. This affords the user that interface has two, and only two views, as they can only exist on either side of the same plane.
+Take for instance the Weather App on the iPhone. The application uses two views, a details view and an options view. Switching between these two views is done with a 3D flip transition. This affords the user that the interface has two and only two views, as they can only exist on either side of the same plane.
 
-!img/weather-app-transition.jpg(Weather App transition)!
+!img/weather-app-transition.jpg(iPhone Weather App 3D flip transition)!
 
-Also consider image cycle interfaces. When you're at the last slide, what cues tip-off the user that the advancing will re-start the cycle at the first? A better paradigm can be used with a 3D transform, where the slides are places side by side one another _in a circle in 3D space_. In that arrangement, the last slide logically does come before the first.
+Also consider slide cycle plugins. When you're at the last slide, what cues tip-off the user that the advancing will re-start the cycle at the first? A better paradigm can be used with a 3D transform, where the slides are placed side by side one another in a circle _in 3D space_. In that arrangement, the last slide logically comes before the first.
 
-Not only can we use 3D transforms to create more visually impressive applications, but we can also use them to solve dilemmas and make our applications more intuitive. 
+Not only can we use 3D transforms to create more visually impressive interfaces, but we can also use them to solve dilemmas and make our applications more intuitive. 
 
 h2. Current Support Environment
 
-"The CSS3 spec for 3D transforms":http://www.w3.org/TR/css3-3d-transforms/ has been out in the wild for a year now, but currently, they are only supported by Safari -- which includes Safari on the desktop and Mobile Safari on iOS devices). Support on other browsers varies. 
+"The CSS3 spec for 3D transforms":http://www.w3.org/TR/css3-3d-transforms/ has been out in the wild for a year now. Currently, they are only supported by Safari, which includes Safari on the desktop and Mobile Safari on iOS devices. 
 
-The Mozilla team has "made some initial steps":https://bugzilla.mozilla.org/show_bug.cgi?id=505115 towards implementing CSS 3D transforms. "Mike Taylor":twitter.com/miketaylr tells me the Opera team is keeping a close eye on CSS transforms, and is waiting until the spec is fleshed out. And our best friend Internet Explorer still needs to catch up to 2D transforms before we can talk about 3D.
+Support on other browsers varies. The Mozilla team has "made some initial steps":https://bugzilla.mozilla.org/show_bug.cgi?id=505115 towards implementing the spec. "Mike Taylor":twitter.com/miketaylr tells me the Opera team is keeping a close eye on CSS transforms, and is waiting until the spec is fleshed out. And our best friend Internet Explorer still needs to catch up to 2D transforms before we can talk about 3D.
 
-To make matters more perplexing, WebKit-cousin Chrome currently accepts 3D transform declarations, but renders them in 2D space. Per Chrome team member "Paul Irish":http://twitter.com/paul_irish, 3D transforms are on the horizon, perhaps in one of the next X.0 releases. 
+To make matters more perplexing, Safari's WebKit-cousin Chrome currently accepts 3D transform declarations, but renders them in 2D space. Per Chrome team member "Paul Irish":http://twitter.com/paul_irish, 3D transforms are on Chrome's horizon, perhaps in one of the next X.0 releases. 
 
-This all adds up to a bit of a challenge for those of us ready for 3D transforms. I'll give it to you straight, missing that dimension of depth will make degradation especially un-graceful. Unless the transform is relatively simple and holds up in non-3D-supporting browsers, you'll most likely have to design another solution if you're ready to take on 3D transforms.
+This all adds up to a bit of a challenge for those of us excited for 3D transforms. I'll give it to you straight: missing that dimension of depth will make degradation especially ungraceful. Unless the transform is relatively simple and holds up in non-3D-supporting browsers, you'll most likely have to design another solution. But as my father says, what's another hurdle in a steeple chase? Devising multiple solutions for the same effect is task we web folk have been galvanized for.
 
 Here's the part of the article where I mention "Modernizr":http://modernizr.com, and you brush over it because you've read this part of an article hundreds of times before. But seriously, it's the best way to test for CSS 3D transform support. Use it.
 
-Even with these hurdles in place, trying out 3D transforms today is a good move. The CSS 3D transforms spec was developed by the same team at Apple who produced the "CSS 2D transforms":http://www.w3.org/TR/css3-2d-transforms/ and "animation":http://www.w3.org/TR/css3-animations/ specifications.  Both of these specifications have been adopted by Mozilla and Opera. Transforming three-dimensionally now will guarantee you'll be ahead of the game when the other browsers catch up.
+Even with these difficulties mounted up, trying out 3D transforms today is the right move. The CSS 3D transforms spec was developed by the same team at Apple who produced the "CSS 2D transforms":http://www.w3.org/TR/css3-2d-transforms/ and "animation":http://www.w3.org/TR/css3-animations/ specifications.  Both of these specifications have been adopted by Mozilla and Opera. Transforming three-dimensionally now will guarantee you'll be ahead of the game when the other browsers catch up.
 
-The choice is yours. You can make excuses and poo-poo 3D transforms because they're too hard, or only snobby iPhone and Safari users will see them. Or (with a "tip of the fedora to Mr. Andy Clarke":http://hardboiledwebdesign.com/) you can get hard-boiled and start designing with the best features out there.
+The choice is yours. You can make excuses and poo-poo 3D transforms because they're too hard and only snobby Apple fans will see them today. Or, with a "tip of the fedora to Mr. Andy Clarke":http://hardboiledwebdesign.com/, you can get hardboiled and start designing with the best features out there right this instant.
+
+So I bid you, "in the words of the eternal Optimus Prime":http://tfwiki.net/wiki/Roll_out...
+
+bq. Transform and roll out.
+
+Let's get coding.
 
 h2. Perspective
 
@@ -46,15 +52,15 @@ bc. -webkit-perspective: 800;
 
 "*See Example 12.*":12-perspective.html
 
-These two formats produce the same effect, but there is a difference. The functional notation method is fairly convenient for directly applying a 3D transform on a single element (in Example 12, I am using it with a rotateX transform). The problem is that it doesn't work for multiple elements, since the perspective is only for the one element. If you use the same transform across elements with different position, each element will have its own vanishing point. To remedy this, use the @perspective@ property on a parent element, so each child exists in the same 3D space.
+These two formats both trigger a 3D space, but there is a difference. The functional notation is convenient for directly applying a 3D transform on a single element (in "Example 12":12-perspective.htm, I use it in conjunction with a @rotateX@ transform). But when used on multiple elements, the elements don't line up as expected. If you use the same transform across elements with different positions, each element will have its own vanishing point. To remedy this, use the @perspective@ property on a parent element, so each child shares the same 3D space.
 
 "*See Example 14.*":14-child-perspective.html
 
-The value of perspective determines the intensity of the 3D effect. Think of it as a distance. @perspective: 2000;@ yeilds a subtle 3D effect, as if you are viewing an object from far away through binoculars. @perspective: 100;@ produces an tremendous 3D effect, as if you are a tiny insect viewing a massive object up close.
+The value of @perspective@ determines the intensity of the 3D effect. Think of it as a distance from the viewer to the object. @perspective: 2000;@ yields a subtle 3D effect, as if we are viewing an object from far away through binoculars. @perspective: 100;@ produces a tremendous 3D effect, as if we are a tiny insect viewing a massive object up close.
 
-By default, the vanishing point for a 3D space is positioned at the center. You can change the position of the vanishing point with @perspetive-origin@ property.
+By default, the vanishing point for a 3D space is positioned at the center. You can change the position of the vanishing point with @perspective-origin@ property.
 
-bc. -webkit-perspective-origin: 25% 75%
+bc. -webkit-perspective-origin: 25% 75%;
 
 "*See Example 5.*":05-perspective.html
 
@@ -62,23 +68,21 @@ bc. -webkit-perspective-origin: 25% 75%
 
 h2. 3D transform functions
 
-As a web designer, you'll probably well-acquainted with working in 2 dimensions, X and Y, for positioning items horizontally and vertically. 3D transforms enable you to position elements in the third Z dimension, which positions elements nearer and further in 3D space. 
-
-With a 3D space initialized with @perspective@, you can now transform elements in all 3 glorious dimensions. 3D transforms use the same @transform@ property used for 2D transforms. If you're already familiar with 2D transforms, you'll find the basic "3D transform functions":http://www.w3.org/TR/css3-3d-transforms/#transform-functions fairly similar. 
+As a web designer, you're probably well acquainted with working in two dimensions, X and Y, positioning items horizontally and vertically. With a 3D space initialized with @perspective@, we can now transform elements in all three glorious spatial dimensions, included the third Z dimension. 3D transforms use the same @transform@ property used for 2D transforms. If you're familiar with 2D transforms, you'll find the basic "3D transform functions":http://www.w3.org/TR/css3-3d-transforms/#transform-functions fairly similar. 
 
 * @rotateX( angle )@ 
 * @rotateY( angle )@
 * @rotateZ( angle )@
 * @translateZ( tz )@
-* @scale( sz )@
+* @scaleZ( sz )@
 
 Whereas @translateX()@ positions an element along the horizontal X axis, @translateZ()@ positions it along the Z axis, which runs front to back in 3D space. Positive values position the element closer to the viewer, negative values further away.
 
-The rotate functions will rotate the element around the corresponding axis. Using @rotateX( 45deg )@ will rotate around the horizontal X axis, so the top of the element will be angled back, and the bottom will be angled closer.
+The @rotate@ functions rotate the element around the corresponding axis. Using @rotateX( 45deg )@ rotates an element around the horizontal X axis, so the top of the element angles back and away, and the bottom angles closer.
 
 "*See Example 15.*":15-basic-transforms.html
 
-Looking at this demo, note that no matter how small the perspective value is, or where ever the transform origin may be, the 1 panel always returns to its original position, as if all those funky 3D transforms didn't even matter. 
+
 
 There's also several shorthand transform functions that require values for all three dimensions:
 
@@ -86,7 +90,7 @@ There's also several shorthand transform functions that require values for all t
 * @scale3d( sx, sy, sz )@
 * @rotate3d( rx, ry, rz, angle )@
 
-I'm skipping over @matrix3d()@, as this function is especially complex and requires comprehension of "transformation matrix.":http://www.w3.org/TR/SVG/coords.html#TransformMatrixDefined As I understand it, the function was developed for robots, by robots.
+I'm skipping over @matrix3d()@, as this function is especially complex and requires comprehension of a "transformation matrix.":http://www.w3.org/TR/SVG/coords.html#TransformMatrixDefined As I understand it, the function was developed for robots, by robots.
 
 *Pro-tip:* These @foo3d()@ transform functions also have the benefit of triggering hardware acceleration in Safari. Dean Jackson, CSS 3D transform spec author and main WebKit dude, writes (by way of "Thomas Fuchs":http://mir.aculo.us/2010/08/05/html5-buzzwords-in-action/):
 
@@ -96,20 +100,20 @@ For the sake of simplicity, these demos will use the basic transform functions, 
 
 h2. Card flip
 
-We now have all the tools to start making 3D objects. Let's get started with the basics, flipping a card. %%As mentioned above discussing the iPhone Weather app, using a card interface --do we need rationale here?--%%%
+We now have all the tools to start making 3D objects. Let's get started with the basics, flipping a card.
 
 Here's the basic markup we'll need:
 
 bc. <section class="container">
-  <div class="card">
+  <div id="card">
     <figure class="front">1</figure>
     <figure class="back">2</figure>
   </div>
 </section>
 
-So what do we have here. Obviously we need the faces of the card, both @front@ and @back@. The @card@ acts as a wrapper for the faces of the object. Finally the @container@ will house the 3D space. We're ready for some 3D stylez. Even for such a simple object, I recommend using this same patern for any 3D transform.  Keeping the 3D space element and the object element establishes a paradigm that is simple to understand and easier to style.
+So what do we have here. Obviously we need the faces of the card, both @.front@ and @.back@. The @#card@ acts as a wrapper for the 3D object. Finally the @.container@ will house the 3D space. Even for such a simple object, I recommend using this same pattern for any 3D transform.  Keeping the 3D space element and the object element establishes a paradigm that is simple to understand and easier to style.
 
-First, apply necessary @perspective@ to the parent 3D space, along with any size or positioning styles.
+We're ready for some 3D stylin'. First, apply necessary @perspective@ to the parent 3D space, along with any size or positioning styles.
 
 bc. .container { 
   width: 200px;
@@ -117,7 +121,7 @@ bc. .container {
   -webkit-perspective: 800;
 }
 
-Now the @#card@ element can be transformed in 3D space, since its parent has @perspective@.  Let's add a CSS3 transition so users can see the transform take effect.
+Now the @#card@ element can be transformed in 3D space, since its parent has @perspective@. Let's add a CSS3 transition so users can see the transform take effect. We'll also add @width: 100%;@  and @height: 100%;@ to ensure the object occupies the parent. This ensure the object's @transform-origin@ will occur in the center of container. More on @transform-origin@ to come. 
 
 bc. #card {
   width: 100%;
@@ -126,7 +130,7 @@ bc. #card {
   -webkit-transition: -webkit-transform 1s;
 }
 
-As this is a 3D transform, this element ought to exist in 3D space. The @.container@'s @perspective@ only applies to direct descendant children, in this case @#card@. In order for children to inherit a parent's perspective, and live in the same 3D space, the parent needs to have @transform-style: preserve-3d@. Without 3D @transform-style@, these faces would be flattened with its parents and the back face's rotation would be nullified. 
+As this is a 3D transform, this element ought to exist in 3D space. The @.container@'s @perspective@ only applies to direct descendant children, in this case @#card@. In order for children to inherit a parent's perspective, and live in the same 3D space, the parent needs to have @transform-style: preserve-3d@. Without 3D @transform-style@, the faces of the card would be flattened with its parents and the back face's rotation would be nullified. 
 
 With the transition in place, we need a corresponding style for the @#card@ for when it is flipped.
 
@@ -160,7 +164,7 @@ Now we have a working 3D object. To flip the card, we can toggle the @flipped@ c
 
 h2. Slide flip
 
-Take another look at the Weather App 3D transition. You'll notice that it's not quite the same effect as the one produced in the previous demo. If you follow the right edge of the card, you'll find that it stays flush with the container. Instead of pivoting from the horizontal center, it pivots on that right edge. But the transition is not just a rotation. The edge moves from right to left. We can reproduce this transform with our original card flip demo, just by modifying a couple lines of CSS.
+Take another look at the Weather App 3D transition. You'll notice that it's not quite the same effect as "our previous demo":16-card.html. If you follow the right edge of the card, you'll find that it stays flush with the container. Instead of pivoting from the horizontal center, it pivots on that right edge. But the transition is not just a rotation. The edge moves from right to left. We can reproduce this transform with our original card flip demo, just by modifying a couple lines of CSS.
 
 The pivot point for the rotation occurs at the right side of the card. By default, the @transform-origin@ of an element is at its horizontal and vertical center (@50% 50%@ or @center center@). Let's change it to the right side:
 
@@ -174,14 +178,14 @@ bc. #card.flipped {
 
 "*See Example 17*":17-slide-flip.html and "*Example 18*":18-slide-flip.html.
 
-h2. 3D objects
+h2. Cube
 
-3D cards are a nice easy step into working with 3D dimensions. But once you've mastered them, you'll be hungry to push it further and create some true 3D objects: prisms. We'll get started by making a cube.
+Cards are a nice easy way of starting with 3D dimensions. But once you've mastered them, you'll be hungry to push it further and create some true 3D objects: prisms. We'll get started by making a cube.
 
 The markup for the cube is similar to the cube. This time we need 6 child elements for all 6 faces of the cube.
 
 bc. <section class="container">
-  <div class="box">
+  <div id="box">
     <figure class="front">1</figure>
     <figure class="back">2</figure>
     <figure class="right">3</figure>
@@ -191,7 +195,7 @@ bc. <section class="container">
   </div>
 </section>
 
-Basic position and size styles set the 6 faces flat, right on top of one another in the container.
+Basic position and size styles set the 6 faces right on top of one another in the container (in 2D space).
 
 bc. .container {
   width: 200px;
@@ -211,7 +215,7 @@ bc. .container {
   border: 2px solid black;
 }
 
-With the card, we only had to rotate the back side, the cube, however, requires that 5 of the 6 faces need to be rotated. Faces 1 and 2 will be the front and back. Faces 3 and 4 will be the sides. Faces 5 and 6 will be the top and bottom.
+With the card, we only had to rotate its back face. The cube, however, requires that 5 of the 6 faces to be rotated. Faces 1 and 2 will be the front and back. Faces 3 and 4 will be the sides. Faces 5 and 6 will be the top and bottom.
 
 bc. #cube .front  { -webkit-transform: rotateY(   0deg ); }
 #cube .back   { -webkit-transform: rotateX( 180deg ); }
@@ -220,9 +224,9 @@ bc. #cube .front  { -webkit-transform: rotateY(   0deg ); }
 #cube .top    { -webkit-transform: rotateX(  90deg ); }
 #cube .bottom { -webkit-transform: rotateX( -90deg ); }
 
-We could leave out the @#cube .front@ style declaration, as the transform has no effect, but let's leave it in to keep our code consistent.
+We could remove the @#cube .front@ style declaration, as this transform has no effect, but let's leave it in to keep our code consistent.
 
-Now each face is rotated, and only the front face is visible. The 4 side faces are all perpendicular to the viewer, so they appear invisible. To push them out to their appropriate sides, they need to be translated out from the center of their positions. Each side of the cube is 200px wide. As the faces are in the center, they'll need to be translated out half that distance, 100px.
+Now each face is rotated, and only the front face is visible. The 4 side faces are all perpendicular to the viewer, so they appear invisible. To push them out to their appropriate sides, they need to be translated out from the center of their positions. Each side of the cube is 200px wide. As the faces are in the center, they'll need to be translated out half that distance, @100px@.
 
 bc. #cube .front  { -webkit-transform: rotateY(   0deg ) translateZ( 100px ); }
 #cube .back   { -webkit-transform: rotateX( 180deg ) translateZ( 100px ); }
@@ -231,35 +235,40 @@ bc. #cube .front  { -webkit-transform: rotateY(   0deg ) translateZ( 100px ); }
 #cube .top    { -webkit-transform: rotateX(  90deg ) translateZ( 100px ); }
 #cube .bottom { -webkit-transform: rotateX( -90deg ) translateZ( 100px ); }
 
-Note here that the @translateZ@ function comes _after_ the @rotate@. Take a moment and soak this in. Each face is first rotated towards its position, then translated out to that position.
+Note here that the @translateZ@ function comes _after_ the @rotate@. The order of transform functions is important. Take a moment and soak this in. Each face is first rotated towards its position, then translated outward in a separate vector.
 
-Now we have a 3D object. Neat! But we're not done yet.
-
-Once we start pushing elements out of the Z origin plane, all sorts of fun things happen to its appearance. In order to keep 3D transforms snappy, Safari composites the element then applies the transform. Consequently, anti-aliasing on text will remain whatever it was without the transform. When transformed forward in 3D space, serious pixelation can occur.
+Once we start pushing elements out of the Z origin plane, all sorts of odd things can distort its appearance. In order to keep 3D transforms snappy, Safari composites the element then applies the transform. Consequently, anti-aliasing on text will remain whatever it was before the transform was applied. When transformed forward in 3D space, significant pixelation can occur. 
 
 "*See Example 8*":08-pixelation.html
 
+
 To resolve this issue and restore pixel perfection, we can push back the box, so that the front face will be positioned back at the Z origin.
 
-bc. .box { -webkit-transform: translateZ( -100px ); }
+bc. #cube { -webkit-transform: translateZ( -100px ); }
 
 "*See Example 20*":20-cube-steps.html
 
-To expose any face of the cube, we'll need a style that rotates the cube to expose any face. As the object is a cube, the transform is the opposite of the transform of the corresponding face. We toggle the necessary class on the @#box@ to apply the appropriate transform.
+Ensure that the 3D transform makes no distortion of your interface when the active panel is at its resting position. Looking at back at the "perspective demo":05-perspective.html, note that no matter how small the perspective value is, or where ever the transform origin may be, the 1 panel always returns to its original position, as if all those funky 3D transforms didn't even matter. 
 
-bc. #box.show-front  { -webkit-transform: translateZ( -100px ) rotateY(    0deg ); }
-#box.show-back   { -webkit-transform: translateZ( -100px ) rotateX( -180deg ); }
-#box.show-right  { -webkit-transform: translateZ( -100px ) rotateY(  -90deg ); }
-#box.show-left   { -webkit-transform: translateZ( -100px ) rotateY(   90deg ); }
-#box.show-top    { -webkit-transform: translateZ( -100px ) rotateX(  -90deg ); }
-#box.show-bottom { -webkit-transform: translateZ( -100px ) rotateX(   90deg ); }
+To expose any face of the cube, we'll need a style that rotates the cube to expose any face. The transform is the opposite of the corresponding face. We toggle the necessary class on the @#box@ to apply the appropriate transform.
+
+bc. #cube.show-front  { -webkit-transform: translateZ( -100px ) rotateY(    0deg ); }
+#cube.show-back   { -webkit-transform: translateZ( -100px ) rotateX( -180deg ); }
+#cube.show-right  { -webkit-transform: translateZ( -100px ) rotateY(  -90deg ); }
+#cube.show-left   { -webkit-transform: translateZ( -100px ) rotateY(   90deg ); }
+#cube.show-top    { -webkit-transform: translateZ( -100px ) rotateX(  -90deg ); }
+#cube.show-bottom { -webkit-transform: translateZ( -100px ) rotateX(   90deg ); }
+
+Notice how the order of the transform functions has reversed. First we push the object back with @translateZ@, then we rotate it.
 
 "*See Example 1*":01-cube.html
 
 
-h3. Boxes and prisms
+h2. Rectangular Prism
 
-Cube objects are easy enough to generate as we only have to worry about one measurement. But how would we handle a non-regular rectangular prism? Let's try to make one 300px wide, 200px high, and 100px deep. The markup remains the same as the previous version. The container styles remain mostly the same.
+Cube objects are easy enough to generate as we only have to worry about one measurement. But how would we handle a non-regular rectangular prism? Let's try to make one 300px wide, 200px high, and 100px deep. 
+
+The markup remains the same as the previous version. The container styles remain mostly the same.
 
 bc. .container {
   width: 300px;
@@ -279,20 +288,17 @@ bc. #box figure {
   position: absolute;
   border: 2px solid black;
 }
-/* front and back */
 #box .front,
 #box .back {
   width: 296px;
   height: 196px;
 }
-/* left and right sides */
 #box .right,
 #box .left {
   width: 96px;
   height: 196px;
   left: 100px;
 }
-/* top and bottom */
 #box .top,
 #box .bottom {
   width: 296px;
@@ -300,7 +306,7 @@ bc. #box figure {
   top: 50px;
 }
 
-The smaller faces (left, right, top and bottom) need to be positioned in the center of the container, where they can be easily rotated and then shifted outward. The thinner left and right faces get positioned @left: 100px@, The stouter top and bottom faces get positioned @top: 50px@.
+The smaller faces (left, right, top and bottom) need to be positioned in the center of the container, where they can be easily rotated and then shifted outward. The thinner left and right faces get positioned @left: 100px@ ( (300 - 100) / 2 ), The stouter top and bottom faces get positioned @top: 50px@ ( (200 - 100) / 2 ).
 
 The rotate values all can remain the same, but for this rectangular prism, the translate values do differ. The front and back faces each are shifted out @50px@ since the box is 100px deep. Left and right faces translate is @150px@ for 300px width. Top and bottom panels go @100px@ for the 200px height.
 
@@ -321,7 +327,7 @@ bc. #box.show-front  { -webkit-transform: translateZ(  -50px ) rotateY(    0deg 
 #box.show-bottom { -webkit-transform: translateZ( -100px ) rotateX(   90deg ); }
 
 
-h3. Carousel
+h2. Carousel
 
 Front-end developers have a myriad of choices when it comes to content carousels. Now that we have 3D capabilities in our browsers, why not give a shot at creating an actual 3D carousel?
 
@@ -375,7 +381,7 @@ bc. #carousel figure:nth-child(1) { -webkit-transform: rotateY(   0deg ); }
 #carousel figure:nth-child(8) { -webkit-transform: rotateY( 280deg ); }
 #carousel figure:nth-child(9) { -webkit-transform: rotateY( 320deg ); }
 
-Now the outward shift. Back when we were creating cube and boxes, the value was simple to calculate, as it was equal to one half the width, height, or depth of the object. Now with a carousel, there is no predefined size of the object. We'll have calculate the distance for the shift by other means.
+Now the outward shift. Back when we were creating cube and boxes, the @translate@ value was simple to calculate, as it was equal to one half the width, height, or depth of the object. Now with a carousel, there is no predefined size of the object. We'll have calculate the distance for the shift by other means.
 
 Drawing out a diagram of the carousel, we see that we only know two things: the width of each panel is 210px and the each panel is rotated 40 degrees from the next. If we split one of these triangles down its center, we get a right triangle, prime for some trigonometry.
 
@@ -397,7 +403,7 @@ bc. #carousel figure:nth-child(1) { -webkit-transform: rotateY(   0deg ) transla
 #carousel figure:nth-child(8) { -webkit-transform: rotateY( 280deg ) translateZ( 288px ); }
 #carousel figure:nth-child(9) { -webkit-transform: rotateY( 320deg ) translateZ( 288px ); }
 
-Just like our previous 3D objects, to show any one panel, we need only to apply the reverse transform on the carousel. to show the fifth panel:
+Just like our previous 3D objects, to show any one panel, we need only to apply the reverse transform on the carousel. Here's the style to show the fifth panel:
 
 bc. -webkit-transform: translateZ( -288px ) rotateY( -160deg );
 
@@ -414,14 +420,8 @@ And you're absolutely right. The repetitive nature of 3D objects lend themselves
 
 h2. Further Discussion
 
-Pardon the obvious pun, 3D transforms open up a world a possibilities for interface designers. It changes the whole way you think about the canvas.  Actually, it changes the flat canvas itself into a room. As we start employing more 3D transforms, a whole new crop of challenges will emerge. Here's a couple questions to get us started:
-
-* The @transform@ style property houses all the transforms. What's the best way to get and set the values inside this one property?
-* What's the best way to resolve for browsers that don't support 3D transforms?
-* How can we avoid crushing browser performance while still achieving these awesome transforms?
-
-
+3D transforms change the whole way we think about the canvas of web design.  Actually, they change the flat canvas itself into a room. My hope is that you took at least one peak a demo and were impressed. I feel that initial positive reaction is enough to get all my kindred front-end developers excited about what 3D transforms offer. We, who have rejoiced for border-radius and box-shadow, now have an incredible tool in 3D transforms. They deserve just the same enthusiasm, research, and experimentation. I'm enthralled to see what's to come.
 
 h3. About the author
 
-If the Web were a coloring book, David DeSandro would be the kid manically scribbling outside the lines of every page, whittling away his crayons of front-end development to wee nubs. Lucky for him, he's paid to do the thing he loves, creating engaging, innovative interfaces at "nclud":http://nclud.com. Come nightfall, he dons a cape, develops "fun-time articles":http://desandro.com and "resources":http://github.com/desandro, journals his "findings":http://dropshado.ws, and fights crime around Washington, DC.
+If the Web were a coloring book, "*David DeSandro*":http://desandro.com would be the kid manically scribbling outside the lines of every page, whittling away his front-end development crayons to wee nubs. Lucky for him, he's paid to do the thing he loves, creating engaging, innovative interfaces at "nclud":http://nclud.com. Come nightfall, he dons a cape, develops "resources":http://github.com/desandro, journals his "discoveries":http://dropshado.ws, and fights crime around Washington, DC.
