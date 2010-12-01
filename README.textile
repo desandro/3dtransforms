@@ -16,15 +16,21 @@ Not only can we use 3D transforms to create more visually impressive application
 
 h2. Current Support Environment
 
-"The CSS3 spec for 3D transforms":http://www.w3.org/TR/css3-3d-transforms/ has been public for over a year now, but at the moment of writing this article, they are only supported by Safari, which includes Safari on the desktop and Mobile Safari on iOS devices. Support on other browsers varies. WebKit-cousin Chrome  currently accepts 3D transform declarations, but renders them in 2D space. Per Chrome team member Paul Irish, 3D transforms are on the roadmap, perhaps in the next couple X.0 releases. The Mozilla team has "made some initial steps":https://bugzilla.mozilla.org/show_bug.cgi?id=505115 towards implementing CSS 3D transforms. Per Mike Taylor, the Opera team is keeping a close eye on CSS transforms, and is waiting until the spec is fleshed out. And our best friend Internet Explorer still needs to catch up to 2D transforms before we can talk about 3D.
+The third dimension isn't limited to just CSS. We could dive into the capabilities of 3D in Flash, canvas, "three.js":http://github.com/mrdoob/three.js/, or WebGL. But as far as this article is concerned, I'll be focusing solely on CSS 3D transforms.
 
-With such limited support why bother at all? To begin with, the CSS 3D transforms spec was developed by the same team at Apple who produced the "CSS 2D transforms":http://www.w3.org/TR/css3-2d-transforms/ and "animation":http://www.w3.org/TR/css3-animations/ specifications.  Both of these specifications have been adopted by Mozilla and Opera. I'm willing to wager that the 3D spec will follow in suit.
+"The CSS3 spec for 3D transforms":http://www.w3.org/TR/css3-3d-transforms/ has been out in the wild a year now, but currrently, they are only supported by Safari (which includes Safari on the desktop and Mobile Safari on iOS devices). Support on other browsers varies. 
 
-Of course, the third dimension isn't limited to just CSS. We could dive into the capabilities of 3D in Flash, canvas, three.js, or WebGL. But for the sake of brevity, I'll be limiting the scope of article to solely CSS 3D transforms.
+The Mozilla team has "made some initial steps":https://bugzilla.mozilla.org/show_bug.cgi?id=505115 towards implementing CSS 3D transforms. "Mike Taylor":twitter.com/miketaylr tells me the Opera team is keeping a close eye on CSS transforms, and is waiting until the spec is fleshed out. And our best friend Internet Explorer still needs to catch up to 2D transforms before we can talk about 3D.
 
-%% using Modernizr. need to create 2 solutions %%
+To make matters more perplexing, WebKit-cousin Chrome currently accepts 3D transform declarations, but renders them in 2D space. Per Chrome team member "Paul Irish":http://twitter.com/paul_irish, 3D transforms are on the horizon, perhaps in one of the next X.0 releases. 
 
-Given the sparse support for 3D transforms, you can choose to ignore them, or (with a "tip of the fedora to Mr. Andy Clarke":http://hardboiledwebdesign.com/ ) you can get hard-boiled and start designing with the best features out there.
+This all adds up to a bit of a challenge for those of us ready for 3D transforms. I'll give it to you straight, missing that dimension of depth will make degradation especially un-graceful. Unless the transform is relatively simple and holds up in non-3D-supporting browsers, you'll most likely have to design another solution if you're ready to take on 3D transforms.
+
+Here's the part of the article where I mention "Modernizr":http://modernizr.com, and you brush over it because you've read this part of an article hundreds of times before. But seriously, it's the best way to test for CSS 3D transform support. Use it.
+
+Even with these hurdles in place, trying out 3D transforms now is a good move. The CSS 3D transforms spec was developed by the same team at Apple who produced the "CSS 2D transforms":http://www.w3.org/TR/css3-2d-transforms/ and "animation":http://www.w3.org/TR/css3-animations/ specifications.  Both of these specifications have been adopted by Mozilla and Opera. Transforming three-dimensionally now will guarantee you'll be ahead of the game when the other browsers catch up.
+
+The choice is yours. You can make excuses and poo-poo 3D transforms, or (with a "tip of the fedora to Mr. Andy Clarke":http://hardboiledwebdesign.com/) you can get hard-boiled and start designing with the best features out there.
 
 h2. Perspective
 
