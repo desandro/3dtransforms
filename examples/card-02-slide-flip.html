@@ -6,7 +6,7 @@
   <!-- disable zooming -->
   <meta name="viewport" content=" initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
   
-  <title>16-card</title>
+  <title>Card 2: Slide flip</title>
 
   <link rel="stylesheet" href="css/style.css" media="screen" />
 
@@ -24,10 +24,11 @@
       height: 100%;
       -webkit-transition: -webkit-transform 1s;
       -webkit-transform-style: preserve-3d;
+      -webkit-transform-origin: right center;
     }
     
     #card.flipped {
-      -webkit-transform: rotateY( 180deg );
+      -webkit-transform: translateX( -100% ) rotateY( -180deg );
     }
     
     #card figure {
@@ -56,7 +57,7 @@
 </head>
 <body>
 
-  <h1>16-card</h1>
+  <h1>Card 2: Slide flip</h1>
   
   <section class="container">
     <div id="card">
