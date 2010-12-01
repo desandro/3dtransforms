@@ -29,7 +29,7 @@
       position: absolute;
       border: 2px solid black;
       line-height: 196px;
-      font-size: 100px;
+      font-size: 90px;
       font-weight: bold;
       color: white;
       text-align: center;
@@ -40,14 +40,12 @@
       -webkit-transition: -webkit-transform 1s;
     }
     
-    /* front and back */
     #box .front,
     #box .back {
       width: 296px;
       height: 196px;
     }
 
-    /* left and right sides */
     #box .right,
     #box .left {
       width: 96px;
@@ -55,7 +53,6 @@
       left: 100px;
     }
 
-    /* top and bottom */
     #box .top,
     #box .bottom {
       width: 296px;
@@ -64,30 +61,30 @@
       line-height: 96px;
     }
 
-    #box .front { background: hsla( 000, 100%, 50%, 0.5 ); }
-    #box .back { background: hsla( 060, 100%, 50%, 0.5 ); }
-    #box .right { background: hsla( 120, 100%, 50%, 0.5 ); }
-    #box .left { background: hsla( 180, 100%, 50%, 0.5 ); }
-    #box .top { background: hsla( 240, 100%, 50%, 0.5 ); }
+    #box .front  { background: hsla( 000, 100%, 50%, 0.5 ); }
+    #box .back   { background: hsla( 060, 100%, 50%, 0.5 ); }
+    #box .right  { background: hsla( 120, 100%, 50%, 0.5 ); }
+    #box .left   { background: hsla( 180, 100%, 50%, 0.5 ); }
+    #box .top    { background: hsla( 240, 100%, 50%, 0.5 ); }
     #box .bottom { background: hsla( 300, 100%, 50%, 0.5 ); }
     
-    .step2 #box .front { -webkit-transform: none; }
-    .step2 #box .back { -webkit-transform: rotateX( 180deg ); }
-    .step2 #box .right { -webkit-transform: rotateY(  90deg ); }
-    .step2 #box .left { -webkit-transform: rotateY( -90deg ); }
-    .step2 #box .top { -webkit-transform: rotateX(  90deg ); }
+    .step2 #box .front  { -webkit-transform: rotateY(   0deg ); }
+    .step2 #box .back   { -webkit-transform: rotateX( 180deg ); }
+    .step2 #box .right  { -webkit-transform: rotateY(  90deg ); }
+    .step2 #box .left   { -webkit-transform: rotateY( -90deg ); }
+    .step2 #box .top    { -webkit-transform: rotateX(  90deg ); }
     .step2 #box .bottom { -webkit-transform: rotateX( -90deg ); }
     
     .step3 #box .front,
-    .step4 #box .front { -webkit-transform: translateZ( 50px ); }
+    .step4 #box .front  { -webkit-transform: rotateY(   0deg ) translateZ(  50px ); }
     .step3 #box .back,
-    .step4 #box .back { -webkit-transform: rotateX( 180deg ) translateZ( 50px ); }
+    .step4 #box .back   { -webkit-transform: rotateX( 180deg ) translateZ(  50px ); }
     .step3 #box .right,
-    .step4 #box .right { -webkit-transform: rotateY( 90deg ) translateZ( 150px ); }
+    .step4 #box .right  { -webkit-transform: rotateY(  90deg ) translateZ( 150px ); }
     .step3 #box .left,
-    .step4 #box .left { -webkit-transform: rotateY( -90deg ) translateZ( 150px ); }
+    .step4 #box .left   { -webkit-transform: rotateY( -90deg ) translateZ( 150px ); }
     .step3 #box .top,
-    .step4 #box .top { -webkit-transform: rotateX( 90deg ) translateZ( 100px ); }
+    .step4 #box .top    { -webkit-transform: rotateX(  90deg ) translateZ( 100px ); }
     .step3 #box .bottom,
     .step4 #box .bottom { -webkit-transform: rotateX( -90deg ) translateZ( 100px ); }
     
@@ -113,32 +110,15 @@
   
   <section id="options">
     <p>
-      <button class="step1">No transforms</button>
-      <button class="step2">Rotate faces</button>
-      <button class="step3">Rotate and translate faces</button>
-      <button class="step4">Translate box</button>
+      <button class="step1">1. No transforms</button>
+      <button class="step2">2. Rotate faces</button>
+      <button class="step3">3. Rotate and translate faces</button>
+      <button class="step4">4. Translate box</button>
     </p>
   </section>
   
   <script src="js/utils.js"></script>
-  <script>
-    var init = function() {
-      var container = document.querySelector('.container'),
-          buttons = document.querySelectorAll('#options button'),
-          containerClass = 'step1';
-          onButtonClick = function(event) {
-            container.removeClassName( containerClass );
-            containerClass = event.target.className;
-            container.addClassName( containerClass );
-          };
-      
-      for ( var i=0, len = buttons.length; i < len; i++ ) {
-        buttons[i].addEventListener( 'click', onButtonClick, false );
-      }
-      
-    };
-    window.addEventListener('DOMContentLoaded', init, false);
-  </script>
+  <script src="js/switch-steps.js"></script>
 
 </body>
 </html>
