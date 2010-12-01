@@ -187,7 +187,7 @@ DDD.init = function() {
     
      // create range output display
     for ( i=0; i < rangesLen; i++ ) {
-      DDD.RangeDisplay( ranges[i] );
+      new DDD.RangeDisplay( ranges[i] );
     }
     
     // check browser support for range input
@@ -198,7 +198,7 @@ DDD.init = function() {
     // create range inputs for iOS
     if ( !isRangeSupported ) {
       for ( i=0; i < rangesLen; i++ ) {
-        DDD.ProxyRange( ranges[i] );
+        new DDD.ProxyRange( ranges[i] );
       }
     }
     
