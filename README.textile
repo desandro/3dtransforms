@@ -1,12 +1,16 @@
 h1. Intro to CSS 3D Transforms
 
-Ladies and gentlemen, it is the second decade of the second millenium and we are still kicking around the same 2D interface we got three decades ago. Sure, Apple debuted OSX 10.7 apps that added a couple more 3D flourishes, and Microsoft has had that "Flip 3D":http://windows.microsoft.com/en-US/windows-vista/Using-Windows-Flip-3D for a while. But c'mon, 2011 is in a couple weeks. Where is our 3D virtual reality? By now, we should be zipping around the "Metaverse in super-sonic motorbikes":http://en.wikipedia.org/wiki/Snow_Crash.
+Ladies and gentlemen, it is the second decade of the second millennium and we are still kicking around the same 2D interface we got three decades ago. Sure, Apple debuted a few apps for OSX 10.7 that added a couple more 3D flourishes, and Microsoft has had that "Flip 3D":http://windows.microsoft.com/en-US/windows-vista/Using-Windows-Flip-3D for a while. But c'mon, 2011 -- that's TWENTY ELEVEN folks -- is right around the corner. Where is our 3D virtual reality? By now, we should be zipping around the "Metaverse in super-sonic motorbikes":http://en.wikipedia.org/wiki/Snow_Crash.
 
-While the capability of rendering complex 3D environments has been present for years, current digital interfaces predominately exist in a two dimensional environment. Largely this is due to the constraints of the physical equipment themselves. The monitor has width and height. The mouse moves left, right, up, down. Our users' interfaces are ill-equipped to interact with the three spatial dimensions. After decades of development, even the biggest and best native software developers have only managed to dip their flattened toes in a pool of width, height, and _depth._  
+Granted, the capability of rendering complex 3D environments has been present for years. On the web, there already are number of solutions -- Flash, "three.js":https://github.com/mrdoob/three.js/ in canvas, and eventually WebGL. And finally, we meager front-end developers have our own three-dimensional jewel: CSS 3D Transforms!
 
 h2. Rationale
 
-While 3D transforms might be sexy and cool, we owe it to our users to ask what can they benefit from them. The entire application does not have to take advantage of 3D. There is plenty of opportunity to use 3D transforms _in between_ the interface, via transitions. Take for instance the Weather App on the iPhone. The application uses two views, a details view of the weather and an options panel for selecting locations. Switching between these two views is done with a 3D flip transition. This affords the user that interface has but two views, and only two views, as the exist on two sides of the same plane.
+Like a beautiful jewel, 3D transform can be dazzling, a true sight to behold. But before we start tacking 3D diamonds and rubies to our compositions like Liberaci's tailor, we owe it to our users to ask what can they benefit from this awesome browser feature. 
+
+The entire application does not have to take advantage of 3D. There is plenty of opportunity to use 3D transforms _in between_ the interface, via transitions.
+
+Take for instance the Weather App on the iPhone. The application uses two views, a details view of the weather and an options panel for selecting locations. Switching between these two views is done with a 3D flip transition. This affords the user that interface has but two views, and only two views, as the exist on two sides of the same plane.
 
 !img/weather-app-transition.jpg(Weather App transition)!
 
@@ -16,9 +20,7 @@ Not only can we use 3D transforms to create more visually impressive application
 
 h2. Current Support Environment
 
-The third dimension isn't limited to just CSS. We could dive into the capabilities of 3D in Flash, canvas, "three.js":http://github.com/mrdoob/three.js/, or WebGL. But as far as this article is concerned, I'll be focusing solely on CSS 3D transforms.
-
-"The CSS3 spec for 3D transforms":http://www.w3.org/TR/css3-3d-transforms/ has been out in the wild a year now, but currrently, they are only supported by Safari (which includes Safari on the desktop and Mobile Safari on iOS devices). Support on other browsers varies. 
+"The CSS3 spec for 3D transforms":http://www.w3.org/TR/css3-3d-transforms/ has been out in the wild a year now, but currently, they are only supported by Safari -- which includes Safari on the desktop and Mobile Safari on iOS devices). Support on other browsers varies. 
 
 The Mozilla team has "made some initial steps":https://bugzilla.mozilla.org/show_bug.cgi?id=505115 towards implementing CSS 3D transforms. "Mike Taylor":twitter.com/miketaylr tells me the Opera team is keeping a close eye on CSS transforms, and is waiting until the spec is fleshed out. And our best friend Internet Explorer still needs to catch up to 2D transforms before we can talk about 3D.
 
@@ -28,9 +30,9 @@ This all adds up to a bit of a challenge for those of us ready for 3D transforms
 
 Here's the part of the article where I mention "Modernizr":http://modernizr.com, and you brush over it because you've read this part of an article hundreds of times before. But seriously, it's the best way to test for CSS 3D transform support. Use it.
 
-Even with these hurdles in place, trying out 3D transforms now is a good move. The CSS 3D transforms spec was developed by the same team at Apple who produced the "CSS 2D transforms":http://www.w3.org/TR/css3-2d-transforms/ and "animation":http://www.w3.org/TR/css3-animations/ specifications.  Both of these specifications have been adopted by Mozilla and Opera. Transforming three-dimensionally now will guarantee you'll be ahead of the game when the other browsers catch up.
+Even with these hurdles in place, trying out 3D transforms today is a good move. The CSS 3D transforms spec was developed by the same team at Apple who produced the "CSS 2D transforms":http://www.w3.org/TR/css3-2d-transforms/ and "animation":http://www.w3.org/TR/css3-animations/ specifications.  Both of these specifications have been adopted by Mozilla and Opera. Transforming three-dimensionally now will guarantee you'll be ahead of the game when the other browsers catch up.
 
-The choice is yours. You can make excuses and poo-poo 3D transforms, or (with a "tip of the fedora to Mr. Andy Clarke":http://hardboiledwebdesign.com/) you can get hard-boiled and start designing with the best features out there.
+The choice is yours. You can make excuses and poo-poo 3D transforms because they're too hard, or only snobby iPhone and Safari users will see them. Or (with a "tip of the fedora to Mr. Andy Clarke":http://hardboiledwebdesign.com/) you can get hard-boiled and start designing with the best features out there.
 
 h2. Perspective
 
