@@ -304,7 +304,7 @@ bc. #box figure {
 
 The smaller faces (left, right, top and bottom) need to be positioned in the center of the container, where they can be easily rotated and then shifted outward. The thinner left and right faces get positioned @left: 100px@ ( (300 - 100) / 2 ), The stouter top and bottom faces get positioned @top: 50px@ ( (200 - 100) / 2 ).
 
-The rotate values all can remain the same, but for this rectangular prism, the translate values do differ. The front and back faces each are shifted out @50px@ since the box is 100px deep. Left and right faces translate is @150px@ for 300px width. Top and bottom panels go @100px@ for the 200px height.
+The rotate values all can remain the same, but for this rectangular prism, the translate values do differ. The front and back faces each are shifted out @50px@ since the @#box@ is 100px deep. Left and right faces translate is @150px@ for 300px width. Top and bottom panels go @100px@ for the 200px height.
 
 bc. #box .front  { -webkit-transform: rotateY(   0deg ) translateZ(  50px ); }
 #box .back   { -webkit-transform: rotateX( 180deg ) translateZ(  50px ); }
@@ -315,7 +315,7 @@ bc. #box .front  { -webkit-transform: rotateY(   0deg ) translateZ(  50px ); }
 
 "*See Example 21*":21-box-steps.html
 
-Again, to expose a face, the box needs to have a style to reverse its transform.
+Again, to expose a face, the @#box@ needs to have a style to reverse its transform.
 
 bc. #box.show-front  { -webkit-transform: translateZ(  -50px ) rotateY(    0deg ); }
 #box.show-back   { -webkit-transform: translateZ(  -50px ) rotateX( -180deg ); }
@@ -347,7 +347,7 @@ bc. <div class="container">
   </div>
 </div>
 
-Apply basic styles. For this demo, I'm giving each panel of the carousel 20px gaps between one another.  But the effective width of each panel remains 210px.
+Apply basic styles. For this demo, I'm giving each panel of the @#carousel@ 20px gaps between one another.  But the effective width of each panel remains 210px.
 
 bc. .container {
   width: 210px;
@@ -369,7 +369,7 @@ bc. .container {
   border: 2px solid black;
 }
 
-Next up: rotating the faces. This carousel has 9 panels. If each panel gets an equal distribution on the carousel, each panel would be rotated 40 degrees from the next ( 360 / 9 ).
+Next up: rotating the faces. This @#carousel@ has 9 panels. If each panel gets an equal distribution on the carousel, each panel would be rotated 40 degrees from the next ( 360 / 9 ).
 
 bc. #carousel figure:nth-child(1) { -webkit-transform: rotateY(   0deg ); }
 #carousel figure:nth-child(2) { -webkit-transform: rotateY(  40deg ); }
@@ -391,7 +391,7 @@ We can determine the length of _r_ in this diagram with a basic tangent equation
 
 !img/calc.png(Trigonometric calculation)!
 
-There you have it, 288px is the distance to translate the panels out in 3D space.
+There you have it, @288px@ is the distance to translate the panels out in 3D space.
 
 bc. #carousel figure:nth-child(1) { -webkit-transform: rotateY(   0deg ) translateZ( 288px ); }
 #carousel figure:nth-child(2) { -webkit-transform: rotateY(  40deg ) translateZ( 288px ); }
@@ -409,18 +409,18 @@ bc. -webkit-transform: translateZ( -288px ) rotateY( -160deg );
 
 "*See Example 22*":22-carousel.html
 
-By now, you probably are thinking two thoughts: 
+By now, you probably have two thoughts: 
 
 # Re-writing transform styles for each panel looks to be tedious. 
 # Why bother doing high school math -- Aren't robots supposed to be doing all this work for us?  
 
-And you're absolutely right. The repetitive nature of 3D objects lend themselves to scripting. We can offload all the tedious transform styles to our dynamic script, which, if done right, will be more flexible than the hard-coded version.
+And you're absolutely right. The repetitive nature of 3D objects lend themselves to scripting. We can offload all the monotonous transform styles to our dynamic script, which, if done right, will be more flexible than the hard-coded version.
 
 "*See Example 7*":07-apple-carousel-gallery.html
 
 h2. Further Discussion
 
-3D transforms change the whole way we think about the canvas of web design.  Actually, they change the flat canvas itself into a room. My hope is that you took at least one peak a demo and were impressed. I feel that initial positive reaction is enough to get all my kindred front-end developers excited about what 3D transforms offer. We, who have rejoiced for border-radius and box-shadow, now have an incredible tool in 3D transforms. They deserve just the same enthusiasm, research, and experimentation. I'm enthralled to see what's to come.
+3D transforms change the whole way we think about the canvas of web design.  Actually, they change the flat canvas itself into its own world. My hope is that you took at least one peak a demo and were impressed. I feel that initial positive reaction is enough to get all my kindred front-end developers excited about what 3D transforms offer. We, who have rejoiced for border-radius and box-shadow, now have an incredible tool in 3D transforms. They deserve just the same enthusiasm, research, and experimentation. I'm enthralled to see what's to come.
 
 h3. About the author
 
