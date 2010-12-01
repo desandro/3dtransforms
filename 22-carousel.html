@@ -108,14 +108,16 @@
           
           rotateCarousel = function( angle ) {
             carousel.style.webkitTransform = 'translateZ( -288px ) rotateY(' + theta + 'deg)';
+          },
+          
+          onNavButtonClick = function( event ){
+            var increment = parseInt( event.target.getAttribute('data-increment') );
+            theta += ( 360 / panelCount ) * increment * -1;
+            rotateCarousel();
           };
 
       for (var i=0; i < 2; i++) {
-        navButtons[i].addEventListener( 'click', function( event ){
-          var increment = parseInt( event.target.getAttribute('data-increment') );
-          theta += ( 360 / panelCount ) * increment * -1;
-          rotateCarousel();
-        }, false)
+        navButtons[i].addEventListener( 'click', onNavButtonClick, false);
       }
       
       // should probably add some logic so that prev/next buttons update slider
