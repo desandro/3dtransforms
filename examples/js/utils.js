@@ -80,7 +80,6 @@ DDD.RangeDisplay.prototype.change = function( event ) {
 // by no means a production-ready solution, but it'll do for these demos
 
 DDD.ProxyRange = function ( input ) {
-
   this.input = input;
   
   this.slider = document.createElement('div');
@@ -100,6 +99,9 @@ DDD.ProxyRange = function ( input ) {
   this.normalizeRatio = ( this.max - this.min ) / ( this.width - DDD.ProxyRange.lineCap * 2 );
   
   this.value = this.input.value;
+
+  DDD.transformProp = DDD.transformProp || DDD.getStyleProperty('transform');
+
   this.resetHandlePosition();
   
   
@@ -139,7 +141,7 @@ DDD.ProxyRange.prototype.moveHandle = function( event ) {
 };
 
 DDD.ProxyRange.prototype.positionHandle = function( x ) {
-  this.handle.style.webkitTransform = 'translate3d(' + x + 'px,0,0)';
+  this.handle.style[ DDD.transformProp ] =  DDD.translate( x, 0 );
 };
 
 DDD.ProxyRange.prototype.resetHandlePosition = function() {
@@ -218,9 +220,45 @@ DDD.check3DSupport = function() {
 
   }
 
-  this.is3DTransformsSupported = ret;
+  DDD.is3DTransformsSupported = ret;
+  
+  DDD.translate = DDD.is3DTransformsSupported ?
+    function( x, y ) {
+      return 'translate3d(' + x + 'px, ' + y + 'px, 0 )';
+    } :
+    function( x, y ) {
+      return 'translate(' + x + 'px, ' + y + 'px)';
+    }
+  ;
 
 };
+
+
+DDD.getStyleProperty = (function(){
+ 
+  var prefixes = ['Moz', 'Webkit', 'Khtml', 'O', 'Ms'];
+ 
+  function getStyleProperty(propName, element) {
+    element = element || document.documentElement;
+    var style = element.style,
+        prefixed;
+ 
+    // test standard property first
+    if (typeof style[propName] == 'string') return propName;
+ 
+    // capitalize
+    propName = propName.charAt(0).toUpperCase() + propName.slice(1);
+ 
+    // test vendor specific properties
+    for (var i=0, l=prefixes.length; i<l; i++) {
+      prefixed = prefixes[i] + propName;
+      if (typeof style[prefixed] == 'string') return prefixed;
+    }
+  }
+ 
+  return getStyleProperty;
+})();
+
 
 /* ==================== Start Up ==================== */
 
@@ -249,7 +287,13 @@ DDD.init = function() {
     // check browser support for range input
     // this has been hacked together from Modernizr range input test
     // -> Thanks Faruk Ates, Paul Irish, and Mike Taylor http://modernizr.com
-    var isRangeSupported = getComputedStyle( ranges[0] ).WebkitAppearance !== 'textfield';
+    var isRangeSupported = (function() {
+      var isSupported = ranges[0].type !== 'text';
+      if ( isSupported ) {
+        isSupported = getComputedStyle( ranges[0] ).WebkitAppearance !== 'textfield';
+      }
+      return isSupported;
+    })();
     
     // create range inputs for iOS
     if ( !isRangeSupported ) {
