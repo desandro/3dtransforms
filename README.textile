@@ -436,9 +436,13 @@ And you're absolutely right. The repetitive nature of 3D objects lend themselves
 
 "*See Example: Carousel 2*":http://desandro.github.com/3dtransforms/examples/carousel-02-dynamic.html
 
-h2. Further Discussion
+h2. Conclusion
 
-3D transforms change the whole way we think about the canvas of web design.  Actually, they change the flat canvas itself into its own world. My hope is that you took at least one peak a demo and were impressed. I feel that initial positive reaction is enough to get all my kindred front-end developers excited about what 3D transforms offer. We, who have rejoiced for border-radius and box-shadow, now have an incredible tool in 3D transforms. They deserve just the same enthusiasm, research, and experimentation. I'm enthralled to see what's to come.
+3D transforms change the whole way we think about the blank canvas of web design. Better yet, they change canvas itself, trading in the flat canvas for an voluminous installation.
+
+My hope is that you took at least one peak a demo and were intrigued. We, who have rejoiced for border-radius and box-shadow, now have an incredible tool at our disposal in 3D transforms. They deserve just the same enthusiasm, research, and experimentation we have spent on lesser browser features. Now is the perfect time to figuratively take the plunge and start thinking about how leveraging three dimensions can elevate our craft. I'm enthralled to witness what's to come. 
+
+See you on the flip side.
 
 h3. About the author
 
