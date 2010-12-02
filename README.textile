@@ -438,9 +438,9 @@ And you're absolutely right. The repetitive nature of 3D objects lend themselves
 
 h2. Conclusion
 
-3D transforms change the whole way we think about the blank canvas of web design. Better yet, they change canvas itself, trading in the flat canvas for an voluminous installation.
+3D transforms change the way we think about the blank canvas of web design. Better yet, they change canvas itself, trading in the flat surface for an voluminous installation.
 
-My hope is that you took at least one peak a demo and were intrigued. We, who have rejoiced for border-radius and box-shadow, now have an incredible tool at our disposal in 3D transforms. They deserve just the same enthusiasm, research, and experimentation we have spent on lesser browser features. Now is the perfect time to figuratively take the plunge and start thinking about how leveraging three dimensions can elevate our craft. I'm enthralled to witness what's to come. 
+My hope is that you took at least one peak a demo and were intrigued. We web designers, who have rejoiced for border-radius, box-shadow, and background gradient, now have an incredible tool at our disposal in 3D transforms. They deserve just the same enthusiasm, research, and experimentation we have spent on the previous browser features. Now is the perfect time to figuratively take the plunge and start thinking about how leveraging three dimensions can elevate our craft. I'm enthralled to witness what's to come. 
 
 See you on the flip side.
 
