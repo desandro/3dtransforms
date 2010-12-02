@@ -175,10 +175,66 @@ DDD.ProxyRange.prototype[ DDD.CursorEndEvent ] = function( event ) {
 };
 
 
+/* ==================== Test 3D transform support ==================== */
+
+// check browser support for 3D transforms
+// this has been hacked together from Modernizr csstransforms3d test
+// -> Thanks Faruk Ates, Paul Irish http://modernizr.com
+DDD.check3DSupport = function() {
+  
+  
+  var modElem = document.createElement('modernizr'),
+      m_style = modElem.style,
+      docHead = document.head || document.getElementsByTagName('head')[0],
+      docElement = document.documentElement,
+      prefixes = ' -webkit- -moz- -o- -ms- -khtml- '.split(' '),
+      
+      test_props = function ( props ) {
+        for ( var i in props ) {
+          if ( m_style[ props[i] ] !== undefined ) {
+            return true;
+          }
+        }
+      },
+      
+      ret = !!test_props([ 'perspectiveProperty', 'WebkitPerspective', 'MozPerspective', 'OPerspective', 'msPerspective' ]);
+  
+  if (ret && 'webkitPerspective' in docElement.style){
+    
+    var mq = '@media ('+prefixes.join('transform-3d),(')+'modernizr)',
+        st = document.createElement('style'),
+        div = document.createElement('div'),
+        ret;
+
+    st.textContent = mq + '{#modernizr{height:3px}}';
+    docHead.appendChild(st);
+    div.id = 'modernizr';
+    docElement.appendChild(div);
+
+    ret = !!( div.offsetHeight === 3 );
+
+    st.parentNode.removeChild(st);
+    div.parentNode.removeChild(div);
+
+  }
+
+  this.is3DTransformsSupported = ret;
+
+};
+
 /* ==================== Start Up ==================== */
 
 
 DDD.init = function() {
+  
+  // test for 3D transforms
+  DDD.check3DSupport();
+
+  if ( !DDD.is3DTransformsSupported ) {
+    document.querySelector('footer .disclaimer').style.display = 'block';
+  }
+  
+  
   var ranges = document.querySelectorAll('input[type="range"]'),
       rangesLen = ranges.length,
       i;
