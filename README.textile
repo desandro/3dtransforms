@@ -50,11 +50,11 @@ or using the @perspective@ property:
 
 bc. -webkit-perspective: 600;
 
-"*See Example: Perspective 1.*":examples/perspective-01.html
+"*See Example: Perspective 1.*":http://desandro.github.com/3dtransforms/examples/perspective-01.html
 
-These two formats both trigger a 3D space, but there is a difference. The functional notation is convenient for directly applying a 3D transform on a single element (in "the previous example":examples/perspective-01.html, I use it in conjunction with a @rotateX@ transform). But when used on multiple elements, the transformed elements don't line up as expected. If you use the same transform across elements with different positions, each element will have its own vanishing point. To remedy this, use the @perspective@ property on a parent element, so each child may share the same 3D space.
+These two formats both trigger a 3D space, but there is a difference. The functional notation is convenient for directly applying a 3D transform on a single element (in "the previous example":http://desandro.github.com/3dtransforms/examples/perspective-01.html, I use it in conjunction with a @rotateX@ transform). But when used on multiple elements, the transformed elements don't line up as expected. If you use the same transform across elements with different positions, each element will have its own vanishing point. To remedy this, use the @perspective@ property on a parent element, so each child may share the same 3D space.
 
-"*See Example: Perspective 2.*":examples/perspective-02-children.html
+"*See Example: Perspective 2.*":http://desandro.github.com/3dtransforms/examples/perspective-02-children.html
 
 The value of @perspective@ determines the intensity of the 3D effect. Think of it as a distance from the viewer to the object. The greater the value, the further the distance, the less intense the visual effect. @perspective: 2000;@ yields a subtle 3D effect, as if we are viewing an object from far away through binoculars. @perspective: 100;@ produces a tremendous 3D effect, like a tiny insect viewing a massive object.
 
@@ -62,7 +62,7 @@ By default, the vanishing point for a 3D space is positioned at the center. You 
 
 bc. -webkit-perspective-origin: 25% 75%;
 
-"*See Example: Perspective 3.*":examples/perspective-03.html
+"*See Example: Perspective 3.*":http://desandro.github.com/3dtransforms/examples/perspective-03.html
 
 
 
@@ -82,7 +82,7 @@ Whereas @translateX()@ positions an element along the horizontal X axis, @transl
 
 The @rotate@ functions rotate the element around the corresponding axis. This is a bit counter-intuitive at first as you might imagine that @rotateX@ will spin an object left to right. Instead, using @rotateX( 45deg )@ rotates an element _around_ the horizontal X axis, so the top of the element angles back and away, and the bottom angles near.
 
-"*See Example: Transforms 1.*":examples/transforms-01-functions.html
+"*See Example: Transforms 1.*":http://desandro.github.com/3dtransforms/examples/transforms-01-functions.html
 
 There's also several shorthand transform functions that require values for all three dimensions:
 
@@ -158,11 +158,11 @@ bc. #card.flipped {
 
 Now we have a working 3D object. To flip the card, we can toggle the @flipped@ class. When @.flipped@, the @#card@ will rotate 180 degress, thus exposing the @.back@ face.
 
-"*See Example: Card 1.*":examples/card-01.html
+"*See Example: Card 1.*":http://desandro.github.com/3dtransforms/examples/card-01.html
 
 h2. Slide flip
 
-Take another look at the Weather App 3D transition. You'll notice that it's not quite the same effect as "our previous demo":examples/card-01.html. If you follow the right edge of the card, you'll find that it stays flush with the container. Instead of pivoting from the horizontal center, it pivots on that right edge. But the transition is not just a rotation -- the edge moves horizontally from right to left. We can reproduce this transition just by modifying a couple lines of CSS from our original card flip demo.
+Take another look at the Weather App 3D transition. You'll notice that it's not quite the same effect as "our previous demo":http://desandro.github.com/3dtransforms/examples/card-01.html. If you follow the right edge of the card, you'll find that it stays flush with the container. Instead of pivoting from the horizontal center, it pivots on that right edge. But the transition is not just a rotation -- the edge moves horizontally from right to left. We can reproduce this transition just by modifying a couple lines of CSS from our original card flip demo.
 
 The pivot point for the rotation occurs at the right side of the card. By default, the @transform-origin@ of an element is at its horizontal and vertical center (@50% 50%@ or @center center@). Let's change it to the right side:
 
@@ -174,7 +174,7 @@ bc. #card.flipped {
   -webkit-transform: translateX( -100% ) rotateY( -180deg );
 }
 
-"*See Example: Card 2*":examples/card-02-slide-flip.html.
+"*See Example: Card 2*":http://desandro.github.com/3dtransforms/examples/card-02-slide-flip.html.
 
 h2. Cube
 
@@ -241,16 +241,16 @@ For the sake of our users, our 3D transforms should not distort the interface wh
 
 In order to keep 3D transforms snappy, Safari composites the element then applies the transform. Consequently, anti-aliasing on text will remain whatever it was before the transform was applied. When transformed forward in 3D space, significant pixelation can occur. 
 
-"*See Example: Transforms 2*":examples/transforms-02-pixelation.html
+"*See Example: Transforms 2*":http://desandro.github.com/3dtransforms/examples/transforms-02-pixelation.html
 
 
 To resolve the distortion and restore pixel perfection on this @#cube@, we can push back the 3D object, so that the front face will be positioned back at the Z origin.
 
 bc. #cube { -webkit-transform: translateZ( -100px ); }
 
-"*See Example: Cube 1*":examples/cube-01-steps.html
+"*See Example: Cube 1*":http://desandro.github.com/3dtransforms/examples/cube-01-steps.html
 
-Looking at back at the "Perspective 3 demo":examples/perspective-03.html, note that no matter how small the perspective value is, or where ever the transform origin may be, the 1 panel always returns to its original position, as if all those funky 3D transforms didn't even matter.
+Looking at back at the "Perspective 3 demo":http://desandro.github.com/3dtransforms/examples/perspective-03.html, note that no matter how small the perspective value is, or where ever the transform origin may be, the 1 panel always returns to its original position, as if all those funky 3D transforms didn't even matter.
 
 
 To expose any face of the cube, we'll need a style that rotates the cube to expose any face. The transform is the opposite of the corresponding face. We toggle the necessary class on the @#box@ to apply the appropriate transform.
@@ -268,7 +268,7 @@ Finishing up, we can add a transition to animate the rotation between states.
 
 bc. #cube {  -webkit-transition: -webkit-transform 1s; }
 
-"*See Example: Cube 2*":examples/cube-02-show-sides.html.
+"*See Example: Cube 2*":http://desandro.github.com/3dtransforms/examples/cube-02-show-sides.html.
 
 
 h2. Rectangular Prism
@@ -322,7 +322,7 @@ bc. #box .front  { -webkit-transform: rotateY(   0deg ) translateZ(  50px ); }
 #box .top    { -webkit-transform: rotateX(  90deg ) translateZ( 100px ); }
 #box .bottom { -webkit-transform: rotateX( -90deg ) translateZ( 100px ); }
 
-"*See Example: Box 1*":examples/box-01-steps.html.
+"*See Example: Box 1*":http://desandro.github.com/3dtransforms/examples/box-01-steps.html.
 
 Just like the cube example, to expose a face, the @#box@ needs to have a style to reverse its face's transform. Both the @translateZ@ and @rotate@ values are the opposites of the corresponding face.
 
@@ -333,7 +333,7 @@ bc. #box.show-front  { -webkit-transform: translateZ(  -50px ) rotateY(    0deg 
 #box.show-top    { -webkit-transform: translateZ( -100px ) rotateX(  -90deg ); }
 #box.show-bottom { -webkit-transform: translateZ( -100px ) rotateX(   90deg ); }
 
-"*See Example: Box 2*":examples/box-02-show-sides.html
+"*See Example: Box 2*":http://desandro.github.com/3dtransforms/examples/box-02-show-sides.html
 
 
 h2. Carousel
@@ -425,7 +425,7 @@ Just like our previous 3D objects, to show any one panel, we need only to apply 
 
 bc. -webkit-transform: translateZ( -288px ) rotateY( -160deg );
 
-"*See Example: Carousel 1*":examples/carousel-01.html
+"*See Example: Carousel 1*":http://desandro.github.com/3dtransforms/examples/carousel-01.html
 
 By now, you probably have two thoughts: 
 
@@ -434,7 +434,7 @@ By now, you probably have two thoughts:
 
 And you're absolutely right. The repetitive nature of 3D objects lend themselves to scripting. We can offload all the monotonous transform styles to our dynamic script, which, if done right, will be more flexible than the hard-coded version.
 
-"*See Example: Carousel 2*":examples/carousel-02-dynamic.html
+"*See Example: Carousel 2*":http://desandro.github.com/3dtransforms/examples/carousel-02-dynamic.html
 
 h2. Further Discussion
 

@@ -1,5 +1,3 @@
 ## To do
 
-change example links to desandro.github.com/3dtransforms/
-
 Add footer to example pages
