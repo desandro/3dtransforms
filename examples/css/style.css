@@ -1,4 +1,4 @@
-section {
+section, footer {
   display: block;
 }
 
@@ -10,11 +10,23 @@ body {
 #options {
   position: relative;
   z-index: 100;
+  margin-bottom: 40px;
+}
+
+footer {
+  border-top: 1px solid #CCC;
+  font-size: 0.8em;
 }
 
 button {
   font-size: 16px;
   -webkit-appearance: push-button;
+}
+
+.disclaimer {
+  color: red;
+  font-weight: bold;
+  display: none;
 }
 
 /* proxy range */

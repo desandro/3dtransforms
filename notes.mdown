@@ -1,3 +1,5 @@
 ## To do
 
-Add footer to example pages
+change image links to desandro.github.com/3dtransforms
+
+Break up article into pages
