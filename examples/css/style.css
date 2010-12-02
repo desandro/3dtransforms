@@ -91,7 +91,7 @@ button {
     0  1px 2px  0px hsla( 0, 0%,   0%, 0.3 )
   ;
   -webkit-transition-property: width, height, top, left, -webkit-border-radius;
-     -moz-transition-property: width, height, top, left, -webkit-border-radius;
+     -moz-transition-property: width, height, top, left, -moz-border-radius;
   -webkit-transition-duration: 0.1s;
      -moz-transition-duration: 0.1s;
 }

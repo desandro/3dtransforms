@@ -116,14 +116,18 @@ We're ready for some 3D stylin'. First, apply necessary @perspective@ to the par
 bc. .container { 
   width: 200px;
   height: 260px;
+  position: relative;
   -webkit-perspective: 800;
 }
 
-Now the @#card@ element can be transformed in its parent's 3D space. Let's add a CSS3 transition so users can see the transform take effect. We'll also add @width: 100%;@  and @height: 100%;@. This ensures the object's @transform-origin@ will occur in the center of container. More on @transform-origin@ later. 
+Now the @#card@ element can be transformed in its parent's 3D space. We're using absolute/relative positioning so the 3D object is removed from the flow of the document. We'll also add @width: 100%;@  and @height: 100%;@. This ensures the object's @transform-origin@ will occur in the center of container. More on @transform-origin@ later. 
+
+Let's add a CSS3 transition so users can see the transform take effect. 
 
 bc. #card {
   width: 100%;
   height: 100%;
+  position: absolute;
   -webkit-transform-style: preserve-3d;
   -webkit-transition: -webkit-transform 1s;
 }
@@ -198,11 +202,13 @@ Basic position and size styles set the 6 faces on top of one another in the cont
 bc. .container {
   width: 200px;
   height: 200px;
+  position: relative;
   -webkit-perspective: 1000;
 }
 #cube {
   width: 100%;
   height: 100%;
+  position: absolute;
   -webkit-transform-style: preserve-3d;
 }
 #cube figure {
@@ -280,11 +286,13 @@ The markup remains the same as the @#cube@'s version, but switch the @#cube@ id 
 bc. .container {
   width: 300px;
   height: 200px;
+  position: relative;
   -webkit-perspective: 1000;
 }
 #box {
   width: 100%;
   height: 100%;
+  position: absolute;
   -webkit-transform-style: preserve-3d;
 }
 
@@ -361,11 +369,13 @@ Now apply basic layout styles. Let's give each panel of the @#carousel@ 20px gap
 bc. .container {
   width: 210px;
   height: 140px;
+  position: relative;
   -webkit-perspective: 1000;
 }
 #carousel {
   width: 100%;
   height: 100%;
+  position: absolute;
   -webkit-transform-style: preserve-3d;
 }
 #carousel figure {
