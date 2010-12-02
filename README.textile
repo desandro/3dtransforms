@@ -235,6 +235,8 @@ bc. #cube .front  { -webkit-transform: rotateY(   0deg ) translateZ( 100px ); }
 
 Note here that the @translateZ@ function comes _after_ the @rotate@. The order of transform functions is important. Take a moment and soak this in. Each face is first rotated towards its position, then translated outward in a separate vector.
 
+We have a working cube, but we're not done yet.
+
 h3. Returning to the Z origin plane
 
 For the sake of our users, our 3D transforms should not distort the interface when the active panel is at its resting position. But once we start pushing elements out of the Z origin plane, distortion is inevitable. 
@@ -243,15 +245,13 @@ In order to keep 3D transforms snappy, Safari composites the element then applie
 
 "*See Example: Transforms 2*":http://desandro.github.com/3dtransforms/examples/transforms-02-pixelation.html
 
+Looking at back at the "Perspective 3 demo":http://desandro.github.com/3dtransforms/examples/perspective-03.html, note that no matter how small the perspective value is, or where ever the transform origin may be, the 1 panel always returns to its original position, as if all those funky 3D transforms didn't even matter.
 
-To resolve the distortion and restore pixel perfection on this @#cube@, we can push back the 3D object, so that the front face will be positioned back at the Z origin.
+To resolve the distortion and restore pixel perfection on our @#cube@, we can push back the 3D object, so that the front face will be positioned back at the Z origin.
 
 bc. #cube { -webkit-transform: translateZ( -100px ); }
 
 "*See Example: Cube 1*":http://desandro.github.com/3dtransforms/examples/cube-01-steps.html
-
-Looking at back at the "Perspective 3 demo":http://desandro.github.com/3dtransforms/examples/perspective-03.html, note that no matter how small the perspective value is, or where ever the transform origin may be, the 1 panel always returns to its original position, as if all those funky 3D transforms didn't even matter.
-
 
 To expose any face of the cube, we'll need a style that rotates the cube to expose any face. The transform is the opposite of the corresponding face. We toggle the necessary class on the @#box@ to apply the appropriate transform.
 
@@ -356,7 +356,7 @@ bc. <div class="container">
   </div>
 </div>
 
-Now apply basic styles. Let's give each panel of the @#carousel@ 20px gaps between one another. The effective width of each panel remains 210px.
+Now apply basic layout styles. Let's give each panel of the @#carousel@ 20px gaps between one another, done here with @left: 10px;@ and @top: 10px;@. The effective width of each panel remains 210px.
 
 bc. .container {
   width: 210px;
@@ -390,7 +390,7 @@ bc. #carousel figure:nth-child(1) { -webkit-transform: rotateY(   0deg ); }
 #carousel figure:nth-child(8) { -webkit-transform: rotateY( 280deg ); }
 #carousel figure:nth-child(9) { -webkit-transform: rotateY( 320deg ); }
 
-Now the outward shift. Back when we were creating cube and boxes, the @translate@ value was simple to calculate, as it was equal to one half the width, height, or depth of the object. Now with a carousel, there is no predefined size of the object. We'll have calculate the distance for the shift by other means.
+Now the outward shift. Back when we were creating cube and boxes, the @translate@ value was simple to calculate, as it was equal to one half the width, height, or depth of the object. Now with a carousel, there is no size we can immediately reference. We'll have calculate the distance for the shift by other means.
 
 Drawing out a diagram of the carousel, we see that we only know two things: the width of each panel is 210px and the each panel is rotated 40 degrees from the next. If we split one of these triangles down its center, we get a right triangle, prime for some trigonometry.
 
