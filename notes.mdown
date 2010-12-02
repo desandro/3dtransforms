@@ -6,4 +6,3 @@ index page should have link back to github
 
 Break up article into pages
 
-add pos abs/ rel position code in docs
