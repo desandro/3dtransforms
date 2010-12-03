@@ -5,6 +5,7 @@ section, footer {
 body {
   font-family: 'Helvetica Neue', Arial, sans-serif;
   -webkit-text-size-adjust: none;
+  color: #333;
 }
 
 #options {

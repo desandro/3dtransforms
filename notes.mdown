@@ -1,8 +1,0 @@
-## To do
-
-change image links to desandro.github.com/3dtransforms
-
-index page should have link back to github
-
-Break up article into pages
-
