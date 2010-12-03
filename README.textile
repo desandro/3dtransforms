@@ -166,7 +166,7 @@ bc. #card.flipped {
   -webkit-transform: rotateY( 180deg );
 }
 
-Now we have a working 3D object. To flip the card, we can toggle the @flipped@ class. When @.flipped@, the @#card@ will rotate 180 degress, thus exposing the @.back@ face.
+Now we have a working 3D object. To flip the card, we can toggle the @flipped@ class. When @.flipped@, the @#card@ will rotate 180 degrees, thus exposing the @.back@ face.
 
 "*See Example: Card 1.*":http://desandro.github.com/3dtransforms/examples/card-01.html
 
