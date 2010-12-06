@@ -26,14 +26,16 @@ a:hover {
   margin-bottom: 40px;
 }
 
-footer {
-  border-top: 1px solid #CCC;
-  font-size: 0.8em;
-}
-
 button {
   font-size: 16px;
   -webkit-appearance: push-button;
+}
+
+footer {
+  border-top: 1px solid #CCC;
+  font-size: 0.8em;
+  position: relative;
+  z-index: 100;
 }
 
 .disclaimer {
@@ -124,3 +126,61 @@ button {
      -moz-border-radius: 3px;
           border-radius: 3px;
 }
+
+
+
+
+/******* Pygments *******/
+
+
+
+pre {
+  background: #111;
+  color: white;
+  padding: 0.8em;
+}
+
+/* string */
+code .s1,
+code .s { color: #78BD55; }
+
+/* integer */
+code .mi,
+/* doctype */
+code .cp{ color: #5298D4; }
+
+/* keyword */
+code .k { color: #E39B79; }
+
+/* storage */
+code .kd,
+/* markup attribute */
+code .na { color: #A9D866; }
+
+/* punctuation */
+code .p { color: #FEC; }
+
+/* operator */
+code .o { color: #F63; }
+
+/* support */
+code .nb { color: #AA97AC;}
+
+/* comment */
+code .c,
+code .c1 { color: #666; font-style: italic; }
+
+/* Markup open tag */
+code .nt { color: #A0C8FC; }
+
+/* attribute */
+code .na { color: #A9D866; }
+
+/* css id */
+code .nf { color: #9EA8B8; }
+
+/* CSS class */
+code .nc { color: #A78352;}
+
+/* CSS value */
+code .m { color: #DE8E50; }

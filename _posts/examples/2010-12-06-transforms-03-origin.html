@@ -1,14 +1,8 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  
-  <!-- disable zooming -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
-
-  <title>Transforms 3: origin</title>
-
-  <link rel="stylesheet" href="css/style.css" media="screen" />
+---
+layout: example
+title: Transforms 3 - transform origin
+category: examples
+---
 
   <style media="screen">
     
@@ -100,7 +94,7 @@
 </head>
 <body>
 
-  <h1>Transforms 3: origin</h1>
+  <h1>{{ page.title }}</h1>
 
   <div class="container">
   <div class="pivot-point"></div>
@@ -139,13 +133,7 @@
     
   </section>
 
-  <footer>
-    <p class="disclaimer">Sorry, your browser does not support CSS 3D transforms. Try viewing this page in <a href="http://www.apple.com/safari/">Safari</a> or on an iOS device.</p>
-    <p>Example for <a href="../">Intro to CSS 3D Transforms</a> by David DeSandro</p>
-  </footer>
-  
-  
-  <script src="js/utils.js"></script>
+  <script src="../js/utils.js"></script>
   <script>
     var init = function() {
       var transformOriginInputs = document.querySelectorAll('#transform-origin input'),
@@ -177,5 +165,3 @@
     window.addEventListener( 'DOMContentLoaded', init, false);
   </script>
 
-</body>
-</html>

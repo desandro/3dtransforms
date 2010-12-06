@@ -1,15 +1,9 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  
-  <!-- disable zooming -->
-  <meta name="viewport" content=" initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
-  
-  <title>Perspective 2: children</title>
+---
+layout: example
+title: Perspective 2 - children
+category: examples
+---
 
-  <link rel="stylesheet" href="css/style.css" media="screen" />
-  
   <style media="screen">
     
     .container {
@@ -30,7 +24,7 @@
 
     #red figure {
       background: red;
-      -webkit-transform: perspective( 400 ) rotateY(45deg);
+      -webkit-transform: perspective( 400 ) rotateY( 45deg );
     }
 
     #blue {
@@ -48,10 +42,14 @@
 
   <h1>Perspective 2: children</h1>
   
-  <pre><code>#red figure {
+{% highlight css %}
+
+#red figure {
   background: red;
   -webkit-transform: perspective( 400 ) rotateY(45deg);
-}</code></pre>
+}
+
+{% endhighlight %}
   
   <section id="red" class="container">
     <figure></figure>
@@ -65,14 +63,18 @@
     <figure></figure>
   </section>
   
-  <pre><code>#blue {
+{% highlight css %}
+
+#blue {
   -webkit-perspective: 400;
 }
 
 #blue figure {
   background: blue;
   -webkit-transform: rotateY( 45deg );
-}</code></pre>
+}
+
+{% endhighlight %}
   
   <section id="blue" class="container">
     <figure></figure>
@@ -86,14 +88,5 @@
     <figure></figure>
   </section>
   
-
-  <footer>
-    <p class="disclaimer">Sorry, your browser does not support CSS 3D transforms. Try viewing this page in <a href="http://www.apple.com/safari/">Safari</a> or on an iOS device.</p>
-    <p>Example for <a href="../">Intro to CSS 3D Transforms</a> by David DeSandro</p>
-  </footer>
+  <script src="../js/utils.js"></script>
   
-  <script src="js/utils.js"></script>
-
-
-</body>
-</html>

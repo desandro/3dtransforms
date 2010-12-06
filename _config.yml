@@ -1,0 +1,3 @@
+auto: true
+pygments: true
+permalink: /:categories/:title.html

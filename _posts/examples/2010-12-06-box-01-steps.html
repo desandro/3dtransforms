@@ -1,14 +1,8 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  
-  <!-- disable zooming -->
-  <meta name="viewport" content=" initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
-  
-  <title>Box 1: steps</title>
-
-  <link rel="stylesheet" href="css/style.css" media="screen" />
+---
+layout: example
+title: Box 1 - steps
+category: examples
+---
 
   <style media="screen">
     .container {
@@ -98,7 +92,7 @@
 </head>
 <body>
 
-  <h1>Box 1: steps</h1>
+  <h1>{{ page.title }}</h1>
   
   <section class="container step1">
     <div id="box">
@@ -120,13 +114,5 @@
     </p>
   </section>
   
-  <footer>
-    <p class="disclaimer">Sorry, your browser does not support CSS 3D transforms. Try viewing this page in <a href="http://www.apple.com/safari/">Safari</a> or on an iOS device.</p>
-    <p>Example for <a href="../">Intro to CSS 3D Transforms</a> by David DeSandro</p>
-  </footer>
-  
-  <script src="js/utils.js"></script>
-  <script src="js/switch-steps.js"></script>
-
-</body>
-</html>
+  <script src="../js/utils.js"></script>
+  <script src="../js/switch-steps.js"></script>
