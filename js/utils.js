@@ -269,7 +269,7 @@ DDD.init = function() {
   DDD.check3DSupport();
 
   if ( !DDD.is3DTransformsSupported ) {
-    document.querySelector('footer .disclaimer').style.display = 'block';
+    document.getElementById('disclaimer').style.display = 'block';
   }
   
   

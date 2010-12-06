@@ -38,7 +38,7 @@ footer {
   z-index: 100;
 }
 
-.disclaimer {
+#disclaimer {
   color: red;
   font-weight: bold;
   display: none;
