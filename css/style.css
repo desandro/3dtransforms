@@ -165,6 +165,7 @@ pre {
   background: #111;
   color: white;
   padding: 0.8em;
+  white-space: pre-wrap;
 }
 
 /* string */
