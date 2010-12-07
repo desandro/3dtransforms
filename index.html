@@ -8,23 +8,10 @@ title: Intro to CSS 3D transforms
 <nav>
   <h2>Examples</h2>
   <ul>
-    <li><a href="examples/perspective-01.html">Perspective 1</a></li>
-    <li><a href="examples/perspective-02-children.html">Perspective 2: children</a></li>
-    <li><a href="examples/perspective-03.html">Perspective 3</a></li>
-    <li><a href="examples/transforms-01-functions.html">Transforms 1: functions</a></li>
-    <li><a href="examples/transforms-02-pixelation.html">Transforms 2: pixelation</a></li>
-    <li><a href="examples/transforms-03-origin.html">Transforms 3: origin</a></li>
-    <li><a href="examples/card-01.html">Card 1</a></li>
-    <li><a href="examples/card-02-slide-flip.html">Card 2: slide flip</a></li>
-    <li><a href="examples/card-03-slide-flip-2-ways.html">Card 3: slide flip 2 ways</a></li>
-    <li><a href="examples/cube-01-steps.html">Cube 1: steps</a></li>
-    <li><a href="examples/cube-02-show-sides.html">Cube 2: show sides</a></li>
-    <li><a href="examples/box-01-steps.html">Box 1: steps</a></li>
-    <li><a href="examples/box-02-show-sides.html">Box 2: show sides</a></li>
-    <li><a href="examples/carousel-01.html">Carousel 1</a></li>
-    <li><a href="examples/carousel-02-dynamic.html">Carousel 2: dynamic</a></li>
+    {% for example in site.categories.examples reversed %}
+      <li><a href="{{ example.url }}">{{ example.title }}</a></li>
+    {% endfor %}
   </ul>
 </nav>
-
 
 <p>Project home: <a href="http://github.com/desandro/3dtransforms">github.com/desandro/3dtransforms</a></p>
