@@ -73,11 +73,13 @@ footer {
 
 /**** Docs ****/
 
-.doc #content {
+body.doc {
   max-width: 640px;
-  font-size: 14px;
+}
+
+.doc #content {
+  font-size: 14px;  
   line-height: 1.5em;
-  margin: 0 auto;
 }
 
 .doc #content blockquote {
@@ -95,6 +97,46 @@ footer {
 .doc #content pre {
   font-size: 12px;
   line-height: 1.5em;
+}
+
+.doc nav h1 {
+  font-size: 20px;
+}
+
+.doc nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.doc nav li a {
+  display: block;
+  padding: 0.3em 0;
+}
+
+.doc nav li.current a {
+  font-weight: bold;
+  color: #333;
+}
+.doc nav li.current a:hover { color: white; }
+
+@media screen and (min-width: 768px) {
+
+  body.doc {
+    margin-left: 220px;
+  }
+  
+  .doc nav {
+    width: 200px;
+    position: fixed;
+    left: 10px;
+    font-size: 14px;
+  }
+
+  .doc nav h1 {
+    margin-top: 0;
+  }
+
 }
 
 /* proxy range */
