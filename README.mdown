@@ -3,7 +3,9 @@ Intro to CSS 3D transforms
 
 By [David DeSandro](http://desandro.com)
 
-Discussion, tutorial, and examples all about CSS 3D transforms. 
+Discussion, tutorial, and examples all about CSS 3D transforms.
+
+View project live at [desandro.github.com/3dtransforms](http://desandro.github.com/3dtransforms).
 
 Originally written for [24 ways 2010](http://24ways.org/2010).
 
