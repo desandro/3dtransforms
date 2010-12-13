@@ -236,42 +236,23 @@ pre {
   white-space: pre-wrap;
 }
 
-/* string */
+
 code .s1,
-code .s { color: #78BD55; }
-
-/* integer */
-code .mi,
-/* doctype */
-code .cp{ color: #5298D4; }
-
-/* keyword */
-code .k { color: #E39B79; }
-
-/* storage */
-code .kd,
-/* markup attribute */
-code .na { color: #A9D866; }
-
-/* punctuation */
-code .p { color: #EDB; }
-
-/* operator */
-code .o { color: #F63; }
-
-/* support */
-code .nb { color: #AA97AC;}
+code .s { color: #78BD55; } /* string */
+code .mi, /* integer */
+code .cp { color: #5298D4; } /* doctype */
+code .k { color: #E39B79; } /* keyword */
+code .kd, /* storage */
+code .na { color: #A9D866; } /* markup attribute */
+code .p  { color: #EDB; } /* punctuation */
+code .o  { color: #F63; }   /* operator */
+code .nb { color: #AA97AC;} /* support */
 
 /* comment */
 code .c,
 code .c1 { color: #666; font-style: italic; }
 
-/* Markup open tag */
-code .nt { color: #A0C8FC; }
-
-/* attribute */
-code .na { color: #A9D866; }
-
+code .nt { color: #A0C8FC; } /* Markup open tag */
 
 code .nf { color: #9EA8B8; } /* css id */
 code .nc { color: #A78352; }  /* CSS class */
