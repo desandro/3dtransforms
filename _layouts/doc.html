@@ -1,10 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>{{ page.title }}</title>
-
-  <link rel="stylesheet" href="../css/style.css" media="screen" />
+{% assign root_path = '../' %}
+{% assign section = 'Docs' %}
+{% include html-head.html %}
 
 </head>
 <body class="doc">
@@ -18,7 +14,7 @@
   </section>
   
   <footer>
-    <p><a href="../../">Intro to CSS 3D transforms</a> by David DeSandro</p>
+    <p><a href="../../">{{ site.site_name }}</a> by David DeSandro</p>
   </footer>
 
 </body>

@@ -6,4 +6,6 @@
   <!-- disable zooming -->
   <meta name="viewport" content="initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
   
-  <title>{{ page.title }}</title>
+  <title>{% if page.title %}{{ page.title }} &middot; {% endif %}{{ site.site_name }}{% if section %} &rsaquo; {{ section }}{% endif %}</title>
+  
+    <link rel="stylesheet" href="{{ root_path }}css/style.css" media="screen" />
