@@ -6,6 +6,15 @@ title: Intro to CSS 3D transforms
 <p>By <a href="http://desandro.com">David DeSandro</a></p>
 
 <nav>
+  <h2>Docs</h2>
+  <ul>
+    {% for doc in site.categories.docs reversed %}
+      <li><a href=".{{ doc.url }}">{{ doc.title }}</a></li>
+    {% endfor %}
+  </ul>
+</nav>
+
+<nav>
   <h2>Examples</h2>
   <ul>
     {% for example in site.categories.examples reversed %}

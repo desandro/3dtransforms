@@ -22,7 +22,7 @@ h2. Current Support Environment
 
 "The CSS 3D transforms module ":http://www.w3.org/TR/css3-3d-transforms/ has been out in the wild for over a year now. Currently, only Safari supports the specification -- which includes Safari on OSX and Mobile Safari on iOS. 
 
-The support roadmap on other browsers varies. The Mozilla team has "made some initial steps":https://bugzilla.mozilla.org/show_bug.cgi?id=505115 towards implementing the module. "Mike Taylor":http://twitter.com/miketaylr tells me the Opera team is keeping a close eye on CSS transforms, and is waiting until the specification is fleshed out. And our best friend Internet Explorer still needs to catch up to 2D transforms before we can talk about the 3D variety.
+The support roadmap on other browsers varies. The Mozilla team has "made some initial steps":https://bugzilla.mozilla.org/show_bug.cgi?id=505115 towards implementing the module. "Mike Taylor":http://twitter.com/miketaylr tells me the Opera team is keeping a close eye on CSS transforms, and is waiting until the specification is fleshed out. And our best friend Internet Explorer is still working on "catching up with 2D transforms":http://msdn.microsoft.com/en-us/ie/ff468705#_CSS3_2D_Transforms, before we can we can talk about the 3D variety.
 
 To make matters more perplexing, Safari's WebKit-cousin Chrome currently accepts 3D transform declarations, but renders them in 2D space. Per Chrome team member "Paul Irish":http://twitter.com/paul_irish, 3D transforms are on the horizon, perhaps in one of the next X.0 releases. 
 

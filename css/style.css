@@ -46,13 +46,13 @@ footer {
 
 /* index navigation */
 
-nav ul {
+.index nav ul {
   list-style: none;
-  margin: 0;
+  margin: 0 0 3.0em 0;
   padding: 0;
 }
 
-nav ul a {
+.index nav ul a {
   display: block;
   font-size: 18px;
   font-weight: bold;
@@ -62,13 +62,39 @@ nav ul a {
   border-bottom: none;
 }
 
-nav ul li:first-child a {
+.index nav ul li:first-child a {
   border-radius: 10px 10px 0 0;
 }
 
-nav ul li:last-child a {
+.index nav ul li:last-child a {
   border-radius: 0 0 10px 10px;
   border-bottom: 1px solid #CCC;
+}
+
+/**** Docs ****/
+
+.doc #content {
+  max-width: 640px;
+  font-size: 14px;
+  line-height: 1.5em;
+  margin: 0 auto;
+}
+
+.doc #content blockquote {
+  margin-left: 0;
+  padding: 0.8em;
+  background: #EEE;
+  background: hsla( 0, 0%, 0%, 0.04 );
+}
+
+.doc #content img {
+  border: 1px solid #CCC;
+  display: inline-block;
+}
+
+.doc #content pre {
+  font-size: 12px;
+  line-height: 1.5em;
 }
 
 /* proxy range */

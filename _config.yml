@@ -1,3 +1,6 @@
 # auto: true
 pygments: true
 permalink: /:categories/:title.html
+
+# site-wide data
+site_name: Intro to CSS 3D transforms
