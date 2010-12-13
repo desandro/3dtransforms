@@ -212,7 +212,7 @@ code .kd,
 code .na { color: #A9D866; }
 
 /* punctuation */
-code .p { color: #FEC; }
+code .p { color: #EDB; }
 
 /* operator */
 code .o { color: #F63; }
@@ -230,11 +230,8 @@ code .nt { color: #A0C8FC; }
 /* attribute */
 code .na { color: #A9D866; }
 
-/* css id */
-code .nf { color: #9EA8B8; }
 
-/* CSS class */
-code .nc { color: #A78352;}
-
-/* CSS value */
-code .m { color: #DE8E50; }
+code .nf { color: #9EA8B8; } /* css id */
+code .nc { color: #A78352; }  /* CSS class */
+code .m  { color: #DE8E50; } /* CSS value */
+code .nd { color: #9FAD7E; } /* CSS pseudo selector */
