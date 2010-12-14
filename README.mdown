@@ -7,7 +7,7 @@ Discussion, tutorial, and examples all about CSS 3D transforms.
 
 View project live at [desandro.github.com/3dtransforms](http://desandro.github.com/3dtransforms).
 
-Originally written for [24 ways 2010](http://24ways.org/2010).
+Originally written for [24 ways 2010](http://24ways.org/2010/intro-to-css-3d-transforms).
 
 Viewing this project locally
 ----------------------------
@@ -18,6 +18,6 @@ The documentation and example pages are generated using [Jekyll](https://github.
     $ cd 3dtransforms/
     $ jekyll --server --auto
 
-And then view the live site at [http://localhost:4000]([http://localhost:4000]) 
+And then view the live site at [localhost:4000](http://localhost:4000) 
     
 Or you can download a zip of all the flat HTML files from [Downloads](https://github.com/desandro/3dtransforms/archives/gh-pages).
