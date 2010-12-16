@@ -24,4 +24,4 @@ And then view the live site at [localhost:4000](http://localhost:4000)
 
 ### Via download
 
-You can download a zip of all the flat HTML files from [Downloads](https://github.com/desandro/3dtransforms/archives/gh-pages).
+You can download a zip of all the flat HTML files from [Downloads](http://github.com/desandro/3dtransforms/downloads).
