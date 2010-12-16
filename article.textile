@@ -368,7 +368,7 @@ Front-end developers have a myriad of choices when it comes to content carousels
 
 The markup for this demo takes the same form as the box, cube, and card. Let's make it interesting and have a carousel with 9 panels.
 
-bc. <div class="container">
+bc. <section class="container">
   <div id="carousel">
     <figure>1</figure>
     <figure>2</figure>
@@ -380,7 +380,7 @@ bc. <div class="container">
     <figure>8</figure>
     <figure>9</figure>
   </div>
-</div>
+</section>
 
 Now apply basic layout styles. Let's give each panel of the @#carousel@ 20px gaps between one another, done here with @left: 10px;@ and @top: 10px;@. The effective width of each panel remains 210px.
 

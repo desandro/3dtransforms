@@ -12,7 +12,7 @@ The markup for this demo takes the same form as the box, cube, and card. Let's m
 
 {% highlight html %}
 
-<div class="container">
+<section class="container">
   <div id="carousel">
     <figure>1</figure>
     <figure>2</figure>
@@ -24,7 +24,7 @@ The markup for this demo takes the same form as the box, cube, and card. Let's m
     <figure>8</figure>
     <figure>9</figure>
   </div>
-</div>
+</section>
 
 {% endhighlight %}
 
