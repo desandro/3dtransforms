@@ -135,3 +135,7 @@ Finishing up, we can add a transition to animate the rotation between states.
 [**See Example: Cube 2**](../examples/cube-02-show-sides.html)
 
 [![CSS 3D cube object changing sides](../img/cube02.png)](../examples/cube-02-show-sides.html)
+
+* * *
+
+[**Next: Rectangular prism &raquo;**](rectangular-prism.html)

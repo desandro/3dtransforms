@@ -123,3 +123,7 @@ That flip now needs some horizontal movement with `translateX`. We'll set the ro
 [**See Example: Card 2**](../examples/card-02-slide-flip.html)
 
 [![3D card slide-flip transition](../img/card-flip02.png)](../examples/card-02-slide-flip.html)
+
+* * *
+
+[**Next: Cube &raquo;**](cube.html)

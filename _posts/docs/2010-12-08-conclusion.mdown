@@ -13,6 +13,8 @@ My hope is that you took at least one peak a demo and were intrigued. We web des
 
 See you on the flip side.
 
+* * *
+
 ## About the author
 
 If the Web were a coloring book, [**David DeSandro**](http://desandro.com) would be the kid manically scribbling outside the lines of every page, whittling away his front-end development crayons to wee nubs. Lucky for him, he's paid to do the thing he loves, creating engaging, innovative interfaces at [nclud](http://nclud.com). Come nightfall, he dons a cape, develops [resources](http://github.com/desandro), journals his [discoveries](http://dropshado.ws), and fights crime around Washington DC.

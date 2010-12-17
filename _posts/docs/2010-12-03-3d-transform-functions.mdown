@@ -1,6 +1,6 @@
 ---
 
-title: 3d transform functions
+title: 3D transform functions
 layout: doc
 category: docs
 
@@ -35,3 +35,7 @@ There's also several shorthand transform functions that require values for all t
 > In essence, any transform that has a 3D operation as one of its functions will trigger hardware compositing, even when the actual transform is 2D, or not doing anything at all (such as `translate3d(0,0,0)`). Note this is just current behaviour, and could change in the future (which is why we don't document or encourage it). But it is very helpful in some situations and can significantly improve redraw performance.
 
 For the sake of simplicity, these demos will use the basic transform functions, but if you're writing production-ready CSS for iOS or Safari-only, **make sure to use the `foo3d()` functions to get the best rendering performance.**
+
+* * *
+
+[**Next: Card flip &raquo;**](card-flip.html)

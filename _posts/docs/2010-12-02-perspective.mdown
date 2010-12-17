@@ -48,3 +48,7 @@ By default, the vanishing point for a 3D space is positioned at the center. You 
 [**See Example: Perspective 3**](../examples/perspective-03.html)
 
 [![Intense perspective value, with vanishing point modified](../img/perspective02.png)](../examples/perspective-03.html)
+
+* * *
+
+[**Next: 3D transform functions &raquo;**](3d-transform-functions.html)

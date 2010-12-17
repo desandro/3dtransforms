@@ -132,3 +132,8 @@ By now, you probably have two thoughts:
 And you're absolutely right. The repetitive nature of 3D objects lend themselves to scripting. We can offload all the monotonous transform styles to our dynamic script, which, if done right, will be more flexible than the hard-coded version.
 
 [**See Example: Carousel 2**](../examples/carousel-02-dynamic.html)
+
+* * *
+
+[**Next: Conclusion &raquo;**](conclusion.html)
+
