@@ -2,26 +2,44 @@
 layout: homepage
 ---
 
-<h1>{{ site.site_name }}</h1>
+<!doctype html> 
+<html lang="en"> 
+<head> 
+  <meta charset="utf-8" /> 
+  
+  <!-- disable zooming --> 
+  <meta name="viewport" content="initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.0; user-scalable=0;" /> 
+  
+  <title>Intro to CSS 3D transforms</title> 
+  
+  <link rel="stylesheet" href="css/style.css" media="screen" /> 
+ 
+</head> 
+<body class="index">
 
-<p>By <a href="http://desandro.com">David DeSandro</a></p>
+  <h1>{{ site.site_name }}</h1>
 
-<nav>
-  <h2>Docs</h2>
-  <ul>
-    {% for doc in site.categories.docs reversed %}
-      <li><a href=".{{ doc.url }}">{{ doc.title }}</a></li>
-    {% endfor %}
-  </ul>
-</nav>
+  <p>By <a href="http://desandro.com">David DeSandro</a></p>
 
-<nav>
-  <h2>Examples</h2>
-  <ul>
-    {% for example in site.categories.examples reversed %}
-      <li><a href=".{{ example.url }}">{{ example.title }}</a></li>
-    {% endfor %}
-  </ul>
-</nav>
+  <nav>
+    <h2>Docs</h2>
+    <ul>
+      {% for doc in site.categories.docs reversed %}
+        <li><a href=".{{ doc.url }}">{{ doc.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
 
-<p>Project home: <a href="http://github.com/desandro/3dtransforms">github.com/desandro/3dtransforms</a></p>
+  <nav>
+    <h2>Examples</h2>
+    <ul>
+      {% for example in site.categories.examples reversed %}
+        <li><a href=".{{ example.url }}">{{ example.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+  <p>Project home: <a href="http://github.com/desandro/3dtransforms">github.com/desandro/3dtransforms</a></p>
+
+</body>
+</html>
