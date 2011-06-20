@@ -25,11 +25,9 @@ Also consider slide cycle plugins. When you're at the last slide, what cues tip-
 
 ## Current Support Environment
 
-[The CSS 3D transforms module](http://www.w3.org/TR/css3-3d-transforms/) has been out in the wild for over a year now. Currently, only Safari supports the specification by default -- which includes Safari on OSX and Mobile Safari on iOS. 
+[The CSS 3D transforms module](http://www.w3.org/TR/css3-3d-transforms/) has been out in the wild for over a year now. Currently, only WebKit browsers supports the specification by default -- which includes Safari, Google Chrome (as of [v12](http://googlechromereleases.blogspot.com/2011/06/chrome-stable-release.html)) and Mobile Safari on iOS. 
 
 The support roadmap on other browsers varies. The Mozilla team has [made some initial steps](https://bugzilla.mozilla.org/show_bug.cgi?id=505115) towards implementing the module. [Mike Taylor](http://twitter.com/miketaylr) tells me the Opera team is keeping a close eye on CSS transforms, and is waiting until the specification is fleshed out. And our best friend Internet Explorer is still working on [catching up with 2D transforms](http://msdn.microsoft.com/en-us/ie/ff468705#_CSS3_2D_Transforms), before we can we can talk about the 3D variety.
-
-To make matters more perplexing, Safari's WebKit-cousin Chrome has the capacity to render CSS 3D transforms, but this feature is disabled by default. To enable it, go to `about:flags` URL and enable _GPU Accelerated Compositing_, then restart Chrome. With _GPU Accelerated Compositing_ disabled, Chrome  accepts 3D transform declarations, but renders them in 2D space.
 
 This all adds up to a bit of a challenge for those of us excited for 3D transforms. I'll give it to you straight: missing that dimension of depth can make degradation a bit ungraceful. Unless the transform is relatively simple and holds up in non-3D-supporting browsers, you'll most likely have to design another solution. But what's another hurdle in a steeplechase? We web folk have had our mettle tested for years. We're galvanized for devising multiple solutions.
 
