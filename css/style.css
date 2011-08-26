@@ -49,6 +49,10 @@ hr {
   border-top: 1px solid #CCC;
 }
 
+figure {
+  margin: 0;
+}
+
 /* index navigation */
 
 .index nav ul {
