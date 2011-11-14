@@ -13,6 +13,10 @@ category: examples
       margin: 0 auto 40px;
       border: 1px solid #CCC;
       -webkit-perspective: 1200;
+         -moz-perspective: 1200;
+          -ms-perspective: 1200;
+           -o-perspective: 1200;
+              perspective: 1200;
     }
     
     #cube {
@@ -20,7 +24,15 @@ category: examples
       height: 100%;
       position: absolute;
       -webkit-transform-style: preserve-3d;
+         -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+           -o-transform-style: preserve-3d;
+              transform-style: preserve-3d;
       -webkit-transform: translateZ( -100px );
+         -moz-transform: translateZ( -100px );
+          -ms-transform: translateZ( -100px );
+           -o-transform: translateZ( -100px );
+              transform: translateZ( -100px );
     }
 
     #cube.spinning {
@@ -47,6 +59,10 @@ category: examples
     
     #cube.panels-backface-invisible figure {
       -webkit-backface-visibility: hidden;
+         -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+           -o-backface-visibility: hidden;
+              backface-visibility: hidden;
     }
     
     #cube .front  { background: hsla(   0, 100%, 50%, 0.7 ); }
@@ -56,12 +72,48 @@ category: examples
     #cube .top    { background: hsla( 240, 100%, 50%, 0.7 ); }
     #cube .bottom { background: hsla( 300, 100%, 50%, 0.7 ); }
 
-    #cube .front  { -webkit-transform: translateZ( 100px ); }
-    #cube .back   { -webkit-transform: rotateX( -180deg ) translateZ( 100px ); }
-    #cube .right  { -webkit-transform: rotateY(   90deg ) translateZ( 100px ); }
-    #cube .left   { -webkit-transform: rotateY(  -90deg ) translateZ( 100px ); }
-    #cube .top    { -webkit-transform: rotateX(   90deg ) translateZ( 100px ); }
-    #cube .bottom { -webkit-transform: rotateX(  -90deg ) translateZ( 100px ); }
+    #cube .front  {
+      -webkit-transform: translateZ( 100px );
+         -moz-transform: translateZ( 100px );
+          -ms-transform: translateZ( 100px );
+           -o-transform: translateZ( 100px );
+              transform: translateZ( 100px );
+    }
+    #cube .back {
+      -webkit-transform: rotateX( -180deg ) translateZ( 100px );
+         -moz-transform: rotateX( -180deg ) translateZ( 100px );
+          -ms-transform: rotateX( -180deg ) translateZ( 100px );
+           -o-transform: rotateX( -180deg ) translateZ( 100px );
+              transform: rotateX( -180deg ) translateZ( 100px );
+    }
+    #cube .right {
+      -webkit-transform: rotateY(   90deg ) translateZ( 100px );
+         -moz-transform: rotateY(   90deg ) translateZ( 100px );
+          -ms-transform: rotateY(   90deg ) translateZ( 100px );
+           -o-transform: rotateY(   90deg ) translateZ( 100px );
+              transform: rotateY(   90deg ) translateZ( 100px );
+    }
+    #cube .left {
+      -webkit-transform: rotateY(  -90deg ) translateZ( 100px );
+         -moz-transform: rotateY(  -90deg ) translateZ( 100px );
+          -ms-transform: rotateY(  -90deg ) translateZ( 100px );
+           -o-transform: rotateY(  -90deg ) translateZ( 100px );
+              transform: rotateY(  -90deg ) translateZ( 100px );
+    }
+    #cube .top {
+      -webkit-transform: rotateX(   90deg ) translateZ( 100px );
+         -moz-transform: rotateX(   90deg ) translateZ( 100px );
+          -ms-transform: rotateX(   90deg ) translateZ( 100px );
+           -o-transform: rotateX(   90deg ) translateZ( 100px );
+              transform: rotateX(   90deg ) translateZ( 100px );
+    }
+    #cube .bottom {
+      -webkit-transform: rotateX(  -90deg ) translateZ( 100px );
+         -moz-transform: rotateX(  -90deg ) translateZ( 100px );
+          -ms-transform: rotateX(  -90deg ) translateZ( 100px );
+           -o-transform: rotateX(  -90deg ) translateZ( 100px );
+              transform: rotateX(  -90deg ) translateZ( 100px );
+    }
     
   </style>
 
