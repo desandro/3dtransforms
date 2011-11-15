@@ -13,6 +13,10 @@ category: examples
       margin: 0 auto 40px;
       border: 1px solid #CCC;
       -webkit-perspective: 1100;
+         -moz-perspective: 1100;
+          -ms-perspective: 1100;
+           -o-perspective: 1100;
+              perspective: 1100;
     }
     
     #carousel {
@@ -20,8 +24,20 @@ category: examples
       height: 100%;
       position: absolute;
       -webkit-transform: translateZ( -288px );
+         -moz-transform: translateZ( -288px );
+          -ms-transform: translateZ( -288px );
+           -o-transform: translateZ( -288px );
+              transform: translateZ( -288px );
       -webkit-transform-style: preserve-3d;
+         -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+           -o-transform-style: preserve-3d;
+              transform-style: preserve-3d;
       -webkit-transition: -webkit-transform 1s;
+         -moz-transition: -moz-transform 1s;
+          -ms-transition: -ms-transform 1s;
+           -o-transition: -o-transform 1s;
+              transition: transform 1s;
     }
     
     #carousel figure {
@@ -86,12 +102,6 @@ category: examples
       <button id="next" data-increment="1">Next</button>
     </p>
     
-    <!-- <p>
-      <label for="panel-select">Select panel</label> 
-      <input type="range" id="panel-select" value="1" min="1" max="9" />
-    </p> -->
-
-    
   </section>
   
   <script src="../js/utils.js"></script>
@@ -102,25 +112,15 @@ category: examples
           panelCount = carousel.children.length,
           theta = 0,
           
-          rotateCarousel = function( angle ) {
-            carousel.style.webkitTransform = 'translateZ( -288px ) rotateY(' + theta + 'deg)';
-          },
-          
           onNavButtonClick = function( event ){
             var increment = parseInt( event.target.getAttribute('data-increment') );
             theta += ( 360 / panelCount ) * increment * -1;
-            rotateCarousel();
+            carousel.style[ DDD.transformProp ] = 'translateZ( -288px ) rotateY(' + theta + 'deg)';
           };
 
       for (var i=0; i < 2; i++) {
         navButtons[i].addEventListener( 'click', onNavButtonClick, false);
       }
-      
-      // should probably add some logic so that prev/next buttons update slider
-      // document.getElementById('panel-select').addEventListener( 'change', function(){
-      //   theta = ( 360 / panelCount ) * ( event.target.value - 1 ) * -1;
-      //   rotateCarousel();
-      // }, false);
       
     };
       

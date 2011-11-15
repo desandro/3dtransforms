@@ -100,10 +100,7 @@ DDD.ProxyRange = function ( input ) {
   
   this.value = this.input.value;
 
-  DDD.transformProp = DDD.transformProp || DDD.getStyleProperty('transform');
-
   this.resetHandlePosition();
-  
   
   this.slider.addEventListener( DDD.CursorStartEvent, this, false );
   this.handle.addEventListener( DDD.CursorStartEvent, this, false );
@@ -272,6 +269,7 @@ DDD.init = function() {
     document.getElementById('disclaimer').style.display = 'block';
   }
   
+  DDD.transformProp = DDD.getStyleProperty('transform');
   
   var ranges = document.querySelectorAll('input[type="range"]'),
       rangesLen = ranges.length,

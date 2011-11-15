@@ -13,6 +13,10 @@ category: examples
       margin: 0 auto 40px;
       border: 1px solid #CCC;
       -webkit-perspective: 1100;
+         -moz-perspective: 1100;
+          -ms-perspective: 1100;
+           -o-perspective: 1100;
+              perspective: 1100;
     }
     
 
@@ -138,14 +142,14 @@ category: examples
         panel.style.opacity = 1;
         panel.style.backgroundColor = 'hsla(' + angle + ', 100%, 50%, 0.8)';
         // rotate panel, then push it out in 3D space
-        panel.style.webkitTransform = this.rotateFn + '(' + angle + 'deg) translateZ(' + this.radius + 'px)';
+        panel.style[ DDD.transformProp ] = this.rotateFn + '(' + angle + 'deg) translateZ(' + this.radius + 'px)';
       }
 
       // hide other panels
       for (  ; i < this.totalPanelCount; i++ ) {
         panel = this.element.children[i];
         panel.style.opacity = 0;
-        panel.style.webkitTransform = 'none';
+        panel.style[ DDD.transformProp ] = 'none';
       }
 
       // adjust rotation so panels are always flat
@@ -158,7 +162,7 @@ category: examples
     Carousel3D.prototype.transform = function() {
       // push the carousel back in 3D space,
       // and rotate it
-      this.element.style.webkitTransform = 'translateZ(-' + this.radius + 'px) ' + this.rotateFn + '(' + this.rotation + 'deg)';
+      this.element.style[ DDD.transformProp ] = 'translateZ(-' + this.radius + 'px) ' + this.rotateFn + '(' + this.rotation + 'deg)';
     };
 
 
