@@ -25,17 +25,27 @@ category: examples
       height: 100%;
       position: absolute;
       -webkit-transform-style: preserve-3d;
+         -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+           -o-transform-style: preserve-3d;
+              transform-style: preserve-3d;
     }
     
     .ready #carousel {
       -webkit-transition: -webkit-transform 1s;
+         -moz-transition: -moz-transform 1s;
+          -ms-transition: -ms-transform 1s;
+           -o-transition: -o-transform 1s;
+              transition: transform 1s;
     }
 
     #carousel.panels-backface-invisible figure {
       -webkit-backface-visibility: hidden;
+         -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+           -o-backface-visibility: hidden;
+              backface-visibility: hidden;
     }
-
-
 
     #carousel figure {
       display: block;
@@ -53,8 +63,11 @@ category: examples
     }
     
     .ready #carousel figure {
-      -webkit-transition-property: -webkit-transform, opacity;
-      -webkit-transition-duration: 1s;
+      -webkit-transition: opacity 1s, -webkit-transform 1s;
+         -moz-transition: opacity 1s, -moz-transform 1s;
+          -ms-transition: opacity 1s, -ms-transform 1s;
+           -o-transition: opacity 1s, -o-transform 1s;
+              transition: opacity 1s, transform 1s;
     }
 
   </style>
