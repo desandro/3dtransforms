@@ -31,7 +31,7 @@ We're ready for some 3D stylin'. First, apply necessary `perspective` to the par
   width: 200px;
   height: 260px;
   position: relative;
-  -webkit-perspective: 800;
+  perspective: 800;
 }
 
 {% endhighlight %}
@@ -46,8 +46,8 @@ Let's add a CSS3 transition so users can see the transform take effect.
   width: 100%;
   height: 100%;
   position: absolute;
-  -webkit-transform-style: preserve-3d;
-  -webkit-transition: -webkit-transform 1s;
+  transform-style: preserve-3d;
+  transition: transform 1s;
 }
 
 {% endhighlight %}
@@ -63,7 +63,7 @@ To position the faces in 3D space, we'll need to reset their positions in 2D wit
   position: absolute;
   width: 100%;
   height: 100%;
-  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 {% endhighlight %}
@@ -77,7 +77,7 @@ To flip the `.back` face, we add a basic 3D transform of `rotateY( 180deg )`.
 }
 #card .back {
   background: blue;
-  -webkit-transform: rotateY( 180deg );
+  transform: rotateY( 180deg );
 }
 
 {% endhighlight %}
@@ -87,7 +87,7 @@ With the faces in place, the `#card` requires a corresponding style for when it 
 {% highlight css %}
 
 #card.flipped {
-  -webkit-transform: rotateY( 180deg );
+  transform: rotateY( 180deg );
 }
 
 {% endhighlight %}
@@ -106,7 +106,7 @@ The pivot point for the rotation occurs at the right side of the card. By defaul
 
 {% highlight css %}
 
-#card { -webkit-transform-origin: right center; }
+#card { transform-origin: right center; }
 
 {% endhighlight %}
 
@@ -115,7 +115,7 @@ That flip now needs some horizontal movement with `translateX`. We'll set the ro
 {% highlight css %}
 
 #card.flipped {
-  -webkit-transform: translateX( -100% ) rotateY( -180deg );
+  transform: translateX( -100% ) rotateY( -180deg );
 }
 
 {% endhighlight %}

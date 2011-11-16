@@ -36,14 +36,14 @@ Now apply basic layout styles. Let's give each panel of the `#carousel` 20px gap
   width: 210px;
   height: 140px;
   position: relative;
-  -webkit-perspective: 1000;
+  perspective: 1000;
 }
 
 #carousel {
   width: 100%;
   height: 100%;
   position: absolute;
-  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
 
 #carousel figure {
@@ -62,15 +62,15 @@ Next up: rotating the faces. This `#carousel` has 9 panels. If each panel gets a
 
 {% highlight css %}
 
-#carousel figure:nth-child(1) { -webkit-transform: rotateY(   0deg ); }
-#carousel figure:nth-child(2) { -webkit-transform: rotateY(  40deg ); }
-#carousel figure:nth-child(3) { -webkit-transform: rotateY(  80deg ); }
-#carousel figure:nth-child(4) { -webkit-transform: rotateY( 120deg ); }
-#carousel figure:nth-child(5) { -webkit-transform: rotateY( 160deg ); }
-#carousel figure:nth-child(6) { -webkit-transform: rotateY( 200deg ); }
-#carousel figure:nth-child(7) { -webkit-transform: rotateY( 240deg ); }
-#carousel figure:nth-child(8) { -webkit-transform: rotateY( 280deg ); }
-#carousel figure:nth-child(9) { -webkit-transform: rotateY( 320deg ); }
+#carousel figure:nth-child(1) { transform: rotateY(   0deg ); }
+#carousel figure:nth-child(2) { transform: rotateY(  40deg ); }
+#carousel figure:nth-child(3) { transform: rotateY(  80deg ); }
+#carousel figure:nth-child(4) { transform: rotateY( 120deg ); }
+#carousel figure:nth-child(5) { transform: rotateY( 160deg ); }
+#carousel figure:nth-child(6) { transform: rotateY( 200deg ); }
+#carousel figure:nth-child(7) { transform: rotateY( 240deg ); }
+#carousel figure:nth-child(8) { transform: rotateY( 280deg ); }
+#carousel figure:nth-child(9) { transform: rotateY( 320deg ); }
 
 {% endhighlight %}
 
@@ -88,15 +88,15 @@ There you have it, `288px` is the distance to translate the panels out in 3D spa
 
 {% highlight css %}
 
-#carousel figure:nth-child(1) { -webkit-transform: rotateY(   0deg ) translateZ( 288px ); }
-#carousel figure:nth-child(2) { -webkit-transform: rotateY(  40deg ) translateZ( 288px ); }
-#carousel figure:nth-child(3) { -webkit-transform: rotateY(  80deg ) translateZ( 288px ); }
-#carousel figure:nth-child(4) { -webkit-transform: rotateY( 120deg ) translateZ( 288px ); }
-#carousel figure:nth-child(5) { -webkit-transform: rotateY( 160deg ) translateZ( 288px ); }
-#carousel figure:nth-child(6) { -webkit-transform: rotateY( 200deg ) translateZ( 288px ); }
-#carousel figure:nth-child(7) { -webkit-transform: rotateY( 240deg ) translateZ( 288px ); }
-#carousel figure:nth-child(8) { -webkit-transform: rotateY( 280deg ) translateZ( 288px ); }
-#carousel figure:nth-child(9) { -webkit-transform: rotateY( 320deg ) translateZ( 288px ); }
+#carousel figure:nth-child(1) { transform: rotateY(   0deg ) translateZ( 288px ); }
+#carousel figure:nth-child(2) { transform: rotateY(  40deg ) translateZ( 288px ); }
+#carousel figure:nth-child(3) { transform: rotateY(  80deg ) translateZ( 288px ); }
+#carousel figure:nth-child(4) { transform: rotateY( 120deg ) translateZ( 288px ); }
+#carousel figure:nth-child(5) { transform: rotateY( 160deg ) translateZ( 288px ); }
+#carousel figure:nth-child(6) { transform: rotateY( 200deg ) translateZ( 288px ); }
+#carousel figure:nth-child(7) { transform: rotateY( 240deg ) translateZ( 288px ); }
+#carousel figure:nth-child(8) { transform: rotateY( 280deg ) translateZ( 288px ); }
+#carousel figure:nth-child(9) { transform: rotateY( 320deg ) translateZ( 288px ); }
 
 {% endhighlight %}
 
@@ -116,7 +116,7 @@ Just like our previous 3D objects, to show any one panel, we need only to apply 
 
 {% highlight css %}
 
--webkit-transform: translateZ( -288px ) rotateY( -160deg );
+transform: translateZ( -288px ) rotateY( -160deg );
 
 {% endhighlight %}
 

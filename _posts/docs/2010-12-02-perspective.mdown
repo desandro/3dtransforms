@@ -12,7 +12,7 @@ To activate 3D space, an element needs perspective.  This can be applied in two 
 
 {% highlight css %}
 
--webkit-transform: perspective( 600 );
+transform: perspective( 600 );
 
 {% endhighlight %}
 
@@ -20,7 +20,7 @@ or using the `perspective` property:
 
 {% highlight css %}
 
--webkit-perspective: 600;
+perspective: 600;
 
 {% endhighlight %}
 
@@ -41,7 +41,7 @@ By default, the vanishing point for a 3D space is positioned at the center. You 
 
 {% highlight css %}
 
--webkit-perspective-origin: 25% 75%;
+perspective-origin: 25% 75%;
 
 {% endhighlight %}
 
