@@ -43,6 +43,7 @@ footer {
   font-weight: bold;
   display: none;
 }
+.no-csstransforms3d #disclaimer { display: block; }
 
 hr {
   border: none;

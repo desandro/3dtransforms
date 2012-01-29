@@ -194,13 +194,13 @@ category: examples
       var transformOriginInputs = document.querySelectorAll('#transform-origin input'),
           cube = document.getElementById('cube'),
           pivotPoint = document.querySelector('.pivot-point'),
+          transformOriginProp = Modernizr.prefixed('transformOrigin'),
       
           onOriginChange = function( event ) {
             var x = transformOriginInputs[0].value + '%';
                 y = transformOriginInputs[1].value + '%';
-              
             
-            cube.style.webkitTransformOrigin = x + ' ' + y;
+            cube.style[ transformOriginProp ] = x + ' ' + y;
             
             pivotPoint.style.width = x;
             pivotPoint.style.height = y;

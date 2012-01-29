@@ -168,15 +168,17 @@ category: examples
           cube = document.getElementById('cube'),
           optionsContainer = document.getElementById('options'),
           perspectiveOrigin = { x: 50, y: 50 },
+          // get -vendor- prefix css property
+          perspectiveProp = Modernizr.prefixed('perspective'),
+          perspectiveOriginProp = Modernizr.prefixed('perspectiveOrigin'),
           
           updatePerspectiveOrigin = function() {
-            boxContainer.style.webkitPerspectiveOrigin = 
+            boxContainer.style[ perspectiveOriginProp ] = 
               perspectiveOrigin.x + '% ' + perspectiveOrigin.y + '%';
           };
-      
 
       optionsContainer.querySelector('.perspective input').addEventListener( 'change', function(){
-        boxContainer.style.webkitPerspective = event.target.value;
+        boxContainer.style[ perspectiveProp ] = event.target.value + 'px';
       }, false);
       
       optionsContainer.querySelector('.perspective-origin-x input').addEventListener( 'change', function(){
