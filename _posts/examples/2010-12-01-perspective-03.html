@@ -36,14 +36,23 @@ category: examples
     }
 
     #cube.spinning {
-      -webkit-animation: spinCube 8s infinite ease-in-out;
+      -webkit-animation: spinCubeWebkit 8s infinite ease-in-out;
+         -moz-animation: spinCubeMoz    8s infinite ease-in-out;
+          -ms-animation: spinCubeMS     8s infinite ease-in-out;
+           -o-animation: spinCubeO      8s infinite ease-in-out;
+              animation: spinCube       8s infinite ease-in-out;
     }
-    
-    @-webkit-keyframes spinCube {
+
+    @-webkit-keyframes spinCubeWebkit {
         0% { -webkit-transform: translateZ( -100px ) rotateX(   0deg ) rotateY(   0deg ); }
       100% { -webkit-transform: translateZ( -100px ) rotateX( 360deg ) rotateY( 360deg ); }
     }
-    
+
+    @-moz-keyframes spinCubeMoz {
+        0% { -moz-transform: translateZ( -100px ) rotateX(   0deg ) rotateY(   0deg ); }
+      100% { -moz-transform: translateZ( -100px ) rotateX( 360deg ) rotateY( 360deg ); }
+    }
+
     #cube figure {
       display: block;
       position: absolute;
@@ -138,7 +147,7 @@ category: examples
     
     <p class="perspective">
       <label>perspective</label>
-      <input type="range" min="1" max="2000" value="1200" />
+      <input type="range" min="1" max="2000" value="1200" data-units="px" />
     </p>
     
     <p class="perspective-origin-x">
