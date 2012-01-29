@@ -36,7 +36,7 @@ Now apply basic layout styles. Let's give each panel of the `#carousel` 20px gap
   width: 210px;
   height: 140px;
   position: relative;
-  perspective: 1000;
+  perspective: 1000px;
 }
 
 #carousel {

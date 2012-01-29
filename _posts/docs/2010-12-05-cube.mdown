@@ -33,7 +33,7 @@ Basic position and size styles set the 6 faces on top of one another in the cont
   width: 200px;
   height: 200px;
   position: relative;
-  perspective: 1000;
+  perspective: 1000px;
 }
 
 #cube {

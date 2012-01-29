@@ -31,7 +31,7 @@ We're ready for some 3D stylin'. First, apply necessary `perspective` to the par
   width: 200px;
   height: 260px;
   position: relative;
-  perspective: 800;
+  perspective: 800px;
 }
 
 {% endhighlight %}

@@ -16,7 +16,7 @@ The markup remains the same as the `#cube`'s version, but switch the `#cube` id 
   width: 300px;
   height: 200px;
   position: relative;
-  perspective: 1000;
+  perspective: 1000px;
 }
 
 #box {

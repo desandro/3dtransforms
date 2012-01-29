@@ -28,8 +28,11 @@ category: examples
     }
 
     #blue {
-      -webkit-perspective: 600;
-    
+      -webkit-perspective: 600px;
+         -moz-perspective: 600px;
+          -ms-perspective: 600px;
+           -o-perspective: 600px;
+              perspective: 600px;
     }
 
     #blue .box {
@@ -51,7 +54,7 @@ category: examples
 
 #red .box {
   background-color: red;
-  -webkit-transform: perspective( 600 ) rotateY( 45deg );
+  transform: perspective( 600px ) rotateY( 45deg );
 }
 
 {% endhighlight %}
@@ -63,12 +66,12 @@ category: examples
 {% highlight css %}
 
 #blue {
-  -webkit-perspective: 600;
+  perspective: 600px;
 }
 
 #blue .box {
   background-color: blue;
-  -webkit-transform: rotateY( 45deg );
+  transform: rotateY( 45deg );
 }
 
 {% endhighlight %}
