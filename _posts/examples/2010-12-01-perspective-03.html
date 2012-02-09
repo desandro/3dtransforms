@@ -186,16 +186,16 @@ category: examples
               perspectiveOrigin.x + '% ' + perspectiveOrigin.y + '%';
           };
 
-      optionsContainer.querySelector('.perspective input').addEventListener( 'change', function(){
+      optionsContainer.querySelector('.perspective input').addEventListener( 'change', function( event ){
         boxContainer.style[ perspectiveProp ] = event.target.value + 'px';
       }, false);
       
-      optionsContainer.querySelector('.perspective-origin-x input').addEventListener( 'change', function(){
+      optionsContainer.querySelector('.perspective-origin-x input').addEventListener( 'change', function( event ){
         perspectiveOrigin.x = event.target.value;
         updatePerspectiveOrigin();
       }, false);
 
-      optionsContainer.querySelector('.perspective-origin-y input').addEventListener( 'change', function(){
+      optionsContainer.querySelector('.perspective-origin-y input').addEventListener( 'change', function( event ){
         perspectiveOrigin.y = event.target.value;
         updatePerspectiveOrigin();
       }, false);
