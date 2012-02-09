@@ -106,8 +106,8 @@ DDD.ProxyRange = function ( input ) {
   this.width = parseInt( getComputedStyle( this.input ).width, 10);
   this.slider.style.width = this.width + 'px';
   
-  this.min = parseInt( this.input.getAttribute('min'), 10 );
-  this.max = parseInt( this.input.getAttribute('max'), 10 );
+  this.min = parseInt( this.input.getAttribute('min') || 0, 10 );
+  this.max = parseInt( this.input.getAttribute('max') || 100, 10 );
   
   this.normalizeRatio = ( this.max - this.min ) / ( this.width - DDD.ProxyRange.lineCap * 2 );
   
