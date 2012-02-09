@@ -220,7 +220,7 @@ DDD.init = function() {
     var isRangeSupported = (function() {
       var isSupported = ranges[0].type !== 'text';
       if ( isSupported ) {
-        var appearanceProp = Modernizr.prefixed('appearance')
+        var appearanceProp = Modernizr.prefixed('appearance');
         isSupported = getComputedStyle( ranges[0] )[ appearanceProp ] !== 'textfield';
       }
       return isSupported;
