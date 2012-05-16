@@ -95,7 +95,7 @@ In order to keep 3D transforms snappy, Safari composites the element then applie
 
 [![Using 3D transforms can pixelate text](../img/pixelation01.png)](../examples/transforms-02-pixelation.html)
 
-Looking at back at the "Perspective 3 demo":../examples/perspective-03.html, note that no matter how small the perspective value is, or where ever the transform origin may be, the 1 panel always returns to its original position, as if all those funky 3D transforms didn't even matter.
+Looking at back at the [Perspective 3 demo](../examples/perspective-03.html), note that no matter how small the perspective value is, or where ever the transform origin may be, the 1 panel always returns to its original position, as if all those funky 3D transforms didn't even matter.
 
 To resolve the distortion and restore pixel perfection on our `#cube`, we can push back the 3D object, so that the front face will be positioned back at the Z origin.
 
