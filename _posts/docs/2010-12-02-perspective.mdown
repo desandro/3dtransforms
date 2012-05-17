@@ -24,6 +24,8 @@ perspective: 600px;
 
 {% endhighlight %}
 
+**NOTE**: for the sake of brevity in the example code, I am using the un-prefixed CSS properties, i.e. `perspective`. In actual use, you'll have to use vendor-prefixed versions: `-webkit-perspective`, `-moz-perspective`, etc.
+
 [**See Example: Perspective 1**](../examples/perspective-01.html)
 
 [![Perspective property at work](../img/perspective01.png)](../examples/perspective-01.html)
