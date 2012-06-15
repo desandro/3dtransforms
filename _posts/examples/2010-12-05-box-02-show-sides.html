@@ -5,7 +5,7 @@ category: examples
 ---
 
   <style media="screen">
-    
+
     .container {
       width: 300px;
       height: 200px;
@@ -14,27 +14,24 @@ category: examples
       border: 1px solid #CCC;
       -webkit-perspective: 1200px;
          -moz-perspective: 1200px;
-          -ms-perspective: 1200px;
            -o-perspective: 1200px;
               perspective: 1200px;
     }
-    
+
     #box {
       width: 100%;
       height: 100%;
       position: absolute;
       -webkit-transform-style: preserve-3d;
          -moz-transform-style: preserve-3d;
-          -ms-transform-style: preserve-3d;
            -o-transform-style: preserve-3d;
               transform-style: preserve-3d;
       -webkit-transition: -webkit-transform 1s;
          -moz-transition: -moz-transform 1s;
-          -ms-transition: -ms-transform 1s;
            -o-transition: -o-transform 1s;
               transition: transform 1s;
     }
-    
+
     #box figure {
       display: block;
       position: absolute;
@@ -45,11 +42,10 @@ category: examples
       font-weight: bold;
       color: white;
     }
-    
+
     #box.panels-backface-invisible figure {
       -webkit-backface-visibility: hidden;
          -moz-backface-visibility: hidden;
-          -ms-backface-visibility: hidden;
            -o-backface-visibility: hidden;
               backface-visibility: hidden;
     }
@@ -75,103 +71,91 @@ category: examples
       line-height: 96px;
     }
 
-    
+
     #box .front  { background: hsla( 000, 100%, 50%, 0.7 ); }
     #box .back   { background: hsla( 160, 100%, 50%, 0.7 ); }
     #box .right  { background: hsla( 120, 100%, 50%, 0.7 ); }
     #box .left   { background: hsla( 180, 100%, 50%, 0.7 ); }
-    #box .top    { background: hsla( 240, 100%, 50%, 0.7 ); }   
+    #box .top    { background: hsla( 240, 100%, 50%, 0.7 ); }
     #box .bottom { background: hsla( 300, 100%, 50%, 0.7 ); }
-    
+
     #box .front  {
       -webkit-transform: translateZ( 50px );
          -moz-transform: translateZ( 50px );
-          -ms-transform: translateZ( 50px );
            -o-transform: translateZ( 50px );
               transform: translateZ( 50px );
     }
     #box .back   {
       -webkit-transform: rotateX( -180deg ) translateZ(  50px );
          -moz-transform: rotateX( -180deg ) translateZ(  50px );
-          -ms-transform: rotateX( -180deg ) translateZ(  50px );
            -o-transform: rotateX( -180deg ) translateZ(  50px );
               transform: rotateX( -180deg ) translateZ(  50px );
     }
     #box .right {
       -webkit-transform: rotateY(   90deg ) translateZ( 150px );
          -moz-transform: rotateY(   90deg ) translateZ( 150px );
-          -ms-transform: rotateY(   90deg ) translateZ( 150px );
            -o-transform: rotateY(   90deg ) translateZ( 150px );
               transform: rotateY(   90deg ) translateZ( 150px );
     }
     #box .left {
       -webkit-transform: rotateY(  -90deg ) translateZ( 150px );
          -moz-transform: rotateY(  -90deg ) translateZ( 150px );
-          -ms-transform: rotateY(  -90deg ) translateZ( 150px );
            -o-transform: rotateY(  -90deg ) translateZ( 150px );
               transform: rotateY(  -90deg ) translateZ( 150px );
     }
     #box .top {
       -webkit-transform: rotateX(   90deg ) translateZ( 100px );
          -moz-transform: rotateX(   90deg ) translateZ( 100px );
-          -ms-transform: rotateX(   90deg ) translateZ( 100px );
            -o-transform: rotateX(   90deg ) translateZ( 100px );
               transform: rotateX(   90deg ) translateZ( 100px );
     }
     #box .bottom {
       -webkit-transform: rotateX(  -90deg ) translateZ( 100px );
          -moz-transform: rotateX(  -90deg ) translateZ( 100px );
-          -ms-transform: rotateX(  -90deg ) translateZ( 100px );
            -o-transform: rotateX(  -90deg ) translateZ( 100px );
               transform: rotateX(  -90deg ) translateZ( 100px );
     }
-    
-    
+
+
     #box.show-front {
       -webkit-transform: translateZ(  -50px );
          -moz-transform: translateZ(  -50px );
-          -ms-transform: translateZ(  -50px );
            -o-transform: translateZ(  -50px );
               transform: translateZ(  -50px );
     }
     #box.show-back {
       -webkit-transform: translateZ( -50px ) rotateX( -180deg );
          -moz-transform: translateZ( -50px ) rotateX( -180deg );
-          -ms-transform: translateZ( -50px ) rotateX( -180deg );
            -o-transform: translateZ( -50px ) rotateX( -180deg );
               transform: translateZ( -50px ) rotateX( -180deg );
     }
     #box.show-right {
       -webkit-transform: translateZ( -150px ) rotateY(  -90deg );
          -moz-transform: translateZ( -150px ) rotateY(  -90deg );
-          -ms-transform: translateZ( -150px ) rotateY(  -90deg );
            -o-transform: translateZ( -150px ) rotateY(  -90deg );
               transform: translateZ( -150px ) rotateY(  -90deg );
     }
     #box.show-left {
       -webkit-transform: translateZ( -150px ) rotateY(   90deg );
          -moz-transform: translateZ( -150px ) rotateY(   90deg );
-          -ms-transform: translateZ( -150px ) rotateY(   90deg );
            -o-transform: translateZ( -150px ) rotateY(   90deg );
               transform: translateZ( -150px ) rotateY(   90deg );
     }
     #box.show-top {
       -webkit-transform: translateZ( -100px ) rotateX(  -90deg );
          -moz-transform: translateZ( -100px ) rotateX(  -90deg );
-          -ms-transform: translateZ( -100px ) rotateX(  -90deg );
            -o-transform: translateZ( -100px ) rotateX(  -90deg );
               transform: translateZ( -100px ) rotateX(  -90deg );
     }
     #box.show-bottom {
       -webkit-transform: translateZ( -100px ) rotateX(   90deg );
          -moz-transform: translateZ( -100px ) rotateX(   90deg );
-          -ms-transform: translateZ( -100px ) rotateX(   90deg );
            -o-transform: translateZ( -100px ) rotateX(   90deg );
               transform: translateZ( -100px ) rotateX(   90deg );
     }
-            
 
-    
+
+
   </style>
 
 </head>
@@ -189,9 +173,9 @@ category: examples
       <figure class="bottom">6</figure>
     </div>
   </section>
-  
+
   <section id="options">
-    
+
     <p id="show-buttons">
       <button class="show-front">Show 1</button>
       <button class="show-back">Show 2</button>
@@ -204,8 +188,8 @@ category: examples
     <p>
       <button id="toggle-backface-visibility">Toggle Backface Visibility</button>
     </p>
-    
+
   </section>
-  
+
   <script src="../js/utils.js"></script>
   <script src="../js/rotate-box.js"></script>

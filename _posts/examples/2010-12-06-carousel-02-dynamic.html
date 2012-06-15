@@ -14,11 +14,10 @@ category: examples
       border: 1px solid #CCC;
       -webkit-perspective: 1100px;
          -moz-perspective: 1100px;
-          -ms-perspective: 1100px;
            -o-perspective: 1100px;
               perspective: 1100px;
     }
-    
+
 
     #carousel {
       width: 100%;
@@ -26,15 +25,13 @@ category: examples
       position: absolute;
       -webkit-transform-style: preserve-3d;
          -moz-transform-style: preserve-3d;
-          -ms-transform-style: preserve-3d;
            -o-transform-style: preserve-3d;
               transform-style: preserve-3d;
     }
-    
+
     .ready #carousel {
       -webkit-transition: -webkit-transform 1s;
          -moz-transition: -moz-transform 1s;
-          -ms-transition: -ms-transform 1s;
            -o-transition: -o-transform 1s;
               transition: transform 1s;
     }
@@ -42,7 +39,6 @@ category: examples
     #carousel.panels-backface-invisible figure {
       -webkit-backface-visibility: hidden;
          -moz-backface-visibility: hidden;
-          -ms-backface-visibility: hidden;
            -o-backface-visibility: hidden;
               backface-visibility: hidden;
     }
@@ -61,11 +57,10 @@ category: examples
       color: white;
       text-align: center;
     }
-    
+
     .ready #carousel figure {
       -webkit-transition: opacity 1s, -webkit-transform 1s;
          -moz-transition: opacity 1s, -moz-transform 1s;
-          -ms-transition: opacity 1s, -ms-transform 1s;
            -o-transition: opacity 1s, -o-transform 1s;
               transition: opacity 1s, transform 1s;
     }
@@ -76,7 +71,7 @@ category: examples
 <body>
 
   <h1>{{ page.title }}</h1>
-  
+
   <section class="container">
     <div id="carousel">
       <figure>1</figure>
@@ -101,10 +96,10 @@ category: examples
       <figure>20</figure>
     </div>
   </section>
-  
+
   <section id="options">
     <p>
-      <label for="panel-count">panels</label> 
+      <label for="panel-count">panels</label>
       <input type="range" id="panel-count" value="9" min="3" max="20" />
     </p>
 
@@ -116,17 +111,17 @@ category: examples
     <p>
       <button id="toggle-axis">Toggle Carousel Axis</button>
     </p>
-    
+
     <p>
       <button id="toggle-backface-visibility">Toggle Backface Visibility</button>
     </p>
-    
+
   </section>
-  
+
   <script src="../js/utils.js"></script>
   <script>
     var transformProp = Modernizr.prefixed('transform');
-  
+
     function Carousel3D ( el ) {
       this.element = el;
 
