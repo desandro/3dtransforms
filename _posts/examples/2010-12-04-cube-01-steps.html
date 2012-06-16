@@ -13,22 +13,20 @@ category: examples
       border: 1px solid #CCC;
       -webkit-perspective: 1000px;
          -moz-perspective: 1000px;
-          -ms-perspective: 1000px;
            -o-perspective: 1000px;
               perspective: 1000px;
     }
-    
+
     #cube {
       width: 100%;
       height: 100%;
       position: absolute;
       -webkit-transform-style: preserve-3d;
          -moz-transform-style: preserve-3d;
-          -ms-transform-style: preserve-3d;
            -o-transform-style: preserve-3d;
               transform-style: preserve-3d;
     }
-    
+
     #cube figure {
       display: block;
       position: absolute;
@@ -41,71 +39,63 @@ category: examples
       color: white;
       text-align: center;
     }
-    
+
     #cube,
     #cube figure {
       -webkit-transition: -webkit-transform 1s;
          -moz-transition: -moz-transform 1s;
-          -ms-transition: -ms-transform 1s;
            -o-transition: -o-transform 1s;
               transition: transform 1s;
     }
-    
+
     #cube .front  { background: hsla(   0, 100%, 50%, 0.5 ); }
     #cube .back   { background: hsla(  60, 100%, 50%, 0.5 ); }
     #cube .right  { background: hsla( 120, 100%, 50%, 0.5 ); }
     #cube .left   { background: hsla( 180, 100%, 50%, 0.5 ); }
     #cube .top    { background: hsla( 240, 100%, 50%, 0.5 ); }
     #cube .bottom { background: hsla( 300, 100%, 50%, 0.5 ); }
-    
+
     .step2 #cube .front  {
       -webkit-transform: rotateY(   0deg );
          -moz-transform: rotateY(   0deg );
-          -ms-transform: rotateY(   0deg );
            -o-transform: rotateY(   0deg );
               transform: rotateY(   0deg );
     }
     .step2 #cube .back {
       -webkit-transform: rotateX( 180deg );
          -moz-transform: rotateX( 180deg );
-          -ms-transform: rotateX( 180deg );
            -o-transform: rotateX( 180deg );
               transform: rotateX( 180deg );
     }
     .step2 #cube .right {
       -webkit-transform: rotateY(  90deg );
          -moz-transform: rotateY(  90deg );
-          -ms-transform: rotateY(  90deg );
            -o-transform: rotateY(  90deg );
               transform: rotateY(  90deg );
     }
     .step2 #cube .left {
       -webkit-transform: rotateY( -90deg );
          -moz-transform: rotateY( -90deg );
-          -ms-transform: rotateY( -90deg );
            -o-transform: rotateY( -90deg );
               transform: rotateY( -90deg );
     }
     .step2 #cube .top {
       -webkit-transform: rotateX(  90deg );
          -moz-transform: rotateX(  90deg );
-          -ms-transform: rotateX(  90deg );
            -o-transform: rotateX(  90deg );
               transform: rotateX(  90deg );
     }
     .step2 #cube .bottom {
       -webkit-transform: rotateX( -90deg );
          -moz-transform: rotateX( -90deg );
-          -ms-transform: rotateX( -90deg );
            -o-transform: rotateX( -90deg );
               transform: rotateX( -90deg );
     }
-    
+
     .step3 #cube .front,
     .step4 #cube .front {
       -webkit-transform: rotateY(   0deg ) translateZ( 100px );
          -moz-transform: rotateY(   0deg ) translateZ( 100px );
-          -ms-transform: rotateY(   0deg ) translateZ( 100px );
            -o-transform: rotateY(   0deg ) translateZ( 100px );
               transform: rotateY(   0deg ) translateZ( 100px );
     }
@@ -113,7 +103,6 @@ category: examples
     .step4 #cube .back {
       -webkit-transform: rotateX( 180deg ) translateZ( 100px );
          -moz-transform: rotateX( 180deg ) translateZ( 100px );
-          -ms-transform: rotateX( 180deg ) translateZ( 100px );
            -o-transform: rotateX( 180deg ) translateZ( 100px );
               transform: rotateX( 180deg ) translateZ( 100px );
     }
@@ -121,7 +110,6 @@ category: examples
     .step4 #cube .right {
       -webkit-transform: rotateY(  90deg ) translateZ( 100px );
          -moz-transform: rotateY(  90deg ) translateZ( 100px );
-          -ms-transform: rotateY(  90deg ) translateZ( 100px );
            -o-transform: rotateY(  90deg ) translateZ( 100px );
               transform: rotateY(  90deg ) translateZ( 100px );
     }
@@ -129,7 +117,6 @@ category: examples
     .step4 #cube .left {
       -webkit-transform: rotateY( -90deg ) translateZ( 100px );
          -moz-transform: rotateY( -90deg ) translateZ( 100px );
-          -ms-transform: rotateY( -90deg ) translateZ( 100px );
            -o-transform: rotateY( -90deg ) translateZ( 100px );
               transform: rotateY( -90deg ) translateZ( 100px );
     }
@@ -137,7 +124,6 @@ category: examples
     .step4 #cube .top {
       -webkit-transform: rotateX(  90deg ) translateZ( 100px );
          -moz-transform: rotateX(  90deg ) translateZ( 100px );
-          -ms-transform: rotateX(  90deg ) translateZ( 100px );
            -o-transform: rotateX(  90deg ) translateZ( 100px );
               transform: rotateX(  90deg ) translateZ( 100px );
     }
@@ -145,26 +131,24 @@ category: examples
     .step4 #cube .bottom {
       -webkit-transform: rotateX( -90deg ) translateZ( 100px );
          -moz-transform: rotateX( -90deg ) translateZ( 100px );
-          -ms-transform: rotateX( -90deg ) translateZ( 100px );
            -o-transform: rotateX( -90deg ) translateZ( 100px );
               transform: rotateX( -90deg ) translateZ( 100px );
     }
-    
+
     .step4 #cube {
       -webkit-transform: translateZ( -100px );
          -moz-transform: translateZ( -100px );
-          -ms-transform: translateZ( -100px );
            -o-transform: translateZ( -100px );
               transform: translateZ( -100px );
     }
-    
+
   </style>
 
 </head>
 <body>
 
   <h1>{{ page.title }}</h1>
-  
+
   <section class="container step1">
     <div id="cube">
       <figure class="front">1</figure>
@@ -175,7 +159,7 @@ category: examples
       <figure class="bottom">6</figure>
     </div>
   </section>
-  
+
   <section id="options">
     <p>
       <button class="step1">1. No transforms</button>
@@ -184,6 +168,6 @@ category: examples
       <button class="step4">4. Translate object</button>
     </p>
   </section>
-  
+
   <script src="../js/utils.js"></script>
   <script src="../js/switch-steps.js"></script>

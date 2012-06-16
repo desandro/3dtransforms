@@ -5,7 +5,7 @@ category: examples
 ---
 
   <style media="screen">
-    
+
     .container {
       width: 200px;
       height: 200px;
@@ -14,23 +14,20 @@ category: examples
       border: 1px solid #CCC;
       -webkit-perspective: 1200px;
          -moz-perspective: 1200px;
-          -ms-perspective: 1200px;
            -o-perspective: 1200px;
               perspective: 1200px;
     }
-    
+
     #cube {
       width: 100%;
       height: 100%;
       position: absolute;
       -webkit-transform-style: preserve-3d;
          -moz-transform-style: preserve-3d;
-          -ms-transform-style: preserve-3d;
            -o-transform-style: preserve-3d;
               transform-style: preserve-3d;
       -webkit-transform: translateZ( -100px );
          -moz-transform: translateZ( -100px );
-          -ms-transform: translateZ( -100px );
            -o-transform: translateZ( -100px );
               transform: translateZ( -100px );
     }
@@ -38,7 +35,6 @@ category: examples
     #cube.spinning {
       -webkit-animation: spinCubeWebkit 8s infinite ease-in-out;
          -moz-animation: spinCubeMoz    8s infinite ease-in-out;
-          -ms-animation: spinCubeMS     8s infinite ease-in-out;
            -o-animation: spinCubeO      8s infinite ease-in-out;
               animation: spinCube       8s infinite ease-in-out;
     }
@@ -65,15 +61,14 @@ category: examples
       color: white;
       text-align: center;
     }
-    
+
     #cube.panels-backface-invisible figure {
       -webkit-backface-visibility: hidden;
          -moz-backface-visibility: hidden;
-          -ms-backface-visibility: hidden;
            -o-backface-visibility: hidden;
               backface-visibility: hidden;
     }
-    
+
     #cube .front  { background: hsla(   0, 100%, 50%, 0.7 ); }
     #cube .back   { background: hsla(  60, 100%, 50%, 0.7 ); }
     #cube .right  { background: hsla( 120, 100%, 50%, 0.7 ); }
@@ -84,46 +79,40 @@ category: examples
     #cube .front  {
       -webkit-transform: translateZ( 100px );
          -moz-transform: translateZ( 100px );
-          -ms-transform: translateZ( 100px );
            -o-transform: translateZ( 100px );
               transform: translateZ( 100px );
     }
     #cube .back {
       -webkit-transform: rotateX( -180deg ) translateZ( 100px );
          -moz-transform: rotateX( -180deg ) translateZ( 100px );
-          -ms-transform: rotateX( -180deg ) translateZ( 100px );
            -o-transform: rotateX( -180deg ) translateZ( 100px );
               transform: rotateX( -180deg ) translateZ( 100px );
     }
     #cube .right {
       -webkit-transform: rotateY(   90deg ) translateZ( 100px );
          -moz-transform: rotateY(   90deg ) translateZ( 100px );
-          -ms-transform: rotateY(   90deg ) translateZ( 100px );
            -o-transform: rotateY(   90deg ) translateZ( 100px );
               transform: rotateY(   90deg ) translateZ( 100px );
     }
     #cube .left {
       -webkit-transform: rotateY(  -90deg ) translateZ( 100px );
          -moz-transform: rotateY(  -90deg ) translateZ( 100px );
-          -ms-transform: rotateY(  -90deg ) translateZ( 100px );
            -o-transform: rotateY(  -90deg ) translateZ( 100px );
               transform: rotateY(  -90deg ) translateZ( 100px );
     }
     #cube .top {
       -webkit-transform: rotateX(   90deg ) translateZ( 100px );
          -moz-transform: rotateX(   90deg ) translateZ( 100px );
-          -ms-transform: rotateX(   90deg ) translateZ( 100px );
            -o-transform: rotateX(   90deg ) translateZ( 100px );
               transform: rotateX(   90deg ) translateZ( 100px );
     }
     #cube .bottom {
       -webkit-transform: rotateX(  -90deg ) translateZ( 100px );
          -moz-transform: rotateX(  -90deg ) translateZ( 100px );
-          -ms-transform: rotateX(  -90deg ) translateZ( 100px );
            -o-transform: rotateX(  -90deg ) translateZ( 100px );
               transform: rotateX(  -90deg ) translateZ( 100px );
     }
-    
+
   </style>
 
 </head>
@@ -141,35 +130,35 @@ category: examples
       <figure class="bottom">6</figure>
     </div>
   </section>
-  
+
 
   <section id="options">
-    
+
     <p class="perspective">
       <label>perspective</label>
       <input type="range" min="1" max="2000" value="1200" data-units="px" />
     </p>
-    
+
     <p class="perspective-origin-x">
       <label>perspective-origin x</label>
       <input type="range" min="0" max="100" value="50" data-units="%" />
     </p>
-    
+
     <p class="perspective-origin-y">
       <label>perspective-origin y</label>
       <input type="range" min="0" max="100" value="50" data-units="%" />
     </p>
-    
+
     <p class="spinning">
       <button>Toggle Spinning</button>
     </p>
-    
+
     <p class="backface-visibility">
       <button>Toggle Backface Visibility</button>
     </p>
-    
+
   </section>
-  
+
   <script src="../js/utils.js"></script>
   <script>
     var init = function() {
@@ -180,16 +169,16 @@ category: examples
           // get -vendor- prefix css property
           perspectiveProp = Modernizr.prefixed('perspective'),
           perspectiveOriginProp = Modernizr.prefixed('perspectiveOrigin'),
-          
+
           updatePerspectiveOrigin = function() {
-            boxContainer.style[ perspectiveOriginProp ] = 
+            boxContainer.style[ perspectiveOriginProp ] =
               perspectiveOrigin.x + '% ' + perspectiveOrigin.y + '%';
           };
 
       optionsContainer.querySelector('.perspective input').addEventListener( 'change', function( event ){
         boxContainer.style[ perspectiveProp ] = event.target.value + 'px';
       }, false);
-      
+
       optionsContainer.querySelector('.perspective-origin-x input').addEventListener( 'change', function( event ){
         perspectiveOrigin.x = event.target.value;
         updatePerspectiveOrigin();
@@ -199,16 +188,16 @@ category: examples
         perspectiveOrigin.y = event.target.value;
         updatePerspectiveOrigin();
       }, false);
-      
+
       optionsContainer.querySelector('.spinning button').addEventListener( 'click', function(){
         cube.toggleClassName('spinning');
       }, false);
-      
+
       optionsContainer.querySelector('.backface-visibility button').addEventListener( 'click', function(){
         cube.toggleClassName('panels-backface-invisible');
       }, false);
-      
+
     };
-      
+
     window.addEventListener( 'DOMContentLoaded', init, false);
   </script>

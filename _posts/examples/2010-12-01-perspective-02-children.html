@@ -5,7 +5,7 @@ category: examples
 ---
 
   <style media="screen">
-    
+
     .container {
       width: 200px;
       height: 200px;
@@ -26,7 +26,6 @@ category: examples
       background: red;
       -webkit-transform: perspective( 400px ) rotateY( 45deg );
          -moz-transform: perspective( 400px ) rotateY( 45deg );
-          -ms-transform: perspective( 400px ) rotateY( 45deg );
            -o-transform: perspective( 400px ) rotateY( 45deg );
               transform: perspective( 400px ) rotateY( 45deg );
     }
@@ -34,7 +33,6 @@ category: examples
     #blue {
       -webkit-perspective: 400px;
          -moz-perspective: 400px;
-          -ms-perspective: 400px;
            -o-perspective: 400px;
               perspective: 400px;
     }
@@ -43,7 +41,6 @@ category: examples
       background: blue;
       -webkit-transform: rotateY( 45deg );
          -moz-transform: rotateY( 45deg );
-          -ms-transform: rotateY( 45deg );
            -o-transform: rotateY( 45deg );
               transform: rotateY( 45deg );
     }
@@ -53,7 +50,7 @@ category: examples
 <body>
 
   <h1>{{ page.title }}</h1>
-  
+
 {% highlight css %}
 
 #red figure {
@@ -62,7 +59,7 @@ category: examples
 }
 
 {% endhighlight %}
-  
+
   <section id="red" class="container">
     <figure></figure>
     <figure></figure>
@@ -74,7 +71,7 @@ category: examples
     <figure></figure>
     <figure></figure>
   </section>
-  
+
 {% highlight css %}
 
 #blue {
@@ -87,7 +84,7 @@ category: examples
 }
 
 {% endhighlight %}
-  
+
   <section id="blue" class="container">
     <figure></figure>
     <figure></figure>
@@ -99,6 +96,5 @@ category: examples
     <figure></figure>
     <figure></figure>
   </section>
-  
+
   <script src="../js/utils.js"></script>
-  

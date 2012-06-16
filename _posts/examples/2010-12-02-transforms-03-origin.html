@@ -5,7 +5,7 @@ category: examples
 ---
 
   <style media="screen">
-    
+
     .container {
       width: 200px;
       height: 200px;
@@ -14,23 +14,20 @@ category: examples
       border: 1px solid #CCC;
       -webkit-perspective: 1000px;
          -moz-perspective: 1000px;
-          -ms-perspective: 1000px;
            -o-perspective: 1000px;
               perspective: 1000px;
     }
-  
+
     #cube {
       width: 100%;
       height: 100%;
       position: absolute;
       -webkit-transform: translateZ( -100px );
          -moz-transform: translateZ( -100px );
-          -ms-transform: translateZ( -100px );
            -o-transform: translateZ( -100px );
               transform: translateZ( -100px );
       -webkit-transform-style: preserve-3d;
          -moz-transform-style: preserve-3d;
-          -ms-transform-style: preserve-3d;
            -o-transform-style: preserve-3d;
               transform-style: preserve-3d;
     }
@@ -39,7 +36,7 @@ category: examples
       -webkit-animation: spinCubeWebkit 8s infinite ease-in-out;
          -moz-animation: spinCubeMoz    8s infinite ease-in-out;
     }
-  
+
     @-webkit-keyframes spinCubeWebkit {
         0% { -webkit-transform: translateZ( -100px ) rotateX(   0deg ) rotateY(   0deg ); }
       100% { -webkit-transform: translateZ( -100px ) rotateX( 360deg ) rotateY( 360deg ); }
@@ -62,15 +59,14 @@ category: examples
       color: white;
       text-align: center;
     }
-  
+
     #cube.panels-backface-invisible figure {
       -webkit-backface-visibility: hidden;
          -moz-backface-visibility: hidden;
-          -ms-backface-visibility: hidden;
            -o-backface-visibility: hidden;
               backface-visibility: hidden;
     }
-  
+
     #cube .front  { background: hsla(   0, 100%, 50%, 0.7 ); }
     #cube .back   { background: hsla(  60, 100%, 50%, 0.7 ); }
     #cube .right  { background: hsla( 120, 100%, 50%, 0.7 ); }
@@ -81,61 +77,54 @@ category: examples
     #cube .front  {
       -webkit-transform: translateZ( 100px );
          -moz-transform: translateZ( 100px );
-          -ms-transform: translateZ( 100px );
            -o-transform: translateZ( 100px );
               transform: translateZ( 100px );
     }
     #cube .back {
       -webkit-transform: rotateX( -180deg ) translateZ( 100px );
          -moz-transform: rotateX( -180deg ) translateZ( 100px );
-          -ms-transform: rotateX( -180deg ) translateZ( 100px );
            -o-transform: rotateX( -180deg ) translateZ( 100px );
               transform: rotateX( -180deg ) translateZ( 100px );
     }
     #cube .right {
       -webkit-transform: rotateY(   90deg ) translateZ( 100px );
          -moz-transform: rotateY(   90deg ) translateZ( 100px );
-          -ms-transform: rotateY(   90deg ) translateZ( 100px );
            -o-transform: rotateY(   90deg ) translateZ( 100px );
               transform: rotateY(   90deg ) translateZ( 100px );
     }
     #cube .left {
       -webkit-transform: rotateY(  -90deg ) translateZ( 100px );
          -moz-transform: rotateY(  -90deg ) translateZ( 100px );
-          -ms-transform: rotateY(  -90deg ) translateZ( 100px );
            -o-transform: rotateY(  -90deg ) translateZ( 100px );
               transform: rotateY(  -90deg ) translateZ( 100px );
     }
     #cube .top {
       -webkit-transform: rotateX(   90deg ) translateZ( 100px );
          -moz-transform: rotateX(   90deg ) translateZ( 100px );
-          -ms-transform: rotateX(   90deg ) translateZ( 100px );
            -o-transform: rotateX(   90deg ) translateZ( 100px );
               transform: rotateX(   90deg ) translateZ( 100px );
     }
     #cube .bottom {
       -webkit-transform: rotateX(  -90deg ) translateZ( 100px );
          -moz-transform: rotateX(  -90deg ) translateZ( 100px );
-          -ms-transform: rotateX(  -90deg ) translateZ( 100px );
            -o-transform: rotateX(  -90deg ) translateZ( 100px );
               transform: rotateX(  -90deg ) translateZ( 100px );
     }
-    
+
     #cube {
       position: absolute;
     }
-    
+
     .pivot-point {
       position: absolute;
       width: 50%;
       height: 50%;
       -webkit-transform: translateZ( -100px );
          -moz-transform: translateZ( -100px );
-          -ms-transform: translateZ( -100px );
            -o-transform: translateZ( -100px );
               transform: translateZ( -100px );
     }
-    
+
     .pivot-point:after {
       content: '';
       display: block;
@@ -147,7 +136,7 @@ category: examples
       bottom: -0.5em;
       border-radius: 0.5em;
     }
-    
+
   </style>
 
 </head>
@@ -166,10 +155,10 @@ category: examples
       <figure class="bottom">6</figure>
     </div>
   </section>
-  
+
 
   <section id="options">
-    
+
     <div id="transform-origin">
       <p>
         <label for="origin-x">origin-x</label>
@@ -184,12 +173,12 @@ category: examples
         <input id="origin-z" type="range" min="-100" max="100" value="0" data-units="px" />
       </p> -->
     </div>
-    
+
     <!-- <p>
       <button id="toggle-backface-visibility">Toggle Backface Visibility</button>
     </p> -->
-    
-    
+
+
   </section>
 
   <script src="../js/utils.js"></script>
@@ -199,18 +188,18 @@ category: examples
           cube = document.getElementById('cube'),
           pivotPoint = document.querySelector('.pivot-point'),
           transformOriginProp = Modernizr.prefixed('transformOrigin'),
-      
+
           onOriginChange = function( event ) {
             var x = transformOriginInputs[0].value + '%';
                 y = transformOriginInputs[1].value + '%';
-            
+
             cube.style[ transformOriginProp ] = x + ' ' + y;
-            
+
             pivotPoint.style.width = x;
             pivotPoint.style.height = y;
-                
+
           };
-      
+
       for (var i=0, len = transformOriginInputs.length; i < len; i++) {
         transformOriginInputs[i].addEventListener( 'change', onOriginChange, false);
       }
@@ -218,9 +207,9 @@ category: examples
       // document.getElementById('toggle-backface-visibility').addEventListener( 'click', function(){
       //   cube.toggleClassName('panels-backface-invisible');
       // }, false);
-      
+
     };
-      
+
     window.addEventListener( 'DOMContentLoaded', init, false);
   </script>
 
