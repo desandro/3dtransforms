@@ -1,27 +1,23 @@
-Intro to CSS 3D transforms
-==========================
+# Intro to CSS 3D transforms
 
 By [David DeSandro](http://desandro.com)
 
-Tutorial, examples, and discussion all about CSS 3D transforms.
+[desandro.github.io/3dtransforms](http://desandro.github.io/3dtransforms)
 
-View project live at [http://desandro.github.com/3dtransforms](http://desandro.github.com/3dtransforms).
+Tutorial, examples, and discussion all about CSS 3D transforms.
 
 Originally written for [24 ways 2010](http://24ways.org/2010/intro-to-css-3d-transforms).
 
-Viewing this project locally
-----------------------------
+## Viewing this project locally
 
-### Via Jekyll
-
-The documentation and example pages are generated with [Jekyll](https://github.com/mojombo/jekyll/wiki). With Jekyll installed, you can clone this repo and then run Jekyll from Terminal:
+This project is built with [Jekyll](https://jekyllrb.com).
 
     git clone https://github.com/desandro/3dtransforms.git
     cd 3dtransforms/
-    jekyll --server --auto
+    jekyll serve
 
-Then view the live site at [http://localhost:4000](http://localhost:4000).
+## License
 
-### Via download
+Written content is licensed under a [Creative Commons Attribution License](http://creativecommons.org/licenses/by/4.0/).
 
-You can download a zip of all the flat HTML files from [Downloads](http://github.com/desandro/3dtransforms/downloads).
+Example code is licensed under the [MIT license](http://desandro.mit-license.org). Have at it.
