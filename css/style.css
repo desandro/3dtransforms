@@ -6,6 +6,9 @@ body {
   font-family: 'Helvetica Neue', Arial, sans-serif;
   -webkit-text-size-adjust: none;
   color: #333;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 10px;
 }
 
 a {
@@ -87,9 +90,7 @@ code {
 
 /**** Docs ****/
 
-body.doc {
-  max-width: 640px;
-}
+body.doc { max-width: 900px; }
 
 .doc #content {
   font-size: 14px;  
@@ -134,17 +135,33 @@ body.doc {
 }
 .doc nav li.current a:hover { color: white; }
 
+
+
 @media screen and (min-width: 768px) {
 
-  body.doc {
-    margin-left: 220px;
+  body.doc #content {
+    padding-left: 220px;
   }
-  
+
+  .doc #doc-nav-wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  .doc .doc-nav-positioner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+
   .doc nav {
     width: 200px;
-    position: fixed;
-    left: 10px;
     font-size: 14px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
   }
 
   .doc nav h1 {
@@ -163,11 +180,7 @@ body.doc {
   border: 1px solid hsla( 0, 0%, 0%, 0.15 );
   background-color: hsla( 0, 0%, 0%, 0.02 );
   border-radius: 15px;
-  -webkit-box-shadow: inset 0 1px 7px hsla( 0, 0%, 0%, 0.3 );
-     -moz-box-shadow: inset 0 1px 7px hsla( 0, 0%, 0%, 0.3 );
-       -o-box-shadow: inset 0 1px 7px hsla( 0, 0%, 0%, 0.3 );
-          box-shadow: inset 0 1px 7px hsla( 0, 0%, 0%, 0.3 );
-
+  box-shadow: inset 0 1px 7px hsla( 0, 0%, 0%, 0.3 );
 }
 
 .proxy-range.highlighted {
@@ -177,9 +190,7 @@ body.doc {
 .proxy-range .handle {
   width: 38px;
   height: 38px;
-  -webkit-border-radius: 20px;
-     -moz-border-radius: 20px;
-          border-radius: 20px;
+  border-radius: 20px;
   border: 1px solid hsla(0, 0%, 0%, 0.3);
   position: absolute;
   top: -5px;
@@ -197,16 +208,6 @@ body.doc {
     hsla( 0, 0%,   0%, 0.0 ) 50%,
     hsla( 0, 0%,   0%, 0.5 )
   );
-  -webkit-box-shadow: 
-    0  2px 0px -1px hsla( 0, 0%, 100%, 1.0 ) inset, 
-    0 -4px 2px -1px hsla( 0, 0%,   0%, 0.1 ) inset, 
-    0  1px 2px  0px hsla( 0, 0%,   0%, 0.3 )
-  ;
-  -moz-box-shadow: 
-    0  2px 0px -1px hsla( 0, 0%, 100%, 0.7 ) inset, 
-    0 -4px 2px -1px hsla( 0, 0%,   0%, 0.1 ) inset, 
-    0  1px 2px  0px hsla( 0, 0%,   0%, 0.3 )
-  ;
   box-shadow: 
     0  2px 0px -1px hsla( 0, 0%, 100%, 0.7 ) inset, 
     0 -4px 2px -1px hsla( 0, 0%,   0%, 0.1 ) inset, 
