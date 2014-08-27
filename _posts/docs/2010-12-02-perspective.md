@@ -30,7 +30,7 @@ perspective: 600px;
 
 [![Perspective property at work](../img/perspective01.png)](../examples/perspective-01.html)
 
-These two formats both trigger a 3D space, but there is a difference. The functional notation is convenient for directly applying a 3D transform on a single element (in [the previous example](../examples/perspective-01.html), I use it in conjunction with a `rotateX` transform). But when used on multiple elements, the transformed elements don't line up as expected. If you use the same transform across elements with different positions, each element will have its own vanishing point. To remedy this, use the `perspective` property on a parent element, so each child may share the same 3D space.
+These two formats both trigger a 3D space, but there is a difference. The functional notation is convenient for directly applying a 3D transform on a single element (in [the previous example](../examples/perspective-01.html), I use it in conjunction with a `rotateY` transform). But when used on multiple elements, the transformed elements don't line up as expected. If you use the same transform across elements with different positions, each element will have its own vanishing point. To remedy this, use the `perspective` property on a parent element, so each child may share the same 3D space.
 
 [**See Example: Perspective 2**](../examples/perspective-02-children.html)
 
