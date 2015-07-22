@@ -33,6 +33,7 @@ Now, to position the faces. Each set of faces will need their own sizes. The sma
 {% highlight css %}
 
 #box figure {
+  margin: 0;
   display: block;
   position: absolute;
   border: 2px solid black;
