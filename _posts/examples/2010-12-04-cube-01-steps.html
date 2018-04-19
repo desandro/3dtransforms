@@ -4,27 +4,21 @@ title: Cube 1 - steps
 category: examples
 ---
 
-  <style media="screen">
+  <style>
     .container {
       width: 200px;
       height: 200px;
       position: relative;
       margin: 0 auto 40px;
       border: 1px solid #CCC;
-      -webkit-perspective: 1000px;
-         -moz-perspective: 1000px;
-           -o-perspective: 1000px;
-              perspective: 1000px;
+      perspective: 1000px;
     }
 
     #cube {
       width: 100%;
       height: 100%;
       position: absolute;
-      -webkit-transform-style: preserve-3d;
-         -moz-transform-style: preserve-3d;
-           -o-transform-style: preserve-3d;
-              transform-style: preserve-3d;
+      transform-style: preserve-3d;
     }
 
     #cube figure {
@@ -42,10 +36,7 @@ category: examples
 
     #cube,
     #cube figure {
-      -webkit-transition: -webkit-transform 1s;
-         -moz-transition: -moz-transform 1s;
-           -o-transition: -o-transform 1s;
-              transition: transform 1s;
+      transition: transform 1s;
     }
 
     #cube .front  { background: hsla(   0, 100%, 50%, 0.5 ); }
@@ -56,90 +47,51 @@ category: examples
     #cube .bottom { background: hsla( 300, 100%, 50%, 0.5 ); }
 
     .step2 #cube .front  {
-      -webkit-transform: rotateY(   0deg );
-         -moz-transform: rotateY(   0deg );
-           -o-transform: rotateY(   0deg );
-              transform: rotateY(   0deg );
+      transform: rotateY(   0deg );
     }
     .step2 #cube .back {
-      -webkit-transform: rotateX( 180deg );
-         -moz-transform: rotateX( 180deg );
-           -o-transform: rotateX( 180deg );
-              transform: rotateX( 180deg );
+      transform: rotateX( 180deg );
     }
     .step2 #cube .right {
-      -webkit-transform: rotateY(  90deg );
-         -moz-transform: rotateY(  90deg );
-           -o-transform: rotateY(  90deg );
-              transform: rotateY(  90deg );
+      transform: rotateY(  90deg );
     }
     .step2 #cube .left {
-      -webkit-transform: rotateY( -90deg );
-         -moz-transform: rotateY( -90deg );
-           -o-transform: rotateY( -90deg );
-              transform: rotateY( -90deg );
+      transform: rotateY( -90deg );
     }
     .step2 #cube .top {
-      -webkit-transform: rotateX(  90deg );
-         -moz-transform: rotateX(  90deg );
-           -o-transform: rotateX(  90deg );
-              transform: rotateX(  90deg );
+      transform: rotateX(  90deg );
     }
     .step2 #cube .bottom {
-      -webkit-transform: rotateX( -90deg );
-         -moz-transform: rotateX( -90deg );
-           -o-transform: rotateX( -90deg );
-              transform: rotateX( -90deg );
+      transform: rotateX( -90deg );
     }
 
     .step3 #cube .front,
     .step4 #cube .front {
-      -webkit-transform: rotateY(   0deg ) translateZ( 100px );
-         -moz-transform: rotateY(   0deg ) translateZ( 100px );
-           -o-transform: rotateY(   0deg ) translateZ( 100px );
-              transform: rotateY(   0deg ) translateZ( 100px );
+      transform: rotateY(   0deg ) translateZ( 100px );
     }
     .step3 #cube .back,
     .step4 #cube .back {
-      -webkit-transform: rotateX( 180deg ) translateZ( 100px );
-         -moz-transform: rotateX( 180deg ) translateZ( 100px );
-           -o-transform: rotateX( 180deg ) translateZ( 100px );
-              transform: rotateX( 180deg ) translateZ( 100px );
+      transform: rotateX( 180deg ) translateZ( 100px );
     }
     .step3 #cube .right,
     .step4 #cube .right {
-      -webkit-transform: rotateY(  90deg ) translateZ( 100px );
-         -moz-transform: rotateY(  90deg ) translateZ( 100px );
-           -o-transform: rotateY(  90deg ) translateZ( 100px );
-              transform: rotateY(  90deg ) translateZ( 100px );
+      transform: rotateY(  90deg ) translateZ( 100px );
     }
     .step3 #cube .left,
     .step4 #cube .left {
-      -webkit-transform: rotateY( -90deg ) translateZ( 100px );
-         -moz-transform: rotateY( -90deg ) translateZ( 100px );
-           -o-transform: rotateY( -90deg ) translateZ( 100px );
-              transform: rotateY( -90deg ) translateZ( 100px );
+      transform: rotateY( -90deg ) translateZ( 100px );
     }
     .step3 #cube .top,
     .step4 #cube .top {
-      -webkit-transform: rotateX(  90deg ) translateZ( 100px );
-         -moz-transform: rotateX(  90deg ) translateZ( 100px );
-           -o-transform: rotateX(  90deg ) translateZ( 100px );
-              transform: rotateX(  90deg ) translateZ( 100px );
+      transform: rotateX(  90deg ) translateZ( 100px );
     }
     .step3 #cube .bottom,
     .step4 #cube .bottom {
-      -webkit-transform: rotateX( -90deg ) translateZ( 100px );
-         -moz-transform: rotateX( -90deg ) translateZ( 100px );
-           -o-transform: rotateX( -90deg ) translateZ( 100px );
-              transform: rotateX( -90deg ) translateZ( 100px );
+      transform: rotateX( -90deg ) translateZ( 100px );
     }
 
     .step4 #cube {
-      -webkit-transform: translateZ( -100px );
-         -moz-transform: translateZ( -100px );
-           -o-transform: translateZ( -100px );
-              transform: translateZ( -100px );
+      transform: translateZ( -100px );
     }
 
   </style>

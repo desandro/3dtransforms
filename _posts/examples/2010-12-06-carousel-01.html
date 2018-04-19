@@ -4,7 +4,7 @@ title: Carousel 1
 category: examples
 ---
 
-  <style media="screen">
+  <style>
 
     .container {
       width: 210px;
@@ -12,28 +12,16 @@ category: examples
       position: relative;
       margin: 0 auto 40px;
       border: 1px solid #CCC;
-      -webkit-perspective: 1100px;
-         -moz-perspective: 1100px;
-           -o-perspective: 1100px;
-              perspective: 1100px;
+      perspective: 1100px;
     }
 
     #carousel {
       width: 100%;
       height: 100%;
       position: absolute;
-      -webkit-transform: translateZ( -288px );
-         -moz-transform: translateZ( -288px );
-           -o-transform: translateZ( -288px );
-              transform: translateZ( -288px );
-      -webkit-transform-style: preserve-3d;
-         -moz-transform-style: preserve-3d;
-           -o-transform-style: preserve-3d;
-              transform-style: preserve-3d;
-      -webkit-transition: -webkit-transform 1s;
-         -moz-transition: -moz-transform 1s;
-           -o-transition: -o-transform 1s;
-              transition: transform 1s;
+      transform: translateZ( -288px );
+      transform-style: preserve-3d;
+      transition: transform 1s;
     }
 
     #carousel figure {
@@ -62,58 +50,31 @@ category: examples
     #carousel figure:nth-child(9) { background: hsla( 320, 100%, 50%, 0.8 ); }
 
     #carousel figure:nth-child(1) {
-      -webkit-transform: rotateY(   0deg ) translateZ( 288px );
-         -moz-transform: rotateY(   0deg ) translateZ( 288px );
-           -o-transform: rotateY(   0deg ) translateZ( 288px );
-              transform: rotateY(   0deg ) translateZ( 288px );
+      transform: rotateY(   0deg ) translateZ( 288px );
     }
     #carousel figure:nth-child(2) {
-      -webkit-transform: rotateY(  40deg ) translateZ( 288px );
-         -moz-transform: rotateY(  40deg ) translateZ( 288px );
-           -o-transform: rotateY(  40deg ) translateZ( 288px );
-              transform: rotateY(  40deg ) translateZ( 288px );
+      transform: rotateY(  40deg ) translateZ( 288px );
     }
     #carousel figure:nth-child(3) {
-      -webkit-transform: rotateY(  80deg ) translateZ( 288px );
-         -moz-transform: rotateY(  80deg ) translateZ( 288px );
-           -o-transform: rotateY(  80deg ) translateZ( 288px );
-              transform: rotateY(  80deg ) translateZ( 288px );
+      transform: rotateY(  80deg ) translateZ( 288px );
     }
     #carousel figure:nth-child(4) {
-      -webkit-transform: rotateY( 120deg ) translateZ( 288px );
-         -moz-transform: rotateY( 120deg ) translateZ( 288px );
-           -o-transform: rotateY( 120deg ) translateZ( 288px );
-              transform: rotateY( 120deg ) translateZ( 288px );
+      transform: rotateY( 120deg ) translateZ( 288px );
     }
     #carousel figure:nth-child(5) {
-      -webkit-transform: rotateY( 160deg ) translateZ( 288px );
-         -moz-transform: rotateY( 160deg ) translateZ( 288px );
-           -o-transform: rotateY( 160deg ) translateZ( 288px );
-              transform: rotateY( 160deg ) translateZ( 288px );
+      transform: rotateY( 160deg ) translateZ( 288px );
     }
     #carousel figure:nth-child(6) {
-      -webkit-transform: rotateY( 200deg ) translateZ( 288px );
-         -moz-transform: rotateY( 200deg ) translateZ( 288px );
-           -o-transform: rotateY( 200deg ) translateZ( 288px );
-              transform: rotateY( 200deg ) translateZ( 288px );
+      transform: rotateY( 200deg ) translateZ( 288px );
     }
     #carousel figure:nth-child(7) {
-      -webkit-transform: rotateY( 240deg ) translateZ( 288px );
-         -moz-transform: rotateY( 240deg ) translateZ( 288px );
-           -o-transform: rotateY( 240deg ) translateZ( 288px );
-              transform: rotateY( 240deg ) translateZ( 288px );
+      transform: rotateY( 240deg ) translateZ( 288px );
     }
     #carousel figure:nth-child(8) {
-      -webkit-transform: rotateY( 280deg ) translateZ( 288px );
-         -moz-transform: rotateY( 280deg ) translateZ( 288px );
-           -o-transform: rotateY( 280deg ) translateZ( 288px );
-              transform: rotateY( 280deg ) translateZ( 288px );
+      transform: rotateY( 280deg ) translateZ( 288px );
     }
     #carousel figure:nth-child(9) {
-      -webkit-transform: rotateY( 320deg ) translateZ( 288px );
-         -moz-transform: rotateY( 320deg ) translateZ( 288px );
-           -o-transform: rotateY( 320deg ) translateZ( 288px );
-              transform: rotateY( 320deg ) translateZ( 288px );
+      transform: rotateY( 320deg ) translateZ( 288px );
     }
 
   </style>

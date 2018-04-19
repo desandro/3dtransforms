@@ -4,7 +4,7 @@ title: Carousel 2 - dynamic
 category: examples
 ---
 
-  <style media="screen">
+  <style>
 
     .container {
       width: 210px;
@@ -12,10 +12,7 @@ category: examples
       position: relative;
       margin: 0 auto 40px;
       border: 1px solid #CCC;
-      -webkit-perspective: 1100px;
-         -moz-perspective: 1100px;
-           -o-perspective: 1100px;
-              perspective: 1100px;
+      perspective: 1100px;
     }
 
 
@@ -23,24 +20,15 @@ category: examples
       width: 100%;
       height: 100%;
       position: absolute;
-      -webkit-transform-style: preserve-3d;
-         -moz-transform-style: preserve-3d;
-           -o-transform-style: preserve-3d;
-              transform-style: preserve-3d;
+      transform-style: preserve-3d;
     }
 
     .ready #carousel {
-      -webkit-transition: -webkit-transform 1s;
-         -moz-transition: -moz-transform 1s;
-           -o-transition: -o-transform 1s;
-              transition: transform 1s;
+      transition: transform 1s;
     }
 
     #carousel.panels-backface-invisible figure {
-      -webkit-backface-visibility: hidden;
-         -moz-backface-visibility: hidden;
-           -o-backface-visibility: hidden;
-              backface-visibility: hidden;
+      backface-visibility: hidden;
     }
 
     #carousel figure {
@@ -59,10 +47,7 @@ category: examples
     }
 
     .ready #carousel figure {
-      -webkit-transition: opacity 1s, -webkit-transform 1s;
-         -moz-transition: opacity 1s, -moz-transform 1s;
-           -o-transition: opacity 1s, -o-transform 1s;
-              transition: opacity 1s, transform 1s;
+      transition: opacity 1s, transform 1s;
     }
 
   </style>

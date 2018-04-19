@@ -4,27 +4,21 @@ title: Box 1 - steps
 category: examples
 ---
 
-  <style media="screen">
+  <style>
     .container {
       width: 300px;
       height: 200px;
       position: relative;
       margin: 0 auto 40px;
       border: 1px solid #CCC;
-      -webkit-perspective: 1000px;
-         -moz-perspective: 1000px;
-           -o-perspective: 1000px;
-              perspective: 1000px;
+      perspective: 1000px;
     }
 
     #box {
       width: 100%;
       height: 100%;
       position: absolute;
-      -webkit-transform-style: preserve-3d;
-         -moz-transform-style: preserve-3d;
-           -o-transform-style: preserve-3d;
-              transform-style: preserve-3d;
+      transform-style: preserve-3d;
     }
 
     #box figure {
@@ -40,10 +34,7 @@ category: examples
 
     #box,
     #box figure {
-      -webkit-transition: -webkit-transform 1s;
-         -moz-transition: -moz-transform 1s;
-           -o-transition: -o-transform 1s;
-              transition: transform 1s;
+      transition: transform 1s;
     }
 
     #box .front,
@@ -75,90 +66,51 @@ category: examples
     #box .bottom { background: hsla( 300, 100%, 50%, 0.5 ); }
 
     .step2 #box .front  {
-      -webkit-transform: rotateY(   0deg );
-         -moz-transform: rotateY(   0deg );
-           -o-transform: rotateY(   0deg );
-              transform: rotateY(   0deg );
+      transform: rotateY(   0deg );
     }
     .step2 #box .back {
-      -webkit-transform: rotateX( 180deg );
-         -moz-transform: rotateX( 180deg );
-           -o-transform: rotateX( 180deg );
-              transform: rotateX( 180deg );
+      transform: rotateX( 180deg );
     }
     .step2 #box .right {
-      -webkit-transform: rotateY(  90deg );
-         -moz-transform: rotateY(  90deg );
-           -o-transform: rotateY(  90deg );
-              transform: rotateY(  90deg );
+      transform: rotateY(  90deg );
     }
     .step2 #box .left {
-      -webkit-transform: rotateY( -90deg );
-         -moz-transform: rotateY( -90deg );
-           -o-transform: rotateY( -90deg );
-              transform: rotateY( -90deg );
+      transform: rotateY( -90deg );
     }
     .step2 #box .top {
-      -webkit-transform: rotateX(  90deg );
-         -moz-transform: rotateX(  90deg );
-           -o-transform: rotateX(  90deg );
-              transform: rotateX(  90deg );
+      transform: rotateX(  90deg );
     }
     .step2 #box .bottom {
-      -webkit-transform: rotateX( -90deg );
-         -moz-transform: rotateX( -90deg );
-           -o-transform: rotateX( -90deg );
-              transform: rotateX( -90deg );
+      transform: rotateX( -90deg );
     }
 
     .step3 #box .front,
     .step4 #box .front {
-      -webkit-transform: rotateY(   0deg ) translateZ( 50px );
-         -moz-transform: rotateY(   0deg ) translateZ( 50px );
-           -o-transform: rotateY(   0deg ) translateZ( 50px );
-              transform: rotateY(   0deg ) translateZ( 50px );
+      transform: rotateY(   0deg ) translateZ( 50px );
     }
     .step3 #box .back,
     .step4 #box .back {
-      -webkit-transform: rotateX( 180deg ) translateZ( 50px );
-         -moz-transform: rotateX( 180deg ) translateZ( 50px );
-           -o-transform: rotateX( 180deg ) translateZ( 50px );
-              transform: rotateX( 180deg ) translateZ( 50px );
+      transform: rotateX( 180deg ) translateZ( 50px );
     }
     .step3 #box .right,
     .step4 #box .right {
-      -webkit-transform: rotateY(  90deg ) translateZ( 150px );
-         -moz-transform: rotateY(  90deg ) translateZ( 150px );
-           -o-transform: rotateY(  90deg ) translateZ( 150px );
-              transform: rotateY(  90deg ) translateZ( 150px );
+      transform: rotateY(  90deg ) translateZ( 150px );
     }
     .step3 #box .left,
     .step4 #box .left {
-      -webkit-transform: rotateY( -90deg ) translateZ( 150px );
-         -moz-transform: rotateY( -90deg ) translateZ( 150px );
-           -o-transform: rotateY( -90deg ) translateZ( 150px );
-              transform: rotateY( -90deg ) translateZ( 150px );
+      transform: rotateY( -90deg ) translateZ( 150px );
     }
     .step3 #box .top,
     .step4 #box .top {
-      -webkit-transform: rotateX(  90deg ) translateZ( 100px );
-         -moz-transform: rotateX(  90deg ) translateZ( 100px );
-           -o-transform: rotateX(  90deg ) translateZ( 100px );
-              transform: rotateX(  90deg ) translateZ( 100px );
+      transform: rotateX(  90deg ) translateZ( 100px );
     }
     .step3 #box .bottom,
     .step4 #box .bottom {
-      -webkit-transform: rotateX( -90deg ) translateZ( 100px );
-         -moz-transform: rotateX( -90deg ) translateZ( 100px );
-           -o-transform: rotateX( -90deg ) translateZ( 100px );
-              transform: rotateX( -90deg ) translateZ( 100px );
+      transform: rotateX( -90deg ) translateZ( 100px );
     }
 
     .step4 #box {
-      -webkit-transform: translateZ( -50px );
-         -moz-transform: translateZ( -50px );
-           -o-transform: translateZ( -50px );
-              transform: translateZ( -50px );
+      transform: translateZ( -50px );
     }
 
   </style>

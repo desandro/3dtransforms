@@ -4,56 +4,35 @@ title: Card 3 - slide flip two ways
 category: examples
 ---
 
-  <style media="screen">
+  <style>
     .container {
       width: 200px;
       height: 260px;
       position: relative;
       margin: 0 auto 40px;
       border: 1px solid #CCC;
-      -webkit-perspective: 800px;
-         -moz-perspective: 800px;
-           -o-perspective: 800px;
-              perspective: 800px;
+      perspective: 800px;
     }
 
     #card {
       width: 100%;
       height: 100%;
       position: absolute;
-      -webkit-transition: -webkit-transform 1s;
-         -moz-transition: -moz-transform 1s;
-           -o-transition: -o-transform 1s;
-              transition: transform 1s;
-      -webkit-transform-style: preserve-3d;
-         -moz-transform-style: preserve-3d;
-           -o-transform-style: preserve-3d;
-              transform-style: preserve-3d;
-      -webkit-transform-origin: right top;
-         -moz-transform-origin: right top;
-           -o-transform-origin: right top;
-              transform-origin: right top;
+      transition: transform 1s;
+      transform-style: preserve-3d;
+      transform-origin: right top;
     }
 
     #card.h-flipped {
-      -webkit-transform: translateX( -100% ) rotateY( -180deg );
-         -moz-transform: translateX( -100% ) rotateY( -180deg );
-           -o-transform: translateX( -100% ) rotateY( -180deg );
-              transform: translateX( -100% ) rotateY( -180deg );
+      transform: translateX( -100% ) rotateY( -180deg );
     }
 
     #card.v-flipped {
-      -webkit-transform: translateY( 100% ) rotateX( -180deg );
-         -moz-transform: translateY( 100% ) rotateX( -180deg );
-           -o-transform: translateY( 100% ) rotateX( -180deg );
-              transform: translateY( 100% ) rotateX( -180deg );
+      transform: translateY( 100% ) rotateX( -180deg );
     }
 
     #card.h-flipped.v-flipped {
-      -webkit-transform: translateX( -100% ) rotateY( -180deg ) translateY( 100% ) rotateX( 180deg );
-         -moz-transform: translateX( -100% ) rotateY( -180deg ) translateY( 100% ) rotateX( 180deg );
-           -o-transform: translateX( -100% ) rotateY( -180deg ) translateY( 100% ) rotateX( 180deg );
-              transform: translateX( -100% ) rotateY( -180deg ) translateY( 100% ) rotateX( 180deg );
+      transform: translateX( -100% ) rotateY( -180deg ) translateY( 100% ) rotateX( 180deg );
     }
 
     #card figure {
@@ -66,10 +45,7 @@ category: examples
       text-align: center;
       font-weight: bold;
       font-size: 140px;
-      -webkit-backface-visibility: hidden;
-         -moz-backface-visibility: hidden;
-           -o-backface-visibility: hidden;
-              backface-visibility: hidden;
+      backface-visibility: hidden;
     }
 
     #card .front {
@@ -78,12 +54,8 @@ category: examples
 
     #card .back {
       background: blue;
-      -webkit-transform: rotateY( 180deg );
-         -moz-transform: rotateY( 180deg );
-           -o-transform: rotateY( 180deg );
-              transform: rotateY( 180deg );
+      transform: rotateY( 180deg );
     }
-
 
   </style>
 

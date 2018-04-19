@@ -4,7 +4,7 @@ title: Perspective 1
 category: examples
 ---
 
-  <style media="screen">
+  <style>
 
     .container {
       width: 200px;
@@ -20,25 +20,16 @@ category: examples
 
     #red .box {
       background-color: red;
-      -webkit-transform: perspective( 600px ) rotateY( 45deg );
-         -moz-transform: perspective( 600px ) rotateY( 45deg );
-           -o-transform: perspective( 600px ) rotateY( 45deg );
-              transform: perspective( 600px ) rotateY( 45deg );
+      transform: perspective( 600px ) rotateY( 45deg );
     }
 
     #blue {
-      -webkit-perspective: 600px;
-         -moz-perspective: 600px;
-           -o-perspective: 600px;
-              perspective: 600px;
+      perspective: 600px;
     }
 
     #blue .box {
       background-color: blue;
-      -webkit-transform: rotateY( 45deg );
-         -moz-transform: rotateY( 45deg );
-           -o-transform: rotateY( 45deg );
-              transform: rotateY( 45deg );
+      transform: rotateY( 45deg );
     }
   </style>
 
