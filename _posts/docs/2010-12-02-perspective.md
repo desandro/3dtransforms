@@ -24,8 +24,6 @@ perspective: 600px;
 
 {% endhighlight %}
 
-**NOTE**: for the sake of brevity in the example code, I am using the un-prefixed CSS properties, i.e. `perspective`. In actual use, you'll have to use vendor-prefixed versions: `-webkit-perspective`, `-moz-perspective`, etc.
-
 [**See Example: Perspective 1**](../examples/perspective-01.html)
 
 [![Perspective property at work](../img/perspective01.png)](../examples/perspective-01.html)
@@ -39,7 +37,6 @@ These two formats both trigger a 3D space, but there is a difference. The functi
 The value of `perspective` determines the intensity of the 3D effect. Think of it as a distance from the viewer to the object. The greater the value, the further the distance, the less intense the visual effect. `perspective: 2000px;` yields a subtle 3D effect, as if we are viewing an object from far away through binoculars. `perspective: 100px;` produces a tremendous 3D effect, like a tiny insect viewing a massive object.
 
 By default, the vanishing point for a 3D space is positioned at the center. You can change the position of the vanishing point with `perspective-origin` property.
-
 
 {% highlight css %}
 

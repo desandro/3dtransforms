@@ -1,5 +1,5 @@
 # auto: true
-pygments: true
+highlighter: pygments
 permalink: /:categories/:title.html
 
 # site-wide data

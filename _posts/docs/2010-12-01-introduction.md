@@ -5,7 +5,7 @@ category: docs
 
 ---
 
-Ladies and gentlemen, it is the second decade of the second millennium and we are still kicking around the same 2D interface we got three decades ago. Sure, Apple debuted a few apps for OSX 10.7 that have a couple more 3D flourishes, and Microsoft has had that [Flip 3D](http://windows.microsoft.com/en-US/windows-vista/Using-Windows-Flip-3D) for a while. But c'mon, 2011 is right around the corner. That's _Twenty Eleven_ folks. Where is our 3D virtual reality? By now, we should be zipping around the [Metaverse in super-sonic motorbikes](http://en.wikipedia.org/wiki/Snow_Crash).
+Ladies and gentlemen, it is the second decade of the second millennium and we are still kicking around the same 2D interface we got three decades ago. Sure, Apple debuted a few apps for OSX 10.7 that have a couple more 3D flourishes, and Microsoft has had that Flip 3D for a while. But c'mon, 2011 is right around the corner. That's _Twenty Eleven_ folks. Where is our 3D virtual reality? By now, we should be zipping around the [Metaverse in super-sonic motorbikes](http://en.wikipedia.org/wiki/Snow_Crash).
 
 Granted, the capability of rendering complex 3D environments has been present for years. On the Web, there already are number of solutions -- [Flash](http://www.adobe.com/devnet/flash/3d_animation.html), [three.js](https://github.com/mrdoob/three.js/) in canvas, and eventually WebGL. And finally, we meager front-end developers have our own three-dimensional jewel: CSS 3D Transforms!
 
@@ -25,19 +25,9 @@ Also consider slide cycle plugins. When you're at the last slide, what cues tip-
 
 ## Current Support Environment
 
-[The CSS 3D transforms module](http://dev.w3.org/csswg/css3-3d-transforms/) has been out in the wild for several year now. While only Apple-produced browsers like Safari and Mobile Safari originally supported it, support has been added by Google Chrome and Mozilla Firefox. View the chart on [caniuse.com/#feat=transforms3d](http://caniuse.com/#feat=transforms3d) to check the latest support environment across the browser landscape.
+[The CSS 3D transforms module](https://www.w3.org/TR/css-transforms-1/) was first [introduced in 2009](https://www.w3.org/TR/2009/WD-css3-3d-transforms-20090320/). It was authored by members at Apple and was first supported by Safari. Since then, all modern browsers including Chrome, Firefox, Internet Explorer and Edge have added support. View the chart on [caniuse.com/#feat=transforms3d](https://caniuse.com/#feat=transforms3d) to check the latest support environment across the browser landscape.
 
-This all adds up to a bit of a challenge for those of us excited for 3D transforms. I'll give it to you straight: missing that dimension of depth can make degradation a bit ungraceful. Unless the transform is relatively simple and holds up in non-3D-supporting browsers, you'll most likely have to design another solution. But what's another hurdle in a steeplechase? We web folk have had our mettle tested for years. We're galvanized for devising multiple solutions.
-
-Here's the part of the article where I mention [Modernizr](http://modernizr.com), and you brush over it because you've read this part of an article a hundreds of times before. But seriously, it's the best way to test for CSS 3D transform support. Use it.
-
-Even with these difficulties mounted up, trying out 3D transforms today is the right move. The CSS 3D transforms module was developed by the same team at Apple who produced the [CSS 2D transforms](http://www.w3.org/TR/css3-2d-transforms/) and [animation](http://www.w3.org/TR/css3-animations/modules).  Both specifications have since been adopted by Mozilla and Opera. Transforming three-dimensionally now will guarantee you'll be ahead of the game when the other browsers catch up.
-
-The choice is yours. You can make excuses and poo-poo 3D transforms because they're too hard and only snobby Apple fans will see them today. Or, with a [tip of the fedora to Mr. Andy Clarke](http://hardboiledwebdesign.com/), you can get hardboiled and start designing with the best features out there right this instant.
-
-So I bid you, [in the words of the eternal Optimus Prime](http://tfwiki.net/wiki/Roll_out)...
-
-> Transform and roll out.
+As of 2018, un-prefixed `transform` CSS properties are supported by 99% of browsers. Adding `-webkit-transform` will capture older browsers and capture 100%.
 
 Let's get coding.
 
