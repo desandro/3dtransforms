@@ -5,31 +5,30 @@ category: examples
 ---
 
   <style>
-
-    .container {
+    .demo {
       width: 200px;
       height: 200px;
       border: 1px solid #CCC;
-      margin: 0 auto 40px;
+      margin: 40px auto 40px;
     }
 
-    .box {
+    .panel {
       width: 100%;
       height: 100%;
     }
 
-    #red .box {
-      background-color: red;
-      transform: perspective( 600px ) rotateY( 45deg );
+    .panel--red {
+      background: red;
+      transform: perspective(600px) rotateY(45deg);
     }
 
-    #blue {
+    .demo--blue {
       perspective: 600px;
     }
 
-    #blue .box {
-      background-color: blue;
-      transform: rotateY( 45deg );
+    .panel--blue {
+      background: blue;
+      transform: rotateY(45deg);
     }
   </style>
 
@@ -39,33 +38,27 @@ category: examples
   <h1>{{ page.title }}</h1>
 
 {% highlight css %}
-
-#red .box {
-  background-color: red;
-  transform: perspective( 600px ) rotateY( 45deg );
+.panel--red {
+  transform: perspective(600px) rotateY(45deg);
 }
-
 {% endhighlight %}
 
-  <section id="red" class="container">
-    <div class="box red"></div>
-  </section>
+  <div class="demo">
+    <div class="panel panel--red"></div>
+  </div>
 
 {% highlight css %}
-
-#blue {
+.demo--blue {
   perspective: 600px;
 }
 
-#blue .box {
-  background-color: blue;
-  transform: rotateY( 45deg );
+.panel--blue {
+  transform: rotateY(45deg);
 }
-
 {% endhighlight %}
 
-  <section id="blue" class="container">
-    <div class="box"></div>
-  </section>
+  <div class="demo demo--blue">
+    <div class="panel panel--blue"></div>
+  </div>
 
   <script src="../js/utils.js"></script>

@@ -4,7 +4,6 @@ section, footer, nav {
 
 body {
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  -webkit-text-size-adjust: none;
   color: #333;
   max-width: 720px;
   margin: 0 auto;
@@ -12,21 +11,13 @@ body {
 }
 
 a {
-  color: blue;
   color: hsl( 220, 90%, 40% );
   text-decoration: none;
 }
 
 a:hover {
-  background-color: blue;
   background-color: hsl( 220, 90%, 50% );
   color: white;
-}
-
-#options {
-  position: relative;
-  z-index: 100;
-  margin-bottom: 40px;
 }
 
 button {
@@ -57,9 +48,20 @@ figure {
   margin: 0;
 }
 
-code {
-  font-family: 'Monaco', 'Menlo', monospace;
+code, pre {
+  font-family: 'Consolas', 'Monaco', 'Menlo', monospace;
+  background: #111;
+  color: white;
 }
+
+code { padding: 2px 4px; }
+
+pre {
+  padding: 10px;
+  white-space: pre-wrap;
+}
+
+pre code { padding: 0; }
 
 /* index navigation */
 
@@ -93,7 +95,6 @@ code {
 body.doc { max-width: 900px; }
 
 .doc #content {
-  font-size: 14px;  
   line-height: 1.5em;
 }
 
@@ -107,11 +108,6 @@ body.doc { max-width: 900px; }
 .doc #content img {
   border: 1px solid #CCC;
   display: inline-block;
-}
-
-.doc #content pre {
-  font-size: 12px;
-  line-height: 1.5em;
 }
 
 .doc nav h1 {
@@ -170,83 +166,21 @@ body.doc { max-width: 900px; }
 
 }
 
-/* proxy range */
 
-.proxy-range {
-  display: inline-block;
+/******* options *******/
+
+.options {
   position: relative;
-  height: 30px;
-  width: 200px;
-  border: 1px solid hsla( 0, 0%, 0%, 0.15 );
-  background-color: hsla( 0, 0%, 0%, 0.02 );
-  border-radius: 15px;
-  box-shadow: inset 0 1px 7px hsla( 0, 0%, 0%, 0.3 );
+  z-index: 2; /* above demo content */
+  margin: 40px 0;
 }
 
-.proxy-range.highlighted {
-  background-color: hsla( 220, 90%, 50%, 0.15 );
+.options__row {
+  margin: 10px 0;
 }
-
-.proxy-range .handle {
-  width: 38px;
-  height: 38px;
-  border-radius: 20px;
-  border: 1px solid hsla(0, 0%, 0%, 0.3);
-  position: absolute;
-  top: -5px;
-  left: -20px;
-  background-color: hsla( 220, 70%, 60%, 1.0 );
-  background-image: -webkit-gradient(radial, center 15%, 0, center 30%, 30, 
-    from(            hsla( 0, 0%, 100%, 0.6 ) ),  
-    color-stop( 50%, hsla( 0, 0%, 100%, 0.0 ) ),
-    color-stop( 50%, hsla( 0, 0%,   0%, 0.0 ) ),
-    to(              hsla( 0, 0%,   0%, 0.5 ) )
-  );
-  background-image: -moz-radial-gradient(center 30%, cover,
-    hsla( 0, 0%, 100%, 0.5 ),  
-    hsla( 0, 0%, 100%, 0.0 ) 50%,
-    hsla( 0, 0%,   0%, 0.0 ) 50%,
-    hsla( 0, 0%,   0%, 0.5 )
-  );
-  box-shadow: 
-    0  2px 0px -1px hsla( 0, 0%, 100%, 0.7 ) inset, 
-    0 -4px 2px -1px hsla( 0, 0%,   0%, 0.1 ) inset, 
-    0  1px 2px  0px hsla( 0, 0%,   0%, 0.3 )
-  ;
-  -webkit-transition-property: width, height, top, left, -webkit-border-radius;
-     -moz-transition-property: width, height, top, left, -moz-border-radius;
-  -webkit-transition-duration: 0.1s;
-     -moz-transition-duration: 0.1s;
-}
-
-.proxy-range.highlighted .handle {
-  height: 98px;
-  top: -35px;
-  width: 4px;
-  left: -3px;
-  background-image: -webkit-gradient(linear, 0 top, 0 bottom, 
-    from(            hsla( 0, 0%, 100%, 0.6 ) ),  
-    color-stop( 50%, hsla( 0, 0%, 100%, 0.0 ) ),
-    color-stop( 50%, hsla( 0, 0%,   0%, 0.0 ) ),
-    to(              hsla( 0, 0%,   0%, 0.5 ) )
-  );
-  border-radius: 3px;
-}
-
-
 
 
 /******* Pygments *******/
-
-
-
-pre {
-  background: #111;
-  color: white;
-  padding: 0.8em;
-  white-space: pre-wrap;
-}
-
 
 code .s1,
 code .s { color: #78BD55; } /* string */

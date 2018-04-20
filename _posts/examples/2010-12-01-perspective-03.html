@@ -5,25 +5,24 @@ category: examples
 ---
 
   <style>
-
-    .container {
+    .demo {
       width: 200px;
       height: 200px;
       position: relative;
-      margin: 0 auto 40px;
+      margin: 80px auto;
       border: 1px solid #CCC;
       perspective: 1200px;
     }
 
-    #cube {
+    .cube {
       width: 100%;
       height: 100%;
       position: absolute;
       transform-style: preserve-3d;
-      transform: translateZ( -100px );
+      transform: translateZ(-100px);
     }
 
-    #cube.spinning {
+    .cube.is-spinning {
       animation: spinCube 8s infinite ease-in-out;
     }
 
@@ -32,7 +31,7 @@ category: examples
       100% { transform: translateZ( -100px ) rotateX( 360deg ) rotateY( 360deg ); }
     }
 
-    #cube figure {
+    .cube__face {
       display: block;
       position: absolute;
       width: 196px;
@@ -43,38 +42,26 @@ category: examples
       font-weight: bold;
       color: white;
       text-align: center;
-    }
-
-    #cube.panels-backface-invisible figure {
       backface-visibility: hidden;
     }
 
-    #cube .front  { background: hsla(   0, 100%, 50%, 0.7 ); }
-    #cube .back   { background: hsla(  60, 100%, 50%, 0.7 ); }
-    #cube .right  { background: hsla( 120, 100%, 50%, 0.7 ); }
-    #cube .left   { background: hsla( 180, 100%, 50%, 0.7 ); }
-    #cube .top    { background: hsla( 240, 100%, 50%, 0.7 ); }
-    #cube .bottom { background: hsla( 300, 100%, 50%, 0.7 ); }
-
-    #cube .front  {
-      transform: translateZ( 100px );
-    }
-    #cube .back {
-      transform: rotateX( -180deg ) translateZ( 100px );
-    }
-    #cube .right {
-      transform: rotateY(   90deg ) translateZ( 100px );
-    }
-    #cube .left {
-      transform: rotateY(  -90deg ) translateZ( 100px );
-    }
-    #cube .top {
-      transform: rotateX(   90deg ) translateZ( 100px );
-    }
-    #cube .bottom {
-      transform: rotateX(  -90deg ) translateZ( 100px );
+    .cube.is-backface-visible .cube__face {
+      backface-visibility: visible;
     }
 
+    .cube__face--front  { background: hsla(  0, 100%, 50%, 0.7); }
+    .cube__face--back   { background: hsla( 60, 100%, 50%, 0.7); }
+    .cube__face--right  { background: hsla(120, 100%, 50%, 0.7); }
+    .cube__face--left   { background: hsla(180, 100%, 50%, 0.7); }
+    .cube__face--top    { background: hsla(240, 100%, 50%, 0.7); }
+    .cube__face--bottom { background: hsla(300, 100%, 50%, 0.7); }
+
+    .cube__face--front  { transform: translateZ(100px); }
+    .cube__face--back   { transform: rotateX(-180deg) translateZ(100px); }
+    .cube__face--right  { transform: rotateY(  90deg) translateZ(100px); }
+    .cube__face--left   { transform: rotateY( -90deg) translateZ(100px); }
+    .cube__face--top    { transform: rotateX(  90deg) translateZ(100px); }
+    .cube__face--bottom { transform: rotateX( -90deg) translateZ(100px); }
   </style>
 
 </head>
@@ -82,84 +69,57 @@ category: examples
 
   <h1>{{ page.title }}</h1>
 
-  <section class="container">
-    <div id="cube" class="spinning">
-      <figure class="front">1</figure>
-      <figure class="back">2</figure>
-      <figure class="right">3</figure>
-      <figure class="left">4</figure>
-      <figure class="top">5</figure>
-      <figure class="bottom">6</figure>
+  <div class="demo">
+    <div class="cube is-spinning is-backface-visible">
+      <div class="cube__face cube__face--front">1</div>
+      <div class="cube__face cube__face--back">2</div>
+      <div class="cube__face cube__face--right">3</div>
+      <div class="cube__face cube__face--left">4</div>
+      <div class="cube__face cube__face--top">5</div>
+      <div class="cube__face cube__face--bottom">6</div>
     </div>
-  </section>
+  </div>
 
+  <div class="options">
 
-  <section id="options">
+    <div class="options__row">
+      <label>
+        perspective
+        <input class="perspective-range" type="range" min="1" max="2000" value="1200" data-units="px" />
+      </label>
+      
+    </div>
+    
+    <div class="options__row">
+      <label>
+        perspective-origin x
+        <input class="origin-x-range" type="range" min="0" max="100" value="50" data-units="%" />
+      </label>
+      
+    </div>
 
-    <p class="perspective">
-      <label>perspective</label>
-      <input type="range" min="1" max="2000" value="1200" data-units="px" />
-    </p>
+    <div class="options__row">
+      <label>
+        perspective-origin y
+        <input class="origin-y-range" type="range" min="0" max="100" value="50" data-units="%" />
+      </label>
+    </div>
 
-    <p class="perspective-origin-x">
-      <label>perspective-origin x</label>
-      <input type="range" min="0" max="100" value="50" data-units="%" />
-    </p>
+    <div class="options__row">
+      <label>
+        Spin cube
+        <input class="spin-cube-checkbox" type="checkbox" checked />
+      </label>
+    </div>
 
-    <p class="perspective-origin-y">
-      <label>perspective-origin y</label>
-      <input type="range" min="0" max="100" value="50" data-units="%" />
-    </p>
+    <div class="options__row">
+      <label>
+        Backface visible
+        <input class="backface-checkbox" type="checkbox" checked />
+      </label>
+    </div>
 
-    <p class="spinning">
-      <button>Toggle Spinning</button>
-    </p>
-
-    <p class="backface-visibility">
-      <button>Toggle Backface Visibility</button>
-    </p>
-
-  </section>
+  </div>
 
   <script src="../js/utils.js"></script>
-  <script>
-    var init = function() {
-      var boxContainer = document.querySelector('.container'),
-          cube = document.getElementById('cube'),
-          optionsContainer = document.getElementById('options'),
-          perspectiveOrigin = { x: 50, y: 50 },
-          // get -vendor- prefix css property
-          perspectiveProp = Modernizr.prefixed('perspective'),
-          perspectiveOriginProp = Modernizr.prefixed('perspectiveOrigin'),
-
-          updatePerspectiveOrigin = function() {
-            boxContainer.style[ perspectiveOriginProp ] =
-              perspectiveOrigin.x + '% ' + perspectiveOrigin.y + '%';
-          };
-
-      optionsContainer.querySelector('.perspective input').addEventListener( 'change', function( event ){
-        boxContainer.style[ perspectiveProp ] = event.target.value + 'px';
-      }, false);
-
-      optionsContainer.querySelector('.perspective-origin-x input').addEventListener( 'change', function( event ){
-        perspectiveOrigin.x = event.target.value;
-        updatePerspectiveOrigin();
-      }, false);
-
-      optionsContainer.querySelector('.perspective-origin-y input').addEventListener( 'change', function( event ){
-        perspectiveOrigin.y = event.target.value;
-        updatePerspectiveOrigin();
-      }, false);
-
-      optionsContainer.querySelector('.spinning button').addEventListener( 'click', function(){
-        cube.toggleClassName('spinning');
-      }, false);
-
-      optionsContainer.querySelector('.backface-visibility button').addEventListener( 'click', function(){
-        cube.toggleClassName('panels-backface-invisible');
-      }, false);
-
-    };
-
-    window.addEventListener( 'DOMContentLoaded', init, false);
-  </script>
+  <script src="../js/demo/perspective-03.js"></script>

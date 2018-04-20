@@ -7,16 +7,16 @@ category: docs
 ---
 
 
-To activate 3D space, an element needs perspective.  This can be applied in two ways: using the `transform` property, with the perspective as a functional notation.
+To activate 3D space, an element needs perspective.  This can be applied in two ways: using the `transform` property, with the perspective as a functional notation:
 
 
 {% highlight css %}
 
-transform: perspective( 600px );
+transform: perspective(600px);
 
 {% endhighlight %}
 
-or using the `perspective` property: 
+or using the `perspective` property:
 
 {% highlight css %}
 

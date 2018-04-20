@@ -5,35 +5,36 @@ category: examples
 ---
 
   <style>
-
-    .container {
+    .demo {
       width: 200px;
       height: 200px;
       border: 1px solid #CCC;
-      margin: 0 auto 40px;
+      margin: 40px auto;
     }
 
-
-    .container figure {
-      display: block;
+    .panel {
       width: 55px;
       height: 55px;
       float: left;
       margin: 5px;
     }
 
-    #red figure {
-      background: red;
-      transform: perspective( 400px ) rotateY( 45deg );
+    .container figure {
+      display: block;
     }
 
-    #blue {
+    .panel--separate {
+      background: red;
+      transform: perspective(400px) rotateY(45deg);
+    }
+
+    .demo--together {
       perspective: 400px;
     }
 
-    #blue figure {
+    .panel--together {
       background: blue;
-      transform: rotateY( 45deg );
+      transform: rotateY(45deg);
     }
   </style>
 
@@ -43,49 +44,43 @@ category: examples
   <h1>{{ page.title }}</h1>
 
 {% highlight css %}
-
-#red figure {
-  background: red;
-  transform: perspective( 400px ) rotateY(45deg);
+.panel--separate {
+  transform: perspective(400px) rotateY(45deg);
 }
-
 {% endhighlight %}
 
-  <section id="red" class="container">
-    <figure></figure>
-    <figure></figure>
-    <figure></figure>
-    <figure></figure>
-    <figure></figure>
-    <figure></figure>
-    <figure></figure>
-    <figure></figure>
-    <figure></figure>
-  </section>
+  <div class="demo demo--separate">
+    <div class="panel panel--separate"></div>
+    <div class="panel panel--separate"></div>
+    <div class="panel panel--separate"></div>
+    <div class="panel panel--separate"></div>
+    <div class="panel panel--separate"></div>
+    <div class="panel panel--separate"></div>
+    <div class="panel panel--separate"></div>
+    <div class="panel panel--separate"></div>
+    <div class="panel panel--separate"></div>
+  </div>
 
 {% highlight css %}
-
-#blue {
+.demo--together {
   perspective: 400px;
 }
 
-#blue figure {
-  background: blue;
-  transform: rotateY( 45deg );
+.panel--together {
+  transform: rotateY(45deg);
 }
-
 {% endhighlight %}
 
-  <section id="blue" class="container">
-    <figure></figure>
-    <figure></figure>
-    <figure></figure>
-    <figure></figure>
-    <figure></figure>
-    <figure></figure>
-    <figure></figure>
-    <figure></figure>
-    <figure></figure>
-  </section>
+  <div class="demo demo--together">
+    <div class="panel panel--together"></div>
+    <div class="panel panel--together"></div>
+    <div class="panel panel--together"></div>
+    <div class="panel panel--together"></div>
+    <div class="panel panel--together"></div>
+    <div class="panel panel--together"></div>
+    <div class="panel panel--together"></div>
+    <div class="panel panel--together"></div>
+    <div class="panel panel--together"></div>
+  </div>
 
   <script src="../js/utils.js"></script>
