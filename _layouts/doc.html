@@ -12,10 +12,15 @@
     <h1>{{ page.title }}</h1>
 
     {{ content }}
-    
+
   </section> <!-- #content -->
-  
+
   {% include footer.html %}
+
+  <script src="../js/utils.js"></script>
+  {% if page.script %}
+    <script src="../js/{{page.script}}"></script>
+  {% endif %}
 
 </body>
 </html>
