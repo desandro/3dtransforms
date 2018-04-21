@@ -43,6 +43,7 @@ footer {
 hr {
   border: none;
   border-top: 1px solid #CCC;
+  margin: 40px 0;
 }
 
 figure {
@@ -103,14 +104,12 @@ body.doc { max-width: 920px; }
 
 .doc #content blockquote {
   margin-left: 0;
-  padding: 0.8em;
+  padding: 10px;
   background: #EEE;
-  background: hsla( 0, 0%, 0%, 0.04 );
 }
 
 .doc #content img {
-  border: 1px solid #CCC;
-  display: inline-block;
+  border: 10px solid #EEE;
 }
 
 .doc nav h1 {
@@ -200,6 +199,7 @@ code .nd { color: #38D; } /* CSS pseudo selector */
 .example {
   border: 1px solid #CCC;
   margin: 40px 0;
+  position: relative;
 }
 
 /* ---- options ---- */
@@ -325,3 +325,80 @@ code .nd { color: #38D; } /* CSS pseudo selector */
 .cube__face--left   { transform: rotateY( -90deg) translateZ(100px); }
 .cube__face--top    { transform: rotateX(  90deg) translateZ(100px); }
 .cube__face--bottom { transform: rotateX( -90deg) translateZ(100px); }
+
+/* ---- example--transform-func ---- */
+
+.example--transform-func {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  margin: 60px 60px 60px 0;
+  perspective: 600px;
+}
+
+.transform-func-panel {
+  width: 200px;
+  height: 200px;
+  background: hsla(0, 100%, 50%, 0.7);
+  line-height: 200px;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+}
+
+
+/* ---- pixelation ---- */
+
+.pixelation-p {
+  text-align: center;
+  margin: 40px 0;
+}
+
+/* ---- card-flip ---- */
+
+.example--card-flip {
+  width: 200px;
+  height: 260px;
+  perspective: 600px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card--slide {
+  transform-origin: center right;
+}
+
+.card--slide.is-flipped {
+  transform: translateX( -100% ) rotateY( -180deg )
+}
+
+.card__face {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  line-height: 260px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 140px;
+  backface-visibility: hidden;
+}
+
+.card__face--front {
+  background: red;
+}
+
+.card__face--back {
+  background: blue;
+  transform: rotateY( 180deg );
+}
