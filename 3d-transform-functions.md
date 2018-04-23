@@ -2,8 +2,8 @@
 
 title: 3D transform functions
 layout: doc
-category: docs
 redirect_from:
+  - "/docs/3d-transform-functions.html"
   - "/examples/transforms-01-functions.html"
 
 ---

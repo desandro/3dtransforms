@@ -2,8 +2,8 @@
 
 title: Cube
 layout: doc
-category: docs
 redirect_from:
+ - "/docs/cube.html"
  - "/examples/cube-01-steps.html"
  - "/examples/cube-02-show-sides.html"
  - "/examples/transforms-02-pixelation.html"

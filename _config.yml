@@ -1,5 +1,5 @@
 highlighter: pygments
-permalink: /:categories/:title.html
+permalink: /:slug
 
 # site-wide data
 site_name: Intro to CSS 3D transforms

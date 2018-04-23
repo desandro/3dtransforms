@@ -1,11 +1,33 @@
-{% assign root_path = '../' %}
-{% assign section = 'Docs' %}
-{% include html-head.html %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+
+  <title>{% unless page.is_homepage %}{{ page.title }} &middot; {% endunless %}{{ site.site_name }}</title>
+
+  <link rel="stylesheet" href="css/style.css" />
 
 </head>
 <body class="doc">
 
-  {% include docs-nav.html %}
+  <div id="doc-nav-wrapper">
+    <div class="doc-nav-positioner">
+      <nav>
+        <h1><a href=".">{{ site.site_name }}</a></h1>
+        <ul>
+          <li><a href=".">Introduction</a></li>
+          <li><a href="perspective.html">Perspective</a></li>
+          <li><a href="3d-transform-functions.html">3D transform functions</a></li>
+          <li><a href="card-flip.html">Card flip</a></li>
+          <li><a href="cube.html">Cube</a></li>
+          <li><a href="box.html">Box</a></li>
+          <li><a href="carousel.html">Carousel</a></li>
+          <li><a href="conclusion.html">Conclusion</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
 
   <section id="content">
 
@@ -15,7 +37,13 @@
 
   </section> <!-- #content -->
 
-  {% include footer.html %}
+  <footer>
+    <p><a href="../">{{ site.site_name }}</a> by David DeSandro</p>
+    <p>Article content licensed <a href="http://creativecommons.org/licenses/by/2.0/">CC-BY</a>.
+        All example code licensed <a href="http://desandro.mit-license.org/">MIT</a>.</p>
+    <p><a href="https://github.com/desandro/3dtransforms/issues/">Help improve these docs. Open an issue or pull request.</a></p>
+  </footer>
+
 
   <script src="../js/utils.js"></script>
   {% if page.script %}

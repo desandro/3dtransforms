@@ -4,6 +4,7 @@ title: Card Flip
 layout: doc
 category: docs
 redirect_from:
+  - "/docs/card-flip.html"
   - "/examples/card-01.html"
   - "/examples/card-02-slide-flip.html"
   - "/examples/card-03-slide-flip-2-ways.html"

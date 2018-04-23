@@ -2,9 +2,9 @@
 
 title: Perspective
 layout: doc
-category: docs
 script: perspective.js
 redirect_from:
+  - "/docs/perspective.html"
   - "/examples/perspective-01.html"
   - "/examples/perspective-02-children.html"
   - "/examples/perspective-03.html"

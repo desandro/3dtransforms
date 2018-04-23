@@ -2,9 +2,9 @@
 
 title: Carousel
 layout: doc
-category: docs
 script: carousel.js
 redirect_from:
+  - "/docs/carousel.html"
   - "/examples/carousel-01.html"
   - "/examples/carousel-02-dynamic.html"
 

@@ -3,6 +3,8 @@
 title: Conclusion
 layout: doc
 category: docs
+redirect_from:
+  - "/docs/conclusion.html"
 
 ---
 

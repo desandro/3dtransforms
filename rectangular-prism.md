@@ -1,15 +1,15 @@
 ---
 
-title: Rectangular prism
+title: Box
 layout: doc
-category: docs
 redirect_from:
+  - "/docs/rectangular-prism.html"
   - "/examples/box-01-steps.html"
   - "/examples/box-02-show-sides.html"
 
 ---
 
-Cube objects are easy enough to generate as we only have to worry about one measurement. But how would we handle a non-regular rectangular prism? Let's try to make one 300px wide, 200px high, and 100px deep. 
+Cube objects are easy enough to generate as we only have to worry about one measurement. But how would we handle a non-regular rectangular prism? Or, as the kids say, a box. Let's try to make one 300px wide, 200px high, and 100px deep. 
 
 The markup remains the same.
 

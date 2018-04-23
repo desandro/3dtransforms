@@ -1,7 +1,10 @@
 ---
+
 title: Introduction
 layout: doc
-category: docs
+is_homepage: true
+redirect_from:
+  - "/docs/introduction"
 
 ---
 
