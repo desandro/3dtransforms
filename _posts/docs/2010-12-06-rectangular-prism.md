@@ -3,6 +3,9 @@
 title: Rectangular prism
 layout: doc
 category: docs
+redirect_from:
+  - "/examples/box-01-steps.html"
+  - "/examples/box-02-show-sides.html"
 
 ---
 

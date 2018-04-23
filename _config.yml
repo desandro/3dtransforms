@@ -1,6 +1,8 @@
-# auto: true
 highlighter: pygments
 permalink: /:categories/:title.html
 
 # site-wide data
 site_name: Intro to CSS 3D transforms
+
+plugins:
+  - jekyll-redirect-from
