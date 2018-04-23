@@ -4,15 +4,15 @@ var init = function() {
       containerClass = 'step1',
 
       onButtonClick = function(event) {
-        container.removeClassName( containerClass );
+        container.classList.remove( containerClass );
         containerClass = event.target.className;
-        container.addClassName( containerClass );
+        container.classList.add( containerClass );
       };
-  
+
   for ( var i=0, len = buttons.length; i < len; i++ ) {
     buttons[i].addEventListener( 'click', onButtonClick, false );
   }
-  
+
 };
 
 window.addEventListener('DOMContentLoaded', init, false);

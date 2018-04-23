@@ -27,7 +27,6 @@ RangeDisplay.prototype.update = function() {
 // init RangeDisplays
 var ranges = document.querySelectorAll('input[type="range"]');
 for ( var i=0; i < ranges.length; i++ ) {
-  console.log( i );
   new RangeDisplay( ranges[i] );
 }
 

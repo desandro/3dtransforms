@@ -3,19 +3,19 @@
 ( function() {
 
   var demo = document.querySelector('.demo--persp-cube');
-  var example = demo.querySelector('.example');
+  var scene = demo.querySelector('.scene');
   var cube = demo.querySelector('.cube');
   var originX = 50;
   var originY = 50;
 
   function updatePerspectiveOrigin() {
-    example.style.perspectiveOrigin = originX + '% ' + originY + '%';
+    scene.style.perspectiveOrigin = originX + '% ' + originY + '%';
   }
 
   // perspective
   var perspectiveRange = demo.querySelector('.perspective-range');
   perspectiveRange.onchange = perspectiveRange.oninput = function() {
-    example.style.perspective = perspectiveRange.value + 'px';
+    scene.style.perspective = perspectiveRange.value + 'px';
   };
   perspectiveRange.onchange();
 

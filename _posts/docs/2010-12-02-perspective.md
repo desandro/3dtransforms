@@ -24,7 +24,7 @@ For example:
 }
 {% endhighlight %}
 
-<div class="example example--set-persp">
+<div class="scene scene--set-persp">
   <div class="set-persp-panel set-persp-panel--red"></div>
 </div>
 
@@ -37,7 +37,7 @@ perspective: 600px;
 For example:
 
 {% highlight css %}
-.example--blue {
+.scene--blue {
   /* perspective property */
   perspective: 600px;
 }
@@ -47,7 +47,7 @@ For example:
 }
 {% endhighlight %}
 
-<div class="example example--set-persp example--set-persp--blue">
+<div class="scene scene--set-persp scene--set-persp--blue">
   <div class="set-persp-panel set-persp-panel--blue"></div>
 </div>
 
@@ -59,7 +59,7 @@ These two formats both trigger a 3D space and produce the same visual result. Bu
 }
 {% endhighlight %}
 
-<div class="example example--persp-children">
+<div class="scene scene--persp-children">
   <div class="persp-children-panel persp-children-panel--separate"></div>
   <div class="persp-children-panel persp-children-panel--separate"></div>
   <div class="persp-children-panel persp-children-panel--separate"></div>
@@ -72,7 +72,7 @@ These two formats both trigger a 3D space and produce the same visual result. Bu
 </div>
 
 {% highlight css %}
-.example--together {
+.scene--together {
   perspective: 400px;
 }
 
@@ -81,7 +81,7 @@ These two formats both trigger a 3D space and produce the same visual result. Bu
 }
 {% endhighlight %}
 
-<div class="example example--persp-children example--persp-children--together">
+<div class="scene scene--persp-children scene--persp-children--together">
   <div class="persp-children-panel persp-children-panel--together"></div>
   <div class="persp-children-panel persp-children-panel--together"></div>
   <div class="persp-children-panel persp-children-panel--together"></div>
@@ -104,14 +104,14 @@ perspective-origin: 25% 75%;
 {% endhighlight %}
 
 <div class="demo demo--persp-cube">
-  <div class="example example--persp-cube">
+  <div class="scene scene--cube scene--persp-cube">
     <div class="cube is-spinning is-backface-visible">
-      <div class="cube__face cube__face--front">1</div>
-      <div class="cube__face cube__face--back">2</div>
-      <div class="cube__face cube__face--right">3</div>
-      <div class="cube__face cube__face--left">4</div>
-      <div class="cube__face cube__face--top">5</div>
-      <div class="cube__face cube__face--bottom">6</div>
+      <div class="cube__face cube__face--front">front</div>
+      <div class="cube__face cube__face--back">back</div>
+      <div class="cube__face cube__face--right">right</div>
+      <div class="cube__face cube__face--left">left</div>
+      <div class="cube__face cube__face--top">top</div>
+      <div class="cube__face cube__face--bottom">bottom</div>
     </div>
   </div>
   <div class="options">
