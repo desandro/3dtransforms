@@ -2,6 +2,7 @@
 
 title: Box
 layout: doc
+slug: box
 redirect_from:
   - "/docs/rectangular-prism.html"
   - "/examples/box-01-steps.html"

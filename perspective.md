@@ -2,6 +2,7 @@
 
 title: Perspective
 layout: doc
+slug: perspective
 script: perspective.js
 redirect_from:
   - "/docs/perspective.html"

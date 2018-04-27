@@ -5,11 +5,12 @@ section, footer, nav {
 }
 
 body {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  color: #333;
   max-width: 720px;
   margin: 0 auto;
   padding: 10px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: #333;
+  line-height: 1.5em;
 }
 
 a {
@@ -27,27 +28,15 @@ button {
 }
 
 footer {
+  margin: 60px 0;
   border-top: 1px solid #CCC;
-  font-size: 0.8em;
-  position: relative;
-  z-index: 100;
+  font-size: 0.9em;
 }
-
-#disclaimer {
-  color: red;
-  font-weight: bold;
-  display: none;
-}
-.no-csstransforms3d #disclaimer { display: block; }
 
 hr {
   border: none;
   border-top: 1px solid #CCC;
   margin: 40px 0;
-}
-
-figure {
-  margin: 0;
 }
 
 /* code */
@@ -67,103 +56,96 @@ pre {
 
 pre code { padding: 0; }
 
-/* index navigation */
-
-.index nav ul {
-  list-style: none;
-  margin: 0 0 3.0em 0;
-  padding: 0;
-}
-
-.index nav ul a {
-  display: block;
-  font-size: 18px;
-  font-weight: bold;
-  line-height: 24px;
-  padding: 10px;
-  border: 1px solid #CCC;
-  border-bottom: none;
-}
-
-.index nav ul li:first-child a {
-  border-radius: 10px 10px 0 0;
-}
-
-.index nav ul li:last-child a {
-  border-radius: 0 0 10px 10px;
-  border-bottom: 1px solid #CCC;
-}
-
 /**** Docs ****/
 
-body.doc { max-width: 920px; }
+body { max-width: 920px; }
 
-.doc #content {
-  line-height: 1.5em;
-}
-
-.doc #content blockquote {
+blockquote {
   margin-left: 0;
   padding: 10px;
   background: #EEE;
 }
 
-.doc #content img {
+.content img {
   border: 10px solid #EEE;
 }
 
-.doc nav h1 {
+.site-nav__title {
   font-size: 20px;
 }
 
-.doc nav ul {
+.site-nav__list {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.doc nav li a {
+.site-nav__title a,
+.site-nav__list a {
   display: block;
-  padding: 0.3em 0;
+  padding: 5px 10px;
 }
 
-.doc nav li.current a {
+/* seleted nav item */
+.page--intro .nav-item-intro a,
+.page--perspective .nav-item-perspective a,
+.page--functions .nav-item-functions a,
+.page--card .nav-item-card a,
+.page--cube .nav-item-cube a,
+.page--box .nav-item-box a,
+.page--carousel .nav-item-carousel a,
+.page--conclusion .nav-item-conclusion a {
   font-weight: bold;
   color: #333;
 }
-.doc nav li.current a:hover { color: white; }
-
-
+.page--intro .nav-item-intro a:hover,
+.page--perspective .nav-item-perspective a:hover,
+.page--functions .nav-item-functions a:hover,
+.page--card .nav-item-card a:hover,
+.page--cube .nav-item-cube a:hover,
+.page--box .nav-item-box a:hover,
+.page--carousel .nav-item-carousel a:hover,
+.page--conclusion .nav-item-conclusion a:hover {
+  color: white;
+}
 
 @media screen and (min-width: 768px) {
 
-  body.doc #content {
+  .content {
     padding-left: 220px;
   }
 
-  .doc #doc-nav-wrapper {
+  .site-nav {
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
   }
 
-  .doc .doc-nav-positioner {
+  .site-nav__container {
     max-width: 920px;
     margin: 0 auto;
     position: relative;
   }
 
-  .doc nav {
-    width: 200px;
-    font-size: 14px;
-    position: absolute;
-    top: 10px;
-    left: 10px;
+  .site-nav__title,
+  .site-nav__list {
+    width: 220px;
+    padding-right: 10px;
+    position: absolute; /* HACK to show over content */
+  }
+  
+  .site-nav__list {
+    top: 75px;
   }
 
-  .doc nav h1 {
-    margin-top: 0;
+  .site-nav__title {
+    font-size: 22px;
+    margin: 10px 0;
+  }
+
+  footer {
+    margin-left: 220px;
   }
 
 }

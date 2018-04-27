@@ -3,6 +3,7 @@
 title: Introduction
 layout: doc
 is_homepage: true
+slug: intro
 redirect_from:
   - "/docs/introduction"
 

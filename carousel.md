@@ -2,6 +2,7 @@
 
 title: Carousel
 layout: doc
+slug: carousel
 script: carousel.js
 redirect_from:
   - "/docs/carousel.html"

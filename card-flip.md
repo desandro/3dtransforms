@@ -3,6 +3,7 @@
 title: Card Flip
 layout: doc
 category: docs
+slug: card
 redirect_from:
   - "/docs/card-flip.html"
   - "/examples/card-01.html"

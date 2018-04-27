@@ -2,6 +2,7 @@
 
 title: Cube
 layout: doc
+slug: cube
 redirect_from:
  - "/docs/cube.html"
  - "/examples/cube-01-steps.html"

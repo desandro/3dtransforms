@@ -9,36 +9,34 @@
   <link rel="stylesheet" href="css/style.css" />
 
 </head>
-<body class="doc">
+<body class="page--{{page.slug}}">
 
-  <div id="doc-nav-wrapper">
-    <div class="doc-nav-positioner">
-      <nav>
-        <h1><a href=".">{{ site.site_name }}</a></h1>
-        <ul>
-          <li><a href=".">Introduction</a></li>
-          <li><a href="perspective.html">Perspective</a></li>
-          <li><a href="3d-transform-functions.html">3D transform functions</a></li>
-          <li><a href="card-flip.html">Card flip</a></li>
-          <li><a href="cube.html">Cube</a></li>
-          <li><a href="box.html">Box</a></li>
-          <li><a href="carousel.html">Carousel</a></li>
-          <li><a href="conclusion.html">Conclusion</a></li>
-        </ul>
-      </nav>
+  <nav class="site-nav">
+    <div class="site-nav__container">
+      <h1 class="site-nav__title"><a href=".">{{ site.site_name }}</a></h1>
+      <ul class="site-nav__list">
+        <li class="nav-item-intro"><a href=".">Introduction</a></li>
+        <li class="nav-item-perspective"><a href="perspective.html">Perspective</a></li>
+        <li class="nav-item-functions"><a href="3d-transform-functions.html">3D transform functions</a></li>
+        <li class="nav-item-card"><a href="card-flip.html">Card flip</a></li>
+        <li class="nav-item-cube"><a href="cube.html">Cube</a></li>
+        <li class="nav-item-box"><a href="box.html">Box</a></li>
+        <li class="nav-item-carousel"><a href="carousel.html">Carousel</a></li>
+        <li class="nav-item-conclusion"><a href="conclusion.html">Conclusion</a></li>
+      </ul>
     </div>
-  </div>
+  </nav>
 
-  <section id="content">
+  <section class="content" id="content">
 
     <h1>{{ page.title }}</h1>
 
     {{ content }}
 
-  </section> <!-- #content -->
+  </section>
 
   <footer>
-    <p><a href="../">{{ site.site_name }}</a> by David DeSandro</p>
+    <p><a href=".">{{ site.site_name }}</a> by David DeSandro</p>
     <p>Article content licensed <a href="http://creativecommons.org/licenses/by/2.0/">CC-BY</a>.
         All example code licensed <a href="http://desandro.mit-license.org/">MIT</a>.</p>
     <p><a href="https://github.com/desandro/3dtransforms/issues/">Help improve these docs. Open an issue or pull request.</a></p>

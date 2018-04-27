@@ -2,6 +2,7 @@
 
 title: Conclusion
 layout: doc
+slug: conclusion
 category: docs
 redirect_from:
   - "/docs/conclusion.html"
