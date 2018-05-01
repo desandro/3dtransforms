@@ -61,7 +61,7 @@ Let's add a CSS3 transition so users can see the transform take effect.
 
 An element's `perspective` only applies to direct descendant children, in this case `.card`. In order for subsequent children to inherit a parent's perspective, and live in the same 3D space, the parent can pass along its perspective with `transform-style: preserve-3d`. Without 3D `transform-style`, the faces of the card would be flattened with its parents, and the back face's rotation would be nullified.
 
-To position the faces in 3D space, we'll need to reset their positions in 2D with `position: absolute`. In order to hide the back-side of the faces when they are faced away from the viewer, we use `backface-visibility: hidden`. 
+To position the faces in 3D space, we'll need to reset their positions in 2D with `position: absolute`. In order to hide the back-side of the faces when they are faced away from the viewer, we use `backface-visibility: hidden`.
 
 {% highlight css %}
 .card__face {
@@ -72,7 +72,7 @@ To position the faces in 3D space, we'll need to reset their positions in 2D wit
 }
 {% endhighlight %}
 
-To flip `.card__face--back`, we add a basic 3D transform of `rotateY(180deg)`. 
+To flip `.card__face--back`, we add a basic 3D transform of `rotateY(180deg)`.
 
 {% highlight css %}
 .card__face--front {
@@ -155,4 +155,4 @@ That flip now needs some horizontal movement with `translateX`. We'll set the ro
 
 * * *
 
-[**Next: Cube &raquo;**](cube.html)
+[**Next: Cube &rarr;**](cube.html)

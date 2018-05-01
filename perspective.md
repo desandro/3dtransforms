@@ -13,7 +13,9 @@ redirect_from:
 ---
 
 
-To activate 3D space, an element needs perspective.  This can be applied in two ways: using the `transform` property, with the perspective as a functional notation:
+To activate 3D space, an element needs perspective.  This can be applied in two ways.
+
+The first technique is with the [`transform` property](https://developer.mozilla.org/en-US/docs/Web/CSS/transform), with `perspective()` as a function:
 
 
 {% highlight css %}
@@ -33,7 +35,7 @@ For example:
   <div class="set-persp-panel set-persp-panel--red"></div>
 </div>
 
-Or you can use the `perspective` property:
+The second technique is with the [`perspective` property](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective):
 
 {% highlight css %}
 perspective: 600px;
@@ -56,7 +58,9 @@ For example:
   <div class="set-persp-panel set-persp-panel--blue"></div>
 </div>
 
-These two formats both trigger a 3D space and produce the same visual result. But there is a difference. The functional notation is convenient for directly applying a 3D transform on a single element (in the red example, I use it in conjunction with a `rotateY` transform). But when used on multiple elements, the transformed elements don't line up together. If you use the same transform across elements with different positions, each element will have its own vanishing point. To remedy this, use the `perspective` property on a parent element, so each child may share the same 3D space.
+These two formats both trigger a 3D space and can produce the same visual result. But there is a difference. The functional notation is convenient for directly applying a 3D transform on a single element (in the red example, I use it in conjunction with a `rotateY` transform). In this way, it is used as a shorthand to transform a single element in 3D.
+
+But when used on multiple elements, the effect breaks. The transformed elements don't line up together. This is because each element has its own perspective, its own vanishing point. To remedy this, use the `perspective` property on a parent element, so each child may share the same 3D space.
 
 {% highlight css %}
 .panel--separate {
@@ -98,9 +102,9 @@ These two formats both trigger a 3D space and produce the same visual result. Bu
   <div class="persp-children-panel persp-children-panel--together"></div>
 </div>
 
-The value of `perspective` determines the intensity of the 3D effect. Think of it as a distance from the viewer to the object. The greater the value, the further the distance, the less intense the visual effect. `perspective: 2000px;` yields a subtle 3D effect, as if we are viewing an object from far away through binoculars. `perspective: 100px;` produces a tremendous 3D effect, like a tiny insect viewing a massive object.
+The value of `perspective` determines the intensity of the 3D effect. Think of it as a distance from the viewer to the object. The greater the value, the further the distance, the less intense the visual effect. `perspective: 2000px` yields a subtle 3D effect, as if we are viewing an object from far away through binoculars. `perspective: 100px` produces a tremendous 3D effect, like a tiny insect viewing a massive object.
 
-By default, the vanishing point for a 3D space is positioned at the center. You can change the position of the vanishing point with `perspective-origin` property.
+By default, the vanishing point for a 3D space is positioned at the center. You can change the position of the vanishing point with [`perspective-origin` property](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective-origin).
 
 {% highlight css %}
 
@@ -155,4 +159,4 @@ perspective-origin: 25% 75%;
 
 * * *
 
-[**Next: 3D transform functions &raquo;**](3d-transform-functions.html)
+[**Next: 3D transform functions &rarr;**](3d-transform-functions.html)

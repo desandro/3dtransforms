@@ -29,8 +29,10 @@ button {
 
 footer {
   margin: 60px 0;
+  padding-top: 40px;
   border-top: 1px solid #CCC;
   font-size: 0.9em;
+  color: #777;
 }
 
 hr {
@@ -48,6 +50,11 @@ code, pre {
 }
 
 code { padding: 2px 4px; }
+
+a:hover code {
+  background-color: hsl( 220, 90%, 50% );
+  color: white;
+}
 
 pre {
   padding: 10px;
@@ -134,7 +141,7 @@ blockquote {
     padding-right: 10px;
     position: absolute; /* HACK to show over content */
   }
-  
+
   .site-nav__list {
     top: 75px;
   }
@@ -279,6 +286,17 @@ code .nd { color: #38D; } /* CSS pseudo selector */
   transform: translateZ(-100px);
 }
 
+.scene--hero {
+  height: 200px;
+  margin: 80px 0;
+  perspective: 500px;
+  border: none;
+}
+
+.cube--hero {
+  margin: 0 auto;
+}
+
 .cube.is-spinning {
   animation: spinCube 8s infinite ease-in-out;
 }
@@ -327,7 +345,7 @@ code .nd { color: #38D; } /* CSS pseudo selector */
 
 /* cube--step0 */
 
-.cube--step0 { 
+.cube--step0 {
   position: relative;
   width: auto;
   height: auto;
@@ -343,7 +361,7 @@ code .nd { color: #38D; } /* CSS pseudo selector */
 
 /* cube--step1 */
 
-.cube--step1 { 
+.cube--step1 {
   transform: none;
 }
 
@@ -357,12 +375,12 @@ code .nd { color: #38D; } /* CSS pseudo selector */
   transform: none;
 }
 
-.cube--step2 .cube__face--front  { transform: rotateY(   0deg); }
-.cube--step2 .cube__face--back   { transform: rotateX(-180deg); }
-.cube--step2 .cube__face--right  { transform: rotateY(  90deg); }
-.cube--step2 .cube__face--left   { transform: rotateY( -90deg); }
-.cube--step2 .cube__face--top    { transform: rotateX(  90deg); }
-.cube--step2 .cube__face--bottom { transform: rotateX( -90deg); }
+.cube--step2 .cube__face--front  { transform: rotateY(  0deg); }
+.cube--step2 .cube__face--right  { transform: rotateY( 90deg); }
+.cube--step2 .cube__face--back   { transform: rotateY(180deg); }
+.cube--step2 .cube__face--left   { transform: rotateY(-90deg); }
+.cube--step2 .cube__face--top    { transform: rotateX( 90deg); }
+.cube--step2 .cube__face--bottom { transform: rotateX(-90deg); }
 
 /* cube--step3 */
 
@@ -460,6 +478,7 @@ code .nd { color: #38D; } /* CSS pseudo selector */
   height: 260px;
   margin: 0 10px 10px 0;
   transform: none;
+  cursor: default;
 }
 
 
@@ -543,7 +562,7 @@ code .nd { color: #38D; } /* CSS pseudo selector */
 
 /* box--step0 */
 
-.box--step0 { 
+.box--step0 {
   position: relative;
   width: auto;
   height: auto;
@@ -559,7 +578,7 @@ code .nd { color: #38D; } /* CSS pseudo selector */
 
 /* box--step1 */
 
-.box--step1 { 
+.box--step1 {
   transform: none;
 }
 

@@ -95,7 +95,7 @@ We can determine the length of _r_ in this diagram with a basic tangent equation
 
 ![Trigonometric calculation](../img/calc.png)
 
-There you have it, `288px` is the distance to translate the panels out in 3D space. 
+There you have it, `288px` is the distance to translate the panels out in 3D space.
 
 {% highlight css %}
 .carousel__cell:nth-child(1) { transform: rotateY(  0deg) translateZ(288px); }
@@ -126,7 +126,7 @@ There you have it, `288px` is the distance to translate the panels out in 3D spa
 If we decide on changing the width of the panel or the number of panels, we only need to plug in those two variables into our equation to get the appropriate translateZ value. In JS terms, that equation would be:
 
 {% highlight javascript %}
-var tz = Math.round( ( cellSize / 2 ) / 
+var tz = Math.round( ( cellSize / 2 ) /
   Math.tan( ( ( Math.PI * 2 ) / numberOfCells ) / 2 ) );
 // or simplified to
 var tz = Math.round( ( cellSize / 2 ) /  Math.tan( Math.PI / numberOfCells ) );
@@ -161,12 +161,9 @@ Just like our previous 3D objects, to show any one panel, we need only to apply 
   </p>
 </div>
 
-By now, you probably have two thoughts: 
+## 3D Carousel with JavaScript
 
-1. Re-writing transform styles for each panel looks to be tedious. 
-2. Why bother doing high school math -- Aren't robots supposed to be doing all this work for us?  
-
-And you're absolutely right. The repetitive nature of 3D objects lend themselves to scripting. We can offload all the monotonous transform styles to our JavaScript, which, if done right, will be more flexible than the hard-coded version.
+By now, you probably are thinking how re-writing transform styles for each panel is tedious. And you're absolutely right. The repetitive nature of 3D objects lend themselves to scripting. We can offload all the monotonous transform styles to our JavaScript, which, if done right, will be more flexible than the hard-coded version.
 
 <div class="demo demo--dynamic-carousel">
   <div class="scene scene--carousel">
@@ -213,6 +210,8 @@ And you're absolutely right. The repetitive nature of 3D objects lend themselves
   </div>
 </div>
 
+Not only can we change the number of cells, we can even change the orientation of the carousel from horizontal to vertical. Perfect for The Price is Right wheel.
+
 * * *
 
-[**Next: Conclusion &raquo;**](conclusion.html)
+[**Next: Conclusion &rarr;**](conclusion.html)

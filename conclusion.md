@@ -10,9 +10,9 @@ redirect_from:
 ---
 
 
-3D transforms change the way we think about the blank canvas of web design. Better yet, they change canvas itself, trading in the flat surface for an voluminous installation.
+3D transforms change how we approach blank canvas of web design. Or rather, they change canvas itself, trading in the flat surface for an voluminous installation.
 
-My hope is that you took at least one peak a demo and were intrigued. We web designers, who have rejoiced for border-radius, box-shadow, and background gradient, now have an incredible tool at our disposal in 3D transforms. They deserve just the same enthusiasm, research, and experimentation we have spent on the previous browser features. Now is the perfect time to figuratively take the plunge and start thinking about how leveraging three dimensions can elevate our craft. I'm enthralled to witness what's to come. 
+My hope is that you took at least one peak a demo and were intrigued. We web designers, who have rejoiced for border-radius, box-shadow, and background gradient, now have an incredible tool at our disposal in 3D transforms. They deserve just the same enthusiasm, research, and experimentation we have spent on the previous browser features. Now is the perfect time to figuratively take the plunge and start thinking about how leveraging three dimensions can elevate our craft. I'm enthralled to witness what's to come.
 
 See you on the flip side.
 
@@ -20,4 +20,4 @@ See you on the flip side.
 
 ## About the author
 
-If the Web were a coloring book, [**David DeSandro**](http://desandro.com) would be the kid manically scribbling outside the lines of every page, whittling away his front-end development crayons to wee nubs. Lucky for him, he's paid to do the thing he loves, creating engaging, innovative interfaces at [nclud](http://nclud.com). Come nightfall, he dons a cape, develops [resources](http://github.com/desandro), journals his [discoveries](http://dropshado.ws), and fights crime around Washington DC.
+[**David DeSandro**](https://desandro.com) is the author of [Masonry](https://masonry.desandro.com), [Isotope](https://isotope.metafizzy.co), and [Flickity](https://flickity.metafizzy.co), some of the most popular open-source plugins on the web. He runs [Metafizzy](https://metafizzy.co), where he supports the plugins and designs logos. He lives in Alexandria, Virginia.

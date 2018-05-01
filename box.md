@@ -10,7 +10,7 @@ redirect_from:
 
 ---
 
-Cube objects are easy enough to generate as we only have to worry about one measurement. But how would we handle a non-regular rectangular prism? Or, as the kids say, a box. Let's try to make one 300px wide, 200px high, and 100px deep. 
+Cube objects are easy enough to generate as we only have to worry about one measurement. But how would we handle a non-regular rectangular prism? Or, as the kids say, a box. Let's try to make one 300px wide, 200px high, and 100px deep.
 
 The markup remains the same.
 
@@ -210,4 +210,4 @@ Just like the cube example, to expose a face, the `#box` needs to have a style t
 
 * * *
 
-[**Next: Carousel &raquo;**](carousel.html)
+[**Next: Carousel &rarr;**](carousel.html)

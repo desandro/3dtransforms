@@ -29,6 +29,19 @@
 
   <section class="content" id="content">
 
+    {% if page.is_homepage %}
+      <div class="scene scene--hero">
+        <div class="cube cube--hero is-spinning">
+          <div class="cube__face cube__face--front">front</div>
+          <div class="cube__face cube__face--right">right</div>
+          <div class="cube__face cube__face--back">back</div>
+          <div class="cube__face cube__face--left">left</div>
+          <div class="cube__face cube__face--top">top</div>
+          <div class="cube__face cube__face--bottom">bottom</div>
+        </div>
+      </div>
+    {% endif %}
+
     <h1>{{ page.title }}</h1>
 
     {{ content }}
@@ -37,9 +50,9 @@
 
   <footer>
     <p><a href=".">{{ site.site_name }}</a> by David DeSandro</p>
-    <p>Article content licensed <a href="http://creativecommons.org/licenses/by/2.0/">CC-BY</a>.
-        All example code licensed <a href="http://desandro.mit-license.org/">MIT</a>.</p>
-    <p><a href="https://github.com/desandro/3dtransforms/issues/">Help improve these docs. Open an issue or pull request.</a></p>
+    <p>Written content licensed <a href="https://creativecommons.org/licenses/by/2.0/">CC-BY</a>.
+        All example code licensed <a href="https://desandro.mit-license.org/">MIT</a>.</p>
+    <p>Help improve these docs. <a href="https://github.com/desandro/3dtransforms/issues/">Open an issue or pull request on GitHub.</a></p>
   </footer>
 
 

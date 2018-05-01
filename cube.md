@@ -11,7 +11,7 @@ redirect_from:
 
 ---
 
-Creating 3D card objects is a good way to get started with 3D transform. But once you've mastered them, you'll be hungry to push it further and create some true 3D objects: prisms. We'll start out by making a cube.
+Cards are a good start for working with 3D transforms, but they only show off 3D in transition. To show off 3D at rest, we'll have to create true 3D objects: prisms. We'll start with a cube.
 
 The markup for the cube is similar to the card. This time we need 6 child elements for all 6 faces of the cube.
 
@@ -78,7 +78,7 @@ Now all the faces are place on top of one another, ready to be rotated. `.cube__
 {% highlight css %}
 .cube__face--front  { transform: rotateY(  0deg); }
 .cube__face--right  { transform: rotateY( 90deg); }
-.cube__face--back   { transform: rotateX(180deg); }
+.cube__face--back   { transform: rotateY(180deg); }
 .cube__face--left   { transform: rotateY(-90deg); }
 .cube__face--top    { transform: rotateX( 90deg); }
 .cube__face--bottom { transform: rotateX(-90deg); }
@@ -95,9 +95,9 @@ Now all the faces are place on top of one another, ready to be rotated. `.cube__
   </div>
 </div>
 
-(We could remove the `.cube__face--front` style, as this transform has no effect, but let's leave it in to keep our code consistent.)
+(We could remove the `rotateY(  0deg)` style, as this transform has no effect, but let's leave it in for consistency.)
 
-Now that face is rotated, only the front and back face are visible. The 4 side faces are all perpendicular to the viewer, so they appear invisible. To push them out to their appropriate sides, they need to be translated out from the center of their positions. Each side of the cube is 200px wide. From the cube's center they'll need to be translated out half that distance, `100px`.
+Now that faces are rotated, only the front and back faces are visible. The 4 side faces are all perpendicular to the viewer, so they appear on-edge, near-invisible. To push them out to their appropriate sides, they need to be translated out from the center of their positions. Each side of the cube is 200px wide. From the cube's center they'll need to be translated out half that distance, `100px`.
 
 {% highlight css %}
 .cube__face--front  { transform: rotateY(  0deg) translateZ(100px); }
@@ -119,13 +119,15 @@ Now that face is rotated, only the front and back face are visible. The 4 side f
   </div>
 </div>
 
-Note here that the `translateZ` function comes _after_ the `rotate`. The order of transform functions is meaningful. Each face is first rotated towards its position, then translated outward in a separate vector.
+Note here that the `translate` function comes _after_ the `rotate`. The order of transform functions is meaningful. Each face is first rotated towards its position, then translated outward in a separate direction.
 
 We have rendered a cube, but we're not done yet.
 
-## Returning to the Z origin plane
+## Un-fuzzing 3D transformed text
 
-3d transforms affect text rendering. Browsers take a snap-shot of transformed elements and then re-render those elements' pixels with 3D transforms applied. As such, fonts don't have the same anti-aliasing given their transformed size.
+Take another look at the text "front" in the above cube. It's fuzzy.
+
+3D transforms affect text rendering. When you apply a 3D transform, browsers take a snap-shot of the element and then re-render those pixels with 3D transforms applied. As such, fonts don't have the same anti-aliasing given their transformed size.
 
 <div style="overflow-x: hidden">
   <p class="pixelation-p" style="font-size: 2em">font-size: 2.5em</p>
@@ -133,7 +135,7 @@ We have rendered a cube, but we're not done yet.
   <p class="pixelation-p" style="transform: perspective(500px) translateZ(250px)"> transform: perspective(500px) translateZ(250px)</p>
 </div>
 
-For the sake of our users, 3D transforms should not distort the interface. To resolve the distortion and restore pixel perfection on our `.cube`, we can push back the 3D object, so that the front face will be positioned back at the Z origin.
+For the sake of our users, 3D transforms should not distort the interface. To resolve the distortion and restore pixel perfection to our cube, we can push back the 3D object, so that the front face will be positioned back at the Z origin.
 
 {% highlight css %}
 .cube { transform: translateZ(-100px); }
@@ -229,4 +231,4 @@ Finishing up, we can add a transition to animate the rotation between states.
 
 * * *
 
-[**Next: Rectangular prism &raquo;**](rectangular-prism.html)
+[**Next: Rectangular prism &rarr;**](rectangular-prism.html)
