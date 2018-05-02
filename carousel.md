@@ -161,6 +161,8 @@ Just like our previous 3D objects, to show any one panel, we need only to apply 
   </p>
 </div>
 
+{% include edit-codepen.html pen_slug="jxwELK" %}
+
 ## 3D Carousel with JavaScript
 
 By now, you probably are thinking how re-writing transform styles for each panel is tedious. And you're absolutely right. The repetitive nature of 3D objects lend themselves to scripting. We can offload all the monotonous transform styles to our JavaScript, which, if done right, will be more flexible than the hard-coded version.
@@ -185,7 +187,7 @@ By now, you probably are thinking how re-writing transform styles for each panel
       <div class="carousel__cell">15</div>
     </div>
   </div>
-  <div class="dynamic-carousel-options" style="">
+  <div class="dynamic-carousel-options">
     <p>
       <label>
         Cells
@@ -209,6 +211,8 @@ By now, you probably are thinking how re-writing transform styles for each panel
     </p>
   </div>
 </div>
+
+{% include edit-codepen.html pen_slug="wjeBpp" %}
 
 Not only can we change the number of cells, we can even change the orientation of the carousel from horizontal to vertical. Perfect for The Price is Right wheel.
 

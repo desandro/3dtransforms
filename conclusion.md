@@ -12,7 +12,7 @@ redirect_from:
 
 3D transforms change how we approach blank canvas of web design. Or rather, they change canvas itself, trading in the flat surface for an voluminous installation.
 
-My hope is that you took at least one peak a demo and were intrigued. We web designers, who have rejoiced for border-radius, box-shadow, and background gradient, now have an incredible tool at our disposal in 3D transforms. They deserve just the same enthusiasm, research, and experimentation we have spent on the previous browser features. Now is the perfect time to figuratively take the plunge and start thinking about how leveraging three dimensions can elevate our craft. I'm enthralled to witness what's to come.
+My hope is that you took at least one peak a demo and were intrigued. We web designers, who have rejoiced for border-radius, box-shadow, and background gradient, now have an incredible tool at our disposal in 3D transforms. They deserve just the same enthusiasm, research, and experimentation we have spent on the previous browser features. Now is the perfect time to start leveraging three dimensions and elevate our craft. I'm enthralled to witness what's to come.
 
 See you on the flip side.
 

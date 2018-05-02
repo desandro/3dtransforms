@@ -190,6 +190,18 @@ code .nd { color: #38D; } /* CSS pseudo selector */
   margin-right: 10px;
 }
 
+/* edit-codepen
+------------------------- */
+
+.edit-codepen {
+  font-size: 0.9em;
+}
+
+.edit-codepen .codepen-logo {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 /* demos
 ------------------------- */
 
@@ -225,11 +237,11 @@ code .nd { color: #38D; } /* CSS pseudo selector */
 
 .set-persp-panel--red {
   background: red;
-  transform: perspective(600px) rotateY(45deg);
+  transform: perspective(400px) rotateY(45deg);
 }
 
 .scene--set-persp--blue {
-  perspective: 600px;
+  perspective: 400px;
 }
 
 .set-persp-panel--blue {
@@ -445,7 +457,7 @@ code .nd { color: #38D; } /* CSS pseudo selector */
 }
 
 .card--slide.is-flipped {
-  transform: translateX( -100% ) rotateY( -180deg )
+  transform: translateX(-100%) rotateY(-180deg);
 }
 
 .card__face {
@@ -499,11 +511,6 @@ code .nd { color: #38D; } /* CSS pseudo selector */
   transform-style: preserve-3d;
   transform: translateZ(-50px);
 }
-
-/*.box.is-spinning {
-  animation: spinCube 8s infinite ease-in-out;
-}
-*/
 
 .box__face {
   position: absolute;

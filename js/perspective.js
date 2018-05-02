@@ -45,9 +45,7 @@
   // backface visibility
   var backfaceCheckbox = demo.querySelector('.backface-checkbox');
   backfaceCheckbox.onchange = function() {
-    cube.classList.toggle( 'is-backface-visible', backfaceCheckbox.checked );
+    cube.classList.toggle( 'is-backface-hidden', !backfaceCheckbox.checked );
   };
-  
 
 })();
-

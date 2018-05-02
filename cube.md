@@ -227,6 +227,8 @@ Finishing up, we can add a transition to animate the rotation between states.
 })();
 </script>
 
+{% include edit-codepen.html pen_slug="KRWjzm" %}
+
 ![CSS 3D cube object changing sides](../img/cube02.png)
 
 * * *

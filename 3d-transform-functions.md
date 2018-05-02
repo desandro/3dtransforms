@@ -43,6 +43,8 @@ The `rotate` functions rotate the element around the corresponding axis. This is
   <div class="transform-func-panel" style="transform: rotateZ(45deg)">rotateZ(45deg)</div>
 </div>
 
+{% include edit-codepen.html pen_slug="NMpVxV" %}
+
 There's also several shorthand transform functions so you can set values for all three dimensions:
 
 * `translate3d( tx, ty, tz )`
