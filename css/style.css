@@ -63,6 +63,10 @@ pre {
 
 pre code { padding: 0; }
 
+figure.highlight {
+  margin: 20px 0;
+}
+
 /**** Docs ****/
 
 body { max-width: 920px; }
