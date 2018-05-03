@@ -233,4 +233,4 @@ Finishing up, we can add a transition to animate the rotation between states.
 
 * * *
 
-[**Next: Rectangular prism &rarr;**](rectangular-prism.html)
+[**Next: Rectangular prism &rarr;**](rectangular-prism)

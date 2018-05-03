@@ -218,4 +218,4 @@ Not only can we change the number of cells, we can even change the orientation o
 
 * * *
 
-[**Next: Conclusion &rarr;**](conclusion.html)
+[**Next: Conclusion &rarr;**](conclusion)

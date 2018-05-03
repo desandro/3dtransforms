@@ -159,4 +159,4 @@ That flip now needs some horizontal movement with `translateX`. We'll set the ro
 
 * * *
 
-[**Next: Cube &rarr;**](cube.html)
+[**Next: Cube &rarr;**](cube)

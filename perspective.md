@@ -167,4 +167,4 @@ perspective-origin: 25% 75%;
 
 * * *
 
-[**Next: 3D transform functions &rarr;**](3d-transform-functions.html)
+[**Next: 3D transform functions &rarr;**](3d-transform-functions)

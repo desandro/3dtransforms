@@ -39,4 +39,4 @@ Let's get coding.
 
 * * *
 
-[**Next: Perspective &rarr;**](perspective.html)
+[**Next: Perspective &rarr;**](perspective)

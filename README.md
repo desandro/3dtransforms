@@ -2,7 +2,7 @@
 
 By [David DeSandro](https://desandro.com)
 
-[desandro.github.io/3dtransforms](https://desandro.github.io/3dtransforms)
+[3dtransforms.desandro.com](https://3dtransforms.desandro.com)
 
 Tutorial, examples, and discussion all about CSS 3D transforms.
 

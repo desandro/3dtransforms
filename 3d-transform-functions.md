@@ -63,4 +63,4 @@ For the sake of clarity, the demos in this essay will use the basic transform fu
 
 * * *
 
-[**Next: Card flip &rarr;**](card-flip.html)
+[**Next: Card flip &rarr;**](card-flip)

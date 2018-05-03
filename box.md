@@ -212,4 +212,4 @@ Just like the cube example, to expose a face, the `#box` needs to have a style t
 
 * * *
 
-[**Next: Carousel &rarr;**](carousel.html)
+[**Next: Carousel &rarr;**](carousel)
