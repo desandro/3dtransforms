@@ -79,6 +79,8 @@ blockquote {
 
 .content img {
   border: 10px solid #EEE;
+  display: block;
+  max-width: 100%;
 }
 
 .site-nav__title {
