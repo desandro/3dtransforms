@@ -14,8 +14,15 @@
 
   // perspective
   var perspectiveRange = demo.querySelector('.perspective-range');
+  var perspectiveDisplay = perspectiveRange.parentNode.querySelector('.range-display');
   perspectiveRange.onchange = perspectiveRange.oninput = function() {
-    scene.style.perspective = perspectiveRange.value + 'px';
+    var value = perspectiveRange.value + 'px';
+    // set to none at max
+    if ( value == '1000px' ) {
+      value = 'none';
+      perspectiveDisplay.textContent = 'none';
+    }
+    scene.style.perspective = value;
   };
   perspectiveRange.onchange();
 

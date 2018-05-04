@@ -112,6 +112,8 @@ But when used on multiple elements, the effect breaks. The transformed elements 
 
 The value of `perspective` determines the intensity of the 3D effect. Think of it as a distance from the viewer to the object. The greater the value, the further the distance, the less intense the visual effect. `perspective: 2000px` yields a subtle 3D effect, as if we are viewing an object from far away through binoculars. `perspective: 100px` produces a tremendous 3D effect, like a tiny insect viewing a massive object.
 
+You can also use 3D transforms without perspective, either by setting `perspective: none` or not setting `perspective` at all. Without perspective, parallel planes are orthogonal and have no vanishing point.
+
 By default, the vanishing point for a 3D space is positioned at the center. You can change the position of the vanishing point with [`perspective-origin` property](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective-origin).
 
 {% highlight css %}
@@ -134,7 +136,7 @@ perspective-origin: 25% 75%;
   <p>
     <label>
       perspective
-      <input class="perspective-range" type="range" min="1" max="2000" value="400" data-units="px" />
+      <input class="perspective-range" type="range" min="1" max="1000" value="400" data-units="px" />
     </label>
   </p>
   <p>
