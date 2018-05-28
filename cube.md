@@ -73,7 +73,7 @@ Basic position and size styles set the 6 faces on top of one another in the cont
   </div>
 </div>
 
-Now all the faces are place on top of one another, ready to be rotated. `.cube__face--left` and `.cube__face--right` will use `rotateX()` so they are rotated around the vertical X axis.
+Now all the faces are placed on top of one another, ready to be rotated. `.cube__face--left` and `.cube__face--right` will use `rotateX()` so they are rotated around the vertical X axis.
 
 {% highlight css %}
 .cube__face--front  { transform: rotateY(  0deg); }
