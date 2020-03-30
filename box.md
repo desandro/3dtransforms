@@ -37,8 +37,8 @@ The CSS the same as the cube's, with size values changed: `width: 300px`, `heigh
 }
 
 .box {
-  width: 200px;
-  height: 300px;
+  width: 300px;
+  height: 200px;
   position: relative;
   transform-style: preserve-3d;
   transform: translateZ(-50px);
